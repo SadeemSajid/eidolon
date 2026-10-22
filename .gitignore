@@ -147,3 +147,13 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Eidolon native builds and generated bindings
+/src-tauri/target/
+/src-tauri/gen/
+/build/
+.DS_Store
+# Local AI sessions and credentials; AGENTS.md is intentionally tracked.
+/.codex/
+/.agents/
+/.aws/

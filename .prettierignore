@@ -1,0 +1,8 @@
+node_modules/
+dist/
+third_party/
+src-tauri/target/
+src-tauri/gen/
+src-tauri/icons/
+bun.lock
+Cargo.lock
