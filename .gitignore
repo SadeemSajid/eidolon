@@ -157,3 +157,7 @@ vite.config.ts.timestamp-*
 /.codex/
 /.agents/
 /.aws/
+
+# Python development helpers
+__pycache__/
+*.py[cod]

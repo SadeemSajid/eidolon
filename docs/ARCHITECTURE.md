@@ -20,6 +20,10 @@ QEMU remains an external executable. First support a constrained Arm virt templa
 
 Bare-metal and FreeRTOS recipes need verified architecture, startup code, linker script, exception level, load/entry addresses, UART mapping, and expected serial output. Prefer one reproducible minimal boot before adding more targets. Select a concrete supported FreeRTOS port separately rather than assuming every A55 configuration can boot it. Linux follows after lifecycle and console support stabilize.
 
-## Source-derived board diagrams
+## Captured board inventories
 
-src/features/platform/boards.ts stores hardware facts independently of React Flow: mapped regions, blocks, typed logical access/interrupt connections, configuration, source commit, and coverage. diagram.ts projects those facts into a snapping layout. Built-in hardware cannot be deleted or rewired; moving blocks changes presentation only. validateBoard checks the represented flat map and connection references, not full hardware or runtime compatibility. See BOARDS.md and decisions/0002-board-diagrams.md.
+The hand-maintained core sketches have been replaced. scripts/capture-board-inventories.py initializes every preset with pinned QEMU and captures QOM devices, parent buses, connected IRQ/GPIO output links and every resolved FlatView. Facts remain independent of React Flow. The inventories include inactive objects and QEMU stubs with explicit status labels; known unsupported physical hardware is distinguished from mapped models.
+
+boards.ts projects the inventory into fixed hardware topology. diagram.ts gives each block a unique snapping position. Memory Map renders exact hexadecimal ranges with BigInt, separately for each exported view, so aliases and security/DMA address spaces do not create false overlap errors or additional RAM. The primary CPU view supplies compact node addresses; additional views are inspected in the sidebar.
+
+These snapshots establish initialized device/map coverage for their exact arguments, not guest boot compatibility. Only exposed QOM signal links are drawn; non-QOM internal wiring is not inferred. See BOARDS.md and decisions/0003-captured-inventories.md.

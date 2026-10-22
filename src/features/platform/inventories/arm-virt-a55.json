@@ -1,0 +1,1301 @@
+{
+  "version": {
+    "qemu": {
+      "micro": 2,
+      "minor": 1,
+      "major": 11
+    },
+    "package": "v11.1.2"
+  },
+  "devices": [
+    {
+      "path": "/machine/fw_cfg",
+      "type": "fw_cfg_mem",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[0]",
+      "type": "cortex-a55-arm-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "pmu-interrupt[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[279]"
+        },
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[286]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[283]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[282]"
+        },
+        {
+          "output": "unnamed-gpio-out[3]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[285]"
+        },
+        {
+          "output": "unnamed-gpio-out[4]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[284]"
+        },
+        {
+          "output": "unnamed-gpio-out[5]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[276]"
+        },
+        {
+          "output": "unnamed-gpio-out[6]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[275]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[10]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[19]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[11]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[20]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[12]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[21]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[13]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[22]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[14]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[23]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[15]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[24]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[16]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[25]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[17]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[26]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[18]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[27]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[19]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[28]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[1]",
+      "type": "arm_gic",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[0]/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/unattached/device[0]/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/unattached/device[0]/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/unattached/device[0]/unnamed-gpio-in[3]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[20]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[29]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[21]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[30]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[22]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[31]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[23]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[32]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[24]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[33]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[25]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[34]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[26]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[35]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[27]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[36]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[28]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[37]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[29]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[38]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[2]",
+      "type": "pl011",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[30]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[39]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[31]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[40]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[32]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[41]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[33]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[42]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[34]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[43]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[35]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[44]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[36]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[45]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[37]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[46]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[38]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[47]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[39]",
+      "type": "platform-bus-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[112]"
+        },
+        {
+          "output": "sysbus-irq[10]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[122]"
+        },
+        {
+          "output": "sysbus-irq[11]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[123]"
+        },
+        {
+          "output": "sysbus-irq[12]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[124]"
+        },
+        {
+          "output": "sysbus-irq[13]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[125]"
+        },
+        {
+          "output": "sysbus-irq[14]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[126]"
+        },
+        {
+          "output": "sysbus-irq[15]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[127]"
+        },
+        {
+          "output": "sysbus-irq[16]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[128]"
+        },
+        {
+          "output": "sysbus-irq[17]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[129]"
+        },
+        {
+          "output": "sysbus-irq[18]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[130]"
+        },
+        {
+          "output": "sysbus-irq[19]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[131]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[113]"
+        },
+        {
+          "output": "sysbus-irq[20]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[132]"
+        },
+        {
+          "output": "sysbus-irq[21]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[133]"
+        },
+        {
+          "output": "sysbus-irq[22]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[134]"
+        },
+        {
+          "output": "sysbus-irq[23]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[135]"
+        },
+        {
+          "output": "sysbus-irq[24]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[136]"
+        },
+        {
+          "output": "sysbus-irq[25]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[137]"
+        },
+        {
+          "output": "sysbus-irq[26]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[138]"
+        },
+        {
+          "output": "sysbus-irq[27]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[139]"
+        },
+        {
+          "output": "sysbus-irq[28]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[140]"
+        },
+        {
+          "output": "sysbus-irq[29]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[141]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[114]"
+        },
+        {
+          "output": "sysbus-irq[30]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[142]"
+        },
+        {
+          "output": "sysbus-irq[31]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[143]"
+        },
+        {
+          "output": "sysbus-irq[32]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[144]"
+        },
+        {
+          "output": "sysbus-irq[33]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[145]"
+        },
+        {
+          "output": "sysbus-irq[34]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[146]"
+        },
+        {
+          "output": "sysbus-irq[35]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[147]"
+        },
+        {
+          "output": "sysbus-irq[36]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[148]"
+        },
+        {
+          "output": "sysbus-irq[37]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[149]"
+        },
+        {
+          "output": "sysbus-irq[38]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[150]"
+        },
+        {
+          "output": "sysbus-irq[39]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[151]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[115]"
+        },
+        {
+          "output": "sysbus-irq[40]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[152]"
+        },
+        {
+          "output": "sysbus-irq[41]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[153]"
+        },
+        {
+          "output": "sysbus-irq[42]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[154]"
+        },
+        {
+          "output": "sysbus-irq[43]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[155]"
+        },
+        {
+          "output": "sysbus-irq[44]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[156]"
+        },
+        {
+          "output": "sysbus-irq[45]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[157]"
+        },
+        {
+          "output": "sysbus-irq[46]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[158]"
+        },
+        {
+          "output": "sysbus-irq[47]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[159]"
+        },
+        {
+          "output": "sysbus-irq[48]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[160]"
+        },
+        {
+          "output": "sysbus-irq[49]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[161]"
+        },
+        {
+          "output": "sysbus-irq[4]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[116]"
+        },
+        {
+          "output": "sysbus-irq[50]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[162]"
+        },
+        {
+          "output": "sysbus-irq[51]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[163]"
+        },
+        {
+          "output": "sysbus-irq[52]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[164]"
+        },
+        {
+          "output": "sysbus-irq[53]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[165]"
+        },
+        {
+          "output": "sysbus-irq[54]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[166]"
+        },
+        {
+          "output": "sysbus-irq[55]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[167]"
+        },
+        {
+          "output": "sysbus-irq[56]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[168]"
+        },
+        {
+          "output": "sysbus-irq[57]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[169]"
+        },
+        {
+          "output": "sysbus-irq[58]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[170]"
+        },
+        {
+          "output": "sysbus-irq[59]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[171]"
+        },
+        {
+          "output": "sysbus-irq[5]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[117]"
+        },
+        {
+          "output": "sysbus-irq[60]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[172]"
+        },
+        {
+          "output": "sysbus-irq[61]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[173]"
+        },
+        {
+          "output": "sysbus-irq[62]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[174]"
+        },
+        {
+          "output": "sysbus-irq[63]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[175]"
+        },
+        {
+          "output": "sysbus-irq[6]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[118]"
+        },
+        {
+          "output": "sysbus-irq[7]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[119]"
+        },
+        {
+          "output": "sysbus-irq[8]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[120]"
+        },
+        {
+          "output": "sysbus-irq[9]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[121]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[3]",
+      "type": "pl031",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[2]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[4]",
+      "type": "gpex-pcihost",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[4]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[5]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[6]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[4]/gpex_root",
+      "type": "gpex-root",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/device[4]/pcie.0",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[5]",
+      "type": "pl061",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[7]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[6]",
+      "type": "gpio-key",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[5]/unnamed-gpio-in[3]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[7]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[16]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[8]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[17]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[9]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[1]/unnamed-gpio-in[18]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/virt.flash0",
+      "type": "cfi.pflash01",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/virt.flash1",
+      "type": "cfi.pflash01",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    }
+  ],
+  "spaces": [
+    {
+      "id": "view-ab75ff2bc906",
+      "names": ["I/O"],
+      "root": "io",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x10000",
+          "name": "io",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        }
+      ]
+    },
+    {
+      "id": "view-a4d96dccc043",
+      "names": ["cpu-memory-0", "memory"],
+      "root": "system",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x4000000",
+          "name": "virt.flash0",
+          "kind": "romd",
+          "priority": 0,
+          "owner": "/machine/virt.flash0"
+        },
+        {
+          "base": "0x4000000",
+          "size": "0x4000000",
+          "name": "virt.flash1",
+          "kind": "romd",
+          "priority": 0,
+          "owner": "/machine/virt.flash1"
+        },
+        {
+          "base": "0x8000000",
+          "size": "0x1000",
+          "name": "gic_dist",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[1]"
+        },
+        {
+          "base": "0x8010000",
+          "size": "0x2000",
+          "name": "gic_cpu",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[1]"
+        },
+        {
+          "base": "0x9000000",
+          "size": "0x1000",
+          "name": "pl011",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[2]"
+        },
+        {
+          "base": "0x9010000",
+          "size": "0x1000",
+          "name": "pl031",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[3]"
+        },
+        {
+          "base": "0x9020000",
+          "size": "0x8",
+          "name": "fwcfg.data",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/fw_cfg"
+        },
+        {
+          "base": "0x9020008",
+          "size": "0x2",
+          "name": "fwcfg.ctl",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/fw_cfg"
+        },
+        {
+          "base": "0x9020010",
+          "size": "0x8",
+          "name": "fwcfg.dma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/fw_cfg"
+        },
+        {
+          "base": "0x9030000",
+          "size": "0x1000",
+          "name": "pl061",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[5]"
+        },
+        {
+          "base": "0xa000000",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[7]"
+        },
+        {
+          "base": "0xa000200",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[8]"
+        },
+        {
+          "base": "0xa000400",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[9]"
+        },
+        {
+          "base": "0xa000600",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[10]"
+        },
+        {
+          "base": "0xa000800",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[11]"
+        },
+        {
+          "base": "0xa000a00",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[12]"
+        },
+        {
+          "base": "0xa000c00",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[13]"
+        },
+        {
+          "base": "0xa000e00",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[14]"
+        },
+        {
+          "base": "0xa001000",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[15]"
+        },
+        {
+          "base": "0xa001200",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[16]"
+        },
+        {
+          "base": "0xa001400",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[17]"
+        },
+        {
+          "base": "0xa001600",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[18]"
+        },
+        {
+          "base": "0xa001800",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[19]"
+        },
+        {
+          "base": "0xa001a00",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[20]"
+        },
+        {
+          "base": "0xa001c00",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[21]"
+        },
+        {
+          "base": "0xa001e00",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[22]"
+        },
+        {
+          "base": "0xa002000",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[23]"
+        },
+        {
+          "base": "0xa002200",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[24]"
+        },
+        {
+          "base": "0xa002400",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[25]"
+        },
+        {
+          "base": "0xa002600",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[26]"
+        },
+        {
+          "base": "0xa002800",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[27]"
+        },
+        {
+          "base": "0xa002a00",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[28]"
+        },
+        {
+          "base": "0xa002c00",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[29]"
+        },
+        {
+          "base": "0xa002e00",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[30]"
+        },
+        {
+          "base": "0xa003000",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[31]"
+        },
+        {
+          "base": "0xa003200",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[32]"
+        },
+        {
+          "base": "0xa003400",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[33]"
+        },
+        {
+          "base": "0xa003600",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[34]"
+        },
+        {
+          "base": "0xa003800",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[35]"
+        },
+        {
+          "base": "0xa003a00",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[36]"
+        },
+        {
+          "base": "0xa003c00",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[37]"
+        },
+        {
+          "base": "0xa003e00",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[38]"
+        },
+        {
+          "base": "0x10000000",
+          "size": "0x2eff0000",
+          "name": "gpex_mmio_window @0000000010000000",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/unattached/device[4]"
+        },
+        {
+          "base": "0x3eff0000",
+          "size": "0x10000",
+          "name": "gpex_ioport_window",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[4]"
+        },
+        {
+          "base": "0x3f000000",
+          "size": "0x1000000",
+          "name": "pcie-mmcfg-mmio",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/unattached/device[4]"
+        },
+        {
+          "base": "0x40000000",
+          "size": "0x8000000",
+          "name": "mach-virt.ram",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/mach-virt.ram"
+        }
+      ]
+    },
+    {
+      "id": "view-e78960350c94",
+      "names": ["gpex-root"],
+      "root": "bus master container",
+      "regions": []
+    }
+  ],
+  "boardId": "arm-virt-a55",
+  "qemuCommit": "4fc49f46dc95d4a27de2509e7fceb2931e91faeb",
+  "target": "aarch64",
+  "arguments": [
+    "-M",
+    "virt-11.1,gic-version=2,secure=off,virtualization=off,highmem=off,msi=off",
+    "-cpu",
+    "cortex-a55",
+    "-smp",
+    "1",
+    "-m",
+    "128M",
+    "-accel",
+    "tcg",
+    "-S",
+    "-display",
+    "none",
+    "-serial",
+    "null",
+    "-monitor",
+    "none",
+    "-nodefaults",
+    "-no-user-config",
+    "-nic",
+    "none",
+    "-audio",
+    "driver=none",
+    "-qmp",
+    "stdio"
+  ],
+  "buildOptions": {
+    "default_devices": true,
+    "slirp": "auto",
+    "rust": "disabled"
+  }
+}

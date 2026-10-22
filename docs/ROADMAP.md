@@ -4,7 +4,7 @@
 
 - Tauri/React/Bun shell and React Flow editor.
 - Contributor and agent context; pinned QEMU source.
-- A searchable library of 14 source-derived embedded/SoC core diagrams with fixed wiring, address inspection, and snapping layout; no execution or persistence.
+- A searchable library of 14 pinned-QEMU device inventories, connected QOM signals, complete exported FlatViews, and snapping layout; snapshot capture runs QEMU headless, while interactive execution and persistence remain unimplemented.
 
 ## Phase 1 — reproducible functional bring-up
 

@@ -1,0 +1,4550 @@
+{
+  "version": {
+    "qemu": {
+      "micro": 2,
+      "minor": 1,
+      "major": 11
+    },
+    "package": "v11.1.2"
+  },
+  "devices": [
+    {
+      "path": "/machine/ahb_ppcexp0",
+      "type": "tz-ppc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "irq[0]",
+          "target": "/machine/iotkit/ahb_ppcexp0_irq_status[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/apb_ppcexp0",
+      "type": "tz-ppc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "irq[0]",
+          "target": "/machine/iotkit/apb_ppcexp0_irq_status[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/apb_ppcexp1",
+      "type": "tz-ppc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "irq[0]",
+          "target": "/machine/iotkit/apb_ppcexp1_irq_status[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/apb_ppcexp2",
+      "type": "tz-ppc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "irq[0]",
+          "target": "/machine/iotkit/apb_ppcexp2_irq_status[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/clcd",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/ddr-mpc",
+      "type": "tz-mpc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "irq[0]",
+          "target": "/machine/iotkit/mpcexp_status[2]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/fpgaio",
+      "type": "mps2-fpgaio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/fpgaio/userled0",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/fpgaio/userled1",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/fpgaio/userled2",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/fpgaio/userled3",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/fpgaio/userled4",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/fpgaio/userled5",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/fpgaio/userled6",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/fpgaio/userled7",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/fpgaio/userled8",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/fpgaio/userled9",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/gpio0",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/gpio1",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/gpio2",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/gpio3",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/i2c0",
+      "type": "versatile_i2c",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/i2c1",
+      "type": "versatile_i2c",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/i2c2",
+      "type": "versatile_i2c",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/i2c3",
+      "type": "versatile_i2c",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/i2c4",
+      "type": "versatile_i2c",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/i2s-audio",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/iotkit",
+      "type": "sse-300",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "ahb_ppcexp0_ap[0]",
+          "target": "/machine/ahb_ppcexp0/cfg_ap[0]"
+        },
+        {
+          "output": "ahb_ppcexp0_ap[1]",
+          "target": "/machine/ahb_ppcexp0/cfg_ap[1]"
+        },
+        {
+          "output": "ahb_ppcexp0_ap[2]",
+          "target": "/machine/ahb_ppcexp0/cfg_ap[2]"
+        },
+        {
+          "output": "ahb_ppcexp0_ap[3]",
+          "target": "/machine/ahb_ppcexp0/cfg_ap[3]"
+        },
+        {
+          "output": "ahb_ppcexp0_ap[8]",
+          "target": "/machine/ahb_ppcexp0/cfg_ap[8]"
+        },
+        {
+          "output": "ahb_ppcexp0_irq_clear[0]",
+          "target": "/machine/ahb_ppcexp0/irq_clear[0]"
+        },
+        {
+          "output": "ahb_ppcexp0_irq_enable[0]",
+          "target": "/machine/ahb_ppcexp0/irq_enable[0]"
+        },
+        {
+          "output": "ahb_ppcexp0_nonsec[0]",
+          "target": "/machine/ahb_ppcexp0/cfg_nonsec[0]"
+        },
+        {
+          "output": "ahb_ppcexp0_nonsec[1]",
+          "target": "/machine/ahb_ppcexp0/cfg_nonsec[1]"
+        },
+        {
+          "output": "ahb_ppcexp0_nonsec[2]",
+          "target": "/machine/ahb_ppcexp0/cfg_nonsec[2]"
+        },
+        {
+          "output": "ahb_ppcexp0_nonsec[3]",
+          "target": "/machine/ahb_ppcexp0/cfg_nonsec[3]"
+        },
+        {
+          "output": "ahb_ppcexp0_nonsec[8]",
+          "target": "/machine/ahb_ppcexp0/cfg_nonsec[8]"
+        },
+        {
+          "output": "apb_ppcexp0_ap[0]",
+          "target": "/machine/apb_ppcexp0/cfg_ap[0]"
+        },
+        {
+          "output": "apb_ppcexp0_ap[1]",
+          "target": "/machine/apb_ppcexp0/cfg_ap[1]"
+        },
+        {
+          "output": "apb_ppcexp0_ap[2]",
+          "target": "/machine/apb_ppcexp0/cfg_ap[2]"
+        },
+        {
+          "output": "apb_ppcexp0_irq_clear[0]",
+          "target": "/machine/apb_ppcexp0/irq_clear[0]"
+        },
+        {
+          "output": "apb_ppcexp0_irq_enable[0]",
+          "target": "/machine/apb_ppcexp0/irq_enable[0]"
+        },
+        {
+          "output": "apb_ppcexp0_nonsec[0]",
+          "target": "/machine/apb_ppcexp0/cfg_nonsec[0]"
+        },
+        {
+          "output": "apb_ppcexp0_nonsec[1]",
+          "target": "/machine/apb_ppcexp0/cfg_nonsec[1]"
+        },
+        {
+          "output": "apb_ppcexp0_nonsec[2]",
+          "target": "/machine/apb_ppcexp0/cfg_nonsec[2]"
+        },
+        {
+          "output": "apb_ppcexp1_ap[0]",
+          "target": "/machine/apb_ppcexp1/cfg_ap[0]"
+        },
+        {
+          "output": "apb_ppcexp1_ap[1]",
+          "target": "/machine/apb_ppcexp1/cfg_ap[1]"
+        },
+        {
+          "output": "apb_ppcexp1_ap[2]",
+          "target": "/machine/apb_ppcexp1/cfg_ap[2]"
+        },
+        {
+          "output": "apb_ppcexp1_ap[3]",
+          "target": "/machine/apb_ppcexp1/cfg_ap[3]"
+        },
+        {
+          "output": "apb_ppcexp1_ap[4]",
+          "target": "/machine/apb_ppcexp1/cfg_ap[4]"
+        },
+        {
+          "output": "apb_ppcexp1_ap[5]",
+          "target": "/machine/apb_ppcexp1/cfg_ap[5]"
+        },
+        {
+          "output": "apb_ppcexp1_ap[6]",
+          "target": "/machine/apb_ppcexp1/cfg_ap[6]"
+        },
+        {
+          "output": "apb_ppcexp1_ap[8]",
+          "target": "/machine/apb_ppcexp1/cfg_ap[8]"
+        },
+        {
+          "output": "apb_ppcexp1_irq_clear[0]",
+          "target": "/machine/apb_ppcexp1/irq_clear[0]"
+        },
+        {
+          "output": "apb_ppcexp1_irq_enable[0]",
+          "target": "/machine/apb_ppcexp1/irq_enable[0]"
+        },
+        {
+          "output": "apb_ppcexp1_nonsec[0]",
+          "target": "/machine/apb_ppcexp1/cfg_nonsec[0]"
+        },
+        {
+          "output": "apb_ppcexp1_nonsec[1]",
+          "target": "/machine/apb_ppcexp1/cfg_nonsec[1]"
+        },
+        {
+          "output": "apb_ppcexp1_nonsec[2]",
+          "target": "/machine/apb_ppcexp1/cfg_nonsec[2]"
+        },
+        {
+          "output": "apb_ppcexp1_nonsec[3]",
+          "target": "/machine/apb_ppcexp1/cfg_nonsec[3]"
+        },
+        {
+          "output": "apb_ppcexp1_nonsec[4]",
+          "target": "/machine/apb_ppcexp1/cfg_nonsec[4]"
+        },
+        {
+          "output": "apb_ppcexp1_nonsec[5]",
+          "target": "/machine/apb_ppcexp1/cfg_nonsec[5]"
+        },
+        {
+          "output": "apb_ppcexp1_nonsec[6]",
+          "target": "/machine/apb_ppcexp1/cfg_nonsec[6]"
+        },
+        {
+          "output": "apb_ppcexp1_nonsec[8]",
+          "target": "/machine/apb_ppcexp1/cfg_nonsec[8]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[0]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[0]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[10]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[10]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[11]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[11]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[1]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[1]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[2]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[2]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[3]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[3]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[4]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[4]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[5]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[5]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[6]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[6]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[7]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[7]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[8]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[8]"
+        },
+        {
+          "output": "apb_ppcexp2_irq_clear[0]",
+          "target": "/machine/apb_ppcexp2/irq_clear[0]"
+        },
+        {
+          "output": "apb_ppcexp2_irq_enable[0]",
+          "target": "/machine/apb_ppcexp2/irq_enable[0]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[0]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[0]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[10]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[10]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[11]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[11]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[1]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[1]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[2]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[2]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[3]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[3]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[4]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[4]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[5]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[5]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[6]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[6]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[7]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[7]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[8]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[8]"
+        },
+        {
+          "output": "mscexp_status[0]",
+          "target": "/machine/iotkit/secctl/mscexp_status[0]"
+        },
+        {
+          "output": "mscexp_status[10]",
+          "target": "/machine/iotkit/secctl/mscexp_status[10]"
+        },
+        {
+          "output": "mscexp_status[11]",
+          "target": "/machine/iotkit/secctl/mscexp_status[11]"
+        },
+        {
+          "output": "mscexp_status[12]",
+          "target": "/machine/iotkit/secctl/mscexp_status[12]"
+        },
+        {
+          "output": "mscexp_status[13]",
+          "target": "/machine/iotkit/secctl/mscexp_status[13]"
+        },
+        {
+          "output": "mscexp_status[14]",
+          "target": "/machine/iotkit/secctl/mscexp_status[14]"
+        },
+        {
+          "output": "mscexp_status[15]",
+          "target": "/machine/iotkit/secctl/mscexp_status[15]"
+        },
+        {
+          "output": "mscexp_status[1]",
+          "target": "/machine/iotkit/secctl/mscexp_status[1]"
+        },
+        {
+          "output": "mscexp_status[2]",
+          "target": "/machine/iotkit/secctl/mscexp_status[2]"
+        },
+        {
+          "output": "mscexp_status[3]",
+          "target": "/machine/iotkit/secctl/mscexp_status[3]"
+        },
+        {
+          "output": "mscexp_status[4]",
+          "target": "/machine/iotkit/secctl/mscexp_status[4]"
+        },
+        {
+          "output": "mscexp_status[5]",
+          "target": "/machine/iotkit/secctl/mscexp_status[5]"
+        },
+        {
+          "output": "mscexp_status[6]",
+          "target": "/machine/iotkit/secctl/mscexp_status[6]"
+        },
+        {
+          "output": "mscexp_status[7]",
+          "target": "/machine/iotkit/secctl/mscexp_status[7]"
+        },
+        {
+          "output": "mscexp_status[8]",
+          "target": "/machine/iotkit/secctl/mscexp_status[8]"
+        },
+        {
+          "output": "mscexp_status[9]",
+          "target": "/machine/iotkit/secctl/mscexp_status[9]"
+        },
+        {
+          "output": "sec_resp_cfg[0]",
+          "target": "/machine/sec-resp-splitter/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/CPU0CORE_PPU",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/iotkit/DEBUG_PPU",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/iotkit/MGMT_PPU",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/iotkit/SYS_PPU",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/iotkit/apb-ppc0",
+      "type": "tz-ppc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "irq[0]",
+          "target": "/machine/iotkit/ppc-irq-splitter-8/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/apb-ppc1",
+      "type": "tz-ppc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "irq[0]",
+          "target": "/machine/iotkit/ppc-irq-splitter-9/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/armsse-sysctl",
+      "type": "iotkit-sysctl",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/iotkit/armsse-sysinfo",
+      "type": "iotkit-sysinfo",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/iotkit/cluster0",
+      "type": "cpu-cluster",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/iotkit/cluster0/armv7m0",
+      "type": "armv7m",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "NMI[0]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/NMI[0]"
+        },
+        {
+          "output": "unnamed-gpio-in[0]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "unnamed-gpio-in[100]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[100]"
+        },
+        {
+          "output": "unnamed-gpio-in[101]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[101]"
+        },
+        {
+          "output": "unnamed-gpio-in[102]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[102]"
+        },
+        {
+          "output": "unnamed-gpio-in[103]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[103]"
+        },
+        {
+          "output": "unnamed-gpio-in[104]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[104]"
+        },
+        {
+          "output": "unnamed-gpio-in[105]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[105]"
+        },
+        {
+          "output": "unnamed-gpio-in[106]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[106]"
+        },
+        {
+          "output": "unnamed-gpio-in[107]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[107]"
+        },
+        {
+          "output": "unnamed-gpio-in[108]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[108]"
+        },
+        {
+          "output": "unnamed-gpio-in[109]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[109]"
+        },
+        {
+          "output": "unnamed-gpio-in[10]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[10]"
+        },
+        {
+          "output": "unnamed-gpio-in[110]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[110]"
+        },
+        {
+          "output": "unnamed-gpio-in[111]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[111]"
+        },
+        {
+          "output": "unnamed-gpio-in[112]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[112]"
+        },
+        {
+          "output": "unnamed-gpio-in[113]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[113]"
+        },
+        {
+          "output": "unnamed-gpio-in[114]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[114]"
+        },
+        {
+          "output": "unnamed-gpio-in[115]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[115]"
+        },
+        {
+          "output": "unnamed-gpio-in[116]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[116]"
+        },
+        {
+          "output": "unnamed-gpio-in[117]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[117]"
+        },
+        {
+          "output": "unnamed-gpio-in[118]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[118]"
+        },
+        {
+          "output": "unnamed-gpio-in[119]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[119]"
+        },
+        {
+          "output": "unnamed-gpio-in[11]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[11]"
+        },
+        {
+          "output": "unnamed-gpio-in[120]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[120]"
+        },
+        {
+          "output": "unnamed-gpio-in[121]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[121]"
+        },
+        {
+          "output": "unnamed-gpio-in[122]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[122]"
+        },
+        {
+          "output": "unnamed-gpio-in[123]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[123]"
+        },
+        {
+          "output": "unnamed-gpio-in[124]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[124]"
+        },
+        {
+          "output": "unnamed-gpio-in[125]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[125]"
+        },
+        {
+          "output": "unnamed-gpio-in[126]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[126]"
+        },
+        {
+          "output": "unnamed-gpio-in[127]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[127]"
+        },
+        {
+          "output": "unnamed-gpio-in[12]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[12]"
+        },
+        {
+          "output": "unnamed-gpio-in[13]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[13]"
+        },
+        {
+          "output": "unnamed-gpio-in[14]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[14]"
+        },
+        {
+          "output": "unnamed-gpio-in[15]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[15]"
+        },
+        {
+          "output": "unnamed-gpio-in[16]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[16]"
+        },
+        {
+          "output": "unnamed-gpio-in[17]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[17]"
+        },
+        {
+          "output": "unnamed-gpio-in[18]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[18]"
+        },
+        {
+          "output": "unnamed-gpio-in[19]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[19]"
+        },
+        {
+          "output": "unnamed-gpio-in[1]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "unnamed-gpio-in[20]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[20]"
+        },
+        {
+          "output": "unnamed-gpio-in[21]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[21]"
+        },
+        {
+          "output": "unnamed-gpio-in[22]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[22]"
+        },
+        {
+          "output": "unnamed-gpio-in[23]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[23]"
+        },
+        {
+          "output": "unnamed-gpio-in[24]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[24]"
+        },
+        {
+          "output": "unnamed-gpio-in[25]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[25]"
+        },
+        {
+          "output": "unnamed-gpio-in[26]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[26]"
+        },
+        {
+          "output": "unnamed-gpio-in[27]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[27]"
+        },
+        {
+          "output": "unnamed-gpio-in[28]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[28]"
+        },
+        {
+          "output": "unnamed-gpio-in[29]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[29]"
+        },
+        {
+          "output": "unnamed-gpio-in[2]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "unnamed-gpio-in[30]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[30]"
+        },
+        {
+          "output": "unnamed-gpio-in[31]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[31]"
+        },
+        {
+          "output": "unnamed-gpio-in[32]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[32]"
+        },
+        {
+          "output": "unnamed-gpio-in[33]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[33]"
+        },
+        {
+          "output": "unnamed-gpio-in[34]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[34]"
+        },
+        {
+          "output": "unnamed-gpio-in[35]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[35]"
+        },
+        {
+          "output": "unnamed-gpio-in[36]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[36]"
+        },
+        {
+          "output": "unnamed-gpio-in[37]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[37]"
+        },
+        {
+          "output": "unnamed-gpio-in[38]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[38]"
+        },
+        {
+          "output": "unnamed-gpio-in[39]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[39]"
+        },
+        {
+          "output": "unnamed-gpio-in[3]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "unnamed-gpio-in[40]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[40]"
+        },
+        {
+          "output": "unnamed-gpio-in[41]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[41]"
+        },
+        {
+          "output": "unnamed-gpio-in[42]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[42]"
+        },
+        {
+          "output": "unnamed-gpio-in[43]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[43]"
+        },
+        {
+          "output": "unnamed-gpio-in[44]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[44]"
+        },
+        {
+          "output": "unnamed-gpio-in[45]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[45]"
+        },
+        {
+          "output": "unnamed-gpio-in[46]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[46]"
+        },
+        {
+          "output": "unnamed-gpio-in[47]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[47]"
+        },
+        {
+          "output": "unnamed-gpio-in[48]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[48]"
+        },
+        {
+          "output": "unnamed-gpio-in[49]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[49]"
+        },
+        {
+          "output": "unnamed-gpio-in[4]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[4]"
+        },
+        {
+          "output": "unnamed-gpio-in[50]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[50]"
+        },
+        {
+          "output": "unnamed-gpio-in[51]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[51]"
+        },
+        {
+          "output": "unnamed-gpio-in[52]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[52]"
+        },
+        {
+          "output": "unnamed-gpio-in[53]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[53]"
+        },
+        {
+          "output": "unnamed-gpio-in[54]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[54]"
+        },
+        {
+          "output": "unnamed-gpio-in[55]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[55]"
+        },
+        {
+          "output": "unnamed-gpio-in[56]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[56]"
+        },
+        {
+          "output": "unnamed-gpio-in[57]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[57]"
+        },
+        {
+          "output": "unnamed-gpio-in[58]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[58]"
+        },
+        {
+          "output": "unnamed-gpio-in[59]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[59]"
+        },
+        {
+          "output": "unnamed-gpio-in[5]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[5]"
+        },
+        {
+          "output": "unnamed-gpio-in[60]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[60]"
+        },
+        {
+          "output": "unnamed-gpio-in[61]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[61]"
+        },
+        {
+          "output": "unnamed-gpio-in[62]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[62]"
+        },
+        {
+          "output": "unnamed-gpio-in[63]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[63]"
+        },
+        {
+          "output": "unnamed-gpio-in[64]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[64]"
+        },
+        {
+          "output": "unnamed-gpio-in[65]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[65]"
+        },
+        {
+          "output": "unnamed-gpio-in[66]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[66]"
+        },
+        {
+          "output": "unnamed-gpio-in[67]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[67]"
+        },
+        {
+          "output": "unnamed-gpio-in[68]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[68]"
+        },
+        {
+          "output": "unnamed-gpio-in[69]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[69]"
+        },
+        {
+          "output": "unnamed-gpio-in[6]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[6]"
+        },
+        {
+          "output": "unnamed-gpio-in[70]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[70]"
+        },
+        {
+          "output": "unnamed-gpio-in[71]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[71]"
+        },
+        {
+          "output": "unnamed-gpio-in[72]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[72]"
+        },
+        {
+          "output": "unnamed-gpio-in[73]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[73]"
+        },
+        {
+          "output": "unnamed-gpio-in[74]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[74]"
+        },
+        {
+          "output": "unnamed-gpio-in[75]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[75]"
+        },
+        {
+          "output": "unnamed-gpio-in[76]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[76]"
+        },
+        {
+          "output": "unnamed-gpio-in[77]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[77]"
+        },
+        {
+          "output": "unnamed-gpio-in[78]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[78]"
+        },
+        {
+          "output": "unnamed-gpio-in[79]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[79]"
+        },
+        {
+          "output": "unnamed-gpio-in[7]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[7]"
+        },
+        {
+          "output": "unnamed-gpio-in[80]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[80]"
+        },
+        {
+          "output": "unnamed-gpio-in[81]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[81]"
+        },
+        {
+          "output": "unnamed-gpio-in[82]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[82]"
+        },
+        {
+          "output": "unnamed-gpio-in[83]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[83]"
+        },
+        {
+          "output": "unnamed-gpio-in[84]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[84]"
+        },
+        {
+          "output": "unnamed-gpio-in[85]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[85]"
+        },
+        {
+          "output": "unnamed-gpio-in[86]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[86]"
+        },
+        {
+          "output": "unnamed-gpio-in[87]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[87]"
+        },
+        {
+          "output": "unnamed-gpio-in[88]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[88]"
+        },
+        {
+          "output": "unnamed-gpio-in[89]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[89]"
+        },
+        {
+          "output": "unnamed-gpio-in[8]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[8]"
+        },
+        {
+          "output": "unnamed-gpio-in[90]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[90]"
+        },
+        {
+          "output": "unnamed-gpio-in[91]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[91]"
+        },
+        {
+          "output": "unnamed-gpio-in[92]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[92]"
+        },
+        {
+          "output": "unnamed-gpio-in[93]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[93]"
+        },
+        {
+          "output": "unnamed-gpio-in[94]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[94]"
+        },
+        {
+          "output": "unnamed-gpio-in[95]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[95]"
+        },
+        {
+          "output": "unnamed-gpio-in[96]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[96]"
+        },
+        {
+          "output": "unnamed-gpio-in[97]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[97]"
+        },
+        {
+          "output": "unnamed-gpio-in[98]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[98]"
+        },
+        {
+          "output": "unnamed-gpio-in[99]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[99]"
+        },
+        {
+          "output": "unnamed-gpio-in[9]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[9]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/cluster0/armv7m0/armv7m-ras",
+      "type": "armv7m-ras",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/iotkit/cluster0/armv7m0/cpu",
+      "type": "cortex-m55-arm-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/iotkit/cluster0/armv7m0/nvic",
+      "type": "armv7m_nvic",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/iotkit/cluster0/armv7m0/cpu/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/cluster0/armv7m0/systick-reg-ns",
+      "type": "armv7m_systick",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/systick-trigger[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/cluster0/armv7m0/systick-reg-s",
+      "type": "armv7m_systick",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/systick-trigger[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/cpu_pwrctrl0",
+      "type": "armsse-cpu-pwrctrl",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/iotkit/cpuid0",
+      "type": "armsse-cpuid",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/iotkit/cpusecctrl0",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/iotkit/mpc-irq-orgate",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[9]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/mpc-irq-splitter-0",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/mpcexp_status[0]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/mpc-irq-orgate/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/mpc-irq-splitter-1",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/mpcexp_status[1]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/mpc-irq-orgate/unnamed-gpio-in[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/mpc-irq-splitter-10",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/mpcexp_status[10]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/mpc-irq-orgate/unnamed-gpio-in[10]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/mpc-irq-splitter-11",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/mpcexp_status[11]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/mpc-irq-orgate/unnamed-gpio-in[11]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/mpc-irq-splitter-12",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/mpcexp_status[12]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/mpc-irq-orgate/unnamed-gpio-in[12]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/mpc-irq-splitter-13",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/mpcexp_status[13]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/mpc-irq-orgate/unnamed-gpio-in[13]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/mpc-irq-splitter-14",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/mpcexp_status[14]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/mpc-irq-orgate/unnamed-gpio-in[14]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/mpc-irq-splitter-15",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/mpcexp_status[15]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/mpc-irq-orgate/unnamed-gpio-in[15]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/mpc-irq-splitter-16",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/mpc_status[0]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/mpc-irq-orgate/unnamed-gpio-in[16]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/mpc-irq-splitter-17",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/mpc_status[1]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/mpc-irq-orgate/unnamed-gpio-in[17]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/mpc-irq-splitter-2",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/mpcexp_status[2]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/mpc-irq-orgate/unnamed-gpio-in[2]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/mpc-irq-splitter-3",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/mpcexp_status[3]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/mpc-irq-orgate/unnamed-gpio-in[3]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/mpc-irq-splitter-4",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/mpcexp_status[4]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/mpc-irq-orgate/unnamed-gpio-in[4]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/mpc-irq-splitter-5",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/mpcexp_status[5]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/mpc-irq-orgate/unnamed-gpio-in[5]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/mpc-irq-splitter-6",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/mpcexp_status[6]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/mpc-irq-orgate/unnamed-gpio-in[6]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/mpc-irq-splitter-7",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/mpcexp_status[7]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/mpc-irq-orgate/unnamed-gpio-in[7]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/mpc-irq-splitter-8",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/mpcexp_status[8]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/mpc-irq-orgate/unnamed-gpio-in[8]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/mpc-irq-splitter-9",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/mpcexp_status[9]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/mpc-irq-orgate/unnamed-gpio-in[9]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/mpc0",
+      "type": "tz-mpc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "irq[0]",
+          "target": "/machine/iotkit/mpc-irq-splitter-16/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/mpc1",
+      "type": "tz-mpc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "irq[0]",
+          "target": "/machine/iotkit/mpc-irq-splitter-17/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/nmi-orgate",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/NMI[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/ppc-irq-orgate",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[10]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/ppc-irq-splitter-0",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/ahb_ppcexp0_irq_status[0]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/ppc-irq-orgate/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/ppc-irq-splitter-1",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/ahb_ppcexp1_irq_status[0]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/ppc-irq-orgate/unnamed-gpio-in[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/ppc-irq-splitter-2",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/ahb_ppcexp2_irq_status[0]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/ppc-irq-orgate/unnamed-gpio-in[2]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/ppc-irq-splitter-3",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/ahb_ppcexp3_irq_status[0]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/ppc-irq-orgate/unnamed-gpio-in[3]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/ppc-irq-splitter-4",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/apb_ppcexp0_irq_status[0]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/ppc-irq-orgate/unnamed-gpio-in[4]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/ppc-irq-splitter-5",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/apb_ppcexp1_irq_status[0]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/ppc-irq-orgate/unnamed-gpio-in[5]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/ppc-irq-splitter-6",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/apb_ppcexp2_irq_status[0]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/ppc-irq-orgate/unnamed-gpio-in[6]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/ppc-irq-splitter-7",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/apb_ppcexp3_irq_status[0]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/ppc-irq-orgate/unnamed-gpio-in[7]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/ppc-irq-splitter-8",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/apb_ppc0_irq_status[0]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/ppc-irq-orgate/unnamed-gpio-in[8]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/ppc-irq-splitter-9",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/secctl/apb_ppc1_irq_status[0]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/ppc-irq-orgate/unnamed-gpio-in[9]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/s32ktimer",
+      "type": "cmsdk-apb-timer",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[2]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/s32kwatchdog",
+      "type": "cmsdk-apb-watchdog",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/iotkit/nmi-orgate/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/sec-resp-splitter",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/apb-ppc0/cfg_sec_resp[0]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/iotkit/apb-ppc1/cfg_sec_resp[0]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/unattached/non-qdev-gpio[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/secctl",
+      "type": "iotkit-secctl",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "ahb_ppcexp0_ap[0]",
+          "target": "/machine/ahb_ppcexp0/cfg_ap[0]"
+        },
+        {
+          "output": "ahb_ppcexp0_ap[1]",
+          "target": "/machine/ahb_ppcexp0/cfg_ap[1]"
+        },
+        {
+          "output": "ahb_ppcexp0_ap[2]",
+          "target": "/machine/ahb_ppcexp0/cfg_ap[2]"
+        },
+        {
+          "output": "ahb_ppcexp0_ap[3]",
+          "target": "/machine/ahb_ppcexp0/cfg_ap[3]"
+        },
+        {
+          "output": "ahb_ppcexp0_ap[8]",
+          "target": "/machine/ahb_ppcexp0/cfg_ap[8]"
+        },
+        {
+          "output": "ahb_ppcexp0_irq_clear[0]",
+          "target": "/machine/ahb_ppcexp0/irq_clear[0]"
+        },
+        {
+          "output": "ahb_ppcexp0_irq_enable[0]",
+          "target": "/machine/ahb_ppcexp0/irq_enable[0]"
+        },
+        {
+          "output": "ahb_ppcexp0_nonsec[0]",
+          "target": "/machine/ahb_ppcexp0/cfg_nonsec[0]"
+        },
+        {
+          "output": "ahb_ppcexp0_nonsec[1]",
+          "target": "/machine/ahb_ppcexp0/cfg_nonsec[1]"
+        },
+        {
+          "output": "ahb_ppcexp0_nonsec[2]",
+          "target": "/machine/ahb_ppcexp0/cfg_nonsec[2]"
+        },
+        {
+          "output": "ahb_ppcexp0_nonsec[3]",
+          "target": "/machine/ahb_ppcexp0/cfg_nonsec[3]"
+        },
+        {
+          "output": "ahb_ppcexp0_nonsec[8]",
+          "target": "/machine/ahb_ppcexp0/cfg_nonsec[8]"
+        },
+        {
+          "output": "apb_ppc0_ap[0]",
+          "target": "/machine/iotkit/apb-ppc0/cfg_ap[0]"
+        },
+        {
+          "output": "apb_ppc0_ap[1]",
+          "target": "/machine/iotkit/apb-ppc0/cfg_ap[1]"
+        },
+        {
+          "output": "apb_ppc0_ap[2]",
+          "target": "/machine/iotkit/apb-ppc0/cfg_ap[2]"
+        },
+        {
+          "output": "apb_ppc0_irq_clear[0]",
+          "target": "/machine/iotkit/apb-ppc0/irq_clear[0]"
+        },
+        {
+          "output": "apb_ppc0_irq_enable[0]",
+          "target": "/machine/iotkit/apb-ppc0/irq_enable[0]"
+        },
+        {
+          "output": "apb_ppc0_nonsec[0]",
+          "target": "/machine/iotkit/apb-ppc0/cfg_nonsec[0]"
+        },
+        {
+          "output": "apb_ppc0_nonsec[1]",
+          "target": "/machine/iotkit/apb-ppc0/cfg_nonsec[1]"
+        },
+        {
+          "output": "apb_ppc0_nonsec[2]",
+          "target": "/machine/iotkit/apb-ppc0/cfg_nonsec[2]"
+        },
+        {
+          "output": "apb_ppc1_ap[0]",
+          "target": "/machine/iotkit/apb-ppc1/cfg_ap[0]"
+        },
+        {
+          "output": "apb_ppc1_irq_clear[0]",
+          "target": "/machine/iotkit/apb-ppc1/irq_clear[0]"
+        },
+        {
+          "output": "apb_ppc1_irq_enable[0]",
+          "target": "/machine/iotkit/apb-ppc1/irq_enable[0]"
+        },
+        {
+          "output": "apb_ppc1_nonsec[0]",
+          "target": "/machine/iotkit/apb-ppc1/cfg_nonsec[0]"
+        },
+        {
+          "output": "apb_ppcexp0_ap[0]",
+          "target": "/machine/apb_ppcexp0/cfg_ap[0]"
+        },
+        {
+          "output": "apb_ppcexp0_ap[1]",
+          "target": "/machine/apb_ppcexp0/cfg_ap[1]"
+        },
+        {
+          "output": "apb_ppcexp0_ap[2]",
+          "target": "/machine/apb_ppcexp0/cfg_ap[2]"
+        },
+        {
+          "output": "apb_ppcexp0_irq_clear[0]",
+          "target": "/machine/apb_ppcexp0/irq_clear[0]"
+        },
+        {
+          "output": "apb_ppcexp0_irq_enable[0]",
+          "target": "/machine/apb_ppcexp0/irq_enable[0]"
+        },
+        {
+          "output": "apb_ppcexp0_nonsec[0]",
+          "target": "/machine/apb_ppcexp0/cfg_nonsec[0]"
+        },
+        {
+          "output": "apb_ppcexp0_nonsec[1]",
+          "target": "/machine/apb_ppcexp0/cfg_nonsec[1]"
+        },
+        {
+          "output": "apb_ppcexp0_nonsec[2]",
+          "target": "/machine/apb_ppcexp0/cfg_nonsec[2]"
+        },
+        {
+          "output": "apb_ppcexp1_ap[0]",
+          "target": "/machine/apb_ppcexp1/cfg_ap[0]"
+        },
+        {
+          "output": "apb_ppcexp1_ap[1]",
+          "target": "/machine/apb_ppcexp1/cfg_ap[1]"
+        },
+        {
+          "output": "apb_ppcexp1_ap[2]",
+          "target": "/machine/apb_ppcexp1/cfg_ap[2]"
+        },
+        {
+          "output": "apb_ppcexp1_ap[3]",
+          "target": "/machine/apb_ppcexp1/cfg_ap[3]"
+        },
+        {
+          "output": "apb_ppcexp1_ap[4]",
+          "target": "/machine/apb_ppcexp1/cfg_ap[4]"
+        },
+        {
+          "output": "apb_ppcexp1_ap[5]",
+          "target": "/machine/apb_ppcexp1/cfg_ap[5]"
+        },
+        {
+          "output": "apb_ppcexp1_ap[6]",
+          "target": "/machine/apb_ppcexp1/cfg_ap[6]"
+        },
+        {
+          "output": "apb_ppcexp1_ap[8]",
+          "target": "/machine/apb_ppcexp1/cfg_ap[8]"
+        },
+        {
+          "output": "apb_ppcexp1_irq_clear[0]",
+          "target": "/machine/apb_ppcexp1/irq_clear[0]"
+        },
+        {
+          "output": "apb_ppcexp1_irq_enable[0]",
+          "target": "/machine/apb_ppcexp1/irq_enable[0]"
+        },
+        {
+          "output": "apb_ppcexp1_nonsec[0]",
+          "target": "/machine/apb_ppcexp1/cfg_nonsec[0]"
+        },
+        {
+          "output": "apb_ppcexp1_nonsec[1]",
+          "target": "/machine/apb_ppcexp1/cfg_nonsec[1]"
+        },
+        {
+          "output": "apb_ppcexp1_nonsec[2]",
+          "target": "/machine/apb_ppcexp1/cfg_nonsec[2]"
+        },
+        {
+          "output": "apb_ppcexp1_nonsec[3]",
+          "target": "/machine/apb_ppcexp1/cfg_nonsec[3]"
+        },
+        {
+          "output": "apb_ppcexp1_nonsec[4]",
+          "target": "/machine/apb_ppcexp1/cfg_nonsec[4]"
+        },
+        {
+          "output": "apb_ppcexp1_nonsec[5]",
+          "target": "/machine/apb_ppcexp1/cfg_nonsec[5]"
+        },
+        {
+          "output": "apb_ppcexp1_nonsec[6]",
+          "target": "/machine/apb_ppcexp1/cfg_nonsec[6]"
+        },
+        {
+          "output": "apb_ppcexp1_nonsec[8]",
+          "target": "/machine/apb_ppcexp1/cfg_nonsec[8]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[0]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[0]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[10]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[10]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[11]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[11]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[1]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[1]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[2]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[2]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[3]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[3]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[4]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[4]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[5]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[5]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[6]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[6]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[7]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[7]"
+        },
+        {
+          "output": "apb_ppcexp2_ap[8]",
+          "target": "/machine/apb_ppcexp2/cfg_ap[8]"
+        },
+        {
+          "output": "apb_ppcexp2_irq_clear[0]",
+          "target": "/machine/apb_ppcexp2/irq_clear[0]"
+        },
+        {
+          "output": "apb_ppcexp2_irq_enable[0]",
+          "target": "/machine/apb_ppcexp2/irq_enable[0]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[0]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[0]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[10]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[10]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[11]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[11]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[1]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[1]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[2]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[2]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[3]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[3]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[4]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[4]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[5]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[5]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[6]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[6]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[7]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[7]"
+        },
+        {
+          "output": "apb_ppcexp2_nonsec[8]",
+          "target": "/machine/apb_ppcexp2/cfg_nonsec[8]"
+        },
+        {
+          "output": "msc_irq[0]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[11]"
+        },
+        {
+          "output": "nsc_cfg[0]",
+          "target": "/machine/unattached/non-qdev-gpio[0]"
+        },
+        {
+          "output": "sec_resp_cfg[0]",
+          "target": "/machine/iotkit/sec-resp-splitter/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/sse-counter",
+      "type": "sse-counter",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/iotkit/timer0",
+      "type": "sse-timer",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[3]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/timer1",
+      "type": "sse-timer",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[4]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/timer2",
+      "type": "sse-timer",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[5]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/timer3",
+      "type": "sse-timer",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/iotkit/cluster0/armv7m0/nvic/unnamed-gpio-in[27]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/iotkit/watchdog",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/qspi-mpc",
+      "type": "tz-mpc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "irq[0]",
+          "target": "/machine/iotkit/mpcexp_status[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/rtc",
+      "type": "pl031",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/scc",
+      "type": "mps2-scc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/scc/scc-led0",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/scc/scc-led1",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/scc/scc-led2",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/scc/scc-led3",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/scc/scc-led4",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/scc/scc-led5",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/scc/scc-led6",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/scc/scc-led7",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/sec-resp-splitter",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/apb_ppcexp0/cfg_sec_resp[0]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/apb_ppcexp1/cfg_sec_resp[0]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/apb_ppcexp2/cfg_sec_resp[0]"
+        },
+        {
+          "output": "unnamed-gpio-out[3]",
+          "target": "/machine/ahb_ppcexp0/cfg_sec_resp[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/spi0",
+      "type": "pl022",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/iotkit/EXP_IRQ[21]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/spi1",
+      "type": "pl022",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/iotkit/EXP_IRQ[22]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/spi2",
+      "type": "pl022",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/iotkit/EXP_IRQ[23]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/ssram-mpc",
+      "type": "tz-mpc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "irq[0]",
+          "target": "/machine/iotkit/mpcexp_status[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/uart-irq-orgate",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/iotkit/EXP_IRQ[16]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/uart0",
+      "type": "cmsdk-apb-uart",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/iotkit/EXP_IRQ[2]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/iotkit/EXP_IRQ[1]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/uart-irq-orgate/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/uart-irq-orgate/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[4]",
+          "target": "/machine/iotkit/EXP_IRQ[11]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/uart1",
+      "type": "cmsdk-apb-uart",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/iotkit/EXP_IRQ[4]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/iotkit/EXP_IRQ[3]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/uart-irq-orgate/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/uart-irq-orgate/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "sysbus-irq[4]",
+          "target": "/machine/iotkit/EXP_IRQ[12]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/uart2",
+      "type": "cmsdk-apb-uart",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/iotkit/EXP_IRQ[6]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/iotkit/EXP_IRQ[5]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/uart-irq-orgate/unnamed-gpio-in[4]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/uart-irq-orgate/unnamed-gpio-in[5]"
+        },
+        {
+          "output": "sysbus-irq[4]",
+          "target": "/machine/iotkit/EXP_IRQ[13]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/uart3",
+      "type": "cmsdk-apb-uart",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/iotkit/EXP_IRQ[8]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/iotkit/EXP_IRQ[7]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/uart-irq-orgate/unnamed-gpio-in[6]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/uart-irq-orgate/unnamed-gpio-in[7]"
+        },
+        {
+          "output": "sysbus-irq[4]",
+          "target": "/machine/iotkit/EXP_IRQ[14]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/uart4",
+      "type": "cmsdk-apb-uart",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/iotkit/EXP_IRQ[10]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/iotkit/EXP_IRQ[9]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/uart-irq-orgate/unnamed-gpio-in[8]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/uart-irq-orgate/unnamed-gpio-in[9]"
+        },
+        {
+          "output": "sysbus-irq[4]",
+          "target": "/machine/iotkit/EXP_IRQ[15]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/uart5",
+      "type": "cmsdk-apb-uart",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/iotkit/EXP_IRQ[94]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/iotkit/EXP_IRQ[93]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/uart-irq-orgate/unnamed-gpio-in[10]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/uart-irq-orgate/unnamed-gpio-in[11]"
+        },
+        {
+          "output": "sysbus-irq[4]",
+          "target": "/machine/iotkit/EXP_IRQ[95]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[0]",
+      "type": "lan9118",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/iotkit/EXP_IRQ[17]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[0]/mii",
+      "type": "lan9118-phy",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/unattached/non-qdev-gpio[2]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[1]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[2]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[3]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/usb-otg",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    }
+  ],
+  "spaces": [
+    {
+      "id": "view-ab75ff2bc906",
+      "names": ["I/O"],
+      "root": "io",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x10000",
+          "name": "io",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        }
+      ]
+    },
+    {
+      "id": "view-83d112e5e8e2",
+      "names": ["cpu-memory-0", "cpu-secure-memory-0"],
+      "root": "armv7m-container",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x80000",
+          "name": "sse300-itcm",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        },
+        {
+          "base": "0x1000000",
+          "size": "0x200000",
+          "name": "tz-mpc-upstream",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/ssram-mpc"
+        },
+        {
+          "base": "0x10000000",
+          "size": "0x80000",
+          "name": "sse300-itcm",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        },
+        {
+          "base": "0x11000000",
+          "size": "0x200000",
+          "name": "tz-mpc-upstream",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/ssram-mpc"
+        },
+        {
+          "base": "0x20000000",
+          "size": "0x80000",
+          "name": "sse300-dtcm",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        },
+        {
+          "base": "0x21000000",
+          "size": "0x200000",
+          "name": "tz-mpc-upstream",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/mpc0"
+        },
+        {
+          "base": "0x21200000",
+          "size": "0x200000",
+          "name": "tz-mpc-upstream",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/mpc1"
+        },
+        {
+          "base": "0x28000000",
+          "size": "0x800000",
+          "name": "tz-mpc-upstream",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/qspi-mpc"
+        },
+        {
+          "base": "0x30000000",
+          "size": "0x80000",
+          "name": "sse300-dtcm",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        },
+        {
+          "base": "0x31000000",
+          "size": "0x200000",
+          "name": "tz-mpc-upstream",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/mpc0"
+        },
+        {
+          "base": "0x31200000",
+          "size": "0x200000",
+          "name": "tz-mpc-upstream",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/mpc1"
+        },
+        {
+          "base": "0x38000000",
+          "size": "0x800000",
+          "name": "tz-mpc-upstream",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/qspi-mpc"
+        },
+        {
+          "base": "0x40012000",
+          "size": "0x1000",
+          "name": "armsse-cpu-pwrctrl",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/cpu_pwrctrl0"
+        },
+        {
+          "base": "0x4001f000",
+          "size": "0x1000",
+          "name": "armsse-cpuid",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/cpuid0"
+        },
+        {
+          "base": "0x40080000",
+          "size": "0x1000",
+          "name": "iotkit-secctl-ns-regs",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/secctl"
+        },
+        {
+          "base": "0x41100000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[gpio0]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/ahb_ppcexp0"
+        },
+        {
+          "base": "0x41101000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[gpio1]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/ahb_ppcexp0"
+        },
+        {
+          "base": "0x41102000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[gpio2]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/ahb_ppcexp0"
+        },
+        {
+          "base": "0x41103000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[gpio3]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/ahb_ppcexp0"
+        },
+        {
+          "base": "0x41400000",
+          "size": "0x200000",
+          "name": "tz-ppc-port[mps2-tz-eth-usb-container]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/ahb_ppcexp0"
+        },
+        {
+          "base": "0x48000000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[sse-timer]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/apb-ppc0"
+        },
+        {
+          "base": "0x48001000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[sse-timer]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/apb-ppc0"
+        },
+        {
+          "base": "0x48002000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[sse-timer]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/apb-ppc0"
+        },
+        {
+          "base": "0x48003000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[sse-timer]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/apb-ppc0"
+        },
+        {
+          "base": "0x48007000",
+          "size": "0x1000",
+          "name": "FPGA NS PC",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[1]"
+        },
+        {
+          "base": "0x48020000",
+          "size": "0x1000",
+          "name": "iotkit-sysinfo",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/armsse-sysinfo"
+        },
+        {
+          "base": "0x4802e000",
+          "size": "0x1000",
+          "name": "cmsdk-apb-watchdog",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/s32kwatchdog"
+        },
+        {
+          "base": "0x4802f000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[cmsdk-apb-timer]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/apb-ppc1"
+        },
+        {
+          "base": "0x48040000",
+          "size": "0x2000",
+          "name": "watchdog",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/watchdog"
+        },
+        {
+          "base": "0x48101000",
+          "size": "0x1000",
+          "name": "sse-counter-status",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/sse-counter"
+        },
+        {
+          "base": "0x48102000",
+          "size": "0x1000",
+          "name": "U55 timing adapter 0",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[2]"
+        },
+        {
+          "base": "0x48103000",
+          "size": "0x1000",
+          "name": "U55 timing adapter 1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[3]"
+        },
+        {
+          "base": "0x49200000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[arm_sbcon_i2c]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x49201000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[arm_sbcon_i2c]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x49202000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[pl022]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x49203000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[pl022]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x49204000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[pl022]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x49205000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[arm_sbcon_i2c]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x49206000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[arm_sbcon_i2c]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x49208000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[arm_sbcon_i2c]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x49300000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[mps2-scc]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x49301000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[i2s-audio]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x49302000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[mps2-fpgaio]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x49303000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[uart]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x49304000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[uart]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x49305000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[uart]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x49306000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[uart]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x49307000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[uart]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x49308000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[uart]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x4930a000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[clcd]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x4930b000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[pl031]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x50011000",
+          "size": "0x1000",
+          "name": "CPUSECCTRL0",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/cpusecctrl0"
+        },
+        {
+          "base": "0x50012000",
+          "size": "0x1000",
+          "name": "armsse-cpu-pwrctrl",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/cpu_pwrctrl0"
+        },
+        {
+          "base": "0x5001f000",
+          "size": "0x1000",
+          "name": "armsse-cpuid",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/cpuid0"
+        },
+        {
+          "base": "0x50023000",
+          "size": "0x1000",
+          "name": "CPU0CORE_PPU",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/CPU0CORE_PPU"
+        },
+        {
+          "base": "0x50028000",
+          "size": "0x1000",
+          "name": "MGMT_PPU",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/MGMT_PPU"
+        },
+        {
+          "base": "0x50029000",
+          "size": "0x1000",
+          "name": "DEBUG_PPU",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/DEBUG_PPU"
+        },
+        {
+          "base": "0x50080000",
+          "size": "0x1000",
+          "name": "iotkit-secctl-s-regs",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/secctl"
+        },
+        {
+          "base": "0x50083000",
+          "size": "0x1000",
+          "name": "tz-mpc-regs",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/mpc0"
+        },
+        {
+          "base": "0x50084000",
+          "size": "0x1000",
+          "name": "tz-mpc-regs",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/mpc1"
+        },
+        {
+          "base": "0x51100000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[gpio0]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/ahb_ppcexp0"
+        },
+        {
+          "base": "0x51101000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[gpio1]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/ahb_ppcexp0"
+        },
+        {
+          "base": "0x51102000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[gpio2]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/ahb_ppcexp0"
+        },
+        {
+          "base": "0x51103000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[gpio3]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/ahb_ppcexp0"
+        },
+        {
+          "base": "0x51400000",
+          "size": "0x200000",
+          "name": "tz-ppc-port[mps2-tz-eth-usb-container]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/ahb_ppcexp0"
+        },
+        {
+          "base": "0x57000000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[tz-mpc-regs]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp0"
+        },
+        {
+          "base": "0x57001000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[tz-mpc-regs]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp0"
+        },
+        {
+          "base": "0x57002000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[tz-mpc-regs]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp0"
+        },
+        {
+          "base": "0x58000000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[sse-timer]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/apb-ppc0"
+        },
+        {
+          "base": "0x58001000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[sse-timer]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/apb-ppc0"
+        },
+        {
+          "base": "0x58002000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[sse-timer]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/apb-ppc0"
+        },
+        {
+          "base": "0x58003000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[sse-timer]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/apb-ppc0"
+        },
+        {
+          "base": "0x58007000",
+          "size": "0x1000",
+          "name": "FPGA NS PC",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[1]"
+        },
+        {
+          "base": "0x58020000",
+          "size": "0x1000",
+          "name": "iotkit-sysinfo",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/armsse-sysinfo"
+        },
+        {
+          "base": "0x58021000",
+          "size": "0x1000",
+          "name": "iotkit-sysctl",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/armsse-sysctl"
+        },
+        {
+          "base": "0x58022000",
+          "size": "0x1000",
+          "name": "SYS_PPU",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/SYS_PPU"
+        },
+        {
+          "base": "0x5802e000",
+          "size": "0x1000",
+          "name": "cmsdk-apb-watchdog",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/s32kwatchdog"
+        },
+        {
+          "base": "0x5802f000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[cmsdk-apb-timer]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/apb-ppc1"
+        },
+        {
+          "base": "0x58040000",
+          "size": "0x2000",
+          "name": "watchdog",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/watchdog"
+        },
+        {
+          "base": "0x58100000",
+          "size": "0x1000",
+          "name": "sse-counter-control",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/sse-counter"
+        },
+        {
+          "base": "0x58101000",
+          "size": "0x1000",
+          "name": "sse-counter-status",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/sse-counter"
+        },
+        {
+          "base": "0x58102000",
+          "size": "0x1000",
+          "name": "U55 timing adapter 0",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[2]"
+        },
+        {
+          "base": "0x58103000",
+          "size": "0x1000",
+          "name": "U55 timing adapter 1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[3]"
+        },
+        {
+          "base": "0x59200000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[arm_sbcon_i2c]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x59201000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[arm_sbcon_i2c]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x59202000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[pl022]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x59203000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[pl022]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x59204000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[pl022]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x59205000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[arm_sbcon_i2c]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x59206000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[arm_sbcon_i2c]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x59208000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[arm_sbcon_i2c]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x59300000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[mps2-scc]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x59301000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[i2s-audio]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x59302000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[mps2-fpgaio]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x59303000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[uart]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x59304000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[uart]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x59305000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[uart]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x59306000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[uart]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x59307000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[uart]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x59308000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[uart]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x5930a000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[clcd]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x5930b000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[pl031]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x60000000",
+          "size": "0x80000000",
+          "name": "tz-mpc-upstream",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/ddr-mpc"
+        },
+        {
+          "base": "0xe0000000",
+          "size": "0x5000",
+          "name": "nvic-default",
+          "kind": "i/o",
+          "priority": -1,
+          "owner": "/machine/iotkit/cluster0/armv7m0"
+        },
+        {
+          "base": "0xe0005000",
+          "size": "0x1000",
+          "name": "armv7m-ras",
+          "kind": "i/o",
+          "priority": 1,
+          "owner": "/machine/iotkit/cluster0/armv7m0/armv7m-ras"
+        },
+        {
+          "base": "0xe0006000",
+          "size": "0x8000",
+          "name": "nvic-default @0000000000006000",
+          "kind": "i/o",
+          "priority": -1,
+          "owner": "/machine/iotkit/cluster0/armv7m0"
+        },
+        {
+          "base": "0xe000e000",
+          "size": "0x10",
+          "name": "nvic_sysregs",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/cluster0/armv7m0/nvic"
+        },
+        {
+          "base": "0xe000e010",
+          "size": "0xe0",
+          "name": "v7m_systick",
+          "kind": "i/o",
+          "priority": 1,
+          "owner": "/machine/iotkit/cluster0/armv7m0"
+        },
+        {
+          "base": "0xe000e0f0",
+          "size": "0xf10",
+          "name": "nvic_sysregs @00000000000000f0",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/cluster0/armv7m0/nvic"
+        },
+        {
+          "base": "0xe000f000",
+          "size": "0x1f000",
+          "name": "nvic-default @000000000000f000",
+          "kind": "i/o",
+          "priority": -1,
+          "owner": "/machine/iotkit/cluster0/armv7m0"
+        },
+        {
+          "base": "0xe002e000",
+          "size": "0x10",
+          "name": "nvic_sysregs_ns",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/cluster0/armv7m0"
+        },
+        {
+          "base": "0xe002e010",
+          "size": "0xe0",
+          "name": "v7m_systick_ns",
+          "kind": "i/o",
+          "priority": 1,
+          "owner": "/machine/iotkit/cluster0/armv7m0"
+        },
+        {
+          "base": "0xe002e0f0",
+          "size": "0xf10",
+          "name": "nvic_sysregs_ns @00000000000000f0",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/cluster0/armv7m0"
+        },
+        {
+          "base": "0xe002f000",
+          "size": "0xd1000",
+          "name": "nvic-default @000000000002f000",
+          "kind": "i/o",
+          "priority": -1,
+          "owner": "/machine/iotkit/cluster0/armv7m0"
+        }
+      ]
+    },
+    {
+      "id": "view-53714d5f35ee",
+      "names": ["memory"],
+      "root": "system",
+      "regions": [
+        {
+          "base": "0x1000000",
+          "size": "0x200000",
+          "name": "tz-mpc-upstream",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/ssram-mpc"
+        },
+        {
+          "base": "0x21000000",
+          "size": "0x400000",
+          "name": "sram 2",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        },
+        {
+          "base": "0x28000000",
+          "size": "0x800000",
+          "name": "tz-mpc-upstream",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/qspi-mpc"
+        },
+        {
+          "base": "0x40080000",
+          "size": "0x1000",
+          "name": "iotkit-secctl-ns-regs",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/secctl"
+        },
+        {
+          "base": "0x41100000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[gpio0]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/ahb_ppcexp0"
+        },
+        {
+          "base": "0x41101000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[gpio1]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/ahb_ppcexp0"
+        },
+        {
+          "base": "0x41102000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[gpio2]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/ahb_ppcexp0"
+        },
+        {
+          "base": "0x41103000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[gpio3]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/ahb_ppcexp0"
+        },
+        {
+          "base": "0x41400000",
+          "size": "0x200000",
+          "name": "tz-ppc-port[mps2-tz-eth-usb-container]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/ahb_ppcexp0"
+        },
+        {
+          "base": "0x48007000",
+          "size": "0x1000",
+          "name": "FPGA NS PC",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[1]"
+        },
+        {
+          "base": "0x48102000",
+          "size": "0x1000",
+          "name": "U55 timing adapter 0",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[2]"
+        },
+        {
+          "base": "0x48103000",
+          "size": "0x1000",
+          "name": "U55 timing adapter 1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[3]"
+        },
+        {
+          "base": "0x49200000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[arm_sbcon_i2c]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x49201000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[arm_sbcon_i2c]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x49202000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[pl022]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x49203000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[pl022]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x49204000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[pl022]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x49205000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[arm_sbcon_i2c]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x49206000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[arm_sbcon_i2c]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x49208000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[arm_sbcon_i2c]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp1"
+        },
+        {
+          "base": "0x49300000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[mps2-scc]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x49301000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[i2s-audio]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x49302000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[mps2-fpgaio]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x49303000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[uart]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x49304000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[uart]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x49305000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[uart]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x49306000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[uart]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x49307000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[uart]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x49308000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[uart]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x4930a000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[clcd]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x4930b000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[pl031]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp2"
+        },
+        {
+          "base": "0x50080000",
+          "size": "0x1000",
+          "name": "iotkit-secctl-s-regs",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/iotkit/secctl"
+        },
+        {
+          "base": "0x57000000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[tz-mpc-regs]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp0"
+        },
+        {
+          "base": "0x57001000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[tz-mpc-regs]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp0"
+        },
+        {
+          "base": "0x57002000",
+          "size": "0x1000",
+          "name": "tz-ppc-port[tz-mpc-regs]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/apb_ppcexp0"
+        },
+        {
+          "base": "0x60000000",
+          "size": "0x80000000",
+          "name": "tz-mpc-upstream",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/ddr-mpc"
+        }
+      ]
+    },
+    {
+      "id": "view-0483e23e1d62",
+      "names": ["tz-mpc-blocked-io"],
+      "root": "tz-mpc-blocked-io",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x800000",
+          "name": "tz-mpc-blocked-io",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/qspi-mpc"
+        }
+      ]
+    },
+    {
+      "id": "view-86680d4fb6aa",
+      "names": ["tz-mpc-blocked-io"],
+      "root": "tz-mpc-blocked-io",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x80000000",
+          "name": "tz-mpc-blocked-io",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/ddr-mpc"
+        }
+      ]
+    },
+    {
+      "id": "view-b097ffb33fa4",
+      "names": ["tz-mpc-blocked-io"],
+      "root": "tz-mpc-blocked-io",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x200000",
+          "name": "tz-mpc-blocked-io",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/iotkit/mpc1"
+        }
+      ]
+    },
+    {
+      "id": "view-ee03e9fd3817",
+      "names": ["tz-mpc-blocked-io"],
+      "root": "tz-mpc-blocked-io",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x200000",
+          "name": "tz-mpc-blocked-io",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/iotkit/mpc0"
+        }
+      ]
+    },
+    {
+      "id": "view-ee4f9684525c",
+      "names": ["tz-mpc-blocked-io"],
+      "root": "tz-mpc-blocked-io",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x200000",
+          "name": "tz-mpc-blocked-io",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/ssram-mpc"
+        }
+      ]
+    },
+    {
+      "id": "view-16802cda348d",
+      "names": ["tz-mpc-downstream"],
+      "root": "DDR",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x80000000",
+          "name": "DDR",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/DDR"
+        }
+      ]
+    },
+    {
+      "id": "view-1f65f0ad7bfa",
+      "names": ["tz-mpc-downstream"],
+      "root": "QSPI",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x800000",
+          "name": "QSPI",
+          "kind": "rom",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        }
+      ]
+    },
+    {
+      "id": "view-368389f799a2",
+      "names": ["tz-mpc-downstream"],
+      "root": "armsse.sram0",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x200000",
+          "name": "armsse.sram0",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        }
+      ]
+    },
+    {
+      "id": "view-82995ad1770d",
+      "names": ["tz-mpc-downstream"],
+      "root": "armsse.sram1",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x200000",
+          "name": "armsse.sram1",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        }
+      ]
+    },
+    {
+      "id": "view-37fb6837ea8a",
+      "names": ["tz-mpc-downstream"],
+      "root": "sram",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x200000",
+          "name": "sram",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        }
+      ]
+    },
+    {
+      "id": "view-04e37985558b",
+      "names": ["tz-ppc-port[arm_sbcon_i2c]"],
+      "root": "arm_sbcon_i2c",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "arm_sbcon_i2c",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/i2c3"
+        }
+      ]
+    },
+    {
+      "id": "view-34d391b45da5",
+      "names": ["tz-ppc-port[arm_sbcon_i2c]"],
+      "root": "arm_sbcon_i2c",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "arm_sbcon_i2c",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/i2c4"
+        }
+      ]
+    },
+    {
+      "id": "view-448a7e757d97",
+      "names": ["tz-ppc-port[arm_sbcon_i2c]"],
+      "root": "arm_sbcon_i2c",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "arm_sbcon_i2c",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/i2c0"
+        }
+      ]
+    },
+    {
+      "id": "view-4e8a07728638",
+      "names": ["tz-ppc-port[arm_sbcon_i2c]"],
+      "root": "arm_sbcon_i2c",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "arm_sbcon_i2c",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/i2c2"
+        }
+      ]
+    },
+    {
+      "id": "view-7c922c88d447",
+      "names": ["tz-ppc-port[arm_sbcon_i2c]"],
+      "root": "arm_sbcon_i2c",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "arm_sbcon_i2c",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/i2c1"
+        }
+      ]
+    },
+    {
+      "id": "view-538eb53eeb12",
+      "names": ["tz-ppc-port[clcd]"],
+      "root": "clcd",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "clcd",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/clcd"
+        }
+      ]
+    },
+    {
+      "id": "view-9bd112b7e396",
+      "names": ["tz-ppc-port[cmsdk-apb-timer]"],
+      "root": "cmsdk-apb-timer",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "cmsdk-apb-timer",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/iotkit/s32ktimer"
+        }
+      ]
+    },
+    {
+      "id": "view-4933391c7e03",
+      "names": ["tz-ppc-port[gpio0]"],
+      "root": "gpio0",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "gpio0",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/gpio0"
+        }
+      ]
+    },
+    {
+      "id": "view-18feff347c3c",
+      "names": ["tz-ppc-port[gpio1]"],
+      "root": "gpio1",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "gpio1",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/gpio1"
+        }
+      ]
+    },
+    {
+      "id": "view-112744ee5861",
+      "names": ["tz-ppc-port[gpio2]"],
+      "root": "gpio2",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "gpio2",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/gpio2"
+        }
+      ]
+    },
+    {
+      "id": "view-225c746657b6",
+      "names": ["tz-ppc-port[gpio3]"],
+      "root": "gpio3",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "gpio3",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/gpio3"
+        }
+      ]
+    },
+    {
+      "id": "view-3ce29f05c54a",
+      "names": ["tz-ppc-port[i2s-audio]"],
+      "root": "i2s-audio",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "i2s-audio",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/i2s-audio"
+        }
+      ]
+    },
+    {
+      "id": "view-04f8e3f19fe6",
+      "names": ["tz-ppc-port[mps2-fpgaio]"],
+      "root": "mps2-fpgaio",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "mps2-fpgaio",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/fpgaio"
+        }
+      ]
+    },
+    {
+      "id": "view-da9e15bd5692",
+      "names": ["tz-ppc-port[mps2-scc]"],
+      "root": "mps2-scc",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "mps2-scc",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/scc"
+        }
+      ]
+    },
+    {
+      "id": "view-f1a3a81a4892",
+      "names": ["tz-ppc-port[mps2-tz-eth-usb-container]"],
+      "root": "mps2-tz-eth-usb-container",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x100",
+          "name": "lan9118-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[0]"
+        },
+        {
+          "base": "0x100000",
+          "size": "0x100000",
+          "name": "usb-otg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/usb-otg"
+        }
+      ]
+    },
+    {
+      "id": "view-144694f212c8",
+      "names": ["tz-ppc-port[pl022]"],
+      "root": "pl022",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "pl022",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/spi0"
+        }
+      ]
+    },
+    {
+      "id": "view-1c962ee90f43",
+      "names": ["tz-ppc-port[pl022]"],
+      "root": "pl022",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "pl022",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/spi1"
+        }
+      ]
+    },
+    {
+      "id": "view-4abf163d2861",
+      "names": ["tz-ppc-port[pl022]"],
+      "root": "pl022",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "pl022",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/spi2"
+        }
+      ]
+    },
+    {
+      "id": "view-86094c8235ac",
+      "names": ["tz-ppc-port[pl031]"],
+      "root": "pl031",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "pl031",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/rtc"
+        }
+      ]
+    },
+    {
+      "id": "view-3e10ec1bfada",
+      "names": ["tz-ppc-port[sse-timer]"],
+      "root": "sse-timer",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "sse-timer",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/iotkit/timer1"
+        }
+      ]
+    },
+    {
+      "id": "view-5a5d5109a70d",
+      "names": ["tz-ppc-port[sse-timer]"],
+      "root": "sse-timer",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "sse-timer",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/iotkit/timer0"
+        }
+      ]
+    },
+    {
+      "id": "view-91ae8cb6a6c5",
+      "names": ["tz-ppc-port[sse-timer]"],
+      "root": "sse-timer",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "sse-timer",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/iotkit/timer3"
+        }
+      ]
+    },
+    {
+      "id": "view-c6e072386dcc",
+      "names": ["tz-ppc-port[sse-timer]"],
+      "root": "sse-timer",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "sse-timer",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/iotkit/timer2"
+        }
+      ]
+    },
+    {
+      "id": "view-7956a0893152",
+      "names": ["tz-ppc-port[tz-mpc-regs]"],
+      "root": "tz-mpc-regs",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "tz-mpc-regs",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/qspi-mpc"
+        }
+      ]
+    },
+    {
+      "id": "view-bff668342813",
+      "names": ["tz-ppc-port[tz-mpc-regs]"],
+      "root": "tz-mpc-regs",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "tz-mpc-regs",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/ssram-mpc"
+        }
+      ]
+    },
+    {
+      "id": "view-f882af27afa7",
+      "names": ["tz-ppc-port[tz-mpc-regs]"],
+      "root": "tz-mpc-regs",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "tz-mpc-regs",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/ddr-mpc"
+        }
+      ]
+    },
+    {
+      "id": "view-22b96a5b34ec",
+      "names": ["tz-ppc-port[uart]"],
+      "root": "uart",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "uart",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/uart5"
+        }
+      ]
+    },
+    {
+      "id": "view-493f55a02f55",
+      "names": ["tz-ppc-port[uart]"],
+      "root": "uart",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "uart",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/uart1"
+        }
+      ]
+    },
+    {
+      "id": "view-76af739f0faf",
+      "names": ["tz-ppc-port[uart]"],
+      "root": "uart",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "uart",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/uart0"
+        }
+      ]
+    },
+    {
+      "id": "view-e4a6598fd4e6",
+      "names": ["tz-ppc-port[uart]"],
+      "root": "uart",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "uart",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/uart3"
+        }
+      ]
+    },
+    {
+      "id": "view-f1cdf09ffe79",
+      "names": ["tz-ppc-port[uart]"],
+      "root": "uart",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "uart",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/uart2"
+        }
+      ]
+    },
+    {
+      "id": "view-f9d2febd8333",
+      "names": ["tz-ppc-port[uart]"],
+      "root": "uart",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x1000",
+          "name": "uart",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/uart4"
+        }
+      ]
+    }
+  ],
+  "boardId": "mps3-an547",
+  "qemuCommit": "4fc49f46dc95d4a27de2509e7fceb2931e91faeb",
+  "target": "arm",
+  "arguments": [
+    "-M",
+    "mps3-an547",
+    "-accel",
+    "tcg",
+    "-S",
+    "-display",
+    "none",
+    "-serial",
+    "null",
+    "-monitor",
+    "none",
+    "-nodefaults",
+    "-no-user-config",
+    "-nic",
+    "none",
+    "-audio",
+    "driver=none",
+    "-qmp",
+    "stdio"
+  ],
+  "buildOptions": {
+    "default_devices": true,
+    "slirp": "auto",
+    "rust": "disabled"
+  }
+}

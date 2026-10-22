@@ -5,44 +5,44 @@ export function createDiagram(board: Board): {
   nodes: HardwareNode[];
   edges: Edge[];
 } {
-  let memoryRow = 0;
-  let peripheralRow = 0;
+  const order = {
+    cpu: 0,
+    "address-space": 1,
+    memory: 2,
+    controller: 3,
+    peripheral: 4,
+  };
+  const sorted = [...board.blocks].sort(
+    (a, b) => order[a.kind] - order[b.kind] || a.label.localeCompare(b.label),
+  );
+  const columns = Math.max(4, Math.ceil(Math.sqrt(sorted.length * 0.8)));
   return {
-    nodes: board.blocks.map((block) => {
-      const position =
-        block.kind === "cpu"
-          ? { x: 336, y: 0 }
-          : block.kind === "address-space"
-            ? { x: 336, y: 336 }
-            : block.kind === "controller"
-              ? { x: 1008, y: 336 }
-              : block.kind === "memory"
-                ? { x: 0, y: memoryRow++ * 168 }
-                : { x: 672, y: peripheralRow++ * 192 };
-      return {
-        id: block.id,
-        type: "hardware",
-        position,
-        data: block,
-        deletable: false,
-      };
-    }),
+    nodes: sorted.map((block, index) => ({
+      id: block.id,
+      type: "hardware",
+      position: {
+        x: (index % columns) * 336,
+        y: Math.floor(index / columns) * 240,
+      },
+      data: block,
+      deletable: false,
+    })),
     edges: board.connections.map((connection) => ({
       ...connection,
-      sourceHandle: connection.kind === "interrupt" ? "irq-out" : "access-out",
-      targetHandle: connection.kind === "interrupt" ? "irq-in" : "access-in",
+      sourceHandle: connection.kind === "signal" ? "irq-out" : "access-out",
+      targetHandle: connection.kind === "signal" ? "irq-in" : "access-in",
       type: "smoothstep",
       deletable: false,
       style: {
-        stroke: connection.kind === "interrupt" ? "#fdca40" : "#3772ff",
-        strokeWidth: 1.7,
-        strokeDasharray: connection.kind === "interrupt" ? "6 4" : undefined,
+        stroke: connection.kind === "signal" ? "#fdca40" : "#3772ff",
+        strokeWidth: 1.2,
+        strokeDasharray: connection.kind === "signal" ? "6 4" : undefined,
       },
-      labelStyle: { fill: "#e6e8e6", fontSize: 11 },
+      labelStyle: { fill: "#e6e8e6", fontSize: 10 },
       labelBgStyle: { fill: "#080708", fillOpacity: 0.95 },
       markerEnd: {
         type: MarkerType.ArrowClosed,
-        color: connection.kind === "interrupt" ? "#fdca40" : "#3772ff",
+        color: connection.kind === "signal" ? "#fdca40" : "#3772ff",
       },
     })),
   };

@@ -1,6 +1,6 @@
 # 0002: Fixed board topology with source-derived architectural views
 
-Status: accepted.
+Status: superseded by 0003-captured-inventories.md.
 
 Board selection loads a curated model with explicit configuration, memory ranges, and typed logical access/interrupt connections. Begin with Arm virt/A55 and MPS2 AN385/M3 core views. Label omitted hardware and show pinned source provenance. Do not present them as complete or runtime-validated inventories.
 

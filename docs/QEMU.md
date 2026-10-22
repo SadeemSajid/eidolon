@@ -10,7 +10,7 @@
 
 Sources: [upstream releases](https://www.qemu.org/), [release tag](https://gitlab.com/qemu-project/qemu/-/tags/v11.1.2), [build documentation](https://www.qemu.org/docs/master/devel/build-system.html).
 
-The submodule records an exact commit. Do not use `git submodule update --remote` to silently change it. The current editor does not require or launch QEMU.
+The submodule records an exact commit. Do not use `git submodule update --remote` to silently change it. The editor reads checked-in inventories and does not require or launch QEMU. The maintenance helper captures those inventories from the pinned build.
 
 ## Optional source build
 
@@ -20,7 +20,7 @@ Install the host build prerequisites described by upstream (including a C toolch
 git submodule update --init --depth 1 third_party/qemu
 mkdir -p build/qemu
 cd build/qemu
-../../third_party/qemu/configure --target-list=aarch64-softmmu,arm-softmmu --disable-werror
+../../third_party/qemu/configure --target-list=aarch64-softmmu,arm-softmmu,riscv64-softmmu --disable-werror
 ninja
 ./qemu-system-aarch64 --version
 ./qemu-system-aarch64 -machine help
@@ -28,7 +28,7 @@ ninja
 ./qemu-system-aarch64 -device help
 ```
 
-Configure may need network access for upstream dependencies and Python tooling. The build commands are a starting recipe, not a build verified by this scaffold. Consult the pinned source's own instructions for platform-specific requirements. System-installed QEMU may be supported later via explicit executable discovery and capability verification; there is no executable-path configuration yet.
+Configure may need network access for upstream dependencies and Python tooling. A pinned 11.1.2 build of these three targets and all 14 inventory captures have been verified on the development Linux host. This does not establish support on other hosts or successful guest boot. Consult the pinned source's own instructions for platform-specific requirements. System-installed QEMU may be supported later via explicit executable discovery and capability verification; there is no executable-path configuration yet.
 
 ## Runtime design
 

@@ -1,0 +1,4385 @@
+{
+  "version": {
+    "qemu": {
+      "micro": 2,
+      "minor": 1,
+      "major": 11
+    },
+    "package": "v11.1.2"
+  },
+  "devices": [
+    {
+      "path": "/machine/unattached/device[0]",
+      "type": "mt35xu01g",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/xlnx-versal/ospi/spi0",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[1]",
+      "type": "mt35xu01g",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/xlnx-versal/ospi/spi0",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[2]",
+      "type": "mt35xu01g",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/xlnx-versal/ospi/spi0",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[3]",
+      "type": "mt35xu01g",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/xlnx-versal/ospi/spi0",
+      "signals": []
+    },
+    {
+      "path": "/machine/virtio-mmio[0]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[111]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/virtio-mmio[1]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[112]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/virtio-mmio[2]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[113]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/virtio-mmio[3]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[114]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/virtio-mmio[4]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[115]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/virtio-mmio[5]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[116]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/virtio-mmio[6]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[117]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/virtio-mmio[7]",
+      "type": "virtio-mmio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[118]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal",
+      "type": "xlnx-versal",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/adma[0]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[60]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/adma[1]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[61]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/adma[2]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[62]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/adma[3]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[63]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/adma[4]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[64]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/adma[5]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[65]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/adma[6]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[66]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/adma[7]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[67]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/apu",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/apu-cluster",
+      "type": "cpu-cluster",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/apu-cluster/apu[0]",
+      "type": "cortex-a72-arm-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "gicv3-maintenance-interrupt[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[217]"
+        },
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[222]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[219]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[218]"
+        },
+        {
+          "output": "unnamed-gpio-out[3]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[221]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/apu-cluster/apu[1]",
+      "type": "cortex-a72-arm-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "gicv3-maintenance-interrupt[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[249]"
+        },
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[254]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[251]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[250]"
+        },
+        {
+          "output": "unnamed-gpio-out[3]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[253]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/apu-gic[0]",
+      "type": "arm-gicv3",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/apu-cluster/apu[0]/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/xlnx-versal/apu-cluster/apu[1]/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/xlnx-versal/apu-cluster/apu[0]/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/xlnx-versal/apu-cluster/apu[1]/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[4]",
+          "target": "/machine/xlnx-versal/apu-cluster/apu[0]/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "sysbus-irq[5]",
+          "target": "/machine/xlnx-versal/apu-cluster/apu[1]/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "sysbus-irq[6]",
+          "target": "/machine/xlnx-versal/apu-cluster/apu[0]/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "sysbus-irq[7]",
+          "target": "/machine/xlnx-versal/apu-cluster/apu[1]/unnamed-gpio-in[3]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/apu-gic[0]/its",
+      "type": "arm-gicv3-its",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/bbram",
+      "type": "xlnx.bbram-ctrl",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-or-gates/gic-irq[121]/unnamed-gpio-in[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/canfd[0]",
+      "type": "xlnx.versal-canfd",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[20]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/canfd[1]",
+      "type": "xlnx.versal-canfd",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[21]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/cfu/cframe-bcast",
+      "type": "xlnx.cframe-bcast-reg",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/cfu/cframe-irq-or-gate",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/irq-or-gates/gic-irq[121]/unnamed-gpio-in[3]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/cfu/cframe[0]",
+      "type": "xlnx-cframe-reg",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/cfu/cframe-irq-or-gate/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/cfu/cframe[10]",
+      "type": "xlnx-cframe-reg",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/cfu/cframe-irq-or-gate/unnamed-gpio-in[10]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/cfu/cframe[11]",
+      "type": "xlnx-cframe-reg",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/cfu/cframe-irq-or-gate/unnamed-gpio-in[11]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/cfu/cframe[12]",
+      "type": "xlnx-cframe-reg",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/cfu/cframe-irq-or-gate/unnamed-gpio-in[12]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/cfu/cframe[13]",
+      "type": "xlnx-cframe-reg",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/cfu/cframe-irq-or-gate/unnamed-gpio-in[13]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/cfu/cframe[14]",
+      "type": "xlnx-cframe-reg",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/cfu/cframe-irq-or-gate/unnamed-gpio-in[14]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/cfu/cframe[1]",
+      "type": "xlnx-cframe-reg",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/cfu/cframe-irq-or-gate/unnamed-gpio-in[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/cfu/cframe[2]",
+      "type": "xlnx-cframe-reg",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/cfu/cframe-irq-or-gate/unnamed-gpio-in[2]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/cfu/cframe[3]",
+      "type": "xlnx-cframe-reg",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/cfu/cframe-irq-or-gate/unnamed-gpio-in[3]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/cfu/cframe[4]",
+      "type": "xlnx-cframe-reg",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/cfu/cframe-irq-or-gate/unnamed-gpio-in[4]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/cfu/cframe[5]",
+      "type": "xlnx-cframe-reg",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/cfu/cframe-irq-or-gate/unnamed-gpio-in[5]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/cfu/cframe[6]",
+      "type": "xlnx-cframe-reg",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/cfu/cframe-irq-or-gate/unnamed-gpio-in[6]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/cfu/cframe[7]",
+      "type": "xlnx-cframe-reg",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/cfu/cframe-irq-or-gate/unnamed-gpio-in[7]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/cfu/cframe[8]",
+      "type": "xlnx-cframe-reg",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/cfu/cframe-irq-or-gate/unnamed-gpio-in[8]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/cfu/cframe[9]",
+      "type": "xlnx-cframe-reg",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/cfu/cframe-irq-or-gate/unnamed-gpio-in[9]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/cfu/cfu-apb",
+      "type": "xlnx-versal-cfu-apb",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[120]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/cfu/cfu-fdro",
+      "type": "xlnx-versal-cfu-fdro",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/cfu/cfu-sfr",
+      "type": "xlnx-versal-cfu-sfr",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/crf",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/crl",
+      "type": "xlnx-versal-crl",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[10]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/crp",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/efuse",
+      "type": "xlnx-efuse",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/efuse-cache",
+      "type": "xlnx-pmc-efuse-cache",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/efuse-ctrl",
+      "type": "xlnx-versal-efuse",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[139]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/gem[0]",
+      "type": "cadence_gem",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/gem[0]/irq-orgate/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/xlnx-versal/gem[0]/irq-orgate/unnamed-gpio-in[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/gem[0]/irq-orgate",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[56]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/gem[1]",
+      "type": "cadence_gem",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/gem[1]/irq-orgate/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/xlnx-versal/gem[1]/irq-orgate/unnamed-gpio-in[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/gem[1]/irq-orgate",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[58]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/iou-scntr",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/iou-scntr-secure",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-or-gates/gic-irq[121]",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[121]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[10]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[10]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[10]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[111]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[111]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[111]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[112]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[112]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[112]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[113]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[113]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[113]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[114]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[114]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[114]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[115]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[115]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[115]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[116]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[116]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[116]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[117]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[117]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[117]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[118]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[118]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[118]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[120]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[120]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[120]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[121]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[121]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[121]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[124]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[124]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[124]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[126]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[126]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[126]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[128]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[128]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[128]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[139]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[139]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[139]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[141]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[141]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[141]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[18]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[18]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[18]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[19]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[19]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[19]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[20]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[20]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[20]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[21]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[21]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[21]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[22]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[22]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[22]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[56]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[56]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[56]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[58]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[58]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[58]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[60]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[60]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[60]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[61]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[61]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[61]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[62]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[62]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[62]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[63]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[63]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[63]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[64]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[64]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[64]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[65]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[65]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[65]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[66]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[66]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[66]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[67]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[67]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[67]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/irq-splits/irq[79]",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/apu-gic[0]/unnamed-gpio-in[79]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/xlnx-versal/rpu-gic[0]/unnamed-gpio-in[79]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/ospi",
+      "type": "xlnx.versal-ospi",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/ospi/irq-orgate/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/unattached/device[0]/ssi-gpio-cs[0]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/unattached/device[1]/ssi-gpio-cs[0]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/unattached/device[2]/ssi-gpio-cs[0]"
+        },
+        {
+          "output": "sysbus-irq[4]",
+          "target": "/machine/unattached/device[3]/ssi-gpio-cs[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/ospi/dma-dst-dev",
+      "type": "xlnx.csu_dma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/ospi/irq-orgate/unnamed-gpio-in[2]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/ospi/dma-src-dev",
+      "type": "xlnx.csu_dma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/ospi/irq-orgate/unnamed-gpio-in[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/ospi/irq-orgate",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[124]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/pmc-iou-slcr",
+      "type": "xlnx.versal-pmc-iou-slcr",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "ospi-mux-sel[0]",
+          "target": "/machine/xlnx-versal/ospi/ospi-mux-sel[0]"
+        },
+        {
+          "output": "qspi-ospi-mux-sel[0]",
+          "target": "/machine/xlnx-versal/qspi-ospi-mux-sel-dummy[0]"
+        },
+        {
+          "output": "sd-emmc-sel[0]",
+          "target": "/machine/xlnx-versal/sd-emmc-sel-dummy[0]"
+        },
+        {
+          "output": "sd-emmc-sel[1]",
+          "target": "/machine/xlnx-versal/sd-emmc-sel-dummy[1]"
+        },
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-parity-imr-dummy[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/psm",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/rpu-cluster",
+      "type": "cpu-cluster",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/rpu-cluster/rpu[0]",
+      "type": "cortex-r5f-arm-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/rpu-cluster/rpu[1]",
+      "type": "cortex-r5f-arm-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/rpu-gic[0]",
+      "type": "arm_gic",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/rpu-cluster/rpu[0]/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/xlnx-versal/rpu-cluster/rpu[1]/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/xlnx-versal/rpu-cluster/rpu[0]/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/xlnx-versal/rpu-cluster/rpu[1]/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[4]",
+          "target": "/machine/xlnx-versal/rpu-cluster/rpu[0]/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "sysbus-irq[5]",
+          "target": "/machine/xlnx-versal/rpu-cluster/rpu[1]/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "sysbus-irq[6]",
+          "target": "/machine/xlnx-versal/rpu-cluster/rpu[0]/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "sysbus-irq[7]",
+          "target": "/machine/xlnx-versal/rpu-cluster/rpu[1]/unnamed-gpio-in[3]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/rtc",
+      "type": "xlnx-zynmp.rtc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-or-gates/gic-irq[121]/unnamed-gpio-in[2]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/sdhci[0]",
+      "type": "generic-sdhci",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[126]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/sdhci[0]/card[0]",
+      "type": "sd-card",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/xlnx-versal/sdhci[0]/sd-bus",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/sdhci[1]",
+      "type": "generic-sdhci",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[128]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/sdhci[1]/card[0]",
+      "type": "sd-card",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/xlnx-versal/sdhci[1]/sd-bus",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/trng",
+      "type": "xlnx.versal-trng",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[141]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/uart[0]",
+      "type": "pl011",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[18]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/uart[1]",
+      "type": "pl011",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[19]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/usb[0]",
+      "type": "xlnx.versal-usb2",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[22]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/usb[0]/versal.dwc3",
+      "type": "usb_dwc3",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci",
+      "type": "sysbus-xhci",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[22]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core",
+      "type": "base-xhci",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/usb[0]/versal.usb2-ctrl",
+      "type": "xlnx.versal-usb2-ctrl-regs",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/xlnx-versal/xram-orgate",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/xlnx-versal/irq-splits/irq[79]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/xram[0]",
+      "type": "xlnx.versal-xramc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/xram-orgate/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/xram[1]",
+      "type": "xlnx.versal-xramc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/xram-orgate/unnamed-gpio-in[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/xram[2]",
+      "type": "xlnx.versal-xramc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/xram-orgate/unnamed-gpio-in[2]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/xlnx-versal/xram[3]",
+      "type": "xlnx.versal-xramc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/xlnx-versal/xram-orgate/unnamed-gpio-in[3]"
+        }
+      ]
+    }
+  ],
+  "spaces": [
+    {
+      "id": "view-ab75ff2bc906",
+      "names": ["I/O"],
+      "root": "io",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x10000",
+          "name": "io",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        }
+      ]
+    },
+    {
+      "id": "view-97f053d2b3b9",
+      "names": [
+        "anonymous",
+        "csu-dma",
+        "dma",
+        "dma",
+        "memory",
+        "zdma-dma",
+        "zdma-dma",
+        "zdma-dma",
+        "zdma-dma",
+        "zdma-dma",
+        "zdma-dma",
+        "zdma-dma",
+        "zdma-dma"
+      ],
+      "root": "system",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x40000000",
+          "name": "ddr",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ddr"
+        },
+        {
+          "base": "0xa0000000",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[0]"
+        },
+        {
+          "base": "0xa0000200",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[1]"
+        },
+        {
+          "base": "0xa0000400",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[2]"
+        },
+        {
+          "base": "0xa0000600",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[3]"
+        },
+        {
+          "base": "0xa0000800",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[4]"
+        },
+        {
+          "base": "0xa0000a00",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[5]"
+        },
+        {
+          "base": "0xa0000c00",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[6]"
+        },
+        {
+          "base": "0xa0000e00",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[7]"
+        },
+        {
+          "base": "0xc0000000",
+          "size": "0x20000000",
+          "name": "xlnx.versal-ospi-dac",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/ospi"
+        },
+        {
+          "base": "0xf1010000",
+          "size": "0x100",
+          "name": "xlnx.versal-ospi",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/ospi/reg-array[0]"
+        },
+        {
+          "base": "0xf1011000",
+          "size": "0x2c",
+          "name": "xlnx.csu_dma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/ospi/dma-src-dev/reg-array[0]"
+        },
+        {
+          "base": "0xf1011800",
+          "size": "0x2c",
+          "name": "xlnx.csu_dma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/ospi/dma-dst-dev/reg-array[0]"
+        },
+        {
+          "base": "0xf1040000",
+          "size": "0x100",
+          "name": "sdhci",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/sdhci[0]"
+        },
+        {
+          "base": "0xf1050000",
+          "size": "0x100",
+          "name": "sdhci",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/sdhci[1]"
+        },
+        {
+          "base": "0xf1060000",
+          "size": "0x82c",
+          "name": "xlnx.versal-pmc-iou-slcr",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/pmc-iou-slcr/reg-array[0]"
+        },
+        {
+          "base": "0xf11f0000",
+          "size": "0x50",
+          "name": "xlnx.bbram-ctrl",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/bbram/reg-array[0]"
+        },
+        {
+          "base": "0xf1230000",
+          "size": "0xf4",
+          "name": "xlnx.versal-trng",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/trng/reg-array[0]"
+        },
+        {
+          "base": "0xf1240000",
+          "size": "0x104",
+          "name": "xlnx-versal-efuse",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/efuse-ctrl/reg-array[0]"
+        },
+        {
+          "base": "0xf1250000",
+          "size": "0xc00",
+          "name": "xlnx-pmc-efuse-cache",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/efuse-cache"
+        },
+        {
+          "base": "0xf1260000",
+          "size": "0x10000",
+          "name": "crp",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/crp"
+        },
+        {
+          "base": "0xf12a0000",
+          "size": "0x54",
+          "name": "xlnx-zynmp.rtc",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/rtc/reg-array[0]"
+        },
+        {
+          "base": "0xf12b0000",
+          "size": "0x120",
+          "name": "xlnx-versal-cfu-apb",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cfu-apb/reg-array[0]"
+        },
+        {
+          "base": "0xf12c0000",
+          "size": "0x1000",
+          "name": "xlnx-versal-cfu-apb-stream0",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cfu-apb"
+        },
+        {
+          "base": "0xf12c1000",
+          "size": "0x1000",
+          "name": "xlnx-versal-cfu-sfr",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cfu-sfr"
+        },
+        {
+          "base": "0xf12c2000",
+          "size": "0x1000",
+          "name": "xlnx-versal-cfu-fdro",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cfu-fdro"
+        },
+        {
+          "base": "0xf12d0000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[0]/reg-array[0]"
+        },
+        {
+          "base": "0xf12d1000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[0]"
+        },
+        {
+          "base": "0xf12d2000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[1]/reg-array[0]"
+        },
+        {
+          "base": "0xf12d3000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[1]"
+        },
+        {
+          "base": "0xf12d4000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[2]/reg-array[0]"
+        },
+        {
+          "base": "0xf12d5000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[2]"
+        },
+        {
+          "base": "0xf12d6000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[3]/reg-array[0]"
+        },
+        {
+          "base": "0xf12d7000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[3]"
+        },
+        {
+          "base": "0xf12d8000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[4]/reg-array[0]"
+        },
+        {
+          "base": "0xf12d9000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[4]"
+        },
+        {
+          "base": "0xf12da000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[5]/reg-array[0]"
+        },
+        {
+          "base": "0xf12db000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[5]"
+        },
+        {
+          "base": "0xf12dc000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[6]/reg-array[0]"
+        },
+        {
+          "base": "0xf12dd000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[6]"
+        },
+        {
+          "base": "0xf12de000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[7]/reg-array[0]"
+        },
+        {
+          "base": "0xf12df000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[7]"
+        },
+        {
+          "base": "0xf12e0000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[8]/reg-array[0]"
+        },
+        {
+          "base": "0xf12e1000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[8]"
+        },
+        {
+          "base": "0xf12e2000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[9]/reg-array[0]"
+        },
+        {
+          "base": "0xf12e3000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[9]"
+        },
+        {
+          "base": "0xf12e4000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[10]/reg-array[0]"
+        },
+        {
+          "base": "0xf12e5000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[10]"
+        },
+        {
+          "base": "0xf12e6000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[11]/reg-array[0]"
+        },
+        {
+          "base": "0xf12e7000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[11]"
+        },
+        {
+          "base": "0xf12e8000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[12]/reg-array[0]"
+        },
+        {
+          "base": "0xf12e9000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[12]"
+        },
+        {
+          "base": "0xf12ea000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[13]/reg-array[0]"
+        },
+        {
+          "base": "0xf12eb000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[13]"
+        },
+        {
+          "base": "0xf12ec000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[14]/reg-array[0]"
+        },
+        {
+          "base": "0xf12ed000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[14]"
+        },
+        {
+          "base": "0xf12ee000",
+          "size": "0x1000",
+          "name": "xlnx.cframe-bcast-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe-bcast"
+        },
+        {
+          "base": "0xf12ef000",
+          "size": "0x1000",
+          "name": "xlnx.cframe-bcast-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe-bcast"
+        },
+        {
+          "base": "0xf1f80000",
+          "size": "0x40000",
+          "name": "xlnx-versal-cfu-apb-stream1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cfu-apb"
+        },
+        {
+          "base": "0xfd1a0000",
+          "size": "0x140000",
+          "name": "crf",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/crf"
+        },
+        {
+          "base": "0xfd5c0000",
+          "size": "0x100",
+          "name": "apu",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/apu"
+        },
+        {
+          "base": "0xfe200000",
+          "size": "0x40",
+          "name": "capabilities",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200040",
+          "size": "0x400",
+          "name": "operational",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200440",
+          "size": "0x10",
+          "name": "usb3 port #1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200450",
+          "size": "0x10",
+          "name": "usb3 port #2",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200460",
+          "size": "0x10",
+          "name": "usb3 port #3",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200470",
+          "size": "0x10",
+          "name": "usb3 port #4",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200480",
+          "size": "0x10",
+          "name": "usb2 port #1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200490",
+          "size": "0x10",
+          "name": "usb2 port #2",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe2004a0",
+          "size": "0x10",
+          "name": "usb2 port #3",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe2004b0",
+          "size": "0x10",
+          "name": "usb2 port #4",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe201000",
+          "size": "0x220",
+          "name": "runtime",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe202000",
+          "size": "0x820",
+          "name": "doorbell",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe20c100",
+          "size": "0x600",
+          "name": "usb_dwc3",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/reg-array[0]"
+        },
+        {
+          "base": "0xfe800000",
+          "size": "0x100000",
+          "name": "xram[0]",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[0]"
+        },
+        {
+          "base": "0xfe900000",
+          "size": "0x100000",
+          "name": "xram[1]",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[1]"
+        },
+        {
+          "base": "0xfea00000",
+          "size": "0x100000",
+          "name": "xram[2]",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[2]"
+        },
+        {
+          "base": "0xfeb00000",
+          "size": "0x100000",
+          "name": "xram[3]",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[3]"
+        },
+        {
+          "base": "0xff000000",
+          "size": "0x1000",
+          "name": "pl011",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/uart[0]"
+        },
+        {
+          "base": "0xff010000",
+          "size": "0x1000",
+          "name": "pl011",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/uart[1]"
+        },
+        {
+          "base": "0xff060000",
+          "size": "0xf0",
+          "name": "xlnx.versal-canfd",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/canfd[0]/reg-array[0]"
+        },
+        {
+          "base": "0xff0600f0",
+          "size": "0x5210",
+          "name": "xlnx.versal-canfd @00000000000000f0",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/canfd[0]"
+        },
+        {
+          "base": "0xff070000",
+          "size": "0xf0",
+          "name": "xlnx.versal-canfd",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/canfd[1]/reg-array[0]"
+        },
+        {
+          "base": "0xff0700f0",
+          "size": "0x5210",
+          "name": "xlnx.versal-canfd @00000000000000f0",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/canfd[1]"
+        },
+        {
+          "base": "0xff0c0000",
+          "size": "0x800",
+          "name": "enet",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/gem[0]"
+        },
+        {
+          "base": "0xff0d0000",
+          "size": "0x800",
+          "name": "enet",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/gem[1]"
+        },
+        {
+          "base": "0xff130000",
+          "size": "0x10000",
+          "name": "iou-scntr",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/iou-scntr"
+        },
+        {
+          "base": "0xff140000",
+          "size": "0x10000",
+          "name": "iou-scntr-secure",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/iou-scntr-secure"
+        },
+        {
+          "base": "0xff5e0000",
+          "size": "0x374",
+          "name": "xlnx-versal-crl",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/crl/reg-array[0]"
+        },
+        {
+          "base": "0xff8e0000",
+          "size": "0xffc",
+          "name": "xlnx.versal-xramc",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[0]/reg-array[0]"
+        },
+        {
+          "base": "0xff8f0000",
+          "size": "0xffc",
+          "name": "xlnx.versal-xramc",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[1]/reg-array[0]"
+        },
+        {
+          "base": "0xff900000",
+          "size": "0xffc",
+          "name": "xlnx.versal-xramc",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[2]/reg-array[0]"
+        },
+        {
+          "base": "0xff910000",
+          "size": "0xffc",
+          "name": "xlnx.versal-xramc",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[3]/reg-array[0]"
+        },
+        {
+          "base": "0xff9d0000",
+          "size": "0x7c",
+          "name": "xlnx.versal-usb2-ctrl-regs",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.usb2-ctrl/reg-array[0]"
+        },
+        {
+          "base": "0xffa80000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[0]"
+        },
+        {
+          "base": "0xffa90000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[1]"
+        },
+        {
+          "base": "0xffaa0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[2]"
+        },
+        {
+          "base": "0xffab0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[3]"
+        },
+        {
+          "base": "0xffac0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[4]"
+        },
+        {
+          "base": "0xffad0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[5]"
+        },
+        {
+          "base": "0xffae0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[6]"
+        },
+        {
+          "base": "0xffaf0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[7]"
+        },
+        {
+          "base": "0xffc80000",
+          "size": "0x70000",
+          "name": "psm",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/psm"
+        },
+        {
+          "base": "0xfffc0000",
+          "size": "0x40000",
+          "name": "ocm",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal"
+        }
+      ]
+    },
+    {
+      "id": "view-e71efb2987eb",
+      "names": [
+        "cpu-memory-0",
+        "cpu-memory-1",
+        "cpu-secure-memory-0",
+        "cpu-secure-memory-1",
+        "gicv3-its-sysmem"
+      ],
+      "root": "apu-mr",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x40000000",
+          "name": "ddr",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ddr"
+        },
+        {
+          "base": "0xa0000000",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[0]"
+        },
+        {
+          "base": "0xa0000200",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[1]"
+        },
+        {
+          "base": "0xa0000400",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[2]"
+        },
+        {
+          "base": "0xa0000600",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[3]"
+        },
+        {
+          "base": "0xa0000800",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[4]"
+        },
+        {
+          "base": "0xa0000a00",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[5]"
+        },
+        {
+          "base": "0xa0000c00",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[6]"
+        },
+        {
+          "base": "0xa0000e00",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[7]"
+        },
+        {
+          "base": "0xc0000000",
+          "size": "0x20000000",
+          "name": "xlnx.versal-ospi-dac",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/ospi"
+        },
+        {
+          "base": "0xf1010000",
+          "size": "0x100",
+          "name": "xlnx.versal-ospi",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/ospi/reg-array[0]"
+        },
+        {
+          "base": "0xf1011000",
+          "size": "0x2c",
+          "name": "xlnx.csu_dma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/ospi/dma-src-dev/reg-array[0]"
+        },
+        {
+          "base": "0xf1011800",
+          "size": "0x2c",
+          "name": "xlnx.csu_dma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/ospi/dma-dst-dev/reg-array[0]"
+        },
+        {
+          "base": "0xf1040000",
+          "size": "0x100",
+          "name": "sdhci",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/sdhci[0]"
+        },
+        {
+          "base": "0xf1050000",
+          "size": "0x100",
+          "name": "sdhci",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/sdhci[1]"
+        },
+        {
+          "base": "0xf1060000",
+          "size": "0x82c",
+          "name": "xlnx.versal-pmc-iou-slcr",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/pmc-iou-slcr/reg-array[0]"
+        },
+        {
+          "base": "0xf11f0000",
+          "size": "0x50",
+          "name": "xlnx.bbram-ctrl",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/bbram/reg-array[0]"
+        },
+        {
+          "base": "0xf1230000",
+          "size": "0xf4",
+          "name": "xlnx.versal-trng",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/trng/reg-array[0]"
+        },
+        {
+          "base": "0xf1240000",
+          "size": "0x104",
+          "name": "xlnx-versal-efuse",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/efuse-ctrl/reg-array[0]"
+        },
+        {
+          "base": "0xf1250000",
+          "size": "0xc00",
+          "name": "xlnx-pmc-efuse-cache",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/efuse-cache"
+        },
+        {
+          "base": "0xf1260000",
+          "size": "0x10000",
+          "name": "crp",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/crp"
+        },
+        {
+          "base": "0xf12a0000",
+          "size": "0x54",
+          "name": "xlnx-zynmp.rtc",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/rtc/reg-array[0]"
+        },
+        {
+          "base": "0xf12b0000",
+          "size": "0x120",
+          "name": "xlnx-versal-cfu-apb",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cfu-apb/reg-array[0]"
+        },
+        {
+          "base": "0xf12c0000",
+          "size": "0x1000",
+          "name": "xlnx-versal-cfu-apb-stream0",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cfu-apb"
+        },
+        {
+          "base": "0xf12c1000",
+          "size": "0x1000",
+          "name": "xlnx-versal-cfu-sfr",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cfu-sfr"
+        },
+        {
+          "base": "0xf12c2000",
+          "size": "0x1000",
+          "name": "xlnx-versal-cfu-fdro",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cfu-fdro"
+        },
+        {
+          "base": "0xf12d0000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[0]/reg-array[0]"
+        },
+        {
+          "base": "0xf12d1000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[0]"
+        },
+        {
+          "base": "0xf12d2000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[1]/reg-array[0]"
+        },
+        {
+          "base": "0xf12d3000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[1]"
+        },
+        {
+          "base": "0xf12d4000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[2]/reg-array[0]"
+        },
+        {
+          "base": "0xf12d5000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[2]"
+        },
+        {
+          "base": "0xf12d6000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[3]/reg-array[0]"
+        },
+        {
+          "base": "0xf12d7000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[3]"
+        },
+        {
+          "base": "0xf12d8000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[4]/reg-array[0]"
+        },
+        {
+          "base": "0xf12d9000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[4]"
+        },
+        {
+          "base": "0xf12da000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[5]/reg-array[0]"
+        },
+        {
+          "base": "0xf12db000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[5]"
+        },
+        {
+          "base": "0xf12dc000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[6]/reg-array[0]"
+        },
+        {
+          "base": "0xf12dd000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[6]"
+        },
+        {
+          "base": "0xf12de000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[7]/reg-array[0]"
+        },
+        {
+          "base": "0xf12df000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[7]"
+        },
+        {
+          "base": "0xf12e0000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[8]/reg-array[0]"
+        },
+        {
+          "base": "0xf12e1000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[8]"
+        },
+        {
+          "base": "0xf12e2000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[9]/reg-array[0]"
+        },
+        {
+          "base": "0xf12e3000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[9]"
+        },
+        {
+          "base": "0xf12e4000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[10]/reg-array[0]"
+        },
+        {
+          "base": "0xf12e5000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[10]"
+        },
+        {
+          "base": "0xf12e6000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[11]/reg-array[0]"
+        },
+        {
+          "base": "0xf12e7000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[11]"
+        },
+        {
+          "base": "0xf12e8000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[12]/reg-array[0]"
+        },
+        {
+          "base": "0xf12e9000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[12]"
+        },
+        {
+          "base": "0xf12ea000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[13]/reg-array[0]"
+        },
+        {
+          "base": "0xf12eb000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[13]"
+        },
+        {
+          "base": "0xf12ec000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[14]/reg-array[0]"
+        },
+        {
+          "base": "0xf12ed000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[14]"
+        },
+        {
+          "base": "0xf12ee000",
+          "size": "0x1000",
+          "name": "xlnx.cframe-bcast-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe-bcast"
+        },
+        {
+          "base": "0xf12ef000",
+          "size": "0x1000",
+          "name": "xlnx.cframe-bcast-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe-bcast"
+        },
+        {
+          "base": "0xf1f80000",
+          "size": "0x40000",
+          "name": "xlnx-versal-cfu-apb-stream1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cfu-apb"
+        },
+        {
+          "base": "0xf9000000",
+          "size": "0x10000",
+          "name": "gicv3_dist",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/apu-gic[0]"
+        },
+        {
+          "base": "0xf9020000",
+          "size": "0x10000",
+          "name": "control",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/apu-gic[0]/its"
+        },
+        {
+          "base": "0xf9030000",
+          "size": "0x10000",
+          "name": "translation",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/apu-gic[0]/its"
+        },
+        {
+          "base": "0xf9080000",
+          "size": "0x40000",
+          "name": "gicv3_redist_region[0]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/apu-gic[0]"
+        },
+        {
+          "base": "0xfd1a0000",
+          "size": "0x140000",
+          "name": "crf",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/crf"
+        },
+        {
+          "base": "0xfd5c0000",
+          "size": "0x100",
+          "name": "apu",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/apu"
+        },
+        {
+          "base": "0xfe200000",
+          "size": "0x40",
+          "name": "capabilities",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200040",
+          "size": "0x400",
+          "name": "operational",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200440",
+          "size": "0x10",
+          "name": "usb3 port #1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200450",
+          "size": "0x10",
+          "name": "usb3 port #2",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200460",
+          "size": "0x10",
+          "name": "usb3 port #3",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200470",
+          "size": "0x10",
+          "name": "usb3 port #4",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200480",
+          "size": "0x10",
+          "name": "usb2 port #1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200490",
+          "size": "0x10",
+          "name": "usb2 port #2",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe2004a0",
+          "size": "0x10",
+          "name": "usb2 port #3",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe2004b0",
+          "size": "0x10",
+          "name": "usb2 port #4",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe201000",
+          "size": "0x220",
+          "name": "runtime",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe202000",
+          "size": "0x820",
+          "name": "doorbell",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe20c100",
+          "size": "0x600",
+          "name": "usb_dwc3",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/reg-array[0]"
+        },
+        {
+          "base": "0xfe800000",
+          "size": "0x100000",
+          "name": "xram[0]",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[0]"
+        },
+        {
+          "base": "0xfe900000",
+          "size": "0x100000",
+          "name": "xram[1]",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[1]"
+        },
+        {
+          "base": "0xfea00000",
+          "size": "0x100000",
+          "name": "xram[2]",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[2]"
+        },
+        {
+          "base": "0xfeb00000",
+          "size": "0x100000",
+          "name": "xram[3]",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[3]"
+        },
+        {
+          "base": "0xff000000",
+          "size": "0x1000",
+          "name": "pl011",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/uart[0]"
+        },
+        {
+          "base": "0xff010000",
+          "size": "0x1000",
+          "name": "pl011",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/uart[1]"
+        },
+        {
+          "base": "0xff060000",
+          "size": "0xf0",
+          "name": "xlnx.versal-canfd",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/canfd[0]/reg-array[0]"
+        },
+        {
+          "base": "0xff0600f0",
+          "size": "0x5210",
+          "name": "xlnx.versal-canfd @00000000000000f0",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/canfd[0]"
+        },
+        {
+          "base": "0xff070000",
+          "size": "0xf0",
+          "name": "xlnx.versal-canfd",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/canfd[1]/reg-array[0]"
+        },
+        {
+          "base": "0xff0700f0",
+          "size": "0x5210",
+          "name": "xlnx.versal-canfd @00000000000000f0",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/canfd[1]"
+        },
+        {
+          "base": "0xff0c0000",
+          "size": "0x800",
+          "name": "enet",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/gem[0]"
+        },
+        {
+          "base": "0xff0d0000",
+          "size": "0x800",
+          "name": "enet",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/gem[1]"
+        },
+        {
+          "base": "0xff130000",
+          "size": "0x10000",
+          "name": "iou-scntr",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/iou-scntr"
+        },
+        {
+          "base": "0xff140000",
+          "size": "0x10000",
+          "name": "iou-scntr-secure",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/iou-scntr-secure"
+        },
+        {
+          "base": "0xff5e0000",
+          "size": "0x374",
+          "name": "xlnx-versal-crl",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/crl/reg-array[0]"
+        },
+        {
+          "base": "0xff8e0000",
+          "size": "0xffc",
+          "name": "xlnx.versal-xramc",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[0]/reg-array[0]"
+        },
+        {
+          "base": "0xff8f0000",
+          "size": "0xffc",
+          "name": "xlnx.versal-xramc",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[1]/reg-array[0]"
+        },
+        {
+          "base": "0xff900000",
+          "size": "0xffc",
+          "name": "xlnx.versal-xramc",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[2]/reg-array[0]"
+        },
+        {
+          "base": "0xff910000",
+          "size": "0xffc",
+          "name": "xlnx.versal-xramc",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[3]/reg-array[0]"
+        },
+        {
+          "base": "0xff9d0000",
+          "size": "0x7c",
+          "name": "xlnx.versal-usb2-ctrl-regs",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.usb2-ctrl/reg-array[0]"
+        },
+        {
+          "base": "0xffa80000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[0]"
+        },
+        {
+          "base": "0xffa90000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[1]"
+        },
+        {
+          "base": "0xffaa0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[2]"
+        },
+        {
+          "base": "0xffab0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[3]"
+        },
+        {
+          "base": "0xffac0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[4]"
+        },
+        {
+          "base": "0xffad0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[5]"
+        },
+        {
+          "base": "0xffae0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[6]"
+        },
+        {
+          "base": "0xffaf0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[7]"
+        },
+        {
+          "base": "0xffc80000",
+          "size": "0x70000",
+          "name": "psm",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/psm"
+        },
+        {
+          "base": "0xfffc0000",
+          "size": "0x40000",
+          "name": "ocm",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal"
+        }
+      ]
+    },
+    {
+      "id": "view-472003d4cf92",
+      "names": ["cpu-memory-2", "cpu-memory-3"],
+      "root": "rpu-mr",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x40000000",
+          "name": "ddr",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ddr"
+        },
+        {
+          "base": "0xa0000000",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[0]"
+        },
+        {
+          "base": "0xa0000200",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[1]"
+        },
+        {
+          "base": "0xa0000400",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[2]"
+        },
+        {
+          "base": "0xa0000600",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[3]"
+        },
+        {
+          "base": "0xa0000800",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[4]"
+        },
+        {
+          "base": "0xa0000a00",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[5]"
+        },
+        {
+          "base": "0xa0000c00",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[6]"
+        },
+        {
+          "base": "0xa0000e00",
+          "size": "0x200",
+          "name": "virtio-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/virtio-mmio[7]"
+        },
+        {
+          "base": "0xc0000000",
+          "size": "0x20000000",
+          "name": "xlnx.versal-ospi-dac",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/ospi"
+        },
+        {
+          "base": "0xf1010000",
+          "size": "0x100",
+          "name": "xlnx.versal-ospi",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/ospi/reg-array[0]"
+        },
+        {
+          "base": "0xf1011000",
+          "size": "0x2c",
+          "name": "xlnx.csu_dma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/ospi/dma-src-dev/reg-array[0]"
+        },
+        {
+          "base": "0xf1011800",
+          "size": "0x2c",
+          "name": "xlnx.csu_dma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/ospi/dma-dst-dev/reg-array[0]"
+        },
+        {
+          "base": "0xf1040000",
+          "size": "0x100",
+          "name": "sdhci",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/sdhci[0]"
+        },
+        {
+          "base": "0xf1050000",
+          "size": "0x100",
+          "name": "sdhci",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/sdhci[1]"
+        },
+        {
+          "base": "0xf1060000",
+          "size": "0x82c",
+          "name": "xlnx.versal-pmc-iou-slcr",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/pmc-iou-slcr/reg-array[0]"
+        },
+        {
+          "base": "0xf11f0000",
+          "size": "0x50",
+          "name": "xlnx.bbram-ctrl",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/bbram/reg-array[0]"
+        },
+        {
+          "base": "0xf1230000",
+          "size": "0xf4",
+          "name": "xlnx.versal-trng",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/trng/reg-array[0]"
+        },
+        {
+          "base": "0xf1240000",
+          "size": "0x104",
+          "name": "xlnx-versal-efuse",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/efuse-ctrl/reg-array[0]"
+        },
+        {
+          "base": "0xf1250000",
+          "size": "0xc00",
+          "name": "xlnx-pmc-efuse-cache",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/efuse-cache"
+        },
+        {
+          "base": "0xf1260000",
+          "size": "0x10000",
+          "name": "crp",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/crp"
+        },
+        {
+          "base": "0xf12a0000",
+          "size": "0x54",
+          "name": "xlnx-zynmp.rtc",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/rtc/reg-array[0]"
+        },
+        {
+          "base": "0xf12b0000",
+          "size": "0x120",
+          "name": "xlnx-versal-cfu-apb",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cfu-apb/reg-array[0]"
+        },
+        {
+          "base": "0xf12c0000",
+          "size": "0x1000",
+          "name": "xlnx-versal-cfu-apb-stream0",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cfu-apb"
+        },
+        {
+          "base": "0xf12c1000",
+          "size": "0x1000",
+          "name": "xlnx-versal-cfu-sfr",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cfu-sfr"
+        },
+        {
+          "base": "0xf12c2000",
+          "size": "0x1000",
+          "name": "xlnx-versal-cfu-fdro",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cfu-fdro"
+        },
+        {
+          "base": "0xf12d0000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[0]/reg-array[0]"
+        },
+        {
+          "base": "0xf12d1000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[0]"
+        },
+        {
+          "base": "0xf12d2000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[1]/reg-array[0]"
+        },
+        {
+          "base": "0xf12d3000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[1]"
+        },
+        {
+          "base": "0xf12d4000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[2]/reg-array[0]"
+        },
+        {
+          "base": "0xf12d5000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[2]"
+        },
+        {
+          "base": "0xf12d6000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[3]/reg-array[0]"
+        },
+        {
+          "base": "0xf12d7000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[3]"
+        },
+        {
+          "base": "0xf12d8000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[4]/reg-array[0]"
+        },
+        {
+          "base": "0xf12d9000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[4]"
+        },
+        {
+          "base": "0xf12da000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[5]/reg-array[0]"
+        },
+        {
+          "base": "0xf12db000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[5]"
+        },
+        {
+          "base": "0xf12dc000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[6]/reg-array[0]"
+        },
+        {
+          "base": "0xf12dd000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[6]"
+        },
+        {
+          "base": "0xf12de000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[7]/reg-array[0]"
+        },
+        {
+          "base": "0xf12df000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[7]"
+        },
+        {
+          "base": "0xf12e0000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[8]/reg-array[0]"
+        },
+        {
+          "base": "0xf12e1000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[8]"
+        },
+        {
+          "base": "0xf12e2000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[9]/reg-array[0]"
+        },
+        {
+          "base": "0xf12e3000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[9]"
+        },
+        {
+          "base": "0xf12e4000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[10]/reg-array[0]"
+        },
+        {
+          "base": "0xf12e5000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[10]"
+        },
+        {
+          "base": "0xf12e6000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[11]/reg-array[0]"
+        },
+        {
+          "base": "0xf12e7000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[11]"
+        },
+        {
+          "base": "0xf12e8000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[12]/reg-array[0]"
+        },
+        {
+          "base": "0xf12e9000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[12]"
+        },
+        {
+          "base": "0xf12ea000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[13]/reg-array[0]"
+        },
+        {
+          "base": "0xf12eb000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[13]"
+        },
+        {
+          "base": "0xf12ec000",
+          "size": "0x240",
+          "name": "xlnx-cframe-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[14]/reg-array[0]"
+        },
+        {
+          "base": "0xf12ed000",
+          "size": "0x1000",
+          "name": "xlnx-cframe-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe[14]"
+        },
+        {
+          "base": "0xf12ee000",
+          "size": "0x1000",
+          "name": "xlnx.cframe-bcast-reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe-bcast"
+        },
+        {
+          "base": "0xf12ef000",
+          "size": "0x1000",
+          "name": "xlnx.cframe-bcast-reg-fdri",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cframe-bcast"
+        },
+        {
+          "base": "0xf1f80000",
+          "size": "0x40000",
+          "name": "xlnx-versal-cfu-apb-stream1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/cfu/cfu-apb"
+        },
+        {
+          "base": "0xf9000000",
+          "size": "0x1000",
+          "name": "gic_dist",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/rpu-gic[0]"
+        },
+        {
+          "base": "0xf9001000",
+          "size": "0x2000",
+          "name": "gic_cpu",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/rpu-gic[0]"
+        },
+        {
+          "base": "0xfd1a0000",
+          "size": "0x140000",
+          "name": "crf",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/crf"
+        },
+        {
+          "base": "0xfd5c0000",
+          "size": "0x100",
+          "name": "apu",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/apu"
+        },
+        {
+          "base": "0xfe200000",
+          "size": "0x40",
+          "name": "capabilities",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200040",
+          "size": "0x400",
+          "name": "operational",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200440",
+          "size": "0x10",
+          "name": "usb3 port #1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200450",
+          "size": "0x10",
+          "name": "usb3 port #2",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200460",
+          "size": "0x10",
+          "name": "usb3 port #3",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200470",
+          "size": "0x10",
+          "name": "usb3 port #4",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200480",
+          "size": "0x10",
+          "name": "usb2 port #1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200490",
+          "size": "0x10",
+          "name": "usb2 port #2",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe2004a0",
+          "size": "0x10",
+          "name": "usb2 port #3",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe2004b0",
+          "size": "0x10",
+          "name": "usb2 port #4",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe201000",
+          "size": "0x220",
+          "name": "runtime",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe202000",
+          "size": "0x820",
+          "name": "doorbell",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe20c100",
+          "size": "0x600",
+          "name": "usb_dwc3",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.dwc3/reg-array[0]"
+        },
+        {
+          "base": "0xfe800000",
+          "size": "0x100000",
+          "name": "xram[0]",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[0]"
+        },
+        {
+          "base": "0xfe900000",
+          "size": "0x100000",
+          "name": "xram[1]",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[1]"
+        },
+        {
+          "base": "0xfea00000",
+          "size": "0x100000",
+          "name": "xram[2]",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[2]"
+        },
+        {
+          "base": "0xfeb00000",
+          "size": "0x100000",
+          "name": "xram[3]",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[3]"
+        },
+        {
+          "base": "0xff000000",
+          "size": "0x1000",
+          "name": "pl011",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/uart[0]"
+        },
+        {
+          "base": "0xff010000",
+          "size": "0x1000",
+          "name": "pl011",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/uart[1]"
+        },
+        {
+          "base": "0xff060000",
+          "size": "0xf0",
+          "name": "xlnx.versal-canfd",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/canfd[0]/reg-array[0]"
+        },
+        {
+          "base": "0xff0600f0",
+          "size": "0x5210",
+          "name": "xlnx.versal-canfd @00000000000000f0",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/canfd[0]"
+        },
+        {
+          "base": "0xff070000",
+          "size": "0xf0",
+          "name": "xlnx.versal-canfd",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/canfd[1]/reg-array[0]"
+        },
+        {
+          "base": "0xff0700f0",
+          "size": "0x5210",
+          "name": "xlnx.versal-canfd @00000000000000f0",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/canfd[1]"
+        },
+        {
+          "base": "0xff0c0000",
+          "size": "0x800",
+          "name": "enet",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/gem[0]"
+        },
+        {
+          "base": "0xff0d0000",
+          "size": "0x800",
+          "name": "enet",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/gem[1]"
+        },
+        {
+          "base": "0xff130000",
+          "size": "0x10000",
+          "name": "iou-scntr",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/iou-scntr"
+        },
+        {
+          "base": "0xff140000",
+          "size": "0x10000",
+          "name": "iou-scntr-secure",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/iou-scntr-secure"
+        },
+        {
+          "base": "0xff5e0000",
+          "size": "0x374",
+          "name": "xlnx-versal-crl",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/crl/reg-array[0]"
+        },
+        {
+          "base": "0xff8e0000",
+          "size": "0xffc",
+          "name": "xlnx.versal-xramc",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[0]/reg-array[0]"
+        },
+        {
+          "base": "0xff8f0000",
+          "size": "0xffc",
+          "name": "xlnx.versal-xramc",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[1]/reg-array[0]"
+        },
+        {
+          "base": "0xff900000",
+          "size": "0xffc",
+          "name": "xlnx.versal-xramc",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[2]/reg-array[0]"
+        },
+        {
+          "base": "0xff910000",
+          "size": "0xffc",
+          "name": "xlnx.versal-xramc",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/xram[3]/reg-array[0]"
+        },
+        {
+          "base": "0xff9d0000",
+          "size": "0x7c",
+          "name": "xlnx.versal-usb2-ctrl-regs",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/usb[0]/versal.usb2-ctrl/reg-array[0]"
+        },
+        {
+          "base": "0xffa80000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[0]"
+        },
+        {
+          "base": "0xffa90000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[1]"
+        },
+        {
+          "base": "0xffaa0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[2]"
+        },
+        {
+          "base": "0xffab0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[3]"
+        },
+        {
+          "base": "0xffac0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[4]"
+        },
+        {
+          "base": "0xffad0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[5]"
+        },
+        {
+          "base": "0xffae0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[6]"
+        },
+        {
+          "base": "0xffaf0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/adma[7]"
+        },
+        {
+          "base": "0xffc80000",
+          "size": "0x70000",
+          "name": "psm",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/psm"
+        },
+        {
+          "base": "0xfffc0000",
+          "size": "0x40000",
+          "name": "ocm",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal"
+        }
+      ]
+    },
+    {
+      "id": "view-42a8f1c0027e",
+      "names": ["csu-dma"],
+      "root": "xlnx.versal-ospi-dac",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x20000000",
+          "name": "xlnx.versal-ospi-dac",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/xlnx-versal/ospi"
+        }
+      ]
+    }
+  ],
+  "boardId": "amd-versal-virt",
+  "qemuCommit": "4fc49f46dc95d4a27de2509e7fceb2931e91faeb",
+  "target": "aarch64",
+  "arguments": [
+    "-M",
+    "amd-versal-virt",
+    "-m",
+    "1G",
+    "-accel",
+    "tcg",
+    "-S",
+    "-display",
+    "none",
+    "-serial",
+    "null",
+    "-monitor",
+    "none",
+    "-nodefaults",
+    "-no-user-config",
+    "-nic",
+    "none",
+    "-audio",
+    "driver=none",
+    "-qmp",
+    "stdio"
+  ],
+  "buildOptions": {
+    "default_devices": true,
+    "slirp": "auto",
+    "rust": "disabled"
+  }
+}

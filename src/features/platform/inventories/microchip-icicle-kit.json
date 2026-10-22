@@ -1,0 +1,1408 @@
+{
+  "version": {
+    "qemu": {
+      "micro": 2,
+      "minor": 1,
+      "major": 11
+    },
+    "package": "v11.1.2"
+  },
+  "devices": [
+    {
+      "path": "/machine/soc",
+      "type": "microchip.pfsoc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/ddr-cfg",
+      "type": "mchp.pfsoc.ddr_cfg",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/ddr-sgmii-phy",
+      "type": "mchp.pfsoc.ddr_sgmii_phy",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/dma-controller",
+      "type": "sifive.pdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[5]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[6]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[7]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[8]"
+        },
+        {
+          "output": "sysbus-irq[4]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[9]"
+        },
+        {
+          "output": "sysbus-irq[5]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[10]"
+        },
+        {
+          "output": "sysbus-irq[6]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[11]"
+        },
+        {
+          "output": "sysbus-irq[7]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[12]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/e-cluster",
+      "type": "cpu-cluster",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/e-cluster/e-cpus",
+      "type": "riscv.hart_array",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/e-cluster/e-cpus/harts[0]",
+      "type": "sifive-e51-riscv-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/gem0",
+      "type": "cadence_gem",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[64]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gem1",
+      "type": "cadence_gem",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[70]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/ioscb",
+      "type": "mchp.pfsoc.ioscb",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[96]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/sd-controller",
+      "type": "cadence.sdhci",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[88]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/sd-controller/generic-sdhci",
+      "type": "generic-sdhci",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[88]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/sysreg",
+      "type": "mchp.pfsoc.sysreg",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[96]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/u-cluster",
+      "type": "cpu-cluster",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/u-cluster/u-cpus",
+      "type": "riscv.hart_array",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/u-cluster/u-cpus/harts[0]",
+      "type": "sifive-u54-riscv-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/u-cluster/u-cpus/harts[1]",
+      "type": "sifive-u54-riscv-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/u-cluster/u-cpus/harts[2]",
+      "type": "sifive-u54-riscv-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/u-cluster/u-cpus/harts[3]",
+      "type": "sifive-u54-riscv-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[0]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[10]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[11]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[12]",
+      "type": "mchp.pfsoc.uart",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[90]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[12]/serial-mm",
+      "type": "serial-mm",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[90]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[12]/serial-mm/serial",
+      "type": "serial",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[13]",
+      "type": "mchp.pfsoc.uart",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[91]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[13]/serial-mm",
+      "type": "serial-mm",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[91]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[13]/serial-mm/serial",
+      "type": "serial",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[14]",
+      "type": "mchp.pfsoc.uart",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[92]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[14]/serial-mm",
+      "type": "serial-mm",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[92]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[14]/serial-mm/serial",
+      "type": "serial",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[15]",
+      "type": "mchp.pfsoc.uart",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[93]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[15]/serial-mm",
+      "type": "serial-mm",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[93]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[15]/serial-mm/serial",
+      "type": "serial",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[16]",
+      "type": "mchp.pfsoc.uart",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[94]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[16]/serial-mm",
+      "type": "serial-mm",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[8]/unnamed-gpio-in[94]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[16]/serial-mm/serial",
+      "type": "serial",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[17]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[18]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[19]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[1]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[20]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[21]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[22]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[23]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[24]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[25]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[26]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[27]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[28]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[29]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[2]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[30]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[31]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[32]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[33]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[34]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[3]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[4]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[5]",
+      "type": "riscv.aclint.swi",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/e-cluster/e-cpus/harts[0]/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/u-cluster/u-cpus/harts[0]/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/soc/u-cluster/u-cpus/harts[1]/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "unnamed-gpio-out[3]",
+          "target": "/machine/soc/u-cluster/u-cpus/harts[2]/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "unnamed-gpio-out[4]",
+          "target": "/machine/soc/u-cluster/u-cpus/harts[3]/unnamed-gpio-in[3]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[6]",
+      "type": "riscv.aclint.mtimer",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/e-cluster/e-cpus/harts[0]/unnamed-gpio-in[7]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/u-cluster/u-cpus/harts[0]/unnamed-gpio-in[7]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/soc/u-cluster/u-cpus/harts[1]/unnamed-gpio-in[7]"
+        },
+        {
+          "output": "unnamed-gpio-out[3]",
+          "target": "/machine/soc/u-cluster/u-cpus/harts[2]/unnamed-gpio-in[7]"
+        },
+        {
+          "output": "unnamed-gpio-out[4]",
+          "target": "/machine/soc/u-cluster/u-cpus/harts[3]/unnamed-gpio-in[7]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[7]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[8]",
+      "type": "riscv.sifive.plic",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/u-cluster/u-cpus/harts[0]/unnamed-gpio-in[9]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/soc/u-cluster/u-cpus/harts[1]/unnamed-gpio-in[9]"
+        },
+        {
+          "output": "unnamed-gpio-out[3]",
+          "target": "/machine/soc/u-cluster/u-cpus/harts[2]/unnamed-gpio-in[9]"
+        },
+        {
+          "output": "unnamed-gpio-out[4]",
+          "target": "/machine/soc/u-cluster/u-cpus/harts[3]/unnamed-gpio-in[9]"
+        },
+        {
+          "output": "unnamed-gpio-out[5]",
+          "target": "/machine/soc/e-cluster/e-cpus/harts[0]/unnamed-gpio-in[11]"
+        },
+        {
+          "output": "unnamed-gpio-out[6]",
+          "target": "/machine/soc/u-cluster/u-cpus/harts[0]/unnamed-gpio-in[11]"
+        },
+        {
+          "output": "unnamed-gpio-out[7]",
+          "target": "/machine/soc/u-cluster/u-cpus/harts[1]/unnamed-gpio-in[11]"
+        },
+        {
+          "output": "unnamed-gpio-out[8]",
+          "target": "/machine/soc/u-cluster/u-cpus/harts[2]/unnamed-gpio-in[11]"
+        },
+        {
+          "output": "unnamed-gpio-out[9]",
+          "target": "/machine/soc/u-cluster/u-cpus/harts[3]/unnamed-gpio-in[11]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[9]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    }
+  ],
+  "spaces": [
+    {
+      "id": "view-ab75ff2bc906",
+      "names": ["I/O"],
+      "root": "io",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x10000",
+          "name": "io",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        }
+      ]
+    },
+    {
+      "id": "view-709aea9bbcdb",
+      "names": [
+        "cpu-memory-0",
+        "cpu-memory-1",
+        "cpu-memory-2",
+        "cpu-memory-3",
+        "cpu-memory-4",
+        "dma",
+        "dma",
+        "memory"
+      ],
+      "root": "system",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x100",
+          "name": "microchip.pfsoc.rsvd0_mem",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        },
+        {
+          "base": "0x1000000",
+          "size": "0x2000",
+          "name": "microchip.pfsoc.e51_dtim_mem",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        },
+        {
+          "base": "0x1700000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.buserr_unit0_mem",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[0]"
+        },
+        {
+          "base": "0x1701000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.buserr_unit1_mem",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[1]"
+        },
+        {
+          "base": "0x1702000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.buserr_unit2_mem",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[2]"
+        },
+        {
+          "base": "0x1703000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.buserr_unit3_mem",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[3]"
+        },
+        {
+          "base": "0x1704000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.buserr_unit4_mem",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[4]"
+        },
+        {
+          "base": "0x2000000",
+          "size": "0x4000",
+          "name": "riscv.aclint.swi",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[5]"
+        },
+        {
+          "base": "0x2004000",
+          "size": "0x8000",
+          "name": "riscv.aclint.mtimer",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[6]"
+        },
+        {
+          "base": "0x2010000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.l2cc",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[7]"
+        },
+        {
+          "base": "0x3000000",
+          "size": "0x100000",
+          "name": "sifive.pdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/dma-controller"
+        },
+        {
+          "base": "0x8000000",
+          "size": "0x2000000",
+          "name": "microchip.pfsoc.l2lim",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        },
+        {
+          "base": "0xc000000",
+          "size": "0x4000000",
+          "name": "riscv.sifive.plic",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[8]"
+        },
+        {
+          "base": "0x20000000",
+          "size": "0x20",
+          "name": "serial",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[12]/serial-mm"
+        },
+        {
+          "base": "0x20000020",
+          "size": "0xfe0",
+          "name": "mchp.pfsoc.mmuart.regs",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[12]"
+        },
+        {
+          "base": "0x20001000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.watchdog0",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[17]"
+        },
+        {
+          "base": "0x20002000",
+          "size": "0x2000",
+          "name": "mchp.pfsoc.sysreg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/sysreg"
+        },
+        {
+          "base": "0x20004000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.axisw",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[9]"
+        },
+        {
+          "base": "0x20005000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.mpucfg",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[10]"
+        },
+        {
+          "base": "0x20006000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.fmeter",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[11]"
+        },
+        {
+          "base": "0x20007000",
+          "size": "0x1000",
+          "name": "mchp.pfsoc.ddr_sgmii_phy",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ddr-sgmii-phy"
+        },
+        {
+          "base": "0x20008000",
+          "size": "0x100",
+          "name": "cadence.sdhci",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/sd-controller"
+        },
+        {
+          "base": "0x20008200",
+          "size": "0x100",
+          "name": "sdhci",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/sd-controller/generic-sdhci"
+        },
+        {
+          "base": "0x20080000",
+          "size": "0x40000",
+          "name": "mchp.pfsoc.ddr_cfg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ddr-cfg"
+        },
+        {
+          "base": "0x20100000",
+          "size": "0x20",
+          "name": "serial",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[13]/serial-mm"
+        },
+        {
+          "base": "0x20100020",
+          "size": "0xfe0",
+          "name": "mchp.pfsoc.mmuart.regs",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[13]"
+        },
+        {
+          "base": "0x20101000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.watchdog1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[18]"
+        },
+        {
+          "base": "0x20102000",
+          "size": "0x20",
+          "name": "serial",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[14]/serial-mm"
+        },
+        {
+          "base": "0x20102020",
+          "size": "0xfe0",
+          "name": "mchp.pfsoc.mmuart.regs",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[14]"
+        },
+        {
+          "base": "0x20103000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.watchdog2",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[19]"
+        },
+        {
+          "base": "0x20104000",
+          "size": "0x20",
+          "name": "serial",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[15]/serial-mm"
+        },
+        {
+          "base": "0x20104020",
+          "size": "0xfe0",
+          "name": "mchp.pfsoc.mmuart.regs",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[15]"
+        },
+        {
+          "base": "0x20105000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.watchdog3",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[20]"
+        },
+        {
+          "base": "0x20106000",
+          "size": "0x20",
+          "name": "serial",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[16]/serial-mm"
+        },
+        {
+          "base": "0x20106020",
+          "size": "0xfe0",
+          "name": "mchp.pfsoc.mmuart.regs",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[16]"
+        },
+        {
+          "base": "0x20108000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.spi0",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[22]"
+        },
+        {
+          "base": "0x20109000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.spi1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[23]"
+        },
+        {
+          "base": "0x2010a000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.i2c0",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[24]"
+        },
+        {
+          "base": "0x2010b000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.i2c1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[25]"
+        },
+        {
+          "base": "0x2010c000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.can0",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[26]"
+        },
+        {
+          "base": "0x2010d000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.can1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[27]"
+        },
+        {
+          "base": "0x20110000",
+          "size": "0x800",
+          "name": "enet",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gem0"
+        },
+        {
+          "base": "0x20112000",
+          "size": "0x800",
+          "name": "enet",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gem1"
+        },
+        {
+          "base": "0x20120000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.gpio0",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[29]"
+        },
+        {
+          "base": "0x20121000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.gpio1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[30]"
+        },
+        {
+          "base": "0x20122000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.gpio2",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[31]"
+        },
+        {
+          "base": "0x20201000",
+          "size": "0x1000",
+          "name": "microchip.pfsoc.usb",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[28]"
+        },
+        {
+          "base": "0x20220000",
+          "size": "0x20000",
+          "name": "microchip.pfsoc.envm.data",
+          "kind": "rom",
+          "priority": 0,
+          "owner": "/machine/soc"
+        },
+        {
+          "base": "0x21000000",
+          "size": "0x1000000",
+          "name": "microchip.pfsoc.qspi_xip",
+          "kind": "rom",
+          "priority": 0,
+          "owner": "/machine/soc"
+        },
+        {
+          "base": "0x36500000",
+          "size": "0x1000",
+          "name": "mchp.pfsoc.ioscb.lane01",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x36510000",
+          "size": "0x1000",
+          "name": "mchp.pfsoc.ioscb.lane23",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x37020000",
+          "size": "0x100",
+          "name": "mchp.pfsoc.ioscb.ctrl",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x37020100",
+          "size": "0x200",
+          "name": "mchp.pfsoc.ioscb.qspixip",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x37020300",
+          "size": "0x500",
+          "name": "mchp.pfsoc.ioscb.ctrl @0000000000000300",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x37020800",
+          "size": "0x1000",
+          "name": "mchp.pfsoc.ioscb.mailbox",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x37080000",
+          "size": "0x1000",
+          "name": "mchp.pfsoc.ioscb.cfg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x38000000",
+          "size": "0x100000",
+          "name": "mchp.pfsoc.ioscb.ccc",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x38100000",
+          "size": "0x1000",
+          "name": "mchp.pfsoc.ioscb.pll_nw_0",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x38101000",
+          "size": "0xff000",
+          "name": "mchp.pfsoc.ioscb.ccc @0000000000101000",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x38200000",
+          "size": "0x1000",
+          "name": "mchp.pfsoc.ioscb.pll_nw_1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x38201000",
+          "size": "0x1dff000",
+          "name": "mchp.pfsoc.ioscb.ccc @0000000000201000",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x3e001000",
+          "size": "0x1000",
+          "name": "mchp.pfsoc.ioscb.pll_mss",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x3e002000",
+          "size": "0x1000",
+          "name": "mchp.pfsoc.ioscb.cfm_mss",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x3e010000",
+          "size": "0x1000",
+          "name": "mchp.pfsoc.ioscb.pll_ddr",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x3e020000",
+          "size": "0x1000",
+          "name": "mchp.pfsoc.ioscb.bc_ddr",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x3e040000",
+          "size": "0x1000",
+          "name": "mchp.pfsoc.ioscb.io_calib_ddr",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x3e080000",
+          "size": "0x1000",
+          "name": "mchp.pfsoc.ioscb.pll_sgmii",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x3e100000",
+          "size": "0x1000",
+          "name": "mchp.pfsoc.ioscb.dll_sgmii",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x3e200000",
+          "size": "0x1000",
+          "name": "mchp.pfsoc.ioscb.cfm_sgmii",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x3e400000",
+          "size": "0x1000",
+          "name": "mchp.pfsoc.ioscb.bc_sgmii",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x3e800000",
+          "size": "0x1000",
+          "name": "mchp.pfsoc.ioscb.io_calib_sgmii",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ioscb"
+        },
+        {
+          "base": "0x40000000",
+          "size": "0x20000000",
+          "name": "microchip.pfsoc.fabricfic3",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[32]"
+        },
+        {
+          "base": "0x80000000",
+          "size": "0x40000000",
+          "name": "microchip.icicle.kit.ram",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/microchip.icicle.kit.ram"
+        },
+        {
+          "base": "0xc0000000",
+          "size": "0x40000000",
+          "name": "microchip.icicle.kit.ram",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/microchip.icicle.kit.ram"
+        },
+        {
+          "base": "0x1000000000",
+          "size": "0x20100000",
+          "name": "microchip.icicle.kit.ram @0000000040000000",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/microchip.icicle.kit.ram"
+        },
+        {
+          "base": "0x1400000000",
+          "size": "0x20100000",
+          "name": "microchip.icicle.kit.ram @0000000040000000",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/microchip.icicle.kit.ram"
+        },
+        {
+          "base": "0x2000000000",
+          "size": "0x1000000000",
+          "name": "microchip.pfsoc.fabricfic0",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[33]"
+        },
+        {
+          "base": "0x3000000000",
+          "size": "0x1000000000",
+          "name": "microchip.pfsoc.fabricfic1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[34]"
+        }
+      ]
+    }
+  ],
+  "boardId": "microchip-icicle-kit",
+  "qemuCommit": "4fc49f46dc95d4a27de2509e7fceb2931e91faeb",
+  "target": "riscv64",
+  "arguments": [
+    "-M",
+    "microchip-icicle-kit",
+    "-smp",
+    "5",
+    "-m",
+    "1537M",
+    "-bios",
+    "build/qemu/inventory-stub.bin",
+    "-accel",
+    "tcg",
+    "-S",
+    "-display",
+    "none",
+    "-serial",
+    "null",
+    "-monitor",
+    "none",
+    "-nodefaults",
+    "-no-user-config",
+    "-nic",
+    "none",
+    "-audio",
+    "driver=none",
+    "-qmp",
+    "stdio"
+  ],
+  "buildOptions": {
+    "default_devices": true,
+    "slirp": "auto",
+    "rust": "disabled"
+  }
+}

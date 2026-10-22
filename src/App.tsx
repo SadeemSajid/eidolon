@@ -3,6 +3,8 @@ import {
   Background,
   Controls,
   Handle,
+  MiniMap,
+  useReactFlow,
   Position,
   ReactFlow,
   ReactFlowProvider,
@@ -31,7 +33,7 @@ import "./App.css";
 
 function HardwareBlock({ data }: NodeProps<HardwareNode>) {
   return (
-    <div className={`hardware-block kind-${data.kind}`}>
+    <div className={`hardware-block kind-${data.kind} status-${data.status}`}>
       <Handle
         type="target"
         position={Position.Left}
@@ -58,14 +60,24 @@ function HardwareBlock({ data }: NodeProps<HardwareNode>) {
       />
       <span className="block-kind">{data.kind.replace(/-/g, " ")}</span>
       <strong>{data.label}</strong>
-      {data.regions.map((region) => (
+      <span className={`device-status status-${data.status}`}>
+        {data.status}
+      </span>
+      {data.regions.slice(0, 2).map((region) => (
         <code key={region.name}>{regionRange(region)}</code>
       ))}
+      {data.regions.length > 2 && (
+        <span className="block-hint">
+          +{data.regions.length - 2} mappings · inspect for details
+        </span>
+      )}
       {!data.regions.length && (
         <span className="block-hint">
           {data.kind === "cpu"
             ? "Instruction execution"
-            : "Memory and MMIO routing"}
+            : data.status === "unsupported"
+              ? "Not implemented in QEMU"
+              : "No mapping in primary view"}
         </span>
       )}
     </div>
@@ -84,6 +96,8 @@ function BoardCanvas({
   onToggleInspector: () => void;
   onOpenInspector: () => void;
 }) {
+  const { fitView } = useReactFlow();
+  const [deviceQuery, setDeviceQuery] = useState("");
   const diagram = useMemo(() => createDiagram(board), [board]);
   const [nodes, setNodes, onNodesChange] = useNodesState(diagram.nodes);
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -97,7 +111,7 @@ function BoardCanvas({
     <>
       <main aria-label={`${board.name} architectural diagram`}>
         <div className="canvas-heading">
-          <span className="eyebrow">{board.machine} · CORE VIEW</span>
+          <span className="eyebrow">{board.machine} · CAPTURED INVENTORY</span>
           <span>{nodes.length} blocks · 24px grid</span>
         </div>
         <ReactFlow
@@ -119,27 +133,67 @@ function BoardCanvas({
           fitView
           fitViewOptions={{ padding: 0.18 }}
           colorMode="dark"
-          minZoom={0.2}
+          minZoom={0.02}
           maxZoom={2}
         >
           <Background gap={GRID_SIZE} size={1} />
           <Controls showInteractive={false} />
+          <MiniMap
+            pannable
+            zoomable
+            nodeColor={(node) =>
+              node.data.status === "stub" || node.data.status === "unsupported"
+                ? "#df2935"
+                : "#3772ff"
+            }
+          />
         </ReactFlow>
+        <form
+          className="device-finder"
+          onSubmit={(event) => {
+            event.preventDefault();
+            const match = board.blocks.find((block) =>
+              `${block.label} ${block.deviceType ?? ""} ${block.qomPath ?? ""}`
+                .toLowerCase()
+                .includes(deviceQuery.trim().toLowerCase()),
+            );
+            if (match && deviceQuery.trim()) {
+              setSelectedId(match.id);
+              setActivePanel("inspector");
+              onOpenInspector();
+              void fitView({
+                nodes: [{ id: match.id }],
+                duration: 250,
+                maxZoom: 1,
+              });
+            }
+          }}
+        >
+          <input
+            aria-label="Find device"
+            placeholder="Find GPIO, I²C, DMA…"
+            value={deviceQuery}
+            onChange={(event) => setDeviceQuery(event.target.value)}
+          />
+          <button type="submit">Find</button>
+        </form>
         <div className="canvas-tools">
           <details className="diagram-legend">
             <summary>Diagram legend</summary>
             <div className="legend-content">
               <div>
                 <span className="legend-line" aria-hidden="true" />
-                <span>Memory / MMIO access</span>
+                <span>Address decode / device bus</span>
               </div>
               <div>
                 <span className="legend-line interrupt" aria-hidden="true" />
-                <span>Interrupt delivery</span>
+                <span>IRQ / GPIO signal links</span>
               </div>
               <p>
-                Connections show logical access and interrupt routing, not
-                physical interconnect timing.
+                Solid lines show resolved address decoding or parent buses.
+                Dashed lines show connected QOM IRQ/GPIO outputs. Red/dashed
+                blocks are unsupported, inactive or stub devices. This is not a
+                timing model.
               </p>
             </div>
           </details>
@@ -256,7 +310,8 @@ function BoardCanvas({
             </p>
             <h2>{selected?.label ?? board.name}</h2>
             <p className="muted">
-              {selected?.description ?? board.configuration}
+              {selected?.description ??
+                `QEMU 11.1.2 · ${board.inventory.devices.length} device objects · ${board.inventory.spaces.length} address-space views`}
             </p>
             {selected ? (
               <>
@@ -302,8 +357,9 @@ function BoardCanvas({
                   </p>
                 ))}
                 <p className="muted">
-                  Static source check only. No runtime validation or guest boot
-                  has been performed.
+                  Captured after device initialization with CPUs paused.
+                  Exported memory views and connected QOM signals are included;
+                  guest boot has not been verified.
                 </p>
               </>
             )}
@@ -311,6 +367,10 @@ function BoardCanvas({
               <summary>Diagram coverage and provenance</summary>
               <p className="muted">{board.coverage}</p>
               <p className="muted">QEMU 11.1.2 · {board.source}</p>
+              <details>
+                <summary>Exact capture arguments</summary>
+                <code className="source-reference">{board.configuration}</code>
+              </details>
               <code className="source-reference">{sourceUrl(board)}</code>
             </details>
             <label htmlFor="boot-target">Software target</label>
@@ -466,7 +526,7 @@ export default function App() {
       </div>
       <footer>
         <span>QEMU runtime not connected</span>
-        <span>Source-derived architecture · fixed board topology</span>
+        <span>Captured QEMU inventory · fixed board topology</span>
       </footer>
     </div>
   );

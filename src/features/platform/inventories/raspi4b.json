@@ -1,0 +1,3385 @@
+{
+  "version": {
+    "qemu": {
+      "micro": 2,
+      "minor": 1,
+      "major": 11
+    },
+    "package": "v11.1.2"
+  },
+  "devices": [
+    {
+      "path": "/machine/soc",
+      "type": "bcm2838",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/control",
+      "type": "bcm2836-control",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/cpu[0]",
+      "type": "cortex-a72-arm-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "pmu-interrupt[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[215]"
+        },
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[222]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[219]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[218]"
+        },
+        {
+          "output": "unnamed-gpio-out[3]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[221]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/cpu[1]",
+      "type": "cortex-a72-arm-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "pmu-interrupt[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[247]"
+        },
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[254]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[251]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[250]"
+        },
+        {
+          "output": "unnamed-gpio-out[3]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[253]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/cpu[2]",
+      "type": "cortex-a72-arm-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "pmu-interrupt[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[279]"
+        },
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[286]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[283]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[282]"
+        },
+        {
+          "output": "unnamed-gpio-out[3]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[285]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/cpu[3]",
+      "type": "cortex-a72-arm-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "pmu-interrupt[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[311]"
+        },
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[318]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[315]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[314]"
+        },
+        {
+          "output": "unnamed-gpio-out[3]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[317]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gic",
+      "type": "arm_gic",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/cpu[0]/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[10]",
+          "target": "/machine/soc/cpu[2]/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "sysbus-irq[11]",
+          "target": "/machine/soc/cpu[3]/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "sysbus-irq[12]",
+          "target": "/machine/soc/cpu[0]/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "sysbus-irq[13]",
+          "target": "/machine/soc/cpu[1]/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "sysbus-irq[14]",
+          "target": "/machine/soc/cpu[2]/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "sysbus-irq[15]",
+          "target": "/machine/soc/cpu[3]/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "sysbus-irq[16]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[217]"
+        },
+        {
+          "output": "sysbus-irq[17]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[249]"
+        },
+        {
+          "output": "sysbus-irq[18]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[281]"
+        },
+        {
+          "output": "sysbus-irq[19]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[313]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/cpu[1]/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/soc/cpu[2]/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/soc/cpu[3]/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[4]",
+          "target": "/machine/soc/cpu[0]/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[5]",
+          "target": "/machine/soc/cpu[1]/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[6]",
+          "target": "/machine/soc/cpu[2]/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[7]",
+          "target": "/machine/soc/cpu[3]/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[8]",
+          "target": "/machine/soc/cpu[0]/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "sysbus-irq[9]",
+          "target": "/machine/soc/cpu[1]/unnamed-gpio-in[2]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals",
+      "type": "bcm2838-peripherals",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "unnamed-gpio-in[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "unnamed-gpio-in[100]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[100]"
+        },
+        {
+          "output": "unnamed-gpio-in[101]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[101]"
+        },
+        {
+          "output": "unnamed-gpio-in[102]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[102]"
+        },
+        {
+          "output": "unnamed-gpio-in[103]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[103]"
+        },
+        {
+          "output": "unnamed-gpio-in[104]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[104]"
+        },
+        {
+          "output": "unnamed-gpio-in[105]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[105]"
+        },
+        {
+          "output": "unnamed-gpio-in[106]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[106]"
+        },
+        {
+          "output": "unnamed-gpio-in[107]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[107]"
+        },
+        {
+          "output": "unnamed-gpio-in[108]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[108]"
+        },
+        {
+          "output": "unnamed-gpio-in[109]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[109]"
+        },
+        {
+          "output": "unnamed-gpio-in[10]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[10]"
+        },
+        {
+          "output": "unnamed-gpio-in[110]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[110]"
+        },
+        {
+          "output": "unnamed-gpio-in[111]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[111]"
+        },
+        {
+          "output": "unnamed-gpio-in[112]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[112]"
+        },
+        {
+          "output": "unnamed-gpio-in[113]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[113]"
+        },
+        {
+          "output": "unnamed-gpio-in[114]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[114]"
+        },
+        {
+          "output": "unnamed-gpio-in[115]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[115]"
+        },
+        {
+          "output": "unnamed-gpio-in[116]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[116]"
+        },
+        {
+          "output": "unnamed-gpio-in[117]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[117]"
+        },
+        {
+          "output": "unnamed-gpio-in[118]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[118]"
+        },
+        {
+          "output": "unnamed-gpio-in[119]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[119]"
+        },
+        {
+          "output": "unnamed-gpio-in[11]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[11]"
+        },
+        {
+          "output": "unnamed-gpio-in[120]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[120]"
+        },
+        {
+          "output": "unnamed-gpio-in[121]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[121]"
+        },
+        {
+          "output": "unnamed-gpio-in[122]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[122]"
+        },
+        {
+          "output": "unnamed-gpio-in[123]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[123]"
+        },
+        {
+          "output": "unnamed-gpio-in[124]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[124]"
+        },
+        {
+          "output": "unnamed-gpio-in[125]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[125]"
+        },
+        {
+          "output": "unnamed-gpio-in[126]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[126]"
+        },
+        {
+          "output": "unnamed-gpio-in[127]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[127]"
+        },
+        {
+          "output": "unnamed-gpio-in[128]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[128]"
+        },
+        {
+          "output": "unnamed-gpio-in[129]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[129]"
+        },
+        {
+          "output": "unnamed-gpio-in[12]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[12]"
+        },
+        {
+          "output": "unnamed-gpio-in[130]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[130]"
+        },
+        {
+          "output": "unnamed-gpio-in[131]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[131]"
+        },
+        {
+          "output": "unnamed-gpio-in[132]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[132]"
+        },
+        {
+          "output": "unnamed-gpio-in[133]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[133]"
+        },
+        {
+          "output": "unnamed-gpio-in[134]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[134]"
+        },
+        {
+          "output": "unnamed-gpio-in[135]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[135]"
+        },
+        {
+          "output": "unnamed-gpio-in[136]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[136]"
+        },
+        {
+          "output": "unnamed-gpio-in[137]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[137]"
+        },
+        {
+          "output": "unnamed-gpio-in[138]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[138]"
+        },
+        {
+          "output": "unnamed-gpio-in[139]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[139]"
+        },
+        {
+          "output": "unnamed-gpio-in[13]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[13]"
+        },
+        {
+          "output": "unnamed-gpio-in[140]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[140]"
+        },
+        {
+          "output": "unnamed-gpio-in[141]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[141]"
+        },
+        {
+          "output": "unnamed-gpio-in[142]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[142]"
+        },
+        {
+          "output": "unnamed-gpio-in[143]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[143]"
+        },
+        {
+          "output": "unnamed-gpio-in[144]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[144]"
+        },
+        {
+          "output": "unnamed-gpio-in[145]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[145]"
+        },
+        {
+          "output": "unnamed-gpio-in[146]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[146]"
+        },
+        {
+          "output": "unnamed-gpio-in[147]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[147]"
+        },
+        {
+          "output": "unnamed-gpio-in[148]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[148]"
+        },
+        {
+          "output": "unnamed-gpio-in[149]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[149]"
+        },
+        {
+          "output": "unnamed-gpio-in[14]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[14]"
+        },
+        {
+          "output": "unnamed-gpio-in[150]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[150]"
+        },
+        {
+          "output": "unnamed-gpio-in[151]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[151]"
+        },
+        {
+          "output": "unnamed-gpio-in[152]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[152]"
+        },
+        {
+          "output": "unnamed-gpio-in[153]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[153]"
+        },
+        {
+          "output": "unnamed-gpio-in[154]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[154]"
+        },
+        {
+          "output": "unnamed-gpio-in[155]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[155]"
+        },
+        {
+          "output": "unnamed-gpio-in[156]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[156]"
+        },
+        {
+          "output": "unnamed-gpio-in[157]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[157]"
+        },
+        {
+          "output": "unnamed-gpio-in[158]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[158]"
+        },
+        {
+          "output": "unnamed-gpio-in[159]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[159]"
+        },
+        {
+          "output": "unnamed-gpio-in[15]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[15]"
+        },
+        {
+          "output": "unnamed-gpio-in[160]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[160]"
+        },
+        {
+          "output": "unnamed-gpio-in[161]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[161]"
+        },
+        {
+          "output": "unnamed-gpio-in[162]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[162]"
+        },
+        {
+          "output": "unnamed-gpio-in[163]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[163]"
+        },
+        {
+          "output": "unnamed-gpio-in[164]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[164]"
+        },
+        {
+          "output": "unnamed-gpio-in[165]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[165]"
+        },
+        {
+          "output": "unnamed-gpio-in[166]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[166]"
+        },
+        {
+          "output": "unnamed-gpio-in[167]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[167]"
+        },
+        {
+          "output": "unnamed-gpio-in[168]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[168]"
+        },
+        {
+          "output": "unnamed-gpio-in[169]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[169]"
+        },
+        {
+          "output": "unnamed-gpio-in[16]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[16]"
+        },
+        {
+          "output": "unnamed-gpio-in[170]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[170]"
+        },
+        {
+          "output": "unnamed-gpio-in[171]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[171]"
+        },
+        {
+          "output": "unnamed-gpio-in[172]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[172]"
+        },
+        {
+          "output": "unnamed-gpio-in[173]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[173]"
+        },
+        {
+          "output": "unnamed-gpio-in[174]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[174]"
+        },
+        {
+          "output": "unnamed-gpio-in[175]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[175]"
+        },
+        {
+          "output": "unnamed-gpio-in[176]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[176]"
+        },
+        {
+          "output": "unnamed-gpio-in[177]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[177]"
+        },
+        {
+          "output": "unnamed-gpio-in[178]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[178]"
+        },
+        {
+          "output": "unnamed-gpio-in[179]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[179]"
+        },
+        {
+          "output": "unnamed-gpio-in[17]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[17]"
+        },
+        {
+          "output": "unnamed-gpio-in[180]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[180]"
+        },
+        {
+          "output": "unnamed-gpio-in[181]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[181]"
+        },
+        {
+          "output": "unnamed-gpio-in[182]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[182]"
+        },
+        {
+          "output": "unnamed-gpio-in[183]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[183]"
+        },
+        {
+          "output": "unnamed-gpio-in[184]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[184]"
+        },
+        {
+          "output": "unnamed-gpio-in[185]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[185]"
+        },
+        {
+          "output": "unnamed-gpio-in[186]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[186]"
+        },
+        {
+          "output": "unnamed-gpio-in[187]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[187]"
+        },
+        {
+          "output": "unnamed-gpio-in[188]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[188]"
+        },
+        {
+          "output": "unnamed-gpio-in[189]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[189]"
+        },
+        {
+          "output": "unnamed-gpio-in[18]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[18]"
+        },
+        {
+          "output": "unnamed-gpio-in[190]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[190]"
+        },
+        {
+          "output": "unnamed-gpio-in[191]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[191]"
+        },
+        {
+          "output": "unnamed-gpio-in[192]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[192]"
+        },
+        {
+          "output": "unnamed-gpio-in[193]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[193]"
+        },
+        {
+          "output": "unnamed-gpio-in[194]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[194]"
+        },
+        {
+          "output": "unnamed-gpio-in[195]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[195]"
+        },
+        {
+          "output": "unnamed-gpio-in[196]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[196]"
+        },
+        {
+          "output": "unnamed-gpio-in[197]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[197]"
+        },
+        {
+          "output": "unnamed-gpio-in[198]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[198]"
+        },
+        {
+          "output": "unnamed-gpio-in[199]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[199]"
+        },
+        {
+          "output": "unnamed-gpio-in[19]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[19]"
+        },
+        {
+          "output": "unnamed-gpio-in[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "unnamed-gpio-in[200]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[200]"
+        },
+        {
+          "output": "unnamed-gpio-in[201]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[201]"
+        },
+        {
+          "output": "unnamed-gpio-in[202]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[202]"
+        },
+        {
+          "output": "unnamed-gpio-in[203]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[203]"
+        },
+        {
+          "output": "unnamed-gpio-in[204]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[204]"
+        },
+        {
+          "output": "unnamed-gpio-in[205]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[205]"
+        },
+        {
+          "output": "unnamed-gpio-in[206]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[206]"
+        },
+        {
+          "output": "unnamed-gpio-in[207]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[207]"
+        },
+        {
+          "output": "unnamed-gpio-in[208]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[208]"
+        },
+        {
+          "output": "unnamed-gpio-in[209]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[209]"
+        },
+        {
+          "output": "unnamed-gpio-in[20]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[20]"
+        },
+        {
+          "output": "unnamed-gpio-in[210]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[210]"
+        },
+        {
+          "output": "unnamed-gpio-in[211]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[211]"
+        },
+        {
+          "output": "unnamed-gpio-in[212]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[212]"
+        },
+        {
+          "output": "unnamed-gpio-in[213]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[213]"
+        },
+        {
+          "output": "unnamed-gpio-in[214]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[214]"
+        },
+        {
+          "output": "unnamed-gpio-in[215]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[215]"
+        },
+        {
+          "output": "unnamed-gpio-in[216]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[216]"
+        },
+        {
+          "output": "unnamed-gpio-in[217]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[217]"
+        },
+        {
+          "output": "unnamed-gpio-in[218]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[218]"
+        },
+        {
+          "output": "unnamed-gpio-in[219]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[219]"
+        },
+        {
+          "output": "unnamed-gpio-in[21]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[21]"
+        },
+        {
+          "output": "unnamed-gpio-in[220]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[220]"
+        },
+        {
+          "output": "unnamed-gpio-in[221]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[221]"
+        },
+        {
+          "output": "unnamed-gpio-in[222]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[222]"
+        },
+        {
+          "output": "unnamed-gpio-in[223]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[223]"
+        },
+        {
+          "output": "unnamed-gpio-in[224]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[224]"
+        },
+        {
+          "output": "unnamed-gpio-in[225]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[225]"
+        },
+        {
+          "output": "unnamed-gpio-in[226]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[226]"
+        },
+        {
+          "output": "unnamed-gpio-in[227]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[227]"
+        },
+        {
+          "output": "unnamed-gpio-in[228]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[228]"
+        },
+        {
+          "output": "unnamed-gpio-in[229]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[229]"
+        },
+        {
+          "output": "unnamed-gpio-in[22]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[22]"
+        },
+        {
+          "output": "unnamed-gpio-in[230]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[230]"
+        },
+        {
+          "output": "unnamed-gpio-in[231]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[231]"
+        },
+        {
+          "output": "unnamed-gpio-in[232]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[232]"
+        },
+        {
+          "output": "unnamed-gpio-in[233]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[233]"
+        },
+        {
+          "output": "unnamed-gpio-in[234]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[234]"
+        },
+        {
+          "output": "unnamed-gpio-in[235]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[235]"
+        },
+        {
+          "output": "unnamed-gpio-in[236]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[236]"
+        },
+        {
+          "output": "unnamed-gpio-in[237]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[237]"
+        },
+        {
+          "output": "unnamed-gpio-in[238]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[238]"
+        },
+        {
+          "output": "unnamed-gpio-in[239]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[239]"
+        },
+        {
+          "output": "unnamed-gpio-in[23]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[23]"
+        },
+        {
+          "output": "unnamed-gpio-in[240]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[240]"
+        },
+        {
+          "output": "unnamed-gpio-in[241]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[241]"
+        },
+        {
+          "output": "unnamed-gpio-in[242]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[242]"
+        },
+        {
+          "output": "unnamed-gpio-in[243]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[243]"
+        },
+        {
+          "output": "unnamed-gpio-in[244]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[244]"
+        },
+        {
+          "output": "unnamed-gpio-in[245]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[245]"
+        },
+        {
+          "output": "unnamed-gpio-in[246]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[246]"
+        },
+        {
+          "output": "unnamed-gpio-in[247]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[247]"
+        },
+        {
+          "output": "unnamed-gpio-in[248]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[248]"
+        },
+        {
+          "output": "unnamed-gpio-in[249]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[249]"
+        },
+        {
+          "output": "unnamed-gpio-in[24]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[24]"
+        },
+        {
+          "output": "unnamed-gpio-in[250]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[250]"
+        },
+        {
+          "output": "unnamed-gpio-in[251]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[251]"
+        },
+        {
+          "output": "unnamed-gpio-in[252]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[252]"
+        },
+        {
+          "output": "unnamed-gpio-in[253]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[253]"
+        },
+        {
+          "output": "unnamed-gpio-in[254]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[254]"
+        },
+        {
+          "output": "unnamed-gpio-in[255]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[255]"
+        },
+        {
+          "output": "unnamed-gpio-in[256]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[256]"
+        },
+        {
+          "output": "unnamed-gpio-in[257]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[257]"
+        },
+        {
+          "output": "unnamed-gpio-in[258]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[258]"
+        },
+        {
+          "output": "unnamed-gpio-in[259]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[259]"
+        },
+        {
+          "output": "unnamed-gpio-in[25]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[25]"
+        },
+        {
+          "output": "unnamed-gpio-in[260]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[260]"
+        },
+        {
+          "output": "unnamed-gpio-in[261]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[261]"
+        },
+        {
+          "output": "unnamed-gpio-in[262]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[262]"
+        },
+        {
+          "output": "unnamed-gpio-in[263]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[263]"
+        },
+        {
+          "output": "unnamed-gpio-in[264]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[264]"
+        },
+        {
+          "output": "unnamed-gpio-in[265]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[265]"
+        },
+        {
+          "output": "unnamed-gpio-in[266]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[266]"
+        },
+        {
+          "output": "unnamed-gpio-in[267]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[267]"
+        },
+        {
+          "output": "unnamed-gpio-in[268]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[268]"
+        },
+        {
+          "output": "unnamed-gpio-in[269]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[269]"
+        },
+        {
+          "output": "unnamed-gpio-in[26]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[26]"
+        },
+        {
+          "output": "unnamed-gpio-in[270]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[270]"
+        },
+        {
+          "output": "unnamed-gpio-in[271]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[271]"
+        },
+        {
+          "output": "unnamed-gpio-in[272]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[272]"
+        },
+        {
+          "output": "unnamed-gpio-in[273]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[273]"
+        },
+        {
+          "output": "unnamed-gpio-in[274]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[274]"
+        },
+        {
+          "output": "unnamed-gpio-in[275]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[275]"
+        },
+        {
+          "output": "unnamed-gpio-in[276]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[276]"
+        },
+        {
+          "output": "unnamed-gpio-in[277]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[277]"
+        },
+        {
+          "output": "unnamed-gpio-in[278]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[278]"
+        },
+        {
+          "output": "unnamed-gpio-in[279]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[279]"
+        },
+        {
+          "output": "unnamed-gpio-in[27]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[27]"
+        },
+        {
+          "output": "unnamed-gpio-in[280]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[280]"
+        },
+        {
+          "output": "unnamed-gpio-in[281]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[281]"
+        },
+        {
+          "output": "unnamed-gpio-in[282]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[282]"
+        },
+        {
+          "output": "unnamed-gpio-in[283]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[283]"
+        },
+        {
+          "output": "unnamed-gpio-in[284]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[284]"
+        },
+        {
+          "output": "unnamed-gpio-in[285]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[285]"
+        },
+        {
+          "output": "unnamed-gpio-in[286]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[286]"
+        },
+        {
+          "output": "unnamed-gpio-in[287]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[287]"
+        },
+        {
+          "output": "unnamed-gpio-in[288]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[288]"
+        },
+        {
+          "output": "unnamed-gpio-in[289]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[289]"
+        },
+        {
+          "output": "unnamed-gpio-in[28]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[28]"
+        },
+        {
+          "output": "unnamed-gpio-in[290]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[290]"
+        },
+        {
+          "output": "unnamed-gpio-in[291]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[291]"
+        },
+        {
+          "output": "unnamed-gpio-in[292]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[292]"
+        },
+        {
+          "output": "unnamed-gpio-in[293]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[293]"
+        },
+        {
+          "output": "unnamed-gpio-in[294]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[294]"
+        },
+        {
+          "output": "unnamed-gpio-in[295]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[295]"
+        },
+        {
+          "output": "unnamed-gpio-in[296]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[296]"
+        },
+        {
+          "output": "unnamed-gpio-in[297]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[297]"
+        },
+        {
+          "output": "unnamed-gpio-in[298]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[298]"
+        },
+        {
+          "output": "unnamed-gpio-in[299]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[299]"
+        },
+        {
+          "output": "unnamed-gpio-in[29]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[29]"
+        },
+        {
+          "output": "unnamed-gpio-in[2]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "unnamed-gpio-in[300]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[300]"
+        },
+        {
+          "output": "unnamed-gpio-in[301]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[301]"
+        },
+        {
+          "output": "unnamed-gpio-in[302]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[302]"
+        },
+        {
+          "output": "unnamed-gpio-in[303]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[303]"
+        },
+        {
+          "output": "unnamed-gpio-in[304]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[304]"
+        },
+        {
+          "output": "unnamed-gpio-in[305]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[305]"
+        },
+        {
+          "output": "unnamed-gpio-in[306]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[306]"
+        },
+        {
+          "output": "unnamed-gpio-in[307]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[307]"
+        },
+        {
+          "output": "unnamed-gpio-in[308]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[308]"
+        },
+        {
+          "output": "unnamed-gpio-in[309]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[309]"
+        },
+        {
+          "output": "unnamed-gpio-in[30]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[30]"
+        },
+        {
+          "output": "unnamed-gpio-in[310]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[310]"
+        },
+        {
+          "output": "unnamed-gpio-in[311]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[311]"
+        },
+        {
+          "output": "unnamed-gpio-in[312]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[312]"
+        },
+        {
+          "output": "unnamed-gpio-in[313]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[313]"
+        },
+        {
+          "output": "unnamed-gpio-in[314]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[314]"
+        },
+        {
+          "output": "unnamed-gpio-in[315]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[315]"
+        },
+        {
+          "output": "unnamed-gpio-in[316]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[316]"
+        },
+        {
+          "output": "unnamed-gpio-in[317]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[317]"
+        },
+        {
+          "output": "unnamed-gpio-in[318]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[318]"
+        },
+        {
+          "output": "unnamed-gpio-in[319]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[319]"
+        },
+        {
+          "output": "unnamed-gpio-in[31]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[31]"
+        },
+        {
+          "output": "unnamed-gpio-in[32]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[32]"
+        },
+        {
+          "output": "unnamed-gpio-in[33]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[33]"
+        },
+        {
+          "output": "unnamed-gpio-in[34]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[34]"
+        },
+        {
+          "output": "unnamed-gpio-in[35]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[35]"
+        },
+        {
+          "output": "unnamed-gpio-in[36]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[36]"
+        },
+        {
+          "output": "unnamed-gpio-in[37]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[37]"
+        },
+        {
+          "output": "unnamed-gpio-in[38]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[38]"
+        },
+        {
+          "output": "unnamed-gpio-in[39]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[39]"
+        },
+        {
+          "output": "unnamed-gpio-in[3]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "unnamed-gpio-in[40]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[40]"
+        },
+        {
+          "output": "unnamed-gpio-in[41]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[41]"
+        },
+        {
+          "output": "unnamed-gpio-in[42]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[42]"
+        },
+        {
+          "output": "unnamed-gpio-in[43]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[43]"
+        },
+        {
+          "output": "unnamed-gpio-in[44]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[44]"
+        },
+        {
+          "output": "unnamed-gpio-in[45]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[45]"
+        },
+        {
+          "output": "unnamed-gpio-in[46]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[46]"
+        },
+        {
+          "output": "unnamed-gpio-in[47]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[47]"
+        },
+        {
+          "output": "unnamed-gpio-in[48]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[48]"
+        },
+        {
+          "output": "unnamed-gpio-in[49]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[49]"
+        },
+        {
+          "output": "unnamed-gpio-in[4]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[4]"
+        },
+        {
+          "output": "unnamed-gpio-in[50]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[50]"
+        },
+        {
+          "output": "unnamed-gpio-in[51]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[51]"
+        },
+        {
+          "output": "unnamed-gpio-in[52]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[52]"
+        },
+        {
+          "output": "unnamed-gpio-in[53]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[53]"
+        },
+        {
+          "output": "unnamed-gpio-in[54]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[54]"
+        },
+        {
+          "output": "unnamed-gpio-in[55]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[55]"
+        },
+        {
+          "output": "unnamed-gpio-in[56]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[56]"
+        },
+        {
+          "output": "unnamed-gpio-in[57]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[57]"
+        },
+        {
+          "output": "unnamed-gpio-in[58]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[58]"
+        },
+        {
+          "output": "unnamed-gpio-in[59]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[59]"
+        },
+        {
+          "output": "unnamed-gpio-in[5]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[5]"
+        },
+        {
+          "output": "unnamed-gpio-in[60]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[60]"
+        },
+        {
+          "output": "unnamed-gpio-in[61]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[61]"
+        },
+        {
+          "output": "unnamed-gpio-in[62]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[62]"
+        },
+        {
+          "output": "unnamed-gpio-in[63]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[63]"
+        },
+        {
+          "output": "unnamed-gpio-in[64]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[64]"
+        },
+        {
+          "output": "unnamed-gpio-in[65]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[65]"
+        },
+        {
+          "output": "unnamed-gpio-in[66]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[66]"
+        },
+        {
+          "output": "unnamed-gpio-in[67]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[67]"
+        },
+        {
+          "output": "unnamed-gpio-in[68]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[68]"
+        },
+        {
+          "output": "unnamed-gpio-in[69]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[69]"
+        },
+        {
+          "output": "unnamed-gpio-in[6]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[6]"
+        },
+        {
+          "output": "unnamed-gpio-in[70]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[70]"
+        },
+        {
+          "output": "unnamed-gpio-in[71]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[71]"
+        },
+        {
+          "output": "unnamed-gpio-in[72]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[72]"
+        },
+        {
+          "output": "unnamed-gpio-in[73]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[73]"
+        },
+        {
+          "output": "unnamed-gpio-in[74]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[74]"
+        },
+        {
+          "output": "unnamed-gpio-in[75]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[75]"
+        },
+        {
+          "output": "unnamed-gpio-in[76]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[76]"
+        },
+        {
+          "output": "unnamed-gpio-in[77]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[77]"
+        },
+        {
+          "output": "unnamed-gpio-in[78]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[78]"
+        },
+        {
+          "output": "unnamed-gpio-in[79]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[79]"
+        },
+        {
+          "output": "unnamed-gpio-in[7]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[7]"
+        },
+        {
+          "output": "unnamed-gpio-in[80]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[80]"
+        },
+        {
+          "output": "unnamed-gpio-in[81]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[81]"
+        },
+        {
+          "output": "unnamed-gpio-in[82]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[82]"
+        },
+        {
+          "output": "unnamed-gpio-in[83]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[83]"
+        },
+        {
+          "output": "unnamed-gpio-in[84]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[84]"
+        },
+        {
+          "output": "unnamed-gpio-in[85]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[85]"
+        },
+        {
+          "output": "unnamed-gpio-in[86]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[86]"
+        },
+        {
+          "output": "unnamed-gpio-in[87]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[87]"
+        },
+        {
+          "output": "unnamed-gpio-in[88]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[88]"
+        },
+        {
+          "output": "unnamed-gpio-in[89]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[89]"
+        },
+        {
+          "output": "unnamed-gpio-in[8]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[8]"
+        },
+        {
+          "output": "unnamed-gpio-in[90]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[90]"
+        },
+        {
+          "output": "unnamed-gpio-in[91]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[91]"
+        },
+        {
+          "output": "unnamed-gpio-in[92]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[92]"
+        },
+        {
+          "output": "unnamed-gpio-in[93]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[93]"
+        },
+        {
+          "output": "unnamed-gpio-in[94]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[94]"
+        },
+        {
+          "output": "unnamed-gpio-in[95]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[95]"
+        },
+        {
+          "output": "unnamed-gpio-in[96]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[96]"
+        },
+        {
+          "output": "unnamed-gpio-in[97]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[97]"
+        },
+        {
+          "output": "unnamed-gpio-in[98]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[98]"
+        },
+        {
+          "output": "unnamed-gpio-in[99]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[99]"
+        },
+        {
+          "output": "unnamed-gpio-in[9]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[9]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals/aux",
+      "type": "bcm2835-aux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[93]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals/bcm2835-ave0",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/bcm2835-clkisp",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/bcm2835-dbus",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/bcm2835-i2c0",
+      "type": "bcm2835-i2c",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/peripherals/orgated-i2c-irq/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals/bcm2835-i2c1",
+      "type": "bcm2835-i2c",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/peripherals/orgated-i2c-irq/unnamed-gpio-in[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals/bcm2835-i2c2",
+      "type": "bcm2835-i2c",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/peripherals/orgated-i2c-irq/unnamed-gpio-in[2]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals/bcm2835-i2s",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/bcm2835-otp",
+      "type": "bcm2835-otp",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/bcm2835-sdramc",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/bcm2835-smi",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/bcm2835-sp804",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/bcm2835-spi0",
+      "type": "bcm2835-spi",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/peripherals/ic/gpu-irq[54]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals/bcm2835-spis",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/bcm2835-txp",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/bcm2835-v3d",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/bcm2838-asb",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman",
+      "type": "bcm2835-cprman",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/arm",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/aveo",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/cam0",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/cam1",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/ccp2",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/dpi",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/dsi0e",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/dsi0hsck-mux",
+      "type": "bcm2835-cprman-dsi0hsck-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/dsi0p",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/emmc",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/emmc2",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/gnric",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/gp0",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/gp1",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/gp2",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/h264",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/hsm",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/isp",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/otp",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/pcm",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/peria",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/perii",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/plla",
+      "type": "bcm2835-cprman-pll",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/plla-ccp2",
+      "type": "bcm2835-cprman-pll-channel",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/plla-core",
+      "type": "bcm2835-cprman-pll-channel",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/plla-dsi0",
+      "type": "bcm2835-cprman-pll-channel",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/plla-per",
+      "type": "bcm2835-cprman-pll-channel",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/pllb",
+      "type": "bcm2835-cprman-pll",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/pllb-arm",
+      "type": "bcm2835-cprman-pll-channel",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/pllc",
+      "type": "bcm2835-cprman-pll",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/pllc-core0",
+      "type": "bcm2835-cprman-pll-channel",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/pllc-core1",
+      "type": "bcm2835-cprman-pll-channel",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/pllc-core2",
+      "type": "bcm2835-cprman-pll-channel",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/pllc-per",
+      "type": "bcm2835-cprman-pll-channel",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/plld",
+      "type": "bcm2835-cprman-pll",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/plld-core",
+      "type": "bcm2835-cprman-pll-channel",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/plld-dsi0",
+      "type": "bcm2835-cprman-pll-channel",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/plld-dsi1",
+      "type": "bcm2835-cprman-pll-channel",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/plld-per",
+      "type": "bcm2835-cprman-pll-channel",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/pllh",
+      "type": "bcm2835-cprman-pll",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/pllh-aux",
+      "type": "bcm2835-cprman-pll-channel",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/pllh-pix",
+      "type": "bcm2835-cprman-pll-channel",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/pllh-rcal",
+      "type": "bcm2835-cprman-pll-channel",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/pulse",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/pwm",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/sdram",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/slim",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/smi",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/sys",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/td0",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/td1",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/tec",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/timer",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/tsens",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/uart",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/v3d",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/vec",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/cprman/vpu",
+      "type": "bcm2835-cprman-clock-mux",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/dma",
+      "type": "bcm2835-dma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[80]"
+        },
+        {
+          "output": "sysbus-irq[10]",
+          "target": "/machine/soc/peripherals/dma_9_10_irq_orgate/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[11]",
+          "target": "/machine/soc/peripherals/ic/gpu-irq[25]"
+        },
+        {
+          "output": "sysbus-irq[12]",
+          "target": "/machine/soc/peripherals/ic/gpu-irq[26]"
+        },
+        {
+          "output": "sysbus-irq[13]",
+          "target": "/machine/soc/peripherals/ic/gpu-irq[27]"
+        },
+        {
+          "output": "sysbus-irq[14]",
+          "target": "/machine/soc/peripherals/ic/gpu-irq[28]"
+        },
+        {
+          "output": "sysbus-irq[15]",
+          "target": "/machine/soc/peripherals/ic/gpu-irq[31]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[81]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[82]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[83]"
+        },
+        {
+          "output": "sysbus-irq[4]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[84]"
+        },
+        {
+          "output": "sysbus-irq[5]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[85]"
+        },
+        {
+          "output": "sysbus-irq[6]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[86]"
+        },
+        {
+          "output": "sysbus-irq[7]",
+          "target": "/machine/soc/peripherals/dma_7_8_irq_orgate/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[8]",
+          "target": "/machine/soc/peripherals/dma_7_8_irq_orgate/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[9]",
+          "target": "/machine/soc/peripherals/dma_9_10_irq_orgate/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals/dma_7_8_irq_orgate",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[87]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals/dma_9_10_irq_orgate",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[88]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals/dwc2",
+      "type": "dwc2-usb",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[73]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals/emmc2",
+      "type": "generic-sdhci",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/peripherals/mmc_irq_orgate/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals/fb",
+      "type": "bcm2835-fb",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/peripherals/mbox/unnamed-gpio-in[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals/gpio",
+      "type": "bcm2838-gpio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/ic",
+      "type": "bcm2835-ic",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/mbox",
+      "type": "bcm2835-mbox",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[33]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals/mmc_irq_orgate",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[126]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals/mphi",
+      "type": "bcm2835-mphi",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[40]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals/orgated-i2c-irq",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/peripherals/orgated-i2c-irq-splitter/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals/orgated-i2c-irq-splitter",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/peripherals/ic/gpu-irq[53]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[117]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals/powermgt",
+      "type": "bcm2835-powermgt",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/peripherals/property",
+      "type": "bcm2835-property",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/peripherals/mbox/unnamed-gpio-in[8]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals/sdhci",
+      "type": "generic-sdhci",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/peripherals/mmc_irq_orgate/unnamed-gpio-in[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals/sdhost",
+      "type": "bcm2835-sdhost",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[120]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals/systimer",
+      "type": "bcm2835-sys-timer",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/peripherals/ic/gpu-irq[0]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/peripherals/ic/gpu-irq[1]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/soc/peripherals/ic/gpu-irq[2]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/soc/peripherals/ic/gpu-irq[3]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/peripherals/uart0",
+      "type": "pl011",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[121]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[0]",
+      "type": "sd-card",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/soc/peripherals/sdhci/sd-bus",
+      "signals": []
+    }
+  ],
+  "spaces": [
+    {
+      "id": "view-ab75ff2bc906",
+      "names": ["I/O"],
+      "root": "io",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x10000",
+          "name": "io",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        }
+      ]
+    },
+    {
+      "id": "view-55bb953fd35e",
+      "names": [
+        "bcm2835-dma-memory",
+        "bcm2835-fb-memory",
+        "bcm2835-property-memory",
+        "dwc2"
+      ],
+      "root": "bcm2835-gpu",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x40000000",
+          "name": "ram",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x40000000",
+          "size": "0x3e003000",
+          "name": "ram",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e003000",
+          "size": "0x20",
+          "name": "bcm2835-sys-timer",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/systimer"
+        },
+        {
+          "base": "0x7e003020",
+          "size": "0xfe0",
+          "name": "ram @000000003e003020",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e004000",
+          "size": "0x1000",
+          "name": "bcm2835-txp",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2835-txp"
+        },
+        {
+          "base": "0x7e005000",
+          "size": "0x2000",
+          "name": "ram @000000003e005000",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e007000",
+          "size": "0x1000",
+          "name": "bcm2835-dma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/dma"
+        },
+        {
+          "base": "0x7e008000",
+          "size": "0x2000",
+          "name": "ram @000000003e008000",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e00a000",
+          "size": "0x24",
+          "name": "bcm2838-asb",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2838-asb"
+        },
+        {
+          "base": "0x7e00a024",
+          "size": "0x11dc",
+          "name": "ram @000000003e00a024",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e00b200",
+          "size": "0x200",
+          "name": "mphi",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/mphi"
+        },
+        {
+          "base": "0x7e00b400",
+          "size": "0x40",
+          "name": "bcm2835-sp804",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2835-sp804"
+        },
+        {
+          "base": "0x7e00b440",
+          "size": "0x3c0",
+          "name": "ram @000000003e00b440",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e00b800",
+          "size": "0x400",
+          "name": "bcm2835-mbox",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/mbox"
+        },
+        {
+          "base": "0x7e00bc00",
+          "size": "0xf4400",
+          "name": "ram @000000003e00bc00",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e100000",
+          "size": "0x200",
+          "name": "bcm2835-powermgt",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/powermgt"
+        },
+        {
+          "base": "0x7e100200",
+          "size": "0xe00",
+          "name": "ram @000000003e100200",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e101000",
+          "size": "0x2000",
+          "name": "bcm2835-cprman",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/cprman"
+        },
+        {
+          "base": "0x7e103000",
+          "size": "0xfd000",
+          "name": "ram @000000003e103000",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e200000",
+          "size": "0x1000",
+          "name": "bcm2838_gpio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/gpio"
+        },
+        {
+          "base": "0x7e201000",
+          "size": "0x1000",
+          "name": "pl011",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/uart0"
+        },
+        {
+          "base": "0x7e202000",
+          "size": "0x1000",
+          "name": "bcm2835-sdhost",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/sdhost"
+        },
+        {
+          "base": "0x7e203000",
+          "size": "0x100",
+          "name": "bcm2835-i2s",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2835-i2s"
+        },
+        {
+          "base": "0x7e203100",
+          "size": "0xf00",
+          "name": "ram @000000003e203100",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e204000",
+          "size": "0x18",
+          "name": "bcm2835-spi",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/bcm2835-spi0"
+        },
+        {
+          "base": "0x7e204018",
+          "size": "0xfe8",
+          "name": "ram @000000003e204018",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e205000",
+          "size": "0x24",
+          "name": "bcm2835-i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/bcm2835-i2c0"
+        },
+        {
+          "base": "0x7e205024",
+          "size": "0x9fdc",
+          "name": "ram @000000003e205024",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e20f000",
+          "size": "0x80",
+          "name": "bcm2835-otp",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/bcm2835-otp"
+        },
+        {
+          "base": "0x7e20f080",
+          "size": "0x4f80",
+          "name": "ram @000000003e20f080",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e214000",
+          "size": "0x100",
+          "name": "bcm2835-spis",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2835-spis"
+        },
+        {
+          "base": "0x7e214100",
+          "size": "0xf00",
+          "name": "ram @000000003e214100",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e215000",
+          "size": "0x100",
+          "name": "bcm2835-aux",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/aux"
+        },
+        {
+          "base": "0x7e215100",
+          "size": "0xeaf00",
+          "name": "ram @000000003e215100",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e300000",
+          "size": "0x100",
+          "name": "sdhci",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/sdhci"
+        },
+        {
+          "base": "0x7e300100",
+          "size": "0x3ff00",
+          "name": "ram @000000003e300100",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e340000",
+          "size": "0x100",
+          "name": "sdhci",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/emmc2"
+        },
+        {
+          "base": "0x7e340100",
+          "size": "0x2bff00",
+          "name": "ram @000000003e340100",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e600000",
+          "size": "0x100",
+          "name": "bcm2835-smi",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2835-smi"
+        },
+        {
+          "base": "0x7e600100",
+          "size": "0x203f00",
+          "name": "ram @000000003e600100",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e804000",
+          "size": "0x24",
+          "name": "bcm2835-i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/bcm2835-i2c1"
+        },
+        {
+          "base": "0x7e804024",
+          "size": "0xfdc",
+          "name": "ram @000000003e804024",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e805000",
+          "size": "0x24",
+          "name": "bcm2835-i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/bcm2835-i2c2"
+        },
+        {
+          "base": "0x7e805024",
+          "size": "0xfafdc",
+          "name": "ram @000000003e805024",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e900000",
+          "size": "0x8000",
+          "name": "bcm2835-dbus",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2835-dbus"
+        },
+        {
+          "base": "0x7e908000",
+          "size": "0x8000",
+          "name": "ram @000000003e908000",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e910000",
+          "size": "0x8000",
+          "name": "bcm2835-ave0",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2835-ave0"
+        },
+        {
+          "base": "0x7e918000",
+          "size": "0x68000",
+          "name": "ram @000000003e918000",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7e980000",
+          "size": "0x1000",
+          "name": "dwc2-io",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/dwc2"
+        },
+        {
+          "base": "0x7e981000",
+          "size": "0x10000",
+          "name": "dwc2-fifo",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/dwc2"
+        },
+        {
+          "base": "0x7e991000",
+          "size": "0x26f000",
+          "name": "ram @000000003e991000",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7ec00000",
+          "size": "0x1000",
+          "name": "bcm2835-v3d",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2835-v3d"
+        },
+        {
+          "base": "0x7ec01000",
+          "size": "0x10000",
+          "name": "ram @000000003ec01000",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7ec11000",
+          "size": "0x100",
+          "name": "bcm2835-clkisp",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2835-clkisp"
+        },
+        {
+          "base": "0x7ec11100",
+          "size": "0x1eef00",
+          "name": "ram @000000003ec11100",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7ee00000",
+          "size": "0x100",
+          "name": "bcm2835-sdramc",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2835-sdramc"
+        },
+        {
+          "base": "0x7ee00100",
+          "size": "0x4f00",
+          "name": "ram @000000003ee00100",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x7ee05000",
+          "size": "0x100",
+          "name": "bcm2835-dma-chan15",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/dma"
+        },
+        {
+          "base": "0x7ee05100",
+          "size": "0x11faf00",
+          "name": "ram @000000003ee05100",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0x80000000",
+          "size": "0x40000000",
+          "name": "ram",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0xc0000000",
+          "size": "0x40000000",
+          "name": "ram",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        }
+      ]
+    },
+    {
+      "id": "view-e81d10737b3a",
+      "names": ["bcm2835-mbox-memory"],
+      "root": "bcm2835-mbox",
+      "regions": [
+        {
+          "base": "0x10",
+          "size": "0x10",
+          "name": "bcm2835-fb",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/fb"
+        },
+        {
+          "base": "0x80",
+          "size": "0x10",
+          "name": "bcm2835-property",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/property"
+        }
+      ]
+    },
+    {
+      "id": "view-547f3384b0f5",
+      "names": [
+        "cpu-memory-0",
+        "cpu-memory-1",
+        "cpu-memory-2",
+        "cpu-memory-3",
+        "cpu-secure-memory-0",
+        "cpu-secure-memory-1",
+        "cpu-secure-memory-2",
+        "cpu-secure-memory-3",
+        "memory"
+      ],
+      "root": "system",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x80000000",
+          "name": "ram",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ram"
+        },
+        {
+          "base": "0xfe003000",
+          "size": "0x20",
+          "name": "bcm2835-sys-timer",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/systimer"
+        },
+        {
+          "base": "0xfe004000",
+          "size": "0x1000",
+          "name": "bcm2835-txp",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2835-txp"
+        },
+        {
+          "base": "0xfe007000",
+          "size": "0x1000",
+          "name": "bcm2835-dma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/dma"
+        },
+        {
+          "base": "0xfe00a000",
+          "size": "0x24",
+          "name": "bcm2838-asb",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2838-asb"
+        },
+        {
+          "base": "0xfe00b200",
+          "size": "0x200",
+          "name": "mphi",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/mphi"
+        },
+        {
+          "base": "0xfe00b400",
+          "size": "0x40",
+          "name": "bcm2835-sp804",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2835-sp804"
+        },
+        {
+          "base": "0xfe00b800",
+          "size": "0x400",
+          "name": "bcm2835-mbox",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/mbox"
+        },
+        {
+          "base": "0xfe100000",
+          "size": "0x200",
+          "name": "bcm2835-powermgt",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/powermgt"
+        },
+        {
+          "base": "0xfe101000",
+          "size": "0x2000",
+          "name": "bcm2835-cprman",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/cprman"
+        },
+        {
+          "base": "0xfe200000",
+          "size": "0x1000",
+          "name": "bcm2838_gpio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/gpio"
+        },
+        {
+          "base": "0xfe201000",
+          "size": "0x1000",
+          "name": "pl011",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/uart0"
+        },
+        {
+          "base": "0xfe202000",
+          "size": "0x1000",
+          "name": "bcm2835-sdhost",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/sdhost"
+        },
+        {
+          "base": "0xfe203000",
+          "size": "0x100",
+          "name": "bcm2835-i2s",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2835-i2s"
+        },
+        {
+          "base": "0xfe204000",
+          "size": "0x18",
+          "name": "bcm2835-spi",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/bcm2835-spi0"
+        },
+        {
+          "base": "0xfe205000",
+          "size": "0x24",
+          "name": "bcm2835-i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/bcm2835-i2c0"
+        },
+        {
+          "base": "0xfe20f000",
+          "size": "0x80",
+          "name": "bcm2835-otp",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/bcm2835-otp"
+        },
+        {
+          "base": "0xfe214000",
+          "size": "0x100",
+          "name": "bcm2835-spis",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2835-spis"
+        },
+        {
+          "base": "0xfe215000",
+          "size": "0x100",
+          "name": "bcm2835-aux",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/aux"
+        },
+        {
+          "base": "0xfe300000",
+          "size": "0x100",
+          "name": "sdhci",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/sdhci"
+        },
+        {
+          "base": "0xfe340000",
+          "size": "0x100",
+          "name": "sdhci",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/emmc2"
+        },
+        {
+          "base": "0xfe600000",
+          "size": "0x100",
+          "name": "bcm2835-smi",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2835-smi"
+        },
+        {
+          "base": "0xfe804000",
+          "size": "0x24",
+          "name": "bcm2835-i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/bcm2835-i2c1"
+        },
+        {
+          "base": "0xfe805000",
+          "size": "0x24",
+          "name": "bcm2835-i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/bcm2835-i2c2"
+        },
+        {
+          "base": "0xfe900000",
+          "size": "0x8000",
+          "name": "bcm2835-dbus",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2835-dbus"
+        },
+        {
+          "base": "0xfe910000",
+          "size": "0x8000",
+          "name": "bcm2835-ave0",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2835-ave0"
+        },
+        {
+          "base": "0xfe980000",
+          "size": "0x1000",
+          "name": "dwc2-io",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/dwc2"
+        },
+        {
+          "base": "0xfe981000",
+          "size": "0x10000",
+          "name": "dwc2-fifo",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/dwc2"
+        },
+        {
+          "base": "0xfec00000",
+          "size": "0x1000",
+          "name": "bcm2835-v3d",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2835-v3d"
+        },
+        {
+          "base": "0xfec11000",
+          "size": "0x100",
+          "name": "bcm2835-clkisp",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2835-clkisp"
+        },
+        {
+          "base": "0xfee00000",
+          "size": "0x100",
+          "name": "bcm2835-sdramc",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/soc/peripherals/bcm2835-sdramc"
+        },
+        {
+          "base": "0xfee05000",
+          "size": "0x100",
+          "name": "bcm2835-dma-chan15",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/peripherals/dma"
+        },
+        {
+          "base": "0xff800000",
+          "size": "0x100",
+          "name": "bcm2836-control",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/control"
+        },
+        {
+          "base": "0xff841000",
+          "size": "0x1000",
+          "name": "gic_dist",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xff842000",
+          "size": "0x2000",
+          "name": "gic_cpu",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xff844000",
+          "size": "0x1000",
+          "name": "gic_viface",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xff845000",
+          "size": "0x100",
+          "name": "gic_cpu",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xff845200",
+          "size": "0x100",
+          "name": "gic_cpu",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xff845400",
+          "size": "0x100",
+          "name": "gic_cpu",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xff845600",
+          "size": "0x100",
+          "name": "gic_cpu",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xff846000",
+          "size": "0x2000",
+          "name": "gic_vcpu",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        }
+      ]
+    }
+  ],
+  "boardId": "raspi4b",
+  "qemuCommit": "4fc49f46dc95d4a27de2509e7fceb2931e91faeb",
+  "target": "aarch64",
+  "arguments": [
+    "-M",
+    "raspi4b",
+    "-accel",
+    "tcg",
+    "-S",
+    "-display",
+    "none",
+    "-serial",
+    "null",
+    "-monitor",
+    "none",
+    "-nodefaults",
+    "-no-user-config",
+    "-nic",
+    "none",
+    "-audio",
+    "driver=none",
+    "-qmp",
+    "stdio"
+  ],
+  "buildOptions": {
+    "default_devices": true,
+    "slirp": "auto",
+    "rust": "disabled"
+  }
+}

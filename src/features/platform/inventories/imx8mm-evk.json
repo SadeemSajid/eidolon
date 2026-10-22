@@ -1,0 +1,3295 @@
+{
+  "version": {
+    "qemu": {
+      "micro": 2,
+      "minor": 1,
+      "major": 11
+    },
+    "package": "v11.1.2"
+  },
+  "devices": [
+    {
+      "path": "/machine/soc",
+      "type": "fsl-imx8mm",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/analog",
+      "type": "imx8mp.analog",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/ccm",
+      "type": "imx8mp.ccm",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/cpu0",
+      "type": "cortex-a53-arm-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "gicv3-maintenance-interrupt[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[153]"
+        },
+        {
+          "output": "pmu-interrupt[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[151]"
+        },
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[158]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[155]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[154]"
+        },
+        {
+          "output": "unnamed-gpio-out[3]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[157]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/cpu1",
+      "type": "cortex-a53-arm-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "gicv3-maintenance-interrupt[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[185]"
+        },
+        {
+          "output": "pmu-interrupt[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[183]"
+        },
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[190]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[187]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[186]"
+        },
+        {
+          "output": "unnamed-gpio-out[3]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[189]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/cpu2",
+      "type": "cortex-a53-arm-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "gicv3-maintenance-interrupt[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[217]"
+        },
+        {
+          "output": "pmu-interrupt[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[215]"
+        },
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[222]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[219]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[218]"
+        },
+        {
+          "output": "unnamed-gpio-out[3]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[221]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/cpu3",
+      "type": "cortex-a53-arm-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "gicv3-maintenance-interrupt[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[249]"
+        },
+        {
+          "output": "pmu-interrupt[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[247]"
+        },
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[254]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[251]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[250]"
+        },
+        {
+          "output": "unnamed-gpio-out[3]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[253]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/eth0",
+      "type": "imx.enet",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[118]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[121]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/eth0/mii",
+      "type": "lan9118-phy",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/unattached/non-qdev-gpio[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gic",
+      "type": "arm-gicv3",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/cpu0/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[10]",
+          "target": "/machine/soc/cpu2/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "sysbus-irq[11]",
+          "target": "/machine/soc/cpu3/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "sysbus-irq[12]",
+          "target": "/machine/soc/cpu0/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "sysbus-irq[13]",
+          "target": "/machine/soc/cpu1/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "sysbus-irq[14]",
+          "target": "/machine/soc/cpu2/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "sysbus-irq[15]",
+          "target": "/machine/soc/cpu3/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/cpu1/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/soc/cpu2/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/soc/cpu3/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[4]",
+          "target": "/machine/soc/cpu0/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[5]",
+          "target": "/machine/soc/cpu1/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[6]",
+          "target": "/machine/soc/cpu2/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[7]",
+          "target": "/machine/soc/cpu3/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[8]",
+          "target": "/machine/soc/cpu0/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "sysbus-irq[9]",
+          "target": "/machine/soc/cpu1/unnamed-gpio-in[2]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gpio1",
+      "type": "imx.gpio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[64]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[65]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gpio2",
+      "type": "imx.gpio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[66]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[67]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gpio3",
+      "type": "imx.gpio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[68]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[69]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gpio4",
+      "type": "imx.gpio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[70]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[71]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gpio5",
+      "type": "imx.gpio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[72]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[73]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gpt1",
+      "type": "imx8mm.gpt",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[55]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gpt2",
+      "type": "imx8mm.gpt",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[54]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gpt3",
+      "type": "imx8mm.gpt",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[53]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gpt4",
+      "type": "imx8mm.gpt",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[52]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gpt5",
+      "type": "imx8mm.gpt",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gpt5-gpt6-irq/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gpt5-gpt6-irq",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[51]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gpt6",
+      "type": "imx8mm.gpt",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gpt5-gpt6-irq/unnamed-gpio-in[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/i2c1",
+      "type": "imx.i2c",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[35]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/i2c2",
+      "type": "imx.i2c",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[36]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/i2c3",
+      "type": "imx.i2c",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[37]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/i2c4",
+      "type": "imx.i2c",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[38]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/pcie",
+      "type": "designware-pcie-host",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[122]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[123]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[124]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[125]"
+        },
+        {
+          "output": "sysbus-irq[4]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[127]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/pcie/root",
+      "type": "designware-pcie-root",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/soc/pcie/pcie",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/pcie_phy",
+      "type": "fsl-imx8m-pcie-phy",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/snvs",
+      "type": "imx7.snvs",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/spi1",
+      "type": "imx.spi",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[31]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/spi2",
+      "type": "imx.spi",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[32]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/spi3",
+      "type": "imx.spi",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[33]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/uart1",
+      "type": "imx.serial",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[26]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/uart2",
+      "type": "imx.serial",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[27]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/uart3",
+      "type": "imx.serial",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[28]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/uart4",
+      "type": "imx.serial",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[29]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/usb0",
+      "type": "usb_dwc3",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/usb0/dwc3-xhci",
+      "type": "sysbus-xhci",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[40]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/usb0/dwc3-xhci/xhci-core",
+      "type": "base-xhci",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/usb1",
+      "type": "usb_dwc3",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/usb1/dwc3-xhci",
+      "type": "sysbus-xhci",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[41]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/usb1/dwc3-xhci/xhci-core",
+      "type": "base-xhci",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/usdhc1",
+      "type": "imx-usdhc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[22]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/usdhc2",
+      "type": "imx-usdhc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[23]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/usdhc3",
+      "type": "imx-usdhc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[24]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/wdt0",
+      "type": "imx2.wdt",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[78]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/wdt1",
+      "type": "imx2.wdt",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[79]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/wdt2",
+      "type": "imx2.wdt",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[10]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[0]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[10]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[11]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[12]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[13]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[14]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[15]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[16]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[17]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[18]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[19]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[1]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[20]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[21]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[22]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[23]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[24]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[25]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[26]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[27]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[28]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[29]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[2]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[30]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[31]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[32]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[33]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[34]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[35]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[36]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[37]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[38]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[39]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[3]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[40]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[41]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[42]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[43]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[44]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[45]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[46]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[47]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[48]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[49]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[4]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[50]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[51]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[52]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[53]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[54]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[55]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[56]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[57]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[58]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[59]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[5]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[60]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[61]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[62]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[63]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[64]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[65]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[66]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[67]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[6]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[7]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[8]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[9]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    }
+  ],
+  "spaces": [
+    {
+      "id": "view-ab75ff2bc906",
+      "names": ["I/O"],
+      "root": "io",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x10000",
+          "name": "io",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        }
+      ]
+    },
+    {
+      "id": "view-03f4b0992172",
+      "names": [
+        "cpu-memory-0",
+        "cpu-memory-1",
+        "cpu-memory-2",
+        "cpu-memory-3",
+        "cpu-secure-memory-0",
+        "cpu-secure-memory-1",
+        "cpu-secure-memory-2",
+        "cpu-secure-memory-3",
+        "memory"
+      ],
+      "root": "system",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x3f000",
+          "name": "boot_rom",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[8]"
+        },
+        {
+          "base": "0x3f000",
+          "size": "0x1000",
+          "name": "boot_rom_protected",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[9]"
+        },
+        {
+          "base": "0x100000",
+          "size": "0x8000",
+          "name": "caam_mem",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[11]"
+        },
+        {
+          "base": "0x180000",
+          "size": "0x8000",
+          "name": "ocram_s",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[29]"
+        },
+        {
+          "base": "0x7e0000",
+          "size": "0x20000",
+          "name": "tcm_itcm",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[60]"
+        },
+        {
+          "base": "0x800000",
+          "size": "0x20000",
+          "name": "tcm_dtcm",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[59]"
+        },
+        {
+          "base": "0x900000",
+          "size": "0x40000",
+          "name": "imx8mm.ocram",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/soc"
+        },
+        {
+          "base": "0x8000000",
+          "size": "0x10000000",
+          "name": "qspi_mem",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[41]"
+        },
+        {
+          "base": "0x18000000",
+          "size": "0x8000000",
+          "name": "pcie1_mem",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[30]"
+        },
+        {
+          "base": "0x28000000",
+          "size": "0x1000000",
+          "name": "a53_dap",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[0]"
+        },
+        {
+          "base": "0x30010000",
+          "size": "0x10000",
+          "name": "sai1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[43]"
+        },
+        {
+          "base": "0x30020000",
+          "size": "0x10000",
+          "name": "sai2",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[44]"
+        },
+        {
+          "base": "0x30030000",
+          "size": "0x10000",
+          "name": "sai3",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[45]"
+        },
+        {
+          "base": "0x30050000",
+          "size": "0x10000",
+          "name": "sai5",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[46]"
+        },
+        {
+          "base": "0x30060000",
+          "size": "0x10000",
+          "name": "sai6",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[47]"
+        },
+        {
+          "base": "0x301f0000",
+          "size": "0x10000",
+          "name": "aips1_configuration",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[1]"
+        },
+        {
+          "base": "0x30200000",
+          "size": "0x20",
+          "name": "imx.gpio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpio1"
+        },
+        {
+          "base": "0x30210000",
+          "size": "0x20",
+          "name": "imx.gpio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpio2"
+        },
+        {
+          "base": "0x30220000",
+          "size": "0x20",
+          "name": "imx.gpio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpio3"
+        },
+        {
+          "base": "0x30230000",
+          "size": "0x20",
+          "name": "imx.gpio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpio4"
+        },
+        {
+          "base": "0x30240000",
+          "size": "0x20",
+          "name": "imx.gpio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpio5"
+        },
+        {
+          "base": "0x30260000",
+          "size": "0x10000",
+          "name": "ana_tsensor",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[6]"
+        },
+        {
+          "base": "0x30270000",
+          "size": "0x10000",
+          "name": "ana_osc",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[5]"
+        },
+        {
+          "base": "0x30280000",
+          "size": "0xa",
+          "name": "imx2.wdt",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/wdt0"
+        },
+        {
+          "base": "0x30290000",
+          "size": "0xa",
+          "name": "imx2.wdt",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/wdt1"
+        },
+        {
+          "base": "0x302a0000",
+          "size": "0xa",
+          "name": "imx2.wdt",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/wdt2"
+        },
+        {
+          "base": "0x302b0000",
+          "size": "0x10000",
+          "name": "sdma3",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[50]"
+        },
+        {
+          "base": "0x302c0000",
+          "size": "0x10000",
+          "name": "sdma2",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[49]"
+        },
+        {
+          "base": "0x302d0000",
+          "size": "0x1000",
+          "name": "imx25.gpt",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpt1"
+        },
+        {
+          "base": "0x302e0000",
+          "size": "0x1000",
+          "name": "imx25.gpt",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpt2"
+        },
+        {
+          "base": "0x302f0000",
+          "size": "0x1000",
+          "name": "imx25.gpt",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpt3"
+        },
+        {
+          "base": "0x30330000",
+          "size": "0x10000",
+          "name": "iomuxc",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[20]"
+        },
+        {
+          "base": "0x30340000",
+          "size": "0x10000",
+          "name": "iomuxc_gpr",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[21]"
+        },
+        {
+          "base": "0x30350000",
+          "size": "0x10000",
+          "name": "ocotp_ctrl",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[28]"
+        },
+        {
+          "base": "0x30360000",
+          "size": "0x804",
+          "name": "imx8mp.analog",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/analog"
+        },
+        {
+          "base": "0x30370000",
+          "size": "0x1000",
+          "name": "imx7.snvs",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/snvs"
+        },
+        {
+          "base": "0x30380000",
+          "size": "0xc700",
+          "name": "imx8mp.ccm.ccm",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ccm"
+        },
+        {
+          "base": "0x30390000",
+          "size": "0x10000",
+          "name": "src",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[55]"
+        },
+        {
+          "base": "0x303a0000",
+          "size": "0x10000",
+          "name": "gpc",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[17]"
+        },
+        {
+          "base": "0x303b0000",
+          "size": "0x10000",
+          "name": "semaphore1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[51]"
+        },
+        {
+          "base": "0x303c0000",
+          "size": "0x10000",
+          "name": "semaphore2",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[52]"
+        },
+        {
+          "base": "0x303d0000",
+          "size": "0x10000",
+          "name": "rdc",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[42]"
+        },
+        {
+          "base": "0x303e0000",
+          "size": "0x10000",
+          "name": "csu",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[12]"
+        },
+        {
+          "base": "0x305f0000",
+          "size": "0x10000",
+          "name": "aips2_configuration",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[2]"
+        },
+        {
+          "base": "0x30660000",
+          "size": "0x10000",
+          "name": "pwm1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[33]"
+        },
+        {
+          "base": "0x30670000",
+          "size": "0x10000",
+          "name": "pwm2",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[34]"
+        },
+        {
+          "base": "0x30680000",
+          "size": "0x10000",
+          "name": "pwm3",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[35]"
+        },
+        {
+          "base": "0x30690000",
+          "size": "0x10000",
+          "name": "pwm4",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[36]"
+        },
+        {
+          "base": "0x306a0000",
+          "size": "0x10000",
+          "name": "syscnt_rd",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[58]"
+        },
+        {
+          "base": "0x306b0000",
+          "size": "0x10000",
+          "name": "syscnt_cmp",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[56]"
+        },
+        {
+          "base": "0x306c0000",
+          "size": "0x10000",
+          "name": "syscnt_ctrl",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[57]"
+        },
+        {
+          "base": "0x306e0000",
+          "size": "0x1000",
+          "name": "imx25.gpt",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpt6"
+        },
+        {
+          "base": "0x306f0000",
+          "size": "0x1000",
+          "name": "imx25.gpt",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpt5"
+        },
+        {
+          "base": "0x30700000",
+          "size": "0x1000",
+          "name": "imx25.gpt",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpt4"
+        },
+        {
+          "base": "0x307c0000",
+          "size": "0x10000",
+          "name": "perfmon1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[31]"
+        },
+        {
+          "base": "0x307d0000",
+          "size": "0x10000",
+          "name": "perfmon2",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[32]"
+        },
+        {
+          "base": "0x307f0000",
+          "size": "0x10000",
+          "name": "qosc",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[37]"
+        },
+        {
+          "base": "0x30820000",
+          "size": "0x1000",
+          "name": "imx.spi",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/spi1"
+        },
+        {
+          "base": "0x30830000",
+          "size": "0x1000",
+          "name": "imx.spi",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/spi2"
+        },
+        {
+          "base": "0x30840000",
+          "size": "0x1000",
+          "name": "imx.spi",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/spi3"
+        },
+        {
+          "base": "0x30860000",
+          "size": "0x1000",
+          "name": "imx.serial",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/uart1"
+        },
+        {
+          "base": "0x30880000",
+          "size": "0x1000",
+          "name": "imx.serial",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/uart3"
+        },
+        {
+          "base": "0x30890000",
+          "size": "0x1000",
+          "name": "imx.serial",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/uart2"
+        },
+        {
+          "base": "0x308f0000",
+          "size": "0x10000",
+          "name": "spba1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[54]"
+        },
+        {
+          "base": "0x30900000",
+          "size": "0x40000",
+          "name": "caam",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[10]"
+        },
+        {
+          "base": "0x309f0000",
+          "size": "0x10000",
+          "name": "aips3_configuration",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[3]"
+        },
+        {
+          "base": "0x30a20000",
+          "size": "0x14",
+          "name": "imx.i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/i2c1"
+        },
+        {
+          "base": "0x30a30000",
+          "size": "0x14",
+          "name": "imx.i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/i2c2"
+        },
+        {
+          "base": "0x30a40000",
+          "size": "0x14",
+          "name": "imx.i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/i2c3"
+        },
+        {
+          "base": "0x30a50000",
+          "size": "0x14",
+          "name": "imx.i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/i2c4"
+        },
+        {
+          "base": "0x30a60000",
+          "size": "0x1000",
+          "name": "imx.serial",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/uart4"
+        },
+        {
+          "base": "0x30aa0000",
+          "size": "0x10000",
+          "name": "mu_a",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[26]"
+        },
+        {
+          "base": "0x30ab0000",
+          "size": "0x10000",
+          "name": "mu_b",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[27]"
+        },
+        {
+          "base": "0x30ac0000",
+          "size": "0x10000",
+          "name": "semaphore_hs",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[53]"
+        },
+        {
+          "base": "0x30b40000",
+          "size": "0x100",
+          "name": "sdhci",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usdhc1"
+        },
+        {
+          "base": "0x30b50000",
+          "size": "0x100",
+          "name": "sdhci",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usdhc2"
+        },
+        {
+          "base": "0x30b60000",
+          "size": "0x100",
+          "name": "sdhci",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usdhc3"
+        },
+        {
+          "base": "0x30bb0000",
+          "size": "0x10000",
+          "name": "qspi",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[38]"
+        },
+        {
+          "base": "0x30bd0000",
+          "size": "0x10000",
+          "name": "sdma1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[48]"
+        },
+        {
+          "base": "0x30be0000",
+          "size": "0x4000",
+          "name": "imx.fec",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/eth0"
+        },
+        {
+          "base": "0x32700000",
+          "size": "0x100000",
+          "name": "interconnect",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[19]"
+        },
+        {
+          "base": "0x32df0000",
+          "size": "0x10000",
+          "name": "aips4_configuration",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[4]"
+        },
+        {
+          "base": "0x32e00000",
+          "size": "0x10000",
+          "name": "lcdif",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[23]"
+        },
+        {
+          "base": "0x32e10000",
+          "size": "0x10000",
+          "name": "mipi_dsi",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[25]"
+        },
+        {
+          "base": "0x32e28000",
+          "size": "0x100",
+          "name": "media_blk_ctl",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[22]"
+        },
+        {
+          "base": "0x32e30000",
+          "size": "0x10000",
+          "name": "mipi_csi",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[24]"
+        },
+        {
+          "base": "0x32e40000",
+          "size": "0x40",
+          "name": "capabilities",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb0/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e40040",
+          "size": "0x400",
+          "name": "operational",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb0/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e40440",
+          "size": "0x10",
+          "name": "usb3 port #1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb0/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e40450",
+          "size": "0x10",
+          "name": "usb2 port #1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb0/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e41000",
+          "size": "0x220",
+          "name": "runtime",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb0/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e42000",
+          "size": "0x820",
+          "name": "doorbell",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb0/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e4c100",
+          "size": "0x600",
+          "name": "usb_dwc3",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb0/reg-array[0]"
+        },
+        {
+          "base": "0x32e50000",
+          "size": "0x40",
+          "name": "capabilities",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb1/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e50040",
+          "size": "0x400",
+          "name": "operational",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb1/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e50440",
+          "size": "0x10",
+          "name": "usb3 port #1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb1/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e50450",
+          "size": "0x10",
+          "name": "usb2 port #1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb1/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e51000",
+          "size": "0x220",
+          "name": "runtime",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb1/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e52000",
+          "size": "0x820",
+          "name": "doorbell",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb1/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e5c100",
+          "size": "0x600",
+          "name": "usb_dwc3",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb1/reg-array[0]"
+        },
+        {
+          "base": "0x32f00000",
+          "size": "0x800",
+          "name": "fsl-imx8m-pcie-phy",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/pcie_phy"
+        },
+        {
+          "base": "0x32f80000",
+          "size": "0x10000",
+          "name": "tzasc",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[61]"
+        },
+        {
+          "base": "0x33000000",
+          "size": "0x8000",
+          "name": "apbh_dma",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[7]"
+        },
+        {
+          "base": "0x33008000",
+          "size": "0x8000",
+          "name": "qspi1_tx_buffer",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[40]"
+        },
+        {
+          "base": "0x33800000",
+          "size": "0x1000",
+          "name": "pcie.reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/pcie"
+        },
+        {
+          "base": "0x34000000",
+          "size": "0x2000000",
+          "name": "qspi1_rx_buffer",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[39]"
+        },
+        {
+          "base": "0x38000000",
+          "size": "0x10000",
+          "name": "gpu2d",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[18]"
+        },
+        {
+          "base": "0x38300000",
+          "size": "0x10000",
+          "name": "vpu_g1_decoder",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[66]"
+        },
+        {
+          "base": "0x38310000",
+          "size": "0x100000",
+          "name": "vpu_g2_decoder",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[67]"
+        },
+        {
+          "base": "0x38410000",
+          "size": "0x120000",
+          "name": "vpu_blk_ctrl @00000000000e0000",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[65]"
+        },
+        {
+          "base": "0x38530000",
+          "size": "0x10000",
+          "name": "vpu @00000000001f0000",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[64]"
+        },
+        {
+          "base": "0x38800000",
+          "size": "0x10000",
+          "name": "gicv3_dist",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0x38880000",
+          "size": "0x80000",
+          "name": "gicv3_redist_region[0]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0x3c000000",
+          "size": "0x1000000",
+          "name": "ddr_phy",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[15]"
+        },
+        {
+          "base": "0x3d400000",
+          "size": "0x400000",
+          "name": "ddr_ctl",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[13]"
+        },
+        {
+          "base": "0x3d800000",
+          "size": "0x400000",
+          "name": "ddr_perf_mon",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[14]"
+        },
+        {
+          "base": "0x3dc00000",
+          "size": "0x400000",
+          "name": "ddr_phy_broadcast",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[16]"
+        },
+        {
+          "base": "0x40000000",
+          "size": "0x40000000",
+          "name": "imx8mm-evk.ram",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/imx8mm-evk.ram"
+        }
+      ]
+    },
+    {
+      "id": "view-d0a92e5382b1",
+      "names": [
+        "designware-pcie-root",
+        "pci_bridge_pci_io",
+        "pci_bridge_pci_mem"
+      ],
+      "root": "pci_bridge_io",
+      "regions": []
+    },
+    {
+      "id": "view-8ddf62920f93",
+      "names": ["pcie-bus-address-space"],
+      "root": "pcie-bus-address-space-root",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x3f000",
+          "name": "boot_rom",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[8]"
+        },
+        {
+          "base": "0x3f000",
+          "size": "0x1000",
+          "name": "boot_rom_protected",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[9]"
+        },
+        {
+          "base": "0x100000",
+          "size": "0x8000",
+          "name": "caam_mem",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[11]"
+        },
+        {
+          "base": "0x180000",
+          "size": "0x8000",
+          "name": "ocram_s",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[29]"
+        },
+        {
+          "base": "0x7e0000",
+          "size": "0x20000",
+          "name": "tcm_itcm",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[60]"
+        },
+        {
+          "base": "0x800000",
+          "size": "0x20000",
+          "name": "tcm_dtcm",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[59]"
+        },
+        {
+          "base": "0x900000",
+          "size": "0x40000",
+          "name": "imx8mm.ocram",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/soc"
+        },
+        {
+          "base": "0x8000000",
+          "size": "0x10000000",
+          "name": "qspi_mem",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[41]"
+        },
+        {
+          "base": "0x18000000",
+          "size": "0x8000000",
+          "name": "pcie1_mem",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[30]"
+        },
+        {
+          "base": "0x28000000",
+          "size": "0x1000000",
+          "name": "a53_dap",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[0]"
+        },
+        {
+          "base": "0x30010000",
+          "size": "0x10000",
+          "name": "sai1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[43]"
+        },
+        {
+          "base": "0x30020000",
+          "size": "0x10000",
+          "name": "sai2",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[44]"
+        },
+        {
+          "base": "0x30030000",
+          "size": "0x10000",
+          "name": "sai3",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[45]"
+        },
+        {
+          "base": "0x30050000",
+          "size": "0x10000",
+          "name": "sai5",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[46]"
+        },
+        {
+          "base": "0x30060000",
+          "size": "0x10000",
+          "name": "sai6",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[47]"
+        },
+        {
+          "base": "0x301f0000",
+          "size": "0x10000",
+          "name": "aips1_configuration",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[1]"
+        },
+        {
+          "base": "0x30200000",
+          "size": "0x20",
+          "name": "imx.gpio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpio1"
+        },
+        {
+          "base": "0x30210000",
+          "size": "0x20",
+          "name": "imx.gpio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpio2"
+        },
+        {
+          "base": "0x30220000",
+          "size": "0x20",
+          "name": "imx.gpio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpio3"
+        },
+        {
+          "base": "0x30230000",
+          "size": "0x20",
+          "name": "imx.gpio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpio4"
+        },
+        {
+          "base": "0x30240000",
+          "size": "0x20",
+          "name": "imx.gpio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpio5"
+        },
+        {
+          "base": "0x30260000",
+          "size": "0x10000",
+          "name": "ana_tsensor",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[6]"
+        },
+        {
+          "base": "0x30270000",
+          "size": "0x10000",
+          "name": "ana_osc",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[5]"
+        },
+        {
+          "base": "0x30280000",
+          "size": "0xa",
+          "name": "imx2.wdt",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/wdt0"
+        },
+        {
+          "base": "0x30290000",
+          "size": "0xa",
+          "name": "imx2.wdt",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/wdt1"
+        },
+        {
+          "base": "0x302a0000",
+          "size": "0xa",
+          "name": "imx2.wdt",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/wdt2"
+        },
+        {
+          "base": "0x302b0000",
+          "size": "0x10000",
+          "name": "sdma3",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[50]"
+        },
+        {
+          "base": "0x302c0000",
+          "size": "0x10000",
+          "name": "sdma2",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[49]"
+        },
+        {
+          "base": "0x302d0000",
+          "size": "0x1000",
+          "name": "imx25.gpt",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpt1"
+        },
+        {
+          "base": "0x302e0000",
+          "size": "0x1000",
+          "name": "imx25.gpt",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpt2"
+        },
+        {
+          "base": "0x302f0000",
+          "size": "0x1000",
+          "name": "imx25.gpt",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpt3"
+        },
+        {
+          "base": "0x30330000",
+          "size": "0x10000",
+          "name": "iomuxc",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[20]"
+        },
+        {
+          "base": "0x30340000",
+          "size": "0x10000",
+          "name": "iomuxc_gpr",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[21]"
+        },
+        {
+          "base": "0x30350000",
+          "size": "0x10000",
+          "name": "ocotp_ctrl",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[28]"
+        },
+        {
+          "base": "0x30360000",
+          "size": "0x804",
+          "name": "imx8mp.analog",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/analog"
+        },
+        {
+          "base": "0x30370000",
+          "size": "0x1000",
+          "name": "imx7.snvs",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/snvs"
+        },
+        {
+          "base": "0x30380000",
+          "size": "0xc700",
+          "name": "imx8mp.ccm.ccm",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ccm"
+        },
+        {
+          "base": "0x30390000",
+          "size": "0x10000",
+          "name": "src",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[55]"
+        },
+        {
+          "base": "0x303a0000",
+          "size": "0x10000",
+          "name": "gpc",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[17]"
+        },
+        {
+          "base": "0x303b0000",
+          "size": "0x10000",
+          "name": "semaphore1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[51]"
+        },
+        {
+          "base": "0x303c0000",
+          "size": "0x10000",
+          "name": "semaphore2",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[52]"
+        },
+        {
+          "base": "0x303d0000",
+          "size": "0x10000",
+          "name": "rdc",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[42]"
+        },
+        {
+          "base": "0x303e0000",
+          "size": "0x10000",
+          "name": "csu",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[12]"
+        },
+        {
+          "base": "0x305f0000",
+          "size": "0x10000",
+          "name": "aips2_configuration",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[2]"
+        },
+        {
+          "base": "0x30660000",
+          "size": "0x10000",
+          "name": "pwm1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[33]"
+        },
+        {
+          "base": "0x30670000",
+          "size": "0x10000",
+          "name": "pwm2",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[34]"
+        },
+        {
+          "base": "0x30680000",
+          "size": "0x10000",
+          "name": "pwm3",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[35]"
+        },
+        {
+          "base": "0x30690000",
+          "size": "0x10000",
+          "name": "pwm4",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[36]"
+        },
+        {
+          "base": "0x306a0000",
+          "size": "0x10000",
+          "name": "syscnt_rd",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[58]"
+        },
+        {
+          "base": "0x306b0000",
+          "size": "0x10000",
+          "name": "syscnt_cmp",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[56]"
+        },
+        {
+          "base": "0x306c0000",
+          "size": "0x10000",
+          "name": "syscnt_ctrl",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[57]"
+        },
+        {
+          "base": "0x306e0000",
+          "size": "0x1000",
+          "name": "imx25.gpt",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpt6"
+        },
+        {
+          "base": "0x306f0000",
+          "size": "0x1000",
+          "name": "imx25.gpt",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpt5"
+        },
+        {
+          "base": "0x30700000",
+          "size": "0x1000",
+          "name": "imx25.gpt",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gpt4"
+        },
+        {
+          "base": "0x307c0000",
+          "size": "0x10000",
+          "name": "perfmon1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[31]"
+        },
+        {
+          "base": "0x307d0000",
+          "size": "0x10000",
+          "name": "perfmon2",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[32]"
+        },
+        {
+          "base": "0x307f0000",
+          "size": "0x10000",
+          "name": "qosc",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[37]"
+        },
+        {
+          "base": "0x30820000",
+          "size": "0x1000",
+          "name": "imx.spi",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/spi1"
+        },
+        {
+          "base": "0x30830000",
+          "size": "0x1000",
+          "name": "imx.spi",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/spi2"
+        },
+        {
+          "base": "0x30840000",
+          "size": "0x1000",
+          "name": "imx.spi",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/spi3"
+        },
+        {
+          "base": "0x30860000",
+          "size": "0x1000",
+          "name": "imx.serial",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/uart1"
+        },
+        {
+          "base": "0x30880000",
+          "size": "0x1000",
+          "name": "imx.serial",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/uart3"
+        },
+        {
+          "base": "0x30890000",
+          "size": "0x1000",
+          "name": "imx.serial",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/uart2"
+        },
+        {
+          "base": "0x308f0000",
+          "size": "0x10000",
+          "name": "spba1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[54]"
+        },
+        {
+          "base": "0x30900000",
+          "size": "0x40000",
+          "name": "caam",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[10]"
+        },
+        {
+          "base": "0x309f0000",
+          "size": "0x10000",
+          "name": "aips3_configuration",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[3]"
+        },
+        {
+          "base": "0x30a20000",
+          "size": "0x14",
+          "name": "imx.i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/i2c1"
+        },
+        {
+          "base": "0x30a30000",
+          "size": "0x14",
+          "name": "imx.i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/i2c2"
+        },
+        {
+          "base": "0x30a40000",
+          "size": "0x14",
+          "name": "imx.i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/i2c3"
+        },
+        {
+          "base": "0x30a50000",
+          "size": "0x14",
+          "name": "imx.i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/i2c4"
+        },
+        {
+          "base": "0x30a60000",
+          "size": "0x1000",
+          "name": "imx.serial",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/uart4"
+        },
+        {
+          "base": "0x30aa0000",
+          "size": "0x10000",
+          "name": "mu_a",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[26]"
+        },
+        {
+          "base": "0x30ab0000",
+          "size": "0x10000",
+          "name": "mu_b",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[27]"
+        },
+        {
+          "base": "0x30ac0000",
+          "size": "0x10000",
+          "name": "semaphore_hs",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[53]"
+        },
+        {
+          "base": "0x30b40000",
+          "size": "0x100",
+          "name": "sdhci",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usdhc1"
+        },
+        {
+          "base": "0x30b50000",
+          "size": "0x100",
+          "name": "sdhci",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usdhc2"
+        },
+        {
+          "base": "0x30b60000",
+          "size": "0x100",
+          "name": "sdhci",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usdhc3"
+        },
+        {
+          "base": "0x30bb0000",
+          "size": "0x10000",
+          "name": "qspi",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[38]"
+        },
+        {
+          "base": "0x30bd0000",
+          "size": "0x10000",
+          "name": "sdma1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[48]"
+        },
+        {
+          "base": "0x30be0000",
+          "size": "0x4000",
+          "name": "imx.fec",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/eth0"
+        },
+        {
+          "base": "0x32700000",
+          "size": "0x100000",
+          "name": "interconnect",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[19]"
+        },
+        {
+          "base": "0x32df0000",
+          "size": "0x10000",
+          "name": "aips4_configuration",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[4]"
+        },
+        {
+          "base": "0x32e00000",
+          "size": "0x10000",
+          "name": "lcdif",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[23]"
+        },
+        {
+          "base": "0x32e10000",
+          "size": "0x10000",
+          "name": "mipi_dsi",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[25]"
+        },
+        {
+          "base": "0x32e28000",
+          "size": "0x100",
+          "name": "media_blk_ctl",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[22]"
+        },
+        {
+          "base": "0x32e30000",
+          "size": "0x10000",
+          "name": "mipi_csi",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[24]"
+        },
+        {
+          "base": "0x32e40000",
+          "size": "0x40",
+          "name": "capabilities",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb0/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e40040",
+          "size": "0x400",
+          "name": "operational",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb0/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e40440",
+          "size": "0x10",
+          "name": "usb3 port #1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb0/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e40450",
+          "size": "0x10",
+          "name": "usb2 port #1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb0/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e41000",
+          "size": "0x220",
+          "name": "runtime",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb0/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e42000",
+          "size": "0x820",
+          "name": "doorbell",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb0/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e4c100",
+          "size": "0x600",
+          "name": "usb_dwc3",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb0/reg-array[0]"
+        },
+        {
+          "base": "0x32e50000",
+          "size": "0x40",
+          "name": "capabilities",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb1/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e50040",
+          "size": "0x400",
+          "name": "operational",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb1/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e50440",
+          "size": "0x10",
+          "name": "usb3 port #1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb1/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e50450",
+          "size": "0x10",
+          "name": "usb2 port #1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb1/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e51000",
+          "size": "0x220",
+          "name": "runtime",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb1/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e52000",
+          "size": "0x820",
+          "name": "doorbell",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb1/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0x32e5c100",
+          "size": "0x600",
+          "name": "usb_dwc3",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb1/reg-array[0]"
+        },
+        {
+          "base": "0x32f00000",
+          "size": "0x800",
+          "name": "fsl-imx8m-pcie-phy",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/pcie_phy"
+        },
+        {
+          "base": "0x32f80000",
+          "size": "0x10000",
+          "name": "tzasc",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[61]"
+        },
+        {
+          "base": "0x33000000",
+          "size": "0x8000",
+          "name": "apbh_dma",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[7]"
+        },
+        {
+          "base": "0x33008000",
+          "size": "0x8000",
+          "name": "qspi1_tx_buffer",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[40]"
+        },
+        {
+          "base": "0x33800000",
+          "size": "0x1000",
+          "name": "pcie.reg",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/pcie"
+        },
+        {
+          "base": "0x34000000",
+          "size": "0x2000000",
+          "name": "qspi1_rx_buffer",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[39]"
+        },
+        {
+          "base": "0x38000000",
+          "size": "0x10000",
+          "name": "gpu2d",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[18]"
+        },
+        {
+          "base": "0x38300000",
+          "size": "0x10000",
+          "name": "vpu_g1_decoder",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[66]"
+        },
+        {
+          "base": "0x38310000",
+          "size": "0x100000",
+          "name": "vpu_g2_decoder",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[67]"
+        },
+        {
+          "base": "0x38410000",
+          "size": "0x120000",
+          "name": "vpu_blk_ctrl @00000000000e0000",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[65]"
+        },
+        {
+          "base": "0x38530000",
+          "size": "0x10000",
+          "name": "vpu @00000000001f0000",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[64]"
+        },
+        {
+          "base": "0x38800000",
+          "size": "0x10000",
+          "name": "gicv3_dist",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0x38880000",
+          "size": "0x80000",
+          "name": "gicv3_redist_region[0]",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0x3c000000",
+          "size": "0x1000000",
+          "name": "ddr_phy",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[15]"
+        },
+        {
+          "base": "0x3d400000",
+          "size": "0x400000",
+          "name": "ddr_ctl",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[13]"
+        },
+        {
+          "base": "0x3d800000",
+          "size": "0x400000",
+          "name": "ddr_perf_mon",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[14]"
+        },
+        {
+          "base": "0x3dc00000",
+          "size": "0x400000",
+          "name": "ddr_phy_broadcast",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[16]"
+        },
+        {
+          "base": "0x40000000",
+          "size": "0x40000000",
+          "name": "imx8mm-evk.ram",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/imx8mm-evk.ram"
+        }
+      ]
+    }
+  ],
+  "boardId": "imx8mm-evk",
+  "qemuCommit": "4fc49f46dc95d4a27de2509e7fceb2931e91faeb",
+  "target": "aarch64",
+  "arguments": [
+    "-M",
+    "imx8mm-evk",
+    "-smp",
+    "4",
+    "-m",
+    "1G",
+    "-accel",
+    "tcg",
+    "-S",
+    "-display",
+    "none",
+    "-serial",
+    "null",
+    "-monitor",
+    "none",
+    "-nodefaults",
+    "-no-user-config",
+    "-nic",
+    "none",
+    "-audio",
+    "driver=none",
+    "-qmp",
+    "stdio"
+  ],
+  "buildOptions": {
+    "default_devices": true,
+    "slirp": "auto",
+    "rust": "disabled"
+  }
+}

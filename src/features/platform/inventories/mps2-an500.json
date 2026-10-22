@@ -1,0 +1,1554 @@
+{
+  "version": {
+    "qemu": {
+      "micro": 2,
+      "minor": 1,
+      "major": 11
+    },
+    "package": "v11.1.2"
+  },
+  "devices": [
+    {
+      "path": "/machine/armv7m",
+      "type": "armv7m",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "NMI[0]",
+          "target": "/machine/armv7m/nvic/NMI[0]"
+        },
+        {
+          "output": "unnamed-gpio-in[0]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "unnamed-gpio-in[10]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[10]"
+        },
+        {
+          "output": "unnamed-gpio-in[11]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[11]"
+        },
+        {
+          "output": "unnamed-gpio-in[12]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[12]"
+        },
+        {
+          "output": "unnamed-gpio-in[13]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[13]"
+        },
+        {
+          "output": "unnamed-gpio-in[14]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[14]"
+        },
+        {
+          "output": "unnamed-gpio-in[15]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[15]"
+        },
+        {
+          "output": "unnamed-gpio-in[16]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[16]"
+        },
+        {
+          "output": "unnamed-gpio-in[17]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[17]"
+        },
+        {
+          "output": "unnamed-gpio-in[18]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[18]"
+        },
+        {
+          "output": "unnamed-gpio-in[19]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[19]"
+        },
+        {
+          "output": "unnamed-gpio-in[1]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "unnamed-gpio-in[20]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[20]"
+        },
+        {
+          "output": "unnamed-gpio-in[21]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[21]"
+        },
+        {
+          "output": "unnamed-gpio-in[22]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[22]"
+        },
+        {
+          "output": "unnamed-gpio-in[23]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[23]"
+        },
+        {
+          "output": "unnamed-gpio-in[24]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[24]"
+        },
+        {
+          "output": "unnamed-gpio-in[25]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[25]"
+        },
+        {
+          "output": "unnamed-gpio-in[26]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[26]"
+        },
+        {
+          "output": "unnamed-gpio-in[27]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[27]"
+        },
+        {
+          "output": "unnamed-gpio-in[28]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[28]"
+        },
+        {
+          "output": "unnamed-gpio-in[29]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[29]"
+        },
+        {
+          "output": "unnamed-gpio-in[2]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "unnamed-gpio-in[30]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[30]"
+        },
+        {
+          "output": "unnamed-gpio-in[31]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[31]"
+        },
+        {
+          "output": "unnamed-gpio-in[3]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "unnamed-gpio-in[4]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[4]"
+        },
+        {
+          "output": "unnamed-gpio-in[5]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[5]"
+        },
+        {
+          "output": "unnamed-gpio-in[6]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[6]"
+        },
+        {
+          "output": "unnamed-gpio-in[7]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[7]"
+        },
+        {
+          "output": "unnamed-gpio-in[8]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[8]"
+        },
+        {
+          "output": "unnamed-gpio-in[9]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[9]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/armv7m/bitband[0]",
+      "type": "ARM-bitband-memory",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/armv7m/bitband[1]",
+      "type": "ARM-bitband-memory",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/armv7m/cpu",
+      "type": "cortex-m7-arm-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/armv7m/nvic",
+      "type": "armv7m_nvic",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/armv7m/cpu/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/armv7m/systick-reg-ns",
+      "type": "armv7m_systick",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/armv7m/nvic/systick-trigger[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/dualtimer",
+      "type": "cmsdk-apb-dualtimer",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[10]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/fpgaio",
+      "type": "mps2-fpgaio",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/fpgaio/userled0",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/fpgaio/userled1",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/scc",
+      "type": "mps2-scc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/scc/scc-led0",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/scc/scc-led1",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/scc/scc-led2",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/scc/scc-led3",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/scc/scc-led4",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/scc/scc-led5",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/scc/scc-led6",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/scc/scc-led7",
+      "type": "led",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/timer0",
+      "type": "cmsdk-apb-timer",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[8]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/timer1",
+      "type": "cmsdk-apb-timer",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[9]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[0]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[10]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[11]",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[12]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[12]",
+      "type": "cmsdk-apb-uart",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/unattached/device[11]/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/unattached/device[11]/unnamed-gpio-in[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[13]",
+      "type": "cmsdk-apb-uart",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/unattached/device[11]/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/unattached/device[11]/unnamed-gpio-in[3]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[14]",
+      "type": "cmsdk-apb-uart",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[5]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[4]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/unattached/device[11]/unnamed-gpio-in[4]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/unattached/device[11]/unnamed-gpio-in[5]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[15]",
+      "type": "cmsdk-apb-uart",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[19]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[18]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[16]",
+      "type": "cmsdk-apb-uart",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[21]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[20]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[17]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[18]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[19]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[1]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[20]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[21]",
+      "type": "pl022",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[22]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[22]",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[11]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[23]",
+      "type": "pl022",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[22]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[24]",
+      "type": "pl022",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[22]/unnamed-gpio-in[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[25]",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[24]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[26]",
+      "type": "pl022",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[25]/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[27]",
+      "type": "pl022",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/unattached/device[25]/unnamed-gpio-in[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[28]",
+      "type": "versatile_i2c",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[29]",
+      "type": "versatile_i2c",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[2]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[30]",
+      "type": "versatile_i2c",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[31]",
+      "type": "versatile_i2c",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[32]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[33]",
+      "type": "lan9118",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/armv7m/nvic/unnamed-gpio-in[13]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[33]/mii",
+      "type": "lan9118-phy",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/unattached/non-qdev-gpio[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/unattached/device[3]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[4]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[5]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[6]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[7]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[8]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[9]",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/watchdog",
+      "type": "cmsdk-apb-watchdog",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/armv7m/nvic/NMI[0]"
+        }
+      ]
+    }
+  ],
+  "spaces": [
+    {
+      "id": "view-ab75ff2bc906",
+      "names": ["I/O"],
+      "root": "io",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x10000",
+          "name": "io",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        }
+      ]
+    },
+    {
+      "id": "view-7a6bdd78a252",
+      "names": ["bitband-source", "bitband-source", "memory"],
+      "root": "system",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x400000",
+          "name": "mps.ssram1",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        },
+        {
+          "base": "0x400000",
+          "size": "0x400000",
+          "name": "mps.ssram1",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        },
+        {
+          "base": "0x800000",
+          "size": "0x800000",
+          "name": "RESERVED 1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[1]"
+        },
+        {
+          "base": "0x1000000",
+          "size": "0x10000",
+          "name": "Block RAM",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[2]"
+        },
+        {
+          "base": "0x1010000",
+          "size": "0x1eff0000",
+          "name": "RESERVED 2",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[3]"
+        },
+        {
+          "base": "0x20000000",
+          "size": "0x400000",
+          "name": "mps.ssram23",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        },
+        {
+          "base": "0x20400000",
+          "size": "0x400000",
+          "name": "mps.ssram23",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        },
+        {
+          "base": "0x20800000",
+          "size": "0x800000",
+          "name": "RESERVED 3",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[4]"
+        },
+        {
+          "base": "0x21000000",
+          "size": "0x1000000",
+          "name": "PSRAM",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[5]"
+        },
+        {
+          "base": "0x40000000",
+          "size": "0x1000",
+          "name": "cmsdk-apb-timer",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/timer0"
+        },
+        {
+          "base": "0x40001000",
+          "size": "0x1000",
+          "name": "cmsdk-apb-timer",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/timer1"
+        },
+        {
+          "base": "0x40002000",
+          "size": "0x1000",
+          "name": "cmsdk-apb-dualtimer",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/dualtimer"
+        },
+        {
+          "base": "0x40003000",
+          "size": "0x1000",
+          "name": "CMSDK APB peripheral region @0x40000000 @0000000000003000",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[6]"
+        },
+        {
+          "base": "0x40004000",
+          "size": "0x1000",
+          "name": "uart",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[12]"
+        },
+        {
+          "base": "0x40005000",
+          "size": "0x1000",
+          "name": "uart",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[13]"
+        },
+        {
+          "base": "0x40006000",
+          "size": "0x1000",
+          "name": "uart",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[14]"
+        },
+        {
+          "base": "0x40007000",
+          "size": "0x1000",
+          "name": "uart",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[15]"
+        },
+        {
+          "base": "0x40008000",
+          "size": "0x1000",
+          "name": "cmsdk-apb-watchdog",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/watchdog"
+        },
+        {
+          "base": "0x40009000",
+          "size": "0x1000",
+          "name": "uart",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[16]"
+        },
+        {
+          "base": "0x4000a000",
+          "size": "0x6000",
+          "name": "CMSDK APB peripheral region @0x40000000 @000000000000a000",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[6]"
+        },
+        {
+          "base": "0x40010000",
+          "size": "0x1000",
+          "name": "cmsdk-ahb-gpio",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[17]"
+        },
+        {
+          "base": "0x40011000",
+          "size": "0x1000",
+          "name": "cmsdk-ahb-gpio",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[18]"
+        },
+        {
+          "base": "0x40012000",
+          "size": "0x1000",
+          "name": "cmsdk-ahb-gpio",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[19]"
+        },
+        {
+          "base": "0x40013000",
+          "size": "0x1000",
+          "name": "cmsdk-ahb-gpio",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[20]"
+        },
+        {
+          "base": "0x40014000",
+          "size": "0xc000",
+          "name": "CMSDK AHB peripheral region @0x40010000 @0000000000004000",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[7]"
+        },
+        {
+          "base": "0x40020000",
+          "size": "0x1000",
+          "name": "pl022",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[23]"
+        },
+        {
+          "base": "0x40021000",
+          "size": "0x1000",
+          "name": "pl022",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[24]"
+        },
+        {
+          "base": "0x40022000",
+          "size": "0x1000",
+          "name": "arm_sbcon_i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[28]"
+        },
+        {
+          "base": "0x40023000",
+          "size": "0x1000",
+          "name": "arm_sbcon_i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[29]"
+        },
+        {
+          "base": "0x40024000",
+          "size": "0x400",
+          "name": "i2s",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[32]"
+        },
+        {
+          "base": "0x40024400",
+          "size": "0xc00",
+          "name": "Extra peripheral region @0x40020000 @0000000000004400",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[8]"
+        },
+        {
+          "base": "0x40025000",
+          "size": "0x1000",
+          "name": "pl022",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[21]"
+        },
+        {
+          "base": "0x40026000",
+          "size": "0x1000",
+          "name": "pl022",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[26]"
+        },
+        {
+          "base": "0x40027000",
+          "size": "0x1000",
+          "name": "pl022",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[27]"
+        },
+        {
+          "base": "0x40028000",
+          "size": "0x1000",
+          "name": "mps2-fpgaio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/fpgaio"
+        },
+        {
+          "base": "0x40029000",
+          "size": "0x1000",
+          "name": "arm_sbcon_i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[30]"
+        },
+        {
+          "base": "0x4002a000",
+          "size": "0x1000",
+          "name": "arm_sbcon_i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[31]"
+        },
+        {
+          "base": "0x4002b000",
+          "size": "0x4000",
+          "name": "Extra peripheral region @0x40020000 @000000000000b000",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[8]"
+        },
+        {
+          "base": "0x4002f000",
+          "size": "0x1000",
+          "name": "mps2-scc",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/scc"
+        },
+        {
+          "base": "0x40030000",
+          "size": "0x1d0000",
+          "name": "RESERVED 4",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[9]"
+        },
+        {
+          "base": "0x41000000",
+          "size": "0x200000",
+          "name": "VGA",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[10]"
+        },
+        {
+          "base": "0x60000000",
+          "size": "0x1000000",
+          "name": "mps.ram",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/mps.ram"
+        },
+        {
+          "base": "0xa0000000",
+          "size": "0x100",
+          "name": "lan9118-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[33]"
+        }
+      ]
+    },
+    {
+      "id": "view-79cbf3704add",
+      "names": ["cpu-memory-0"],
+      "root": "armv7m-container",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x400000",
+          "name": "mps.ssram1",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        },
+        {
+          "base": "0x400000",
+          "size": "0x400000",
+          "name": "mps.ssram1",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        },
+        {
+          "base": "0x800000",
+          "size": "0x800000",
+          "name": "RESERVED 1",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[1]"
+        },
+        {
+          "base": "0x1000000",
+          "size": "0x10000",
+          "name": "Block RAM",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[2]"
+        },
+        {
+          "base": "0x1010000",
+          "size": "0x1eff0000",
+          "name": "RESERVED 2",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[3]"
+        },
+        {
+          "base": "0x20000000",
+          "size": "0x400000",
+          "name": "mps.ssram23",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        },
+        {
+          "base": "0x20400000",
+          "size": "0x400000",
+          "name": "mps.ssram23",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        },
+        {
+          "base": "0x20800000",
+          "size": "0x800000",
+          "name": "RESERVED 3",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[4]"
+        },
+        {
+          "base": "0x21000000",
+          "size": "0x1000000",
+          "name": "PSRAM",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[5]"
+        },
+        {
+          "base": "0x22000000",
+          "size": "0x2000000",
+          "name": "bitband",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/armv7m/bitband[0]"
+        },
+        {
+          "base": "0x40000000",
+          "size": "0x1000",
+          "name": "cmsdk-apb-timer",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/timer0"
+        },
+        {
+          "base": "0x40001000",
+          "size": "0x1000",
+          "name": "cmsdk-apb-timer",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/timer1"
+        },
+        {
+          "base": "0x40002000",
+          "size": "0x1000",
+          "name": "cmsdk-apb-dualtimer",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/dualtimer"
+        },
+        {
+          "base": "0x40003000",
+          "size": "0x1000",
+          "name": "CMSDK APB peripheral region @0x40000000 @0000000000003000",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[6]"
+        },
+        {
+          "base": "0x40004000",
+          "size": "0x1000",
+          "name": "uart",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[12]"
+        },
+        {
+          "base": "0x40005000",
+          "size": "0x1000",
+          "name": "uart",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[13]"
+        },
+        {
+          "base": "0x40006000",
+          "size": "0x1000",
+          "name": "uart",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[14]"
+        },
+        {
+          "base": "0x40007000",
+          "size": "0x1000",
+          "name": "uart",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[15]"
+        },
+        {
+          "base": "0x40008000",
+          "size": "0x1000",
+          "name": "cmsdk-apb-watchdog",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/watchdog"
+        },
+        {
+          "base": "0x40009000",
+          "size": "0x1000",
+          "name": "uart",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[16]"
+        },
+        {
+          "base": "0x4000a000",
+          "size": "0x6000",
+          "name": "CMSDK APB peripheral region @0x40000000 @000000000000a000",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[6]"
+        },
+        {
+          "base": "0x40010000",
+          "size": "0x1000",
+          "name": "cmsdk-ahb-gpio",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[17]"
+        },
+        {
+          "base": "0x40011000",
+          "size": "0x1000",
+          "name": "cmsdk-ahb-gpio",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[18]"
+        },
+        {
+          "base": "0x40012000",
+          "size": "0x1000",
+          "name": "cmsdk-ahb-gpio",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[19]"
+        },
+        {
+          "base": "0x40013000",
+          "size": "0x1000",
+          "name": "cmsdk-ahb-gpio",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[20]"
+        },
+        {
+          "base": "0x40014000",
+          "size": "0xc000",
+          "name": "CMSDK AHB peripheral region @0x40010000 @0000000000004000",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[7]"
+        },
+        {
+          "base": "0x40020000",
+          "size": "0x1000",
+          "name": "pl022",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[23]"
+        },
+        {
+          "base": "0x40021000",
+          "size": "0x1000",
+          "name": "pl022",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[24]"
+        },
+        {
+          "base": "0x40022000",
+          "size": "0x1000",
+          "name": "arm_sbcon_i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[28]"
+        },
+        {
+          "base": "0x40023000",
+          "size": "0x1000",
+          "name": "arm_sbcon_i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[29]"
+        },
+        {
+          "base": "0x40024000",
+          "size": "0x400",
+          "name": "i2s",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[32]"
+        },
+        {
+          "base": "0x40024400",
+          "size": "0xc00",
+          "name": "Extra peripheral region @0x40020000 @0000000000004400",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[8]"
+        },
+        {
+          "base": "0x40025000",
+          "size": "0x1000",
+          "name": "pl022",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[21]"
+        },
+        {
+          "base": "0x40026000",
+          "size": "0x1000",
+          "name": "pl022",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[26]"
+        },
+        {
+          "base": "0x40027000",
+          "size": "0x1000",
+          "name": "pl022",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[27]"
+        },
+        {
+          "base": "0x40028000",
+          "size": "0x1000",
+          "name": "mps2-fpgaio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/fpgaio"
+        },
+        {
+          "base": "0x40029000",
+          "size": "0x1000",
+          "name": "arm_sbcon_i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[30]"
+        },
+        {
+          "base": "0x4002a000",
+          "size": "0x1000",
+          "name": "arm_sbcon_i2c",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[31]"
+        },
+        {
+          "base": "0x4002b000",
+          "size": "0x4000",
+          "name": "Extra peripheral region @0x40020000 @000000000000b000",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[8]"
+        },
+        {
+          "base": "0x4002f000",
+          "size": "0x1000",
+          "name": "mps2-scc",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/scc"
+        },
+        {
+          "base": "0x40030000",
+          "size": "0x1d0000",
+          "name": "RESERVED 4",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[9]"
+        },
+        {
+          "base": "0x41000000",
+          "size": "0x200000",
+          "name": "VGA",
+          "kind": "i/o",
+          "priority": -1000,
+          "owner": "/machine/unattached/device[10]"
+        },
+        {
+          "base": "0x42000000",
+          "size": "0x2000000",
+          "name": "bitband",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/armv7m/bitband[1]"
+        },
+        {
+          "base": "0x60000000",
+          "size": "0x1000000",
+          "name": "mps.ram",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/mps.ram"
+        },
+        {
+          "base": "0xa0000000",
+          "size": "0x100",
+          "name": "lan9118-mmio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/unattached/device[33]"
+        },
+        {
+          "base": "0xe0000000",
+          "size": "0xe000",
+          "name": "nvic-default",
+          "kind": "i/o",
+          "priority": -1,
+          "owner": "/machine/armv7m"
+        },
+        {
+          "base": "0xe000e000",
+          "size": "0x10",
+          "name": "nvic_sysregs",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/armv7m/nvic"
+        },
+        {
+          "base": "0xe000e010",
+          "size": "0xe0",
+          "name": "v7m_systick",
+          "kind": "i/o",
+          "priority": 1,
+          "owner": "/machine/armv7m"
+        },
+        {
+          "base": "0xe000e0f0",
+          "size": "0xf10",
+          "name": "nvic_sysregs @00000000000000f0",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/armv7m/nvic"
+        },
+        {
+          "base": "0xe000f000",
+          "size": "0xf1000",
+          "name": "nvic-default @000000000000f000",
+          "kind": "i/o",
+          "priority": -1,
+          "owner": "/machine/armv7m"
+        }
+      ]
+    }
+  ],
+  "boardId": "mps2-an500",
+  "qemuCommit": "4fc49f46dc95d4a27de2509e7fceb2931e91faeb",
+  "target": "arm",
+  "arguments": [
+    "-M",
+    "mps2-an500",
+    "-accel",
+    "tcg",
+    "-S",
+    "-display",
+    "none",
+    "-serial",
+    "null",
+    "-monitor",
+    "none",
+    "-nodefaults",
+    "-no-user-config",
+    "-nic",
+    "none",
+    "-audio",
+    "driver=none",
+    "-qmp",
+    "stdio"
+  ],
+  "buildOptions": {
+    "default_devices": true,
+    "slirp": "auto",
+    "rust": "disabled"
+  }
+}

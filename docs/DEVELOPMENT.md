@@ -14,6 +14,7 @@ Windows needs Microsoft C++ build tools and WebView2; macOS needs Xcode command-
 ```sh
 bun install --frozen-lockfile
 bun run test
+python3 -m unittest discover -s scripts -p "*_test.py"
 bun run check
 bun run build
 bun run format:check
@@ -31,6 +32,6 @@ cargo check --manifest-path src-tauri/Cargo.toml
 
 The initial environment had no Rust toolchain, so Cargo.lock and native verification must be completed on a machine with prerequisites. Commit Cargo.lock after that first successful build; subsequent checks should use `--locked`.
 
-CI checks board-model invariants, frontend types, formatting, and production compilation. It also checks Rust formatting and compilation on Ubuntu with native prerequisites, but does not package installers or build/boot QEMU. Once Cargo.lock is committed, make that check use `--locked`.
+CI checks commit/PR conventions, tooling regressions, board-model invariants, frontend types, formatting, and production compilation. It also checks Rust formatting and compilation on Ubuntu with native prerequisites, but does not package installers or build/boot QEMU. Once Cargo.lock is committed, make that check use `--locked`.
 
 Before claiming runtime support, add a meaningful boot smoke test with known serial output and a timeout. Record QEMU version, host, build flags, firmware provenance, and exact launch arguments.

@@ -4,7 +4,7 @@ A visual virtual prototyping platform for early functional modeling by semicondu
 
 The aim: compose a supported virtual platform on a canvas, configure its software, and run it using QEMU. The stack is **Tauri 2, React, TypeScript, Bun, and React Flow**, with a Rust host supervising QEMU as a separate process.
 
-**Status: board diagram editor.** Search 14 curated Arm, AMD, NXP, RISC-V and Raspberry Pi board presets to load source-derived core architecture views, with memory ranges and interrupt wiring. The left sidebar separates Board Library and planned Custom SoC workflows. Inspect blocks and rearrange them on a snapping grid. Hardware topology is fixed; each view states omitted devices. Running guests, saving projects, custom SoCs, and QMP integration are not implemented. Nothing boots yet. See [board coverage](docs/BOARDS.md).
+**Status: captured board inventory explorer.** Search 14 curated board presets to inspect device objects, parent-bus relationships, connected QOM IRQ/GPIO signals and complete resolved memory maps captured from pinned QEMU 11.1.2. Select CPU, secure or DMA/GPU address-space views in Memory Map. Stub, inactive and known unsupported hardware are labeled. Both sidebars collapse and resize; the canvas snaps to a grid. The desktop app does not yet launch guests, save projects or implement custom composition. Captures verify initialization, not guest booting. See [board coverage and reproduction](docs/BOARDS.md).
 
 ## Quick start
 
@@ -35,7 +35,7 @@ QEMU is pinned as a submodule rather than automatically following upstream HEAD.
 git submodule update --init --depth 1 third_party/qemu
 ```
 
-See [QEMU integration](docs/QEMU.md) for the selected version, source build instructions, and update policy. No QEMU binary is currently bundled or invoked.
+See [QEMU integration](docs/QEMU.md) for the selected version, source build instructions, and update policy. No QEMU binary is bundled or invoked by the app. The maintenance helper initializes a separately built pinned QEMU to generate the checked-in inventories.
 
 ## What is feasible?
 

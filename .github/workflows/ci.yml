@@ -16,6 +16,7 @@ jobs:
         with:
           node-version: 24
       - run: bun install --frozen-lockfile
+      - run: python3 -m unittest discover -s scripts -p "*_test.py"
       - run: bun run test
       - run: bun run check
       - run: bun run format:check

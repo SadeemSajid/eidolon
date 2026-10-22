@@ -1,0 +1,5029 @@
+{
+  "version": {
+    "qemu": {
+      "micro": 2,
+      "minor": 1,
+      "major": 11
+    },
+    "package": "v11.1.2"
+  },
+  "devices": [
+    {
+      "path": "/machine/soc",
+      "type": "xlnx-zynqmp",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/adma[0]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter77/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/adma[1]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter78/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/adma[2]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter79/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/adma[3]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter80/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/adma[4]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter81/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/adma[5]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter82/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/adma[6]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter83/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/adma[7]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter84/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/apu-cluster",
+      "type": "cpu-cluster",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/apu-cluster/apu-cpu[0]",
+      "type": "cortex-a53-arm-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[190]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[187]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[186]"
+        },
+        {
+          "output": "unnamed-gpio-out[3]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[189]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/apu-cluster/apu-cpu[1]",
+      "type": "cortex-a53-arm-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[222]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[219]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[218]"
+        },
+        {
+          "output": "unnamed-gpio-out[3]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[221]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/apu-cluster/apu-cpu[2]",
+      "type": "cortex-a53-arm-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[254]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[251]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[250]"
+        },
+        {
+          "output": "unnamed-gpio-out[3]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[253]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/apu-cluster/apu-cpu[3]",
+      "type": "cortex-a53-arm-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[286]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[283]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[282]"
+        },
+        {
+          "output": "unnamed-gpio-out[3]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[285]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/apu-ctrl",
+      "type": "xlnx.apu-ctrl",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter153/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/bbram",
+      "type": "xlnx.bbram-ctrl",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter11/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/can[0]",
+      "type": "xlnx.zynqmp-can",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter23/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/can[1]",
+      "type": "xlnx.zynqmp-can",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter24/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/crf",
+      "type": "xlnx.zynqmp_crf",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter120/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/dp-dma",
+      "type": "xlnx.dpdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter122/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/efuse-ctrl",
+      "type": "xlnx-zynqmp-efuse",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter87/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/efuse-ctrl/xlnx-efuse@0",
+      "type": "xlnx-efuse",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/gdma[0]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter124/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gdma[1]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter125/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gdma[2]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter126/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gdma[3]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter127/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gdma[4]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter128/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gdma[5]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter129/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gdma[6]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter130/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gdma[7]",
+      "type": "xlnx.zdma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter131/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gem-irq-orgate[0]",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/irq-splitter57/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gem-irq-orgate[1]",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/irq-splitter59/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gem-irq-orgate[2]",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/irq-splitter61/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gem-irq-orgate[3]",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/irq-splitter63/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gem[0]",
+      "type": "cadence_gem",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gem-irq-orgate[0]/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/gem-irq-orgate[0]/unnamed-gpio-in[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gem[1]",
+      "type": "cadence_gem",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gem-irq-orgate[1]/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/gem-irq-orgate[1]/unnamed-gpio-in[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gem[2]",
+      "type": "cadence_gem",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gem-irq-orgate[2]/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/gem-irq-orgate[2]/unnamed-gpio-in[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gem[3]",
+      "type": "cadence_gem",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/gem-irq-orgate[3]/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/gem-irq-orgate[3]/unnamed-gpio-in[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/gic",
+      "type": "arm_gic",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/apu-cluster/apu-cpu[0]/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[10]",
+          "target": "/machine/soc/apu-cluster/apu-cpu[2]/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "sysbus-irq[11]",
+          "target": "/machine/soc/apu-cluster/apu-cpu[3]/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "sysbus-irq[12]",
+          "target": "/machine/soc/apu-cluster/apu-cpu[0]/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "sysbus-irq[13]",
+          "target": "/machine/soc/apu-cluster/apu-cpu[1]/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "sysbus-irq[14]",
+          "target": "/machine/soc/apu-cluster/apu-cpu[2]/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "sysbus-irq[15]",
+          "target": "/machine/soc/apu-cluster/apu-cpu[3]/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/apu-cluster/apu-cpu[1]/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/soc/apu-cluster/apu-cpu[2]/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/soc/apu-cluster/apu-cpu[3]/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[4]",
+          "target": "/machine/soc/apu-cluster/apu-cpu[0]/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[5]",
+          "target": "/machine/soc/apu-cluster/apu-cpu[1]/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[6]",
+          "target": "/machine/soc/apu-cluster/apu-cpu[2]/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[7]",
+          "target": "/machine/soc/apu-cluster/apu-cpu[3]/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[8]",
+          "target": "/machine/soc/apu-cluster/apu-cpu[0]/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "sysbus-irq[9]",
+          "target": "/machine/soc/apu-cluster/apu-cpu[1]/unnamed-gpio-in[2]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/ipi",
+      "type": "xlnx.zynqmp_ipi",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter64/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter0",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter1",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[1]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter10",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[10]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[10]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter100",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[100]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[100]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter101",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[101]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[101]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter102",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[102]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[102]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter103",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[103]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[103]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter104",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[104]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[104]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter105",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[105]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[105]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter106",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[106]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[106]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter107",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[107]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[107]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter108",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[108]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[108]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter109",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[109]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[109]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter11",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[11]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[11]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter110",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[110]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[110]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter111",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[111]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[111]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter112",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[112]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[112]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter113",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[113]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[113]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter114",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[114]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[114]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter115",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[115]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[115]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter116",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[116]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[116]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter117",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[117]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[117]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter118",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[118]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[118]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter119",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[119]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[119]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter12",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[12]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[12]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter120",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[120]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[120]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter121",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[121]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[121]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter122",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[122]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[122]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter123",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[123]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[123]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter124",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[124]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[124]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter125",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[125]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[125]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter126",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[126]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[126]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter127",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[127]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[127]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter128",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[128]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[128]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter129",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[129]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[129]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter13",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[13]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[13]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter130",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[130]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[130]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter131",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[131]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[131]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter132",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[132]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[132]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter133",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[133]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[133]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter134",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[134]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[134]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter135",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[135]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[135]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter136",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[136]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[136]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter137",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[137]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[137]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter138",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[138]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[138]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter139",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[139]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[139]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter14",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[14]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[14]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter140",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[140]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[140]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter141",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[141]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[141]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter142",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[142]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[142]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter143",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[143]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[143]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter144",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[144]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[144]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter145",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[145]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[145]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter146",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[146]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[146]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter147",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[147]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[147]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter148",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[148]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[148]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter149",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[149]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[149]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter15",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[15]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[15]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter150",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[150]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[150]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter151",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[151]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[151]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter152",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[152]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[152]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter153",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[153]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[153]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter154",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[154]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[154]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter155",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[155]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[155]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter156",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[156]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[156]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter157",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[157]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[157]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter158",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[158]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[158]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter159",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[159]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[159]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter16",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[16]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[16]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter17",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[17]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[17]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter18",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[18]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[18]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter19",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[19]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[19]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter2",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[2]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter20",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[20]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[20]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter21",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[21]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[21]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter22",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[22]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[22]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter23",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[23]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[23]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter24",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[24]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[24]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter25",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[25]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[25]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter26",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[26]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[26]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter27",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[27]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[27]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter28",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[28]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[28]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter29",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[29]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[29]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter3",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[3]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter30",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[30]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[30]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter31",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[31]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[31]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter32",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[32]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[32]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter33",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[33]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[33]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter34",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[34]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[34]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter35",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[35]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[35]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter36",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[36]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[36]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter37",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[37]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[37]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter38",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[38]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[38]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter39",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[39]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[39]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter4",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[4]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[4]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter40",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[40]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[40]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter41",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[41]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[41]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter42",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[42]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[42]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter43",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[43]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[43]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter44",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[44]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[44]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter45",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[45]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[45]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter46",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[46]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[46]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter47",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[47]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[47]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter48",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[48]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[48]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter49",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[49]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[49]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter5",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[5]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[5]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter50",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[50]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[50]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter51",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[51]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[51]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter52",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[52]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[52]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter53",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[53]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[53]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter54",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[54]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[54]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter55",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[55]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[55]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter56",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[56]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[56]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter57",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[57]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[57]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter58",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[58]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[58]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter59",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[59]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[59]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter6",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[6]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[6]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter60",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[60]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[60]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter61",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[61]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[61]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter62",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[62]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[62]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter63",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[63]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[63]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter64",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[64]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[64]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter65",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[65]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[65]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter66",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[66]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[66]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter67",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[67]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[67]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter68",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[68]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[68]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter69",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[69]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[69]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter7",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[7]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[7]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter70",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[70]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[70]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter71",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[71]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[71]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter72",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[72]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[72]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter73",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[73]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[73]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter74",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[74]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[74]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter75",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[75]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[75]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter76",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[76]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[76]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter77",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[77]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[77]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter78",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[78]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[78]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter79",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[79]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[79]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter8",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[8]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[8]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter80",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[80]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[80]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter81",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[81]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[81]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter82",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[82]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[82]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter83",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[83]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[83]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter84",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[84]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[84]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter85",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[85]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[85]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter86",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[86]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[86]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter87",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[87]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[87]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter88",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[88]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[88]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter89",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[89]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[89]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter9",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[9]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[9]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter90",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[90]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[90]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter91",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[91]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[91]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter92",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[92]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[92]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter93",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[93]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[93]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter94",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[94]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[94]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter95",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[95]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[95]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter96",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[96]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[96]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter97",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[97]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[97]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter98",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[98]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[98]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/irq-splitter99",
+      "type": "split-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/gic/unnamed-gpio-in[99]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[99]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/qspi",
+      "type": "xlnx.usmp-gqspi",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/qspi-irq-orgate/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/unattached/device[4]/ssi-gpio-cs[0]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/unattached/device[5]/ssi-gpio-cs[0]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/unattached/device[6]/ssi-gpio-cs[0]"
+        },
+        {
+          "output": "sysbus-irq[4]",
+          "target": "/machine/unattached/device[7]/ssi-gpio-cs[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/qspi-dma",
+      "type": "xlnx.csu_dma",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/qspi-irq-orgate/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/qspi-irq-orgate",
+      "type": "or-irq",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/irq-splitter15/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/rpu-cluster",
+      "type": "cpu-cluster",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/rpu-cluster/rpu-cpu[0]",
+      "type": "cortex-r5f-arm-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[190]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[187]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[186]"
+        },
+        {
+          "output": "unnamed-gpio-out[3]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[189]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/rpu-cluster/rpu-cpu[1]",
+      "type": "cortex-r5f-arm-cpu",
+      "cpu": true,
+      "realized": true,
+      "parentBus": "",
+      "signals": [
+        {
+          "output": "unnamed-gpio-out[0]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[222]"
+        },
+        {
+          "output": "unnamed-gpio-out[1]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[219]"
+        },
+        {
+          "output": "unnamed-gpio-out[2]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[218]"
+        },
+        {
+          "output": "unnamed-gpio-out[3]",
+          "target": "/machine/soc/rpu_gic/unnamed-gpio-in[221]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/rpu_gic",
+      "type": "arm_gic",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/rpu-cluster/rpu-cpu[0]/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/rpu-cluster/rpu-cpu[1]/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/soc/rpu-cluster/rpu-cpu[0]/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/soc/rpu-cluster/rpu-cpu[1]/unnamed-gpio-in[1]"
+        },
+        {
+          "output": "sysbus-irq[4]",
+          "target": "/machine/soc/rpu-cluster/rpu-cpu[0]/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "sysbus-irq[5]",
+          "target": "/machine/soc/rpu-cluster/rpu-cpu[1]/unnamed-gpio-in[2]"
+        },
+        {
+          "output": "sysbus-irq[6]",
+          "target": "/machine/soc/rpu-cluster/rpu-cpu[0]/unnamed-gpio-in[3]"
+        },
+        {
+          "output": "sysbus-irq[7]",
+          "target": "/machine/soc/rpu-cluster/rpu-cpu[1]/unnamed-gpio-in[3]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/rtc",
+      "type": "xlnx-zynmp.rtc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter26/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/sata",
+      "type": "sysbus-ahci",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter133/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/sdhci[0]",
+      "type": "generic-sdhci",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter48/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/sdhci[1]",
+      "type": "generic-sdhci",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter49/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/serdes",
+      "type": "unimplemented-device",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/spi[0]",
+      "type": "xlnx.ps7-spi",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter19/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/unattached/device[2]/ssi-gpio-cs[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/spi[1]",
+      "type": "xlnx.ps7-spi",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter20/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/unattached/device[3]/ssi-gpio-cs[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/ttc[0]",
+      "type": "cadence_ttc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter36/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/irq-splitter37/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/soc/irq-splitter38/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/ttc[1]",
+      "type": "cadence_ttc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter39/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/irq-splitter40/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/soc/irq-splitter41/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/ttc[2]",
+      "type": "cadence_ttc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter42/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/irq-splitter43/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/soc/irq-splitter44/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/ttc[3]",
+      "type": "cadence_ttc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter45/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/irq-splitter46/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/soc/irq-splitter47/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/uart[0]",
+      "type": "cadence_uart",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter21/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/uart[1]",
+      "type": "cadence_uart",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter22/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/usb[0]",
+      "type": "usb_dwc3",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/usb[0]/dwc3-xhci",
+      "type": "sysbus-xhci",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter65/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/irq-splitter66/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/soc/irq-splitter67/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/soc/irq-splitter68/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/usb[0]/dwc3-xhci/xhci-core",
+      "type": "base-xhci",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/usb[1]",
+      "type": "usb_dwc3",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/usb[1]/dwc3-xhci",
+      "type": "sysbus-xhci",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter70/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[1]",
+          "target": "/machine/soc/irq-splitter71/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[2]",
+          "target": "/machine/soc/irq-splitter72/unnamed-gpio-in[0]"
+        },
+        {
+          "output": "sysbus-irq[3]",
+          "target": "/machine/soc/irq-splitter73/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/usb[1]/dwc3-xhci/xhci-core",
+      "type": "base-xhci",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/xxxdp",
+      "type": "xlnx.v-dp",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/unattached/sysbus",
+      "signals": [
+        {
+          "output": "sysbus-irq[0]",
+          "target": "/machine/soc/irq-splitter119/unnamed-gpio-in[0]"
+        }
+      ]
+    },
+    {
+      "path": "/machine/soc/xxxdp/aux/i2c",
+      "type": "aux-to-i2c-bridge",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/soc/xxxdp/aux",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/xxxdp/dpcd",
+      "type": "dpcd",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/soc/xxxdp/aux",
+      "signals": []
+    },
+    {
+      "path": "/machine/soc/xxxdp/edid",
+      "type": "i2c-ddc",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/soc/xxxdp/aux/i2c/aux-i2c",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[0]",
+      "type": "sd-card",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/soc/sdhci[0]/sd-bus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[1]",
+      "type": "sd-card",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/soc/sdhci[1]/sd-bus",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[2]",
+      "type": "sst25wf080",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/soc/spi[0]/spi0",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[3]",
+      "type": "sst25wf080",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/soc/spi[1]/spi0",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[4]",
+      "type": "n25q512a11",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/soc/qspi/spi0",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[5]",
+      "type": "n25q512a11",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/soc/qspi/spi0",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[6]",
+      "type": "n25q512a11",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/soc/qspi/spi1",
+      "signals": []
+    },
+    {
+      "path": "/machine/unattached/device[7]",
+      "type": "n25q512a11",
+      "cpu": false,
+      "realized": true,
+      "parentBus": "/machine/soc/qspi/spi1",
+      "signals": []
+    }
+  ],
+  "spaces": [
+    {
+      "id": "view-ab75ff2bc906",
+      "names": ["I/O"],
+      "root": "io",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x10000",
+          "name": "io",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        }
+      ]
+    },
+    {
+      "id": "view-fb191685a416",
+      "names": [
+        "anonymous",
+        "anonymous",
+        "cpu-memory-0",
+        "cpu-memory-1",
+        "cpu-memory-2",
+        "cpu-memory-3",
+        "cpu-memory-4",
+        "cpu-memory-5",
+        "csu-dma",
+        "dma",
+        "dma",
+        "dma",
+        "dma",
+        "memory",
+        "zdma-dma",
+        "zdma-dma",
+        "zdma-dma",
+        "zdma-dma",
+        "zdma-dma",
+        "zdma-dma",
+        "zdma-dma",
+        "zdma-dma",
+        "zdma-dma",
+        "zdma-dma",
+        "zdma-dma",
+        "zdma-dma",
+        "zdma-dma",
+        "zdma-dma",
+        "zdma-dma",
+        "zdma-dma"
+      ],
+      "root": "system",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x40000000",
+          "name": "ddr-ram",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/objects/ddr-ram"
+        },
+        {
+          "base": "0xc0000000",
+          "size": "0x2000000",
+          "name": "lqspi",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/qspi"
+        },
+        {
+          "base": "0xf9000000",
+          "size": "0x1000",
+          "name": "gic_dist",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/rpu_gic"
+        },
+        {
+          "base": "0xf9001000",
+          "size": "0x100",
+          "name": "gic_cpu",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/rpu_gic"
+        },
+        {
+          "base": "0xf9010000",
+          "size": "0x1000",
+          "name": "gic_dist",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9011000",
+          "size": "0x1000",
+          "name": "gic_dist",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9012000",
+          "size": "0x1000",
+          "name": "gic_dist",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9013000",
+          "size": "0x1000",
+          "name": "gic_dist",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9014000",
+          "size": "0x1000",
+          "name": "gic_dist",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9015000",
+          "size": "0x1000",
+          "name": "gic_dist",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9016000",
+          "size": "0x1000",
+          "name": "gic_dist",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9017000",
+          "size": "0x1000",
+          "name": "gic_dist",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9018000",
+          "size": "0x1000",
+          "name": "gic_dist",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9019000",
+          "size": "0x1000",
+          "name": "gic_dist",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf901a000",
+          "size": "0x1000",
+          "name": "gic_dist",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf901b000",
+          "size": "0x1000",
+          "name": "gic_dist",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf901c000",
+          "size": "0x1000",
+          "name": "gic_dist",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf901d000",
+          "size": "0x1000",
+          "name": "gic_dist",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf901e000",
+          "size": "0x1000",
+          "name": "gic_dist",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf901f000",
+          "size": "0x1000",
+          "name": "gic_dist",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9020000",
+          "size": "0x1000",
+          "name": "gic_cpu",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9021000",
+          "size": "0x1000",
+          "name": "gic_cpu",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9022000",
+          "size": "0x1000",
+          "name": "gic_cpu",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9023000",
+          "size": "0x1000",
+          "name": "gic_cpu",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9024000",
+          "size": "0x1000",
+          "name": "gic_cpu",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9025000",
+          "size": "0x1000",
+          "name": "gic_cpu",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9026000",
+          "size": "0x1000",
+          "name": "gic_cpu",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9027000",
+          "size": "0x1000",
+          "name": "gic_cpu",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9028000",
+          "size": "0x1000",
+          "name": "gic_cpu",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9029000",
+          "size": "0x1000",
+          "name": "gic_cpu",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf902a000",
+          "size": "0x1000",
+          "name": "gic_cpu",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf902b000",
+          "size": "0x1000",
+          "name": "gic_cpu",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf902c000",
+          "size": "0x1000",
+          "name": "gic_cpu",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf902d000",
+          "size": "0x1000",
+          "name": "gic_cpu",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf902e000",
+          "size": "0x1000",
+          "name": "gic_cpu",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf902f000",
+          "size": "0x2000",
+          "name": "gic_cpu",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9031000",
+          "size": "0x1000",
+          "name": "gic_cpu @0000000000001000",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9032000",
+          "size": "0x1000",
+          "name": "gic_cpu @0000000000001000",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9033000",
+          "size": "0x1000",
+          "name": "gic_cpu @0000000000001000",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9034000",
+          "size": "0x1000",
+          "name": "gic_cpu @0000000000001000",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9035000",
+          "size": "0x1000",
+          "name": "gic_cpu @0000000000001000",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9036000",
+          "size": "0x1000",
+          "name": "gic_cpu @0000000000001000",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9037000",
+          "size": "0x1000",
+          "name": "gic_cpu @0000000000001000",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9038000",
+          "size": "0x1000",
+          "name": "gic_cpu @0000000000001000",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf9039000",
+          "size": "0x1000",
+          "name": "gic_cpu @0000000000001000",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf903a000",
+          "size": "0x1000",
+          "name": "gic_cpu @0000000000001000",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf903b000",
+          "size": "0x1000",
+          "name": "gic_cpu @0000000000001000",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf903c000",
+          "size": "0x1000",
+          "name": "gic_cpu @0000000000001000",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf903d000",
+          "size": "0x1000",
+          "name": "gic_cpu @0000000000001000",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf903e000",
+          "size": "0x1000",
+          "name": "gic_cpu @0000000000001000",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xf903f000",
+          "size": "0x1000",
+          "name": "gic_cpu @0000000000001000",
+          "kind": "container",
+          "priority": 0,
+          "owner": "/machine/soc/gic"
+        },
+        {
+          "base": "0xfd0c0000",
+          "size": "0x1000",
+          "name": "ahci",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/sata"
+        },
+        {
+          "base": "0xfd1a0000",
+          "size": "0x10c",
+          "name": "xlnx.zynqmp_crf",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/crf/reg-array[0]"
+        },
+        {
+          "base": "0xfd400000",
+          "size": "0x20000",
+          "name": "serdes",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/serdes"
+        },
+        {
+          "base": "0xfd4a0000",
+          "size": "0x3b0",
+          "name": "xlnx.v-dp.core",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/xxxdp"
+        },
+        {
+          "base": "0xfd4aa000",
+          "size": "0x1e0",
+          "name": "xlnx.v-dp.v_blend",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/xxxdp"
+        },
+        {
+          "base": "0xfd4ab000",
+          "size": "0x238",
+          "name": "xlnx.v-dp.av_buffer_manager",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/xxxdp"
+        },
+        {
+          "base": "0xfd4ac000",
+          "size": "0x50",
+          "name": "xlnx.v-dp.audio",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/xxxdp"
+        },
+        {
+          "base": "0xfd4c0000",
+          "size": "0x1000",
+          "name": "xlnx.dpdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/dp-dma"
+        },
+        {
+          "base": "0xfd500000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gdma[0]"
+        },
+        {
+          "base": "0xfd510000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gdma[1]"
+        },
+        {
+          "base": "0xfd520000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gdma[2]"
+        },
+        {
+          "base": "0xfd530000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gdma[3]"
+        },
+        {
+          "base": "0xfd540000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gdma[4]"
+        },
+        {
+          "base": "0xfd550000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gdma[5]"
+        },
+        {
+          "base": "0xfd560000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gdma[6]"
+        },
+        {
+          "base": "0xfd570000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gdma[7]"
+        },
+        {
+          "base": "0xfd5c0000",
+          "size": "0x98",
+          "name": "xlnx.apu-ctrl",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/apu-ctrl/reg-array[0]"
+        },
+        {
+          "base": "0xfe200000",
+          "size": "0x40",
+          "name": "capabilities",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[0]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200040",
+          "size": "0x400",
+          "name": "operational",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[0]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200440",
+          "size": "0x10",
+          "name": "usb3 port #1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[0]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200450",
+          "size": "0x10",
+          "name": "usb3 port #2",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[0]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200460",
+          "size": "0x10",
+          "name": "usb3 port #3",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[0]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200470",
+          "size": "0x10",
+          "name": "usb3 port #4",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[0]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200480",
+          "size": "0x10",
+          "name": "usb2 port #1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[0]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe200490",
+          "size": "0x10",
+          "name": "usb2 port #2",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[0]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe2004a0",
+          "size": "0x10",
+          "name": "usb2 port #3",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[0]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe2004b0",
+          "size": "0x10",
+          "name": "usb2 port #4",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[0]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe201000",
+          "size": "0x220",
+          "name": "runtime",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[0]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe202000",
+          "size": "0x820",
+          "name": "doorbell",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[0]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe20c100",
+          "size": "0x600",
+          "name": "usb_dwc3",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[0]/reg-array[0]"
+        },
+        {
+          "base": "0xfe300000",
+          "size": "0x40",
+          "name": "capabilities",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[1]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe300040",
+          "size": "0x400",
+          "name": "operational",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[1]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe300440",
+          "size": "0x10",
+          "name": "usb3 port #1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[1]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe300450",
+          "size": "0x10",
+          "name": "usb3 port #2",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[1]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe300460",
+          "size": "0x10",
+          "name": "usb3 port #3",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[1]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe300470",
+          "size": "0x10",
+          "name": "usb3 port #4",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[1]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe300480",
+          "size": "0x10",
+          "name": "usb2 port #1",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[1]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe300490",
+          "size": "0x10",
+          "name": "usb2 port #2",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[1]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe3004a0",
+          "size": "0x10",
+          "name": "usb2 port #3",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[1]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe3004b0",
+          "size": "0x10",
+          "name": "usb2 port #4",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[1]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe301000",
+          "size": "0x220",
+          "name": "runtime",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[1]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe302000",
+          "size": "0x820",
+          "name": "doorbell",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[1]/dwc3-xhci/xhci-core"
+        },
+        {
+          "base": "0xfe30c100",
+          "size": "0x600",
+          "name": "usb_dwc3",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/usb[1]/reg-array[0]"
+        },
+        {
+          "base": "0xff000000",
+          "size": "0x1000",
+          "name": "uart",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/uart[0]"
+        },
+        {
+          "base": "0xff010000",
+          "size": "0x1000",
+          "name": "uart",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/uart[1]"
+        },
+        {
+          "base": "0xff040000",
+          "size": "0x100",
+          "name": "spi",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/spi[0]"
+        },
+        {
+          "base": "0xff050000",
+          "size": "0x100",
+          "name": "spi",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/spi[1]"
+        },
+        {
+          "base": "0xff060000",
+          "size": "0x84",
+          "name": "xlnx.zynqmp-can",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/can[0]/reg-array[0]"
+        },
+        {
+          "base": "0xff070000",
+          "size": "0x84",
+          "name": "xlnx.zynqmp-can",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/can[1]/reg-array[0]"
+        },
+        {
+          "base": "0xff0b0000",
+          "size": "0x800",
+          "name": "enet",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gem[0]"
+        },
+        {
+          "base": "0xff0c0000",
+          "size": "0x800",
+          "name": "enet",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gem[1]"
+        },
+        {
+          "base": "0xff0d0000",
+          "size": "0x800",
+          "name": "enet",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gem[2]"
+        },
+        {
+          "base": "0xff0e0000",
+          "size": "0x800",
+          "name": "enet",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/gem[3]"
+        },
+        {
+          "base": "0xff0f0000",
+          "size": "0x200",
+          "name": "spi",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/qspi"
+        },
+        {
+          "base": "0xff0f0800",
+          "size": "0x2c",
+          "name": "xlnx.csu_dma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/qspi-dma/reg-array[0]"
+        },
+        {
+          "base": "0xff110000",
+          "size": "0x1000",
+          "name": "timer",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ttc[0]"
+        },
+        {
+          "base": "0xff120000",
+          "size": "0x1000",
+          "name": "timer",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ttc[1]"
+        },
+        {
+          "base": "0xff130000",
+          "size": "0x1000",
+          "name": "timer",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ttc[2]"
+        },
+        {
+          "base": "0xff140000",
+          "size": "0x1000",
+          "name": "timer",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ttc[3]"
+        },
+        {
+          "base": "0xff160000",
+          "size": "0x100",
+          "name": "sdhci",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/sdhci[0]"
+        },
+        {
+          "base": "0xff170000",
+          "size": "0x100",
+          "name": "sdhci",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/sdhci[1]"
+        },
+        {
+          "base": "0xff300000",
+          "size": "0x20",
+          "name": "xlnx.zynqmp_ipi",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/ipi/reg-array[0]"
+        },
+        {
+          "base": "0xffa60000",
+          "size": "0x54",
+          "name": "xlnx-zynmp.rtc",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/rtc/reg-array[0]"
+        },
+        {
+          "base": "0xffa80000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/adma[0]"
+        },
+        {
+          "base": "0xffa90000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/adma[1]"
+        },
+        {
+          "base": "0xffaa0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/adma[2]"
+        },
+        {
+          "base": "0xffab0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/adma[3]"
+        },
+        {
+          "base": "0xffac0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/adma[4]"
+        },
+        {
+          "base": "0xffad0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/adma[5]"
+        },
+        {
+          "base": "0xffae0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/adma[6]"
+        },
+        {
+          "base": "0xffaf0000",
+          "size": "0x204",
+          "name": "xlnx.zdma",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/adma[7]"
+        },
+        {
+          "base": "0xffcc0000",
+          "size": "0x1100",
+          "name": "xlnx-zynqmp-efuse",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/efuse-ctrl/reg-array[0]"
+        },
+        {
+          "base": "0xffcd0000",
+          "size": "0x50",
+          "name": "xlnx.bbram-ctrl",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/bbram/reg-array[0]"
+        },
+        {
+          "base": "0xfffc0000",
+          "size": "0x10000",
+          "name": "zynqmp.ocm_ram_bank_0",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        },
+        {
+          "base": "0xfffd0000",
+          "size": "0x10000",
+          "name": "zynqmp.ocm_ram_bank_1",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        },
+        {
+          "base": "0xfffe0000",
+          "size": "0x10000",
+          "name": "zynqmp.ocm_ram_bank_2",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        },
+        {
+          "base": "0xffff0000",
+          "size": "0x10000",
+          "name": "zynqmp.ocm_ram_bank_3",
+          "kind": "ram",
+          "priority": 0,
+          "owner": "/machine/unattached"
+        }
+      ]
+    },
+    {
+      "id": "view-dfe92e09e523",
+      "names": ["aux-io"],
+      "root": "aux-io",
+      "regions": [
+        {
+          "base": "0x0",
+          "size": "0x80000",
+          "name": "dpcd",
+          "kind": "i/o",
+          "priority": 0,
+          "owner": "/machine/soc/xxxdp/dpcd"
+        }
+      ]
+    }
+  ],
+  "boardId": "xlnx-zcu102",
+  "qemuCommit": "4fc49f46dc95d4a27de2509e7fceb2931e91faeb",
+  "target": "aarch64",
+  "arguments": [
+    "-M",
+    "xlnx-zcu102,secure=off,virtualization=off",
+    "-smp",
+    "6",
+    "-m",
+    "1G",
+    "-accel",
+    "tcg",
+    "-S",
+    "-display",
+    "none",
+    "-serial",
+    "null",
+    "-monitor",
+    "none",
+    "-nodefaults",
+    "-no-user-config",
+    "-nic",
+    "none",
+    "-audio",
+    "driver=none",
+    "-qmp",
+    "stdio"
+  ],
+  "buildOptions": {
+    "default_devices": true,
+    "slirp": "auto",
+    "rust": "disabled"
+  }
+}

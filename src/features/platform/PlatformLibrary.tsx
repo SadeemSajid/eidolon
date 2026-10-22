@@ -80,7 +80,7 @@ export function PlatformLibrary({
         <p className="eyebrow">QEMU BOARD LIBRARY</p>
         <h2>Explore a platform</h2>
         <p className="muted">
-          Select a board to load its core diagram and memory map.
+          Select a board to load its device inventory and memory maps.
         </p>
         <label className="search-label" htmlFor="board-search">
           Search boards or CPUs
@@ -112,7 +112,7 @@ export function PlatformLibrary({
                 >
                   <strong>{entry.name}</strong>
                   <span>{entry.machine}</span>
-                  <span>QEMU 11.1.2 · core diagram</span>
+                  <span>QEMU 11.1.2 · captured inventory</span>
                 </button>
               ))}
             </section>
@@ -124,8 +124,8 @@ export function PlatformLibrary({
           </p>
         )}
         <p className="note">
-          Curated for embedded and SoC development. Diagrams show selected
-          hardware, not the full QEMU inventory. Runtime and boot support are
+          Curated for embedded and SoC development. Each preset shows its
+          captured device objects and memory views. Runtime and boot support are
           planned.
         </p>
       </div>

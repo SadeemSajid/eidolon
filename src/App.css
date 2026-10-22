@@ -771,3 +771,65 @@ button.memory-slot:hover {
 .resizer-right {
   right: calc(var(--inspector-width) - 4px);
 }
+
+.device-status {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-muted);
+}
+.hardware-block.status-stub,
+.hardware-block.status-unsupported,
+.hardware-block.status-inactive {
+  border-style: dashed;
+  border-color: var(--color-red);
+}
+.device-status.status-stub,
+.device-status.status-unsupported {
+  color: var(--color-yellow);
+}
+.hardware-block strong {
+  overflow-wrap: anywhere;
+}
+.device-finder {
+  position: absolute;
+  left: 18px;
+  top: 60px;
+  z-index: 5;
+  display: flex;
+  max-width: calc(100% - 36px);
+}
+.device-finder input {
+  min-width: 0;
+  padding: 9px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 11px;
+}
+.device-finder button {
+  padding: 9px;
+  background: var(--color-blue-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: 11px;
+  cursor: pointer;
+}
+.react-flow__minimap {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  width: 140px;
+  height: 90px;
+  bottom: 0;
+  right: auto;
+  left: 45px;
+}
+
+.muted,
+.connection-list {
+  overflow-wrap: anywhere;
+}
+.slot-addresses {
+  flex-wrap: wrap;
+}

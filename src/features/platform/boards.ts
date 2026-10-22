@@ -1,6 +1,6 @@
-import { additionalBoards, mpsVariants } from "./additional-boards";
-
-// Facts transcribed from the pinned QEMU source; no upstream implementation code.
+import { boardMetadata } from "./board-metadata";
+import { inventories } from "./inventories";
+import type { Inventory } from "./inventory";
 export const QEMU_COMMIT = "4fc49f46dc95d4a27de2509e7fceb2931e91faeb";
 export const GRID_SIZE = 24;
 export type Region = { name: string; base: number; size: number };
@@ -10,12 +10,15 @@ export type Block = {
   kind: "cpu" | "address-space" | "memory" | "controller" | "peripheral";
   description: string;
   regions: Region[];
+  deviceType?: string;
+  qomPath?: string;
+  status: "implemented" | "stub" | "inactive" | "unsupported" | "routing";
 };
 export type Connection = {
   id: string;
   source: string;
   target: string;
-  kind: "access" | "interrupt";
+  kind: "access" | "signal" | "bus";
   label: string;
 };
 export type Board = {
@@ -28,213 +31,181 @@ export type Board = {
   coverage: string;
   blocks: Block[];
   connections: Connection[];
-};
-const region = (name: string, base: number, size: number): Region => ({
-  name,
-  base,
-  size,
-});
-const block = (
-  id: string,
-  label: string,
-  kind: Block["kind"],
-  description: string,
-  regions: Region[] = [],
-): Block => ({ id, label, kind, description, regions });
-const access = (target: string): Connection => ({
-  id: `access-${target}`,
-  source: "sysmem",
-  target,
-  kind: "access",
-  label: ["ram", "flash", "ssram1", "ssram23", "bram"].includes(target)
-    ? "Memory"
-    : "MMIO",
-});
-const irq = (source: string, target: string, label: string): Connection => ({
-  id: `irq-${source}`,
-  source,
-  target,
-  kind: "interrupt",
-  label,
-});
-const cpuAccess: Connection = {
-  id: "cpu-access",
-  source: "cpu",
-  target: "sysmem",
-  kind: "access",
-  label: "Physical access",
+  inventory: Inventory;
+  primarySpaceId: string;
 };
 
-export const boards: Board[] = [
-  {
-    id: "arm-virt-a55",
-    name: "Arm virt · Cortex-A55",
-    machine: "virt-11.1",
-    cpu: "cortex-a55",
-    configuration:
-      "1 CPU · 128 MiB RAM · TCG · GICv2 · secure=off · virtualization=off · highmem=off · msi=off",
-    source: "hw/arm/virt.c",
+function projectBoard(
+  metadata: (typeof boardMetadata)[number],
+  inventory: Inventory,
+): Board {
+  if (inventory.qemuCommit !== QEMU_COMMIT)
+    throw new Error(`Unexpected QEMU revision for ${metadata.id}`);
+  const primary =
+    inventory.spaces.find((space) => space.names.includes("cpu-memory-0")) ??
+    inventory.spaces.find((space) => space.names.includes("memory")) ??
+    inventory.spaces[0];
+  const blocks: Block[] = [
+    {
+      id: "sysmem",
+      label: "CPU physical address space",
+      kind: "address-space",
+      status: "routing",
+      regions: [],
+      description: `Resolved view ${primary.id}: ${primary.names.join(", ")}. Other address spaces are available in Memory Map.`,
+    },
+  ];
+  const byPath = new Map<string, Block>();
+  for (const device of inventory.devices) {
+    const regions = primary.regions.filter(
+      (region) => region.owner === device.path,
+    );
+    const firstName = regions[0]?.name.split(" @")[0];
+    const shortName = device.path.split("/").pop()!;
+    const status = !device.realized
+      ? "inactive"
+      : device.type === "unimplemented-device"
+        ? "stub"
+        : "implemented";
+    const block: Block = {
+      id: device.path,
+      qomPath: device.path,
+      deviceType: device.type,
+      status,
+      label: firstName ?? `${shortName} · ${device.type}`,
+      kind: device.cpu
+        ? "cpu"
+        : /gic|nvic|plic|interrupt|or-irq|split-irq/.test(device.type)
+          ? "controller"
+          : "peripheral",
+      description: `${device.type}. ${status === "stub" ? "QEMU placeholder: register behavior is not implemented." : status === "inactive" ? "Object exists but is not realized in this configuration." : "Realized QEMU device object."} ${device.path}`,
+      regions: regions
+        .filter((region) => Number.isSafeInteger(Number(BigInt(region.size))))
+        .map((region) => ({
+          name: region.name,
+          base: Number(BigInt(region.base)),
+          size: Number(BigInt(region.size)),
+        })),
+    };
+    byPath.set(device.path, block);
+    blocks.push(block);
+  }
+  // Memory backends and routing containers are QOM objects rather than devices.
+  for (const space of inventory.spaces) {
+    for (const region of space.regions) {
+      if (byPath.has(region.owner)) continue;
+      const block: Block = {
+        id: region.owner,
+        qomPath: region.owner,
+        label: region.name.split(" @")[0],
+        kind: /ram|rom/.test(region.kind) ? "memory" : "address-space",
+        status: /ram|rom/.test(region.kind) ? "implemented" : "routing",
+        description: `Memory/routing object ${region.owner}. Additional aliases are visible by selecting their address-space view.`,
+        regions: [],
+      };
+      block.regions = primary.regions
+        .filter(
+          (r) =>
+            r.owner === region.owner &&
+            Number.isSafeInteger(Number(BigInt(r.size))),
+        )
+        .map((r) => ({
+          name: r.name,
+          base: Number(BigInt(r.base)),
+          size: Number(BigInt(r.size)),
+        }));
+      byPath.set(region.owner, block);
+      blocks.push(block);
+    }
+  }
+  const connections: Connection[] = [];
+  const resolve = (path: string): string | undefined => {
+    let current = path;
+    while (current.includes("/")) {
+      if (byPath.has(current)) return current;
+      current = current.slice(0, current.lastIndexOf("/"));
+    }
+    return undefined;
+  };
+  for (const owner of new Set(primary.regions.map((r) => r.owner))) {
+    connections.push({
+      id: `access:${owner}`,
+      source: "sysmem",
+      target: owner,
+      kind: "access",
+      label: "Address decode",
+    });
+  }
+  for (const device of inventory.devices) {
+    if (device.cpu)
+      connections.push({
+        id: `cpu-access:${device.path}`,
+        source: device.path,
+        target: "sysmem",
+        kind: "access",
+        label: "CPU view",
+      });
+    if (device.parentBus) {
+      const parent = resolve(device.parentBus);
+      if (parent && parent !== device.path)
+        connections.push({
+          id: `bus:${device.path}`,
+          source: parent,
+          target: device.path,
+          kind: "bus",
+          label: device.parentBus.split("/").pop()!,
+        });
+    }
+    for (const signal of device.signals) {
+      const target = resolve(signal.target);
+      if (!target)
+        throw new Error(
+          `Unresolved signal: ${device.path}/${signal.output} → ${signal.target}`,
+        );
+      connections.push({
+        id: `signal:${device.path}:${signal.output}`,
+        source: device.path,
+        target,
+        kind: "signal",
+        label: `${signal.output} → ${signal.target.slice(target.length + 1)}`,
+      });
+    }
+  }
+  if (metadata.id === "raspi4b") {
+    for (const [id, label] of [
+      ["genet", "GENET Ethernet"],
+      ["pcie", "PCIe root port"],
+      ["pwm", "PWM"],
+    ]) {
+      blocks.push({
+        id: `unsupported:${id}`,
+        label,
+        kind: "peripheral",
+        status: "unsupported",
+        description:
+          "Present on physical Raspberry Pi 4 hardware, but not implemented by this QEMU board model. No functional connection or mapped register window is claimed.",
+        regions: [],
+      });
+    }
+  }
+  return {
+    ...metadata,
+    inventory,
+    primarySpaceId: primary.id,
+    configuration: inventory.arguments.join(" "),
     coverage:
-      "Core diagram. PCIe windows, fw_cfg, virtio transports, platform bus, ACPI devices, and internal CPU timers are omitted. Optional secure devices and additional UARTs are not enabled. This is a source-derived view, not a live runtime inventory.",
-    blocks: [
-      block(
-        "cpu",
-        "Cortex-A55",
-        "cpu",
-        "One AArch64 CPU; interrupt input from GICv2.",
-      ),
-      block(
-        "sysmem",
-        "Physical address space",
-        "address-space",
-        "Logical QEMU system-memory routing; does not imply a modeled AXI bus.",
-      ),
-      block(
-        "ram",
-        "System RAM · 128 MiB",
-        "memory",
-        "Preset RAM size, not the maximum supported by QEMU.",
-        [region("RAM", 0x40000000, 0x08000000)],
-      ),
-      block(
-        "flash",
-        "CFI flash · 2 × 64 MiB",
-        "memory",
-        "Two flash banks; contents require separately supplied firmware.",
-        [
-          region("Flash 0", 0, 0x04000000),
-          region("Flash 1", 0x04000000, 0x04000000),
-        ],
-      ),
-      block(
-        "gic",
-        "GICv2",
-        "controller",
-        "Distributor and CPU interface. SPI indices are relative; architectural INTID = SPI + 32.",
-        [
-          region("Distributor", 0x08000000, 0x10000),
-          region("CPU interface", 0x08010000, 0x10000),
-        ],
-      ),
-      block(
-        "uart",
-        "PL011 UART0",
-        "peripheral",
-        "Primary nonsecure serial console. SPI 1 is architectural INTID 33.",
-        [region("Registers", 0x09000000, 0x1000)],
-      ),
-      block(
-        "rtc",
-        "PL031 RTC",
-        "peripheral",
-        "Real-time clock. SPI 2 is architectural INTID 34.",
-        [region("Registers", 0x09010000, 0x1000)],
-      ),
-      block(
-        "gpio",
-        "PL061 GPIO",
-        "peripheral",
-        "Nonsecure GPIO controller. SPI 7 is architectural INTID 39.",
-        [region("Registers", 0x09030000, 0x1000)],
-      ),
-    ],
-    connections: [
-      cpuAccess,
-      ...["ram", "flash", "gic", "uart", "rtc", "gpio"].map(access),
-      irq("uart", "gic", "SPI 1 / INTID 33"),
-      irq("rtc", "gic", "SPI 2 / INTID 34"),
-      irq("gpio", "gic", "SPI 7 / INTID 39"),
-      irq("gic", "cpu", "IRQ / FIQ"),
-    ],
-  },
-  {
-    id: "mps2-an385",
-    name: "MPS2 AN385 · Cortex-M3",
-    machine: "mps2-an385",
-    cpu: "cortex-m3",
-    configuration:
-      "1 CPU · 16 MiB PSRAM + fixed SRAM · 25 MHz system clock · 32 external IRQ lines",
-    source: "hw/arm/mps2.c",
-    coverage:
-      "Core diagram. RAM aliases, UART1–4, UART overflow OR gate, dual timer, watchdog, SPI, I²C, Ethernet, FPGA control/IO, and internal SysTick are omitted. GPIO regions are unimplemented QEMU stubs and are not presented as functional devices. This is not the complete board inventory.",
-    blocks: [
-      block(
-        "cpu",
-        "Cortex-M3",
-        "cpu",
-        "Fixed CPU for AN385; firmware begins at the board reset vector.",
-      ),
-      block(
-        "sysmem",
-        "Physical address space",
-        "address-space",
-        "Logical system-memory routing, not a cycle-accurate AHB/APB implementation.",
-      ),
-      block(
-        "ssram1",
-        "ZBT SSRAM1 · 4 MiB",
-        "memory",
-        "Boot/vector memory. Alias at 0x00400000 is omitted from this view.",
-        [region("SSRAM1", 0, 0x400000)],
-      ),
-      block(
-        "ssram23",
-        "ZBT SSRAM2/3 · 4 MiB",
-        "memory",
-        "Alias at 0x20400000 is omitted from this view.",
-        [region("SSRAM2/3", 0x20000000, 0x400000)],
-      ),
-      block(
-        "ram",
-        "PSRAM · 16 MiB",
-        "memory",
-        "QEMU requires this fixed PSRAM size for AN385.",
-        [region("PSRAM", 0x21000000, 0x1000000)],
-      ),
-      block(
-        "bram",
-        "Block RAM · 16 KiB",
-        "memory",
-        "Three mirrored regions are omitted. Low-memory remapping is not implemented by QEMU.",
-        [region("Block RAM", 0x01000000, 0x4000)],
-      ),
-      block(
-        "nvic",
-        "NVIC / system control",
-        "controller",
-        "Part of the Armv7-M subsystem. External IRQ numbering excludes the 16 core exception slots.",
-        [region("System control space", 0xe000e000, 0x1000)],
-      ),
-      block(
-        "uart",
-        "CMSDK APB UART0",
-        "peripheral",
-        "RX external IRQ 0 (exception 16); TX external IRQ 1 (exception 17). Overflow routes through a shared OR gate to external IRQ 12 (omitted).",
-        [region("Registers", 0x40004000, 0x1000)],
-      ),
-      block(
-        "timer",
-        "CMSDK APB timer0",
-        "peripheral",
-        "25 MHz peripheral clock; external IRQ 8 (exception 24).",
-        [region("Registers", 0x40000000, 0x1000)],
-      ),
-    ],
-    connections: [
-      cpuAccess,
-      ...["ssram1", "ssram23", "ram", "bram", "nvic", "uart", "timer"].map(
-        access,
-      ),
-      irq("uart", "nvic", "RX IRQ 0 · TX IRQ 1"),
-      irq("timer", "nvic", "External IRQ 8"),
-      irq("nvic", "cpu", "Exception delivery"),
-    ],
-  },
-];
-
-boards.push(...mpsVariants(boards[1]), ...additionalBoards);
-
-export function hex(value: number): string {
+      "Captured from paused QEMU 11.1.2: all device objects, connected QOM IRQ/GPIO output links, and resolved memory regions for every exported address-space view. Stub and inactive objects are labeled. Optional hardware absent from these exact arguments is not instantiated. Guest boot and physical-hardware equivalence are not validated. Diagram addresses use the primary CPU view; Memory Map exposes every captured view. QOM signal links include generic GPIO; they are not all interrupts. Internal C-level connections without an exposed QOM output link are outside this capture.",
+    blocks,
+    connections,
+  };
+}
+export const boards: Board[] = boardMetadata.map((metadata) => {
+  const inventory = inventories.find((item) => item.boardId === metadata.id) as
+    Inventory | undefined;
+  if (!inventory) throw new Error(`Missing inventory for ${metadata.id}`);
+  return projectBoard(metadata, inventory);
+});
+export function hex(value: number | bigint): string {
   return `0x${value.toString(16).toUpperCase().padStart(8, "0")}`;
 }
 export function regionRange(region: Region): string {
@@ -243,42 +214,30 @@ export function regionRange(region: Region): string {
 export function sourceUrl(board: Board): string {
   return `https://gitlab.com/qemu-project/qemu/-/blob/${QEMU_COMMIT}/${board.source}`;
 }
-// Validate the represented flat map, not the full board or an executable design.
 export function validateBoard(board: Board): string[] {
   const errors: string[] = [];
   const ids = new Set<string>();
-  for (const item of board.blocks) {
-    if (ids.has(item.id)) errors.push(`Duplicate block: ${item.id}`);
-    ids.add(item.id);
+  for (const block of board.blocks) {
+    if (ids.has(block.id)) errors.push(`Duplicate block: ${block.id}`);
+    ids.add(block.id);
   }
-  const connectionIds = new Set<string>();
-  for (const connection of board.connections) {
-    if (connectionIds.has(connection.id))
-      errors.push(`Duplicate connection: ${connection.id}`);
-    connectionIds.add(connection.id);
-    if (!ids.has(connection.source) || !ids.has(connection.target))
-      errors.push(`Unknown endpoint: ${connection.id}`);
+  const links = new Set<string>();
+  for (const link of board.connections) {
+    if (links.has(link.id)) errors.push(`Duplicate connection: ${link.id}`);
+    links.add(link.id);
+    if (!ids.has(link.source) || !ids.has(link.target))
+      errors.push(`Unknown endpoint: ${link.id}`);
   }
-  const regions = board.blocks.flatMap((item) =>
-    item.regions.map((r) => ({ ...r, block: item.id })),
-  );
-  for (const r of regions) {
-    if (
-      !Number.isSafeInteger(r.base) ||
-      !Number.isSafeInteger(r.size) ||
-      r.base < 0 ||
-      r.size <= 0 ||
-      !Number.isSafeInteger(r.base + r.size)
-    )
-      errors.push(`Invalid region: ${r.block}/${r.name}`);
-  }
-  const sorted = [...regions].sort((a, b) => a.base - b.base);
-  for (let i = 0; i < sorted.length; i++) {
-    for (let j = i + 1; j < sorted.length; j++) {
-      if (sorted[j].base < sorted[i].base + sorted[i].size)
-        errors.push(
-          `Overlapping regions: ${sorted[i].block}/${sorted[i].name} and ${sorted[j].block}/${sorted[j].name}`,
-        );
+  for (const space of board.inventory.spaces) {
+    let end = 0n;
+    for (const region of space.regions) {
+      const base = BigInt(region.base);
+      const size = BigInt(region.size);
+      if (base < 0n || size <= 0n)
+        errors.push(`Invalid region: ${space.id}/${region.name}`);
+      if (base < end)
+        errors.push(`Overlapping regions: ${space.id}/${region.name}`);
+      end = base + size;
     }
   }
   return errors;
