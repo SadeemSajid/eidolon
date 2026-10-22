@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { boards } from "./boards";
+import { boardMetadata } from "./board-metadata";
 import { normalizeSearchText } from "./device-search";
 
 const families = [
@@ -22,7 +22,7 @@ export function PlatformLibrary({
 }) {
   const [tab, setTab] = useState<"boards" | "custom">("boards");
   const [query, setQuery] = useState("");
-  const matches = boards.filter((board) =>
+  const matches = boardMetadata.filter((board) =>
     normalizeSearchText(
       `${board.name} ${board.machine} ${board.cpu} ${family(board.machine)}`,
     ).includes(normalizeSearchText(query)),
@@ -95,7 +95,7 @@ export function PlatformLibrary({
           onChange={(event) => setQuery(event.target.value)}
         />
         <p className="library-count" role="status">
-          {matches.length} of {boards.length} boards
+          {matches.length} of {boardMetadata.length} boards
         </p>
         {families.map((group) => {
           const entries = matches.filter(

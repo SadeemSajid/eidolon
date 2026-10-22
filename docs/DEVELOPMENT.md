@@ -1,5 +1,7 @@
 # Development
 
+The [dependency guide](DEPENDENCIES.md) separates end-user runtime tools from frontend, desktop and QEMU build dependencies.
+
 Use Bun 1.3.14, as pinned in package.json, and stable Rust for desktop work. Install native prerequisites from https://v2.tauri.app/start/prerequisites/.
 
 On Debian/Ubuntu, Tauri currently documents these packages (requires administrator access):
@@ -21,17 +23,18 @@ bun run format:check
 bun run tauri dev
 ```
 
-`bun run dev` runs the editor in a browser without a desktop backend. No browser fallback may pretend to execute a guest. The current host exposes no custom IPC commands.
+`bun run dev` runs the editor in a browser without a desktop backend. No browser fallback may pretend to execute a guest. The desktop exposes only the constrained run/status/stop commands for its generated Arm virt hello-world recipe; see [bare-metal setup](BARE_METAL.md).
 
 For native verification:
 
 ```sh
 cargo fmt --manifest-path src-tauri/Cargo.toml -- --check
-cargo check --manifest-path src-tauri/Cargo.toml
+cargo check --manifest-path src-tauri/Cargo.toml --locked
+cargo test --manifest-path src-tauri/Cargo.toml --locked --lib
 ```
 
-The initial environment had no Rust toolchain, so Cargo.lock and native verification must be completed on a machine with prerequisites. Commit Cargo.lock after that first successful build; subsequent checks should use `--locked`.
+Cargo.lock records the verified native dependency resolution. Use `--locked` for checks and builds.
 
-CI checks commit/PR conventions, tooling regressions, board-model invariants, frontend types, formatting, and production compilation. It also checks Rust formatting and compilation on Ubuntu with native prerequisites, but does not package installers or build/boot QEMU. Once Cargo.lock is committed, make that check use `--locked`.
+CI checks commit/PR conventions, tooling regressions, board-model invariants, frontend types, formatting, and production compilation. It also checks Rust formatting and compilation on Ubuntu with native prerequisites, and boots the generated Arm virt hello-world recipe against a separately built pinned QEMU. It does not package installers.
 
 Before claiming runtime support, add a meaningful boot smoke test with known serial output and a timeout. Record QEMU version, host, build flags, firmware provenance, and exact launch arguments.

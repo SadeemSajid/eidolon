@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "arm-virt-a55-hello-v1",
+  "boardId": "arm-virt-a55",
+  "machine": "virt-11.1",
+  "cpu": "cortex-a55",
+  "qemuVersion": [11, 1, 2],
+  "ramBase": "0x40000000",
+  "ramSize": "0x08000000",
+  "entryOffset": "0x00200000",
+  "stackSize": "0x00010000",
+  "exceptionLevel": 1,
+  "uart": {
+    "model": "pl011",
+    "base": "0x09000000",
+    "clockHz": 24000000,
+    "baud": 115200
+  },
+  "message": "Hello from Eidolon!"
+}

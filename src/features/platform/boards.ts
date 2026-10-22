@@ -1,5 +1,5 @@
 import { boardMetadata } from "./board-metadata";
-import { inventories } from "./inventories";
+import { inventoryLoaders } from "./inventories";
 import type { Inventory } from "./inventory";
 export const QEMU_COMMIT = "4fc49f46dc95d4a27de2509e7fceb2931e91faeb";
 export const GRID_SIZE = 24;
@@ -199,12 +199,28 @@ function projectBoard(
     connections,
   };
 }
-export const boards: Board[] = boardMetadata.map((metadata) => {
-  const inventory = inventories.find((item) => item.boardId === metadata.id) as
-    Inventory | undefined;
-  if (!inventory) throw new Error(`Missing inventory for ${metadata.id}`);
-  return projectBoard(metadata, inventory);
-});
+const boardLoads = new Map<string, Promise<Board>>();
+
+export function loadBoard(id: string): Promise<Board> {
+  const cached = boardLoads.get(id);
+  if (cached) return cached;
+  const metadata = boardMetadata.find((entry) => entry.id === id);
+  const load = inventoryLoaders[id];
+  if (!metadata || !load)
+    return Promise.reject(new Error(`Unknown board: ${id}`));
+  const pending = load()
+    .then(({ default: inventory }) => {
+      if (inventory.boardId !== id)
+        throw new Error(`Unexpected inventory for ${id}`);
+      return projectBoard(metadata, inventory);
+    })
+    .catch((error: unknown) => {
+      boardLoads.delete(id);
+      throw error;
+    });
+  boardLoads.set(id, pending);
+  return pending;
+}
 export function hex(value: number | bigint): string {
   return `0x${value.toString(16).toUpperCase().padStart(8, "0")}`;
 }

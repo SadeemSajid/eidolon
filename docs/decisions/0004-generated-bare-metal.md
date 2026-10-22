@@ -1,0 +1,15 @@
+# 0004: Generate the first bare-metal project from a constrained recipe
+
+Status: accepted for the first Arm virt hello-world path.
+
+Keep a compact behavioral recipe and source generator in the repository. Do not check in generated firmware projects, ELF binaries, vendored SDKs, or toolchain downloads. The Rust desktop host embeds the recipe and generator, runs generation on demand, invokes Clang and LLD with argument arrays, and owns the external QEMU process.
+
+The first contract is QEMU 11.1.2, versioned `virt-11.1`, one Cortex-A55, 128 MiB RAM at 0x40000000, PL011 at 0x09000000 and a generic-loader ELF entry at 0x40200000. Secure and virtualization extensions are disabled for an EL1 entry. The first 2 MiB of RAM are left clear of firmware to avoid QEMU’s DTB allocation at the RAM base. Startup selects the EL1 stack, masks exceptions, zeros BSS and calls C. The UART is initialized for 115200 baud using a 24 MHz input clock; output is polled. The firmware reports CurrentEL and waits for interrupts after hello world.
+
+This recipe is independent of React Flow layout and of the broader captured inventory. It constrains execution to one CPU even though the inventory may show a different capture configuration. It is not a compiler for arbitrary custom SoCs, a register specification database, or an OS implementation. Behavioral contracts for additional boards must be explicitly implemented and tested.
+
+Originally, generated files lived in a fresh app-cache directory per run. Decision 0005 extends this to an editable active project reused by subsequent builds, with explicit regeneration. `plan.json` records generated source hashes, the recipe and exact compile/link/QEMU argument arrays. `run.json` adds executable paths and version output. Generation is byte deterministic for the same recipe and generator; identical binaries additionally require identical compiler/linker versions. Tools are explicitly provisioned by the developer for this first iteration, with no implicit downloads on Run.
+
+QEMU starts paused. Rust checks its numeric release in the QMP greeting, negotiates capabilities and resumes it. QMP uses process stdin/stdout; guest serial uses a separate file channel. The run command also streams typed build-stage updates through a Tauri IPC channel, allowing the Build tab to track the active step while the runtime lock is held. The UI polls typed snapshots for guest output; a footer terminal drawer separates Build and Serial tabs. No browser fallback executes software. Stop requests QMP quit, with bounded waits and kill/reap fallback. Process guards handle preparation failures and application exit. Expected greeting plus EL1 output must arrive within ten seconds of execution, as checked by runtime status; a failure stops the guest.
+
+Frontend commands accept only a board identifier, with Rust accepting only the supported recipe. The frontend cannot supply paths, scripts, firmware or argument strings. FreeRTOS, Linux and other boards remain disabled. Tool detection/provisioning, serial input, reset and configurable platform documents remain separate work. Decision 0005 adds controlled source editing and cleanup.

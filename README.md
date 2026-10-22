@@ -4,9 +4,11 @@ A visual virtual prototyping platform for early functional modeling by semicondu
 
 The aim: compose a supported virtual platform on a canvas, configure its software, and run it using QEMU. The stack is **Tauri 2, React, TypeScript, Bun, and React Flow**, with a Rust host supervising QEMU as a separate process.
 
-**Status: captured board inventory explorer.** Search 14 curated board presets to inspect device objects, parent-bus relationships, connected QOM IRQ/GPIO signals and complete resolved memory maps captured from pinned QEMU 11.1.2. Select CPU, secure or DMA/GPU address-space views in Memory Map. Stub, inactive and known unsupported hardware are labeled. Both sidebars collapse and resize; the canvas snaps to a grid. The desktop app does not yet launch guests, save projects or implement custom composition. Captures verify initialization, not guest booting. See [board coverage and reproduction](docs/BOARDS.md).
+**Status: captured board inventory explorer.** Search 14 curated board presets to inspect device objects, parent-bus relationships, connected QOM IRQ/GPIO signals and complete resolved memory maps captured from pinned QEMU 11.1.2. Select CPU, secure or DMA/GPU address-space views in Memory Map. Stub, inactive and known unsupported hardware are labeled. Both sidebars collapse and resize; the canvas snaps to a grid. The desktop Software tab has a generated bare-metal hello-world path for Arm virt/Cortex-A55; it requires a pinned QEMU build, Python, Clang and LLD. The footer terminal provides build output, serial output and a lightweight generated-source editor with rebuild, regeneration and scoped cleanup. Other software targets, portable saved projects and custom composition are not implemented. Inventory captures verify initialization; the separate hello-world smoke test verifies only its explicit boot recipe. See [board coverage and reproduction](docs/BOARDS.md).
 
 ## Quick start
+
+See [dependencies and installation](docs/DEPENDENCIES.md) for runtime tools, desktop prerequisites, platform-specific installation commands and verified versions.
 
 Install [Bun](https://bun.sh/docs/installation) (the pinned version is in package.json). Browser development does not require Rust or QEMU:
 
@@ -25,7 +27,7 @@ For the desktop app, first install stable Rust and the [Tauri prerequisites for 
 bun run tauri dev
 ```
 
-Rust dependencies resolve on the first desktop build. Commit the generated src-tauri/Cargo.lock when the first native build is verified; it is intentionally not ignored. See [development setup](docs/DEVELOPMENT.md) for platform requirements and checks.
+Rust dependencies are recorded in src-tauri/Cargo.lock; use Cargo’s `--locked` option for reproducible dependency resolution. See [development setup](docs/DEVELOPMENT.md) for platform requirements and checks.
 
 ## QEMU source (optional for editor work)
 
@@ -35,7 +37,7 @@ QEMU is pinned as a submodule rather than automatically following upstream HEAD.
 git submodule update --init --depth 1 third_party/qemu
 ```
 
-See [QEMU integration](docs/QEMU.md) for the selected version, source build instructions, and update policy. No QEMU binary is bundled or invoked by the app. The maintenance helper initializes a separately built pinned QEMU to generate the checked-in inventories.
+See [QEMU integration](docs/QEMU.md) for the selected version, source build instructions, and update policy. No QEMU binary is bundled. The desktop runtime invokes an explicitly provisioned pinned build for the Arm virt hello-world recipe; the maintenance helper separately uses a pinned build to generate inventories. See [generated bare-metal setup](docs/BARE_METAL.md).
 
 ## What is feasible?
 

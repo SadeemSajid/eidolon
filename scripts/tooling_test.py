@@ -45,5 +45,43 @@ class MemoryCaptureTests(unittest.TestCase):
             capture.parse_memory('FlatView #0\n  00000000-00000fff unexpected format')
 
 
+class BareMetalGenerationTests(unittest.TestCase):
+    def setUp(self):
+        import json
+        self.generator = load("bare_metal_generator", "generate-bare-metal.py")
+        self.recipe = json.loads(self.generator.RECIPE.read_text())
+
+    def test_generation_is_independent_of_output_directory(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as first, tempfile.TemporaryDirectory() as second:
+            self.generator.generate(self.recipe, first)
+            self.generator.generate(self.recipe, second)
+            files = sorted(path.name for path in Path(first).iterdir())
+            self.assertEqual(files, [".gitignore", "linker.ld", "main.c", "plan.json", "startup.S"])
+            for name in files:
+                self.assertEqual((Path(first) / name).read_bytes(), (Path(second) / name).read_bytes())
+
+    def test_rejects_unverified_hardware_before_creating_files(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "project"
+            for field, value in [("cpu", "cortex-m3"), ("ramBase", "0x0"), ("exceptionLevel", 2), ("uart", {})]:
+                with self.subTest(field=field):
+                    recipe = {**self.recipe, field: value}
+                    with self.assertRaises(ValueError):
+                        self.generator.generate(recipe, output)
+                    self.assertFalse(output.exists())
+
+    def test_message_is_escaped_as_data_and_control_characters_are_rejected(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            recipe = {**self.recipe, "message": 'Hello "Eidolon" \\ test'}
+            self.generator.generate(recipe, directory)
+            source = (Path(directory) / "main.c").read_text()
+            self.assertIn(r'Hello \"Eidolon\" \\ test', source)
+            with self.assertRaises(ValueError):
+                self.generator.generate({**recipe, "message": "hello\nworld"}, directory)
+
+
 if __name__ == "__main__":
     unittest.main()

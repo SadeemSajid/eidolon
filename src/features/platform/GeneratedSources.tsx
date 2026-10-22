@@ -1,0 +1,214 @@
+import { useEffect, useState } from "react";
+import type {
+  CleanPreview,
+  CleanScope,
+  PlatformRuntime,
+} from "./usePlatformRuntime";
+
+export function GeneratedSources({ runtime }: { runtime: PlatformRuntime }) {
+  const { project, drafts, dirty, busy, desktop, snapshot } = runtime;
+  const [selected, setSelected] = useState("main.c");
+  const [scope, setScope] = useState<CleanScope>("outputs");
+  const [confirmation, setConfirmation] = useState<
+    | { type: "regenerate" }
+    | { type: "clean"; scope: CleanScope; preview: CleanPreview }
+    | null
+  >(null);
+  const [previewing, setPreviewing] = useState(false);
+  const locked =
+    !desktop || !!busy || snapshot.state === "running" || previewing;
+  const file =
+    project?.files.find((item) => item.name === selected) ?? project?.files[0];
+  const text = file ? (drafts[file.name] ?? file.content) : "";
+  useEffect(() => {
+    setConfirmation(null);
+  }, [project?.directory]);
+  const reviewClean = async () => {
+    setPreviewing(true);
+    const preview = await runtime.previewCleanup(scope);
+    if (preview) setConfirmation({ type: "clean", scope, preview });
+    setPreviewing(false);
+  };
+  return (
+    <div className="source-workspace">
+      <div className="source-toolbar">
+        {snapshot.state === "running" && (
+          <button disabled={!!busy} onClick={() => void runtime.stop()}>
+            Stop platform
+          </button>
+        )}
+        <button
+          disabled={locked || !dirty || !!confirmation}
+          onClick={() => void runtime.save()}
+        >
+          Save
+        </button>
+        <button
+          disabled={locked || !project || !!confirmation}
+          onClick={() => void runtime.run("arm-virt-a55")}
+        >
+          {dirty ? "Save & run" : "Rebuild & run"}
+        </button>
+        <button
+          disabled={locked || !!confirmation}
+          onClick={() =>
+            project || dirty
+              ? setConfirmation({ type: "regenerate" })
+              : void runtime.regenerate()
+          }
+        >
+          {project ? "Regenerate" : "Generate sources"}
+        </button>
+        <span className="source-state">
+          {snapshot.state === "running"
+            ? "Running · stop to edit"
+            : dirty
+              ? "Unsaved changes"
+              : snapshot.sourceEdited
+                ? "Edited sources"
+                : "Generated sources"}
+        </span>
+        <select
+          aria-label="Cleanup scope"
+          value={scope}
+          disabled={locked || !!confirmation}
+          onChange={(event) => setScope(event.target.value as CleanScope)}
+        >
+          <option value="outputs">Build outputs only</option>
+          <option value="projects">Generated projects · keep QEMU</option>
+          <option value="full">Full local clean · includes QEMU build</option>
+        </select>
+        <button
+          disabled={locked || !!confirmation}
+          onClick={() => void reviewClean()}
+        >
+          Clean…
+        </button>
+      </div>
+      {runtime.error && (
+        <p className="runtime-error source-error" role="alert">
+          {runtime.error}
+        </p>
+      )}
+      {confirmation && (
+        <div
+          className="source-confirmation"
+          role="region"
+          aria-label="Confirm project action"
+        >
+          {confirmation.type === "regenerate" ? (
+            <p>
+              Create a fresh project from the recipe? Unsaved edits will be
+              discarded. The previous project remains on disk.
+            </p>
+          ) : (
+            <>
+              <p>
+                Delete the paths below?{" "}
+                {confirmation.scope !== "outputs" &&
+                  "Saved source edits in these projects will be deleted. "}
+                {confirmation.scope !== "outputs" &&
+                  dirty &&
+                  "Unsaved edits will be discarded. "}
+                {confirmation.preview.includesQemu
+                  ? "The local QEMU build will be removed; its source and host tools will remain."
+                  : "QEMU and host tools will be preserved."}
+              </p>
+              <pre>
+                {confirmation.preview.targets.join("\n") ||
+                  "No matching files to delete."}
+              </pre>
+            </>
+          )}
+          <button
+            disabled={
+              locked ||
+              (confirmation.type === "clean" &&
+                !confirmation.preview.targets.length)
+            }
+            onClick={async () => {
+              const success =
+                confirmation.type === "regenerate"
+                  ? await runtime.regenerate()
+                  : await runtime.clean(
+                      confirmation.scope,
+                      confirmation.preview,
+                    );
+              if (success) setConfirmation(null);
+            }}
+          >
+            {confirmation.type === "regenerate"
+              ? "Generate fresh project"
+              : "Delete selected files"}
+          </button>
+          <button disabled={!!busy} onClick={() => setConfirmation(null)}>
+            Cancel
+          </button>
+        </div>
+      )}
+      {project ? (
+        <div className="source-editor-layout">
+          <nav className="source-files" aria-label="Generated files">
+            {project.files.map((item) => (
+              <button
+                key={item.name}
+                aria-current={file?.name === item.name ? "page" : undefined}
+                onClick={() => setSelected(item.name)}
+              >
+                {item.name}
+                {item.editable && drafts[item.name] !== item.content
+                  ? " *"
+                  : ""}
+                {!item.editable && <span>read only</span>}
+              </button>
+            ))}
+          </nav>
+          <textarea
+            className="source-editor"
+            aria-label={file ? `${file.name} source editor` : "Source editor"}
+            value={text}
+            spellCheck={false}
+            autoCapitalize="off"
+            autoCorrect="off"
+            readOnly={!file?.editable || locked || !!confirmation}
+            onChange={(event) =>
+              file && runtime.setDraft(file.name, event.target.value)
+            }
+            onKeyDown={(event) => {
+              if (
+                event.key === "Tab" &&
+                !event.shiftKey &&
+                file?.editable &&
+                !locked &&
+                !confirmation
+              ) {
+                event.preventDefault();
+                const input = event.currentTarget;
+                const start = input.selectionStart;
+                const end = input.selectionEnd;
+                runtime.setDraft(
+                  file.name,
+                  text.slice(0, start) + "  " + text.slice(end),
+                );
+                requestAnimationFrame(() => {
+                  input.selectionStart = input.selectionEnd = start + 2;
+                });
+              }
+            }}
+          />
+        </div>
+      ) : (
+        <p className="source-empty">
+          {desktop
+            ? "Generate sources to inspect and edit the bare-metal project."
+            : "Generated sources are available in the desktop app."}
+        </p>
+      )}
+      {project && (
+        <div className="source-location" title={project.directory}>
+          {project.directory}
+        </div>
+      )}
+    </div>
+  );
+}

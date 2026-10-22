@@ -1,4 +1,10 @@
-import { useMemo, useRef, useState, type CSSProperties } from "react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+} from "react";
 import {
   Background,
   Controls,
@@ -13,7 +19,7 @@ import {
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import {
-  boards,
+  loadBoard,
   GRID_SIZE,
   regionRange,
   sourceUrl,
@@ -26,11 +32,21 @@ import {
   snapGrid,
   type HardwareNode,
 } from "./features/platform/diagram";
-import type { BootTarget } from "./features/platform/catalog";
 import { MemoryMap } from "./features/platform/MemoryMap";
 import { PlatformLibrary } from "./features/platform/PlatformLibrary";
 import { SidebarResizer } from "./components/SidebarResizer";
 import { DeviceSearch } from "./features/platform/DeviceSearch";
+import { boardMetadata } from "./features/platform/board-metadata";
+import { useEdgePan } from "./features/platform/useEdgePan";
+import {
+  usePlatformRuntime,
+  type PlatformRuntime,
+} from "./features/platform/usePlatformRuntime";
+import { SoftwarePanel } from "./features/platform/SoftwarePanel";
+import {
+  RuntimeTerminal,
+  type TerminalTab,
+} from "./features/platform/RuntimeTerminal";
 import "./App.css";
 
 function HardwareBlock({ data }: NodeProps<HardwareNode>) {
@@ -86,14 +102,21 @@ function HardwareBlock({ data }: NodeProps<HardwareNode>) {
   );
 }
 const nodeTypes = { hardware: HardwareBlock };
+const detailTabs = [
+  { id: "inspector", label: "Inspector" },
+  { id: "memory", label: "Memory Map" },
+  { id: "software", label: "Software" },
+] as const;
 
 function BoardCanvas({
   board,
   inspectorCollapsed,
   onToggleInspector,
   onOpenInspector,
+  runtime,
 }: {
   board: Board;
+  runtime: PlatformRuntime;
   inspectorCollapsed: boolean;
   onToggleInspector: () => void;
   onOpenInspector: () => void;
@@ -102,34 +125,67 @@ function BoardCanvas({
   const diagram = useMemo(() => createDiagram(board), [board]);
   const [nodes, setNodes, onNodesChange] = useNodesState(diagram.nodes);
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [activePanel, setActivePanel] = useState<"inspector" | "memory">(
-    "inspector",
-  );
-  const [bootTarget, setBootTarget] = useState<BootTarget>("bare-metal");
+  const [canvasMode, setCanvasMode] = useState<"pan" | "select">("pan");
+  const canvasRef = useRef<HTMLElement>(null);
+  const [edgePanEnabled, setEdgePanEnabled] = useState(false);
+  useEdgePan(canvasRef, edgePanEnabled);
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (
+        event.defaultPrevented ||
+        event.ctrlKey ||
+        event.metaKey ||
+        event.altKey ||
+        event.isComposing ||
+        (event.target instanceof Element &&
+          event.target.closest(
+            "input, textarea, select, [contenteditable], [role='textbox']",
+          ))
+      )
+        return;
+      const key = event.key.toLowerCase();
+      if (key === "v" || key === "p") {
+        event.preventDefault();
+        setCanvasMode(key === "v" ? "select" : "pan");
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+  const [activePanel, setActivePanel] =
+    useState<(typeof detailTabs)[number]["id"]>("inspector");
   const selected = board.blocks.find((block) => block.id === selectedId);
-  const errors = validateBoard(board);
+  const errors = useMemo(() => validateBoard(board), [board]);
   const highlighted = useMemo(
     () => highlightDiagram(nodes, diagram.edges, selectedId),
     [nodes, diagram.edges, selectedId],
   );
   return (
     <>
-      <main aria-label={`${board.name} architectural diagram`}>
+      <main ref={canvasRef} aria-label={`${board.name} architectural diagram`}>
         <div className="canvas-heading">
           <span className="eyebrow">{board.machine} · CAPTURED INVENTORY</span>
           <span>{nodes.length} blocks · 24px grid</span>
         </div>
         <ReactFlow
+          className={`canvas-mode-${canvasMode}`}
           nodes={highlighted.nodes}
           edges={highlighted.edges}
           nodeTypes={nodeTypes}
           onNodesChange={onNodesChange}
           onNodeClick={(_, node) => {
+            if (canvasMode !== "select") return;
             setSelectedId(node.id);
             setActivePanel("inspector");
             onOpenInspector();
           }}
-          onPaneClick={() => setSelectedId(null)}
+          onPaneClick={() => {
+            if (canvasMode === "select") setSelectedId(null);
+          }}
+          panOnDrag={canvasMode === "pan"}
+          nodesDraggable={canvasMode === "select"}
+          elementsSelectable={canvasMode === "select"}
+          selectionKeyCode={null}
           nodesConnectable={false}
           edgesReconnectable={false}
           deleteKeyCode={null}
@@ -174,8 +230,106 @@ function BoardCanvas({
           }}
         />
         <div className="canvas-tools">
+          <div
+            className="canvas-mode-toggle"
+            role="group"
+            aria-label="Canvas tools"
+          >
+            <button
+              type="button"
+              aria-pressed={canvasMode === "pan"}
+              aria-label="Pan"
+              aria-keyshortcuts="P"
+              title="Pan (P)"
+              onClick={() => setCanvasMode("pan")}
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V12m0-6.5V3.5a1.5 1.5 0 0 1 3 0V12m0-6.5a1.5 1.5 0 0 1 3 0V13m0-4.5a1.5 1.5 0 0 1 3 0V16a6 6 0 0 1-6 6h-1a6 6 0 0 1-4.8-2.4L4 14a1.5 1.5 0 0 1 2.4-1.8L8 14" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              aria-pressed={canvasMode === "select"}
+              aria-label="Select"
+              aria-keyshortcuts="V"
+              title="Select (V)"
+              onClick={() => setCanvasMode("select")}
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="m4 3 16 9-7 2-3 7Z" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              aria-pressed={edgePanEnabled}
+              aria-label="Edge pan"
+              title="Edge pan"
+              onClick={() => setEdgePanEnabled((enabled) => !enabled)}
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M12 3v18M3 12h18M9 6l3-3 3 3M9 18l3 3 3-3M6 9l-3 3 3 3M18 9l3 3-3 3" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              aria-label="Reset layout"
+              title="Reset layout"
+              onClick={() => {
+                setNodes(diagram.nodes);
+                setSelectedId(null);
+              }}
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M3 10a9 9 0 1 1 2.6 8.4M3 4v6h6" />
+              </svg>
+            </button>
+          </div>
           <details className="diagram-legend">
-            <summary>Diagram legend</summary>
+            <summary>Legend</summary>
             <div className="legend-content">
               <div>
                 <span className="legend-line" aria-hidden="true" />
@@ -193,14 +347,6 @@ function BoardCanvas({
               </p>
             </div>
           </details>
-          <button
-            onClick={() => {
-              setNodes(diagram.nodes);
-              setSelectedId(null);
-            }}
-          >
-            Reset layout
-          </button>
         </div>
       </main>
       <aside className="inspector sidebar" aria-label="Platform details">
@@ -243,40 +389,38 @@ function BoardCanvas({
               )
                 return;
               event.preventDefault();
-              const next =
+              const index = detailTabs.findIndex(
+                (tab) => tab.id === activePanel,
+              );
+              const nextIndex =
                 event.key === "Home"
-                  ? "inspector"
+                  ? 0
                   : event.key === "End"
-                    ? "memory"
-                    : activePanel === "inspector"
-                      ? "memory"
-                      : "inspector";
+                    ? detailTabs.length - 1
+                    : (index +
+                        (event.key === "ArrowRight" ? 1 : -1) +
+                        detailTabs.length) %
+                      detailTabs.length;
+              const next = detailTabs[nextIndex].id;
               setActivePanel(next);
               event.currentTarget
                 .querySelector<HTMLButtonElement>(`#${next}-tab`)
                 ?.focus();
             }}
           >
-            <button
-              id="inspector-tab"
-              role="tab"
-              aria-selected={activePanel === "inspector"}
-              aria-controls="inspector-panel"
-              tabIndex={activePanel === "inspector" ? 0 : -1}
-              onClick={() => setActivePanel("inspector")}
-            >
-              Inspector
-            </button>
-            <button
-              id="memory-tab"
-              role="tab"
-              aria-selected={activePanel === "memory"}
-              aria-controls="memory-panel"
-              tabIndex={activePanel === "memory" ? 0 : -1}
-              onClick={() => setActivePanel("memory")}
-            >
-              Memory Map
-            </button>
+            {detailTabs.map((tab) => (
+              <button
+                key={tab.id}
+                id={`${tab.id}-tab`}
+                role="tab"
+                aria-selected={activePanel === tab.id}
+                aria-controls={`${tab.id}-panel`}
+                tabIndex={activePanel === tab.id ? 0 : -1}
+                onClick={() => setActivePanel(tab.id)}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
           <div
             id="memory-panel"
@@ -369,28 +513,20 @@ function BoardCanvas({
               </details>
               <code className="source-reference">{sourceUrl(board)}</code>
             </details>
-            <label htmlFor="boot-target">Software target</label>
-            <select
-              id="boot-target"
-              value={bootTarget}
-              onChange={(event) =>
-                setBootTarget(event.target.value as BootTarget)
-              }
-            >
-              <option value="bare-metal">Bare metal · planned</option>
-              <option value="freertos">FreeRTOS · planned</option>
-              <option value="linux" disabled>
-                Linux · phase 2
-              </option>
-            </select>
-            <button className="run-button" disabled>
-              Run platform · coming soon
-            </button>
             <div className="note">
               Click a block to inspect addresses and connections. Drag to
               rearrange; board hardware and wiring are fixed. Layout stays in
               memory.
             </div>
+          </div>
+          <div
+            id="software-panel"
+            role="tabpanel"
+            aria-labelledby="software-tab"
+            hidden={activePanel !== "software"}
+            tabIndex={0}
+          >
+            <SoftwarePanel boardId={board.id} runtime={runtime} />
           </div>
         </div>
       </aside>
@@ -399,6 +535,20 @@ function BoardCanvas({
 }
 
 export default function App() {
+  const runtime = usePlatformRuntime();
+  const [terminalOpen, setTerminalOpen] = useState(false);
+  const [terminalTab, setTerminalTab] = useState<TerminalTab>("build");
+  const terminalButton = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (runtime.busy === "building") {
+      setTerminalOpen(true);
+      setTerminalTab("build");
+    }
+  }, [runtime.busy]);
+  const closeTerminal = () => {
+    setTerminalOpen(false);
+    terminalButton.current?.focus();
+  };
   const workspaceRef = useRef<HTMLDivElement>(null);
   const [libraryWidth, setLibraryWidth] = useState(245);
   const [inspectorWidth, setInspectorWidth] = useState(265);
@@ -429,8 +579,26 @@ export default function App() {
   };
   const [libraryCollapsed, setLibraryCollapsed] = useState(false);
   const [inspectorCollapsed, setInspectorCollapsed] = useState(false);
-  const [boardId, setBoardId] = useState(boards[0].id);
-  const board = boards.find((entry) => entry.id === boardId)!;
+  const [boardId, setBoardId] = useState(boardMetadata[0].id);
+  const [loadedBoard, setLoadedBoard] = useState<Board | null>(null);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [loadAttempt, setLoadAttempt] = useState(0);
+  const board = loadedBoard?.id === boardId ? loadedBoard : null;
+  useEffect(() => {
+    let cancelled = false;
+    setLoadError(null);
+    void loadBoard(boardId).then(
+      (loaded) => {
+        if (!cancelled) setLoadedBoard(loaded);
+      },
+      () => {
+        if (!cancelled) setLoadError("Could not load the board inventory.");
+      },
+    );
+    return () => {
+      cancelled = true;
+    };
+  }, [boardId, loadAttempt]);
   return (
     <div className="studio">
       <header>
@@ -489,16 +657,41 @@ export default function App() {
             <PlatformLibrary boardId={boardId} onSelect={setBoardId} />
           </div>
         </aside>
-        <ReactFlowProvider key={board.id}>
-          <BoardCanvas
-            board={board}
-            inspectorCollapsed={inspectorCollapsed}
-            onToggleInspector={() =>
-              setInspectorCollapsed((collapsed) => !collapsed)
-            }
-            onOpenInspector={() => setInspectorCollapsed(false)}
-          />
-        </ReactFlowProvider>
+        {board ? (
+          <ReactFlowProvider key={board.id}>
+            <BoardCanvas
+              board={board}
+              runtime={runtime}
+              inspectorCollapsed={inspectorCollapsed}
+              onToggleInspector={() =>
+                setInspectorCollapsed((collapsed) => !collapsed)
+              }
+              onOpenInspector={() => setInspectorCollapsed(false)}
+            />
+          </ReactFlowProvider>
+        ) : (
+          <>
+            <main className="board-loading" aria-busy={!loadError}>
+              {loadError ? (
+                <div role="alert">
+                  <p>{loadError}</p>
+                  <button
+                    className="secondary-button"
+                    onClick={() => setLoadAttempt((attempt) => attempt + 1)}
+                  >
+                    Retry
+                  </button>
+                </div>
+              ) : (
+                <p role="status">Loading board inventory…</p>
+              )}
+            </main>
+            <aside
+              className="inspector sidebar"
+              aria-label="Platform details"
+            />
+          </>
+        )}
         {!libraryCollapsed && (
           <SidebarResizer
             side="left"
@@ -520,8 +713,56 @@ export default function App() {
           />
         )}
       </div>
+      <RuntimeTerminal
+        runtime={runtime}
+        open={terminalOpen}
+        activeTab={terminalTab}
+        onSelectTab={setTerminalTab}
+        onClose={closeTerminal}
+      />
       <footer>
-        <span>QEMU runtime not connected</span>
+        <div className="footer-runtime">
+          <button
+            ref={terminalButton}
+            type="button"
+            className="terminal-toggle"
+            title="Terminal"
+            aria-label="Toggle terminal"
+            aria-expanded={terminalOpen}
+            aria-controls="runtime-terminal"
+            onClick={() => {
+              setTerminalOpen((open) => !open);
+              if (!terminalOpen)
+                requestAnimationFrame(() =>
+                  document
+                    .getElementById(`terminal-${terminalTab}-tab`)
+                    ?.focus(),
+                );
+            }}
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="3" y="4" width="18" height="16" rx="2" />
+              <path d="m7 9 3 3-3 3m6 0h4" />
+            </svg>
+          </button>
+          <span>
+            {runtime.busy === "building"
+              ? "Building bare-metal firmware"
+              : runtime.snapshot.state === "running"
+                ? "QEMU running · Arm virt"
+                : "QEMU stopped"}
+          </span>
+        </div>
         <span>Captured QEMU inventory · fixed board topology</span>
       </footer>
     </div>

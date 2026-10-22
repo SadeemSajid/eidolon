@@ -1,7 +1,17 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { boards, QEMU_COMMIT, validateBoard } from "./boards";
+import { loadBoard, QEMU_COMMIT, validateBoard } from "./boards";
 import { createDiagram, snapGrid } from "./diagram";
+import { boardMetadata } from "./board-metadata";
+
+const boards = await Promise.all(boardMetadata.map(({ id }) => loadBoard(id)));
+
+it("reuses board loads and rejects unknown presets", async () => {
+  const first = loadBoard(boardMetadata[0].id);
+  assert.equal(loadBoard(boardMetadata[0].id), first);
+  assert.equal(await first, boards[0]);
+  await assert.rejects(loadBoard("missing-board"), /Unknown board/);
+});
 
 describe("captured QEMU inventories", () => {
   it("has one exact-release capture for every preset and no missing ranges/devices", () => {

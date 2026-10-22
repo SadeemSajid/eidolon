@@ -1,7 +1,10 @@
 import { it } from "node:test";
 import assert from "node:assert/strict";
-import { boards } from "./boards";
+import { loadBoard } from "./boards";
 import { memorySlots, memorySize } from "./memory-map";
+import { boardMetadata } from "./board-metadata";
+
+const boards = await Promise.all(boardMetadata.map(({ id }) => loadBoard(id)));
 
 it("accounts for every captured mapping in every separate address space", () => {
   for (const board of boards)

@@ -152,6 +152,10 @@ vite.config.ts.timestamp-*
 /src-tauri/target/
 /src-tauri/gen/
 /build/
+# Generated bare-metal objects and firmware, including ad hoc compiler outputs.
+*.o
+*.obj
+*.elf
 .DS_Store
 # Local AI sessions and credentials; AGENTS.md is intentionally tracked.
 /.codex/

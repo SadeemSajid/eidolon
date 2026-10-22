@@ -1,8 +1,11 @@
 import { it } from "node:test";
 import assert from "node:assert/strict";
-import { boards, type Block } from "./boards";
+import { loadBoard, type Block } from "./boards";
 import { searchBlocks } from "./device-search";
 import { createDiagram, highlightDiagram } from "./diagram";
+import { boardMetadata } from "./board-metadata";
+
+const boards = await Promise.all(boardMetadata.map(({ id }) => loadBoard(id)));
 
 const board = boards.find((b) => b.id === "raspi4b")!;
 it("returns all matching device instances and searches Unicode names, types, paths and addresses", () => {
