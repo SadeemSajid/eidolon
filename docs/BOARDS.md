@@ -11,7 +11,7 @@ The old hand-written core diagrams have been replaced by captures of **QEMU 11.1
 
 “Complete” here means complete **for these exported inventories and exact launch arguments**. It does not mean every peripheral on physical silicon is modeled. Optional devices that were not instantiated, non-QOM C-level internal connections, dynamically assigned PCI BARs after firmware configuration, and post-boot map changes are not inferred. Individual register fields are not expanded into separate blocks. No guest boot, peripheral-driver behavior, or timing fidelity has been verified.
 
-The architectural diagram shows all captured device objects and memory owners. Solid edges represent the primary CPU view's address decoding or an exposed device parent bus. Dashed edges represent actual connected QOM signal links. Device labels and inspector paths identify the underlying objects. A device finder and minimap help navigate larger systems. Nodes retain fixed hardware topology and editable snapping positions.
+The architectural diagram shows all captured device objects and memory owners. Solid edges represent the primary CPU view's address decoding or an exposed device parent bus. Dashed edges represent actual connected QOM signal links. Device labels and inspector paths identify the underlying objects. The device finder lists matching names, types, instance paths and primary-view addresses; select with a mouse or arrow keys/Enter to focus a block. The selected block and its directly incident connections retain color while other blocks and links are gray. Click empty canvas or clear the search/highlight to restore colors. A minimap helps navigate larger systems. Nodes retain fixed hardware topology and editable snapping positions.
 
 ## Memory map
 

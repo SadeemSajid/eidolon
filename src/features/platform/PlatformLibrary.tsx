@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { boards } from "./boards";
+import { normalizeSearchText } from "./device-search";
 
 const families = [
   "Application processors",
@@ -22,9 +23,9 @@ export function PlatformLibrary({
   const [tab, setTab] = useState<"boards" | "custom">("boards");
   const [query, setQuery] = useState("");
   const matches = boards.filter((board) =>
-    `${board.name} ${board.machine} ${board.cpu} ${family(board.machine)}`
-      .toLowerCase()
-      .includes(query.trim().toLowerCase()),
+    normalizeSearchText(
+      `${board.name} ${board.machine} ${board.cpu} ${family(board.machine)}`,
+    ).includes(normalizeSearchText(query)),
   );
   return (
     <>

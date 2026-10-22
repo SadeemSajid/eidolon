@@ -22,6 +22,7 @@ import {
 } from "./features/platform/boards";
 import {
   createDiagram,
+  highlightDiagram,
   snapGrid,
   type HardwareNode,
 } from "./features/platform/diagram";
@@ -29,6 +30,7 @@ import type { BootTarget } from "./features/platform/catalog";
 import { MemoryMap } from "./features/platform/MemoryMap";
 import { PlatformLibrary } from "./features/platform/PlatformLibrary";
 import { SidebarResizer } from "./components/SidebarResizer";
+import { DeviceSearch } from "./features/platform/DeviceSearch";
 import "./App.css";
 
 function HardwareBlock({ data }: NodeProps<HardwareNode>) {
@@ -97,7 +99,6 @@ function BoardCanvas({
   onOpenInspector: () => void;
 }) {
   const { fitView } = useReactFlow();
-  const [deviceQuery, setDeviceQuery] = useState("");
   const diagram = useMemo(() => createDiagram(board), [board]);
   const [nodes, setNodes, onNodesChange] = useNodesState(diagram.nodes);
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -107,6 +108,10 @@ function BoardCanvas({
   const [bootTarget, setBootTarget] = useState<BootTarget>("bare-metal");
   const selected = board.blocks.find((block) => block.id === selectedId);
   const errors = validateBoard(board);
+  const highlighted = useMemo(
+    () => highlightDiagram(nodes, diagram.edges, selectedId),
+    [nodes, diagram.edges, selectedId],
+  );
   return (
     <>
       <main aria-label={`${board.name} architectural diagram`}>
@@ -115,8 +120,8 @@ function BoardCanvas({
           <span>{nodes.length} blocks · 24px grid</span>
         </div>
         <ReactFlow
-          nodes={nodes}
-          edges={diagram.edges}
+          nodes={highlighted.nodes}
+          edges={highlighted.edges}
           nodeTypes={nodeTypes}
           onNodesChange={onNodesChange}
           onNodeClick={(_, node) => {
@@ -142,41 +147,32 @@ function BoardCanvas({
             pannable
             zoomable
             nodeColor={(node) =>
-              node.data.status === "stub" || node.data.status === "unsupported"
-                ? "#df2935"
-                : "#3772ff"
+              selectedId && node.id !== selectedId
+                ? "#555555"
+                : node.data.status === "stub" ||
+                    node.data.status === "unsupported"
+                  ? "#df2935"
+                  : "#3772ff"
             }
           />
         </ReactFlow>
-        <form
-          className="device-finder"
-          onSubmit={(event) => {
-            event.preventDefault();
-            const match = board.blocks.find((block) =>
-              `${block.label} ${block.deviceType ?? ""} ${block.qomPath ?? ""}`
-                .toLowerCase()
-                .includes(deviceQuery.trim().toLowerCase()),
-            );
-            if (match && deviceQuery.trim()) {
-              setSelectedId(match.id);
-              setActivePanel("inspector");
-              onOpenInspector();
+        <DeviceSearch
+          blocks={board.blocks}
+          selectedId={selectedId}
+          onClear={() => setSelectedId(null)}
+          onSelect={(block) => {
+            setSelectedId(block.id);
+            setActivePanel("inspector");
+            onOpenInspector();
+            requestAnimationFrame(() => {
               void fitView({
-                nodes: [{ id: match.id }],
+                nodes: [{ id: block.id }],
                 duration: 250,
                 maxZoom: 1,
               });
-            }
+            });
           }}
-        >
-          <input
-            aria-label="Find device"
-            placeholder="Find GPIO, I²C, DMA…"
-            value={deviceQuery}
-            onChange={(event) => setDeviceQuery(event.target.value)}
-          />
-          <button type="submit">Find</button>
-        </form>
+        />
         <div className="canvas-tools">
           <details className="diagram-legend">
             <summary>Diagram legend</summary>

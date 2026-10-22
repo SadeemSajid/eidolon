@@ -48,3 +48,42 @@ export function createDiagram(board: Board): {
   };
 }
 export const snapGrid: [number, number] = [GRID_SIZE, GRID_SIZE];
+
+// Derive presentation from selection without mutating the hardware or positions.
+export function highlightDiagram(
+  nodes: HardwareNode[],
+  edges: Edge[],
+  selectedId: string | null,
+): { nodes: HardwareNode[]; edges: Edge[] } {
+  const focused =
+    selectedId !== null && nodes.some((node) => node.id === selectedId);
+  return {
+    nodes: nodes.map((node) => ({
+      ...node,
+      selected: focused && node.id === selectedId,
+      className: focused && node.id !== selectedId ? "is-dimmed" : "",
+      zIndex: focused && node.id === selectedId ? 2 : 0,
+    })),
+    edges: edges.map((edge) => {
+      const dimmed =
+        focused && edge.source !== selectedId && edge.target !== selectedId;
+      return {
+        ...edge,
+        selected: false,
+        className: dimmed ? "is-dimmed" : "",
+        zIndex: dimmed ? 0 : 1,
+        ...(dimmed
+          ? {
+              style: { ...edge.style, stroke: "#686868", opacity: 0.25 },
+              labelStyle: { ...edge.labelStyle, fill: "#888888" },
+              labelBgStyle: { ...edge.labelBgStyle, fill: "#151515" },
+              markerEnd:
+                typeof edge.markerEnd === "object"
+                  ? { ...edge.markerEnd, color: "#686868" }
+                  : edge.markerEnd,
+            }
+          : {}),
+      };
+    }),
+  };
+}
