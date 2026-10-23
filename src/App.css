@@ -1,41 +1,8 @@
 :root {
-  --color-ink: #080708;
-  --color-blue: #3772ff;
-  --color-red: #df2935;
-  --color-yellow: #fdca40;
-  --color-text: #e6e8e6;
-  --color-surface: color-mix(in srgb, var(--color-ink) 96%, var(--color-text));
-  --color-raised: color-mix(in srgb, var(--color-ink) 92%, var(--color-text));
-  --color-border: color-mix(in srgb, var(--color-ink) 78%, var(--color-text));
-  --color-muted: color-mix(in srgb, var(--color-text) 72%, var(--color-ink));
-  --color-blue-surface: color-mix(
-    in srgb,
-    var(--color-blue) 16%,
-    var(--color-ink)
-  );
-  --color-red-surface: color-mix(
-    in srgb,
-    var(--color-red) 13%,
-    var(--color-ink)
-  );
-  --color-yellow-surface: color-mix(
-    in srgb,
-    var(--color-yellow) 12%,
-    var(--color-ink)
-  );
-  --color-memory-border: color-mix(
-    in srgb,
-    var(--color-text) 50%,
-    var(--color-ink)
-  );
-  --color-memory-surface: var(--color-raised);
-  --color-selection: color-mix(in srgb, var(--color-blue) 25%, transparent);
-
   font-family:
     "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
-  color-scheme: dark;
-  color: var(--color-text);
-  background: var(--color-ink);
+  color: var(--color-foreground);
+  background: var(--color-background);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -52,7 +19,7 @@ select {
 }
 button:focus-visible,
 select:focus-visible {
-  outline: 2px solid var(--color-yellow);
+  outline: 2px solid var(--color-warning);
   outline-offset: 4px;
 }
 .studio {
@@ -76,9 +43,9 @@ header.app-toolbar {
   align-items: center;
 }
 .brand-mark {
-  border: 1px solid var(--color-blue);
-  background: var(--color-blue-surface);
-  color: var(--color-yellow);
+  border: 1px solid var(--color-accent);
+  background: var(--color-accent-surface);
+  color: var(--color-warning);
   border-radius: 3px;
   padding: 3px 7px;
   font-size: 14px;
@@ -157,12 +124,12 @@ aside {
   border-radius: 3px;
   padding: 16px;
   margin-top: 12px;
-  color: var(--color-text);
+  color: var(--color-foreground);
   cursor: grab;
 }
 .component:hover {
-  border-color: var(--color-blue);
-  background: var(--color-blue-surface);
+  border-color: var(--color-accent);
+  background: var(--color-accent-surface);
 }
 .component strong {
   font-size: 13px;
@@ -178,7 +145,7 @@ aside {
 }
 main {
   position: relative;
-  background: var(--color-ink);
+  background: var(--color-background);
 }
 .canvas-heading {
   position: absolute;
@@ -194,7 +161,7 @@ main {
 }
 .react-flow__node-default {
   background: var(--color-raised);
-  color: var(--color-text);
+  color: var(--color-foreground);
   border: 1px solid var(--color-border);
   border-radius: 3px;
   padding: 22px 18px;
@@ -202,7 +169,7 @@ main {
   font-size: 13px;
 }
 .react-flow__node.selected {
-  border-color: var(--color-blue);
+  border-color: var(--color-accent);
   box-shadow: 0 0 0 3px var(--color-selection);
 }
 .react-flow__handle {
@@ -219,12 +186,12 @@ select {
   background: var(--color-raised);
   border: 1px solid var(--color-border);
   border-radius: 3px;
-  color: var(--color-text);
+  color: var(--color-foreground);
   padding: 10px;
   font-size: 12px;
 }
 .runtime-error {
-  color: var(--color-red);
+  color: var(--color-danger);
   font-size: 11px;
   line-height: 1.6;
   overflow-wrap: anywhere;
@@ -261,11 +228,11 @@ footer {
 .terminal-toggle:hover,
 .terminal-close:hover {
   background: var(--color-raised);
-  color: var(--color-text);
+  color: var(--color-foreground);
 }
 .terminal-toggle[aria-expanded="true"] {
-  background: var(--color-blue-surface);
-  color: var(--color-blue);
+  background: var(--color-accent-surface);
+  color: var(--color-accent);
 }
 .bottom-panel {
   position: relative;
@@ -296,7 +263,7 @@ footer {
 .source-toolbar button,
 .source-confirmation button {
   padding: 6px 9px;
-  color: var(--color-text);
+  color: var(--color-foreground);
   background: var(--color-raised);
   border: 1px solid var(--color-border);
   border-radius: 3px;
@@ -305,8 +272,8 @@ footer {
 }
 .source-toolbar button:enabled:hover,
 .source-confirmation button:enabled:hover {
-  border-color: var(--color-blue);
-  background: var(--color-blue-surface);
+  border-color: var(--color-accent);
+  background: var(--color-accent-surface);
 }
 .source-toolbar button:disabled,
 .source-confirmation button:disabled {
@@ -347,8 +314,8 @@ footer {
   cursor: pointer;
 }
 .source-files button[aria-current="page"] {
-  color: var(--color-text);
-  background: var(--color-blue-surface);
+  color: var(--color-foreground);
+  background: var(--color-accent-surface);
 }
 .source-files button span {
   display: block;
@@ -362,8 +329,8 @@ footer {
   overflow: hidden;
   border: 0;
   outline-offset: -2px;
-  background: var(--color-ink);
-  color: var(--color-text);
+  background: var(--color-background);
+  color: var(--color-foreground);
   font-family: inherit;
   font-size: 11px;
   line-height: 1.7;
@@ -371,7 +338,7 @@ footer {
   white-space: normal;
 }
 .source-editor:focus-visible {
-  outline: 1px solid var(--color-blue);
+  outline: 1px solid var(--color-accent);
 }
 .source-location {
   padding: 5px 14px;
@@ -389,8 +356,8 @@ footer {
 }
 .source-confirmation {
   padding: 8px 14px;
-  border-bottom: 1px solid var(--color-yellow);
-  background: var(--color-yellow-surface);
+  border-bottom: 1px solid var(--color-warning);
+  background: var(--color-warning-surface);
   font-size: 11px;
   max-height: 55%;
   overflow: auto;
@@ -436,12 +403,12 @@ footer {
   cursor: pointer;
 }
 .terminal-tabs button:hover {
-  color: var(--color-text);
+  color: var(--color-foreground);
 }
 .terminal-tabs button[aria-selected="true"] {
-  border-bottom-color: var(--color-blue);
-  background: var(--color-blue-surface);
-  color: var(--color-text);
+  border-bottom-color: var(--color-accent);
+  background: var(--color-accent-surface);
+  color: var(--color-foreground);
 }
 .terminal-stage {
   flex: 1;
@@ -461,7 +428,7 @@ footer {
   overflow: auto;
   margin: 0;
   padding: 14px 22px;
-  color: var(--color-text);
+  color: var(--color-foreground);
   font: inherit;
   font-size: 11px;
   line-height: 1.7;
@@ -473,8 +440,8 @@ footer {
   cursor: pointer;
 }
 .board-card[aria-pressed="true"] {
-  border-color: var(--color-blue);
-  background: var(--color-blue-surface);
+  border-color: var(--color-accent);
+  background: var(--color-accent-surface);
 }
 .component:disabled {
   cursor: not-allowed;
@@ -490,7 +457,7 @@ footer {
   border: 1px solid var(--color-border);
   border-radius: 3px;
   background: var(--color-raised);
-  color: var(--color-text);
+  color: var(--color-foreground);
 }
 .hardware-block strong {
   font-size: 14px;
@@ -511,34 +478,34 @@ footer {
   color: var(--color-muted);
 }
 .kind-cpu {
-  border-color: var(--color-red);
-  background: var(--color-red-surface);
+  border-color: var(--color-danger);
+  background: var(--color-danger-surface);
 }
 .kind-memory {
   border-color: var(--color-memory-border);
   background: var(--color-memory-surface);
 }
 .kind-controller {
-  border-color: var(--color-yellow);
-  background: var(--color-yellow-surface);
+  border-color: var(--color-warning);
+  background: var(--color-warning-surface);
 }
 .kind-address-space {
-  border-color: var(--color-blue);
-  background: var(--color-blue-surface);
+  border-color: var(--color-accent);
+  background: var(--color-accent-surface);
 }
 .hardware-block .react-flow__handle {
   visibility: visible;
   width: 6px;
   height: 6px;
-  background: var(--color-blue);
+  background: var(--color-accent);
   border: 0;
 }
 .hardware-block .react-flow__handle-top,
 .hardware-block .react-flow__handle-bottom {
-  background: var(--color-yellow);
+  background: var(--color-warning);
 }
 .react-flow__node-hardware.selected .hardware-block {
-  outline: 2px solid var(--color-yellow);
+  outline: 2px solid var(--color-warning);
   outline-offset: 4px;
 }
 .canvas-tools {
@@ -575,12 +542,12 @@ footer {
 }
 .canvas-mode-toggle button:hover {
   background: var(--color-raised);
-  color: var(--color-text);
+  color: var(--color-foreground);
 }
 .canvas-mode-toggle button[aria-pressed="true"] {
-  border-color: var(--color-blue);
-  background: var(--color-blue-surface);
-  color: var(--color-text);
+  border-color: var(--color-accent);
+  background: var(--color-accent-surface);
+  color: var(--color-foreground);
 }
 .canvas-mode-toggle button:focus-visible {
   outline-offset: -2px;
@@ -598,10 +565,10 @@ footer {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 3px;
-  box-shadow: 0 4px 18px #08070880;
+  box-shadow: 0 4px 18px var(--color-shadow);
 }
 .diagram-legend summary {
-  color: var(--color-text);
+  color: var(--color-foreground);
   padding: 7px 10px;
   font-size: 11px;
   cursor: pointer;
@@ -622,10 +589,10 @@ footer {
 .legend-line {
   width: 28px;
   flex-shrink: 0;
-  border-top: 2px solid var(--color-blue);
+  border-top: 2px solid var(--color-accent);
 }
 .legend-line.interrupt {
-  border-top: 2px dashed var(--color-yellow);
+  border-top: 2px dashed var(--color-warning);
 }
 .legend-content p {
   color: var(--color-muted);
@@ -640,14 +607,14 @@ footer {
   font-size: 12px;
 }
 .irq-key {
-  color: var(--color-yellow);
+  color: var(--color-warning);
 }
 .canvas-tools > button,
 .secondary-button {
-  background: var(--color-blue-surface);
+  background: var(--color-accent-surface);
   border: 1px solid var(--color-border);
   border-radius: 3px;
-  color: var(--color-text);
+  color: var(--color-foreground);
   padding: 7px;
   cursor: pointer;
 }
@@ -677,10 +644,10 @@ h3 {
 }
 .connection-list span {
   display: block;
-  color: var(--color-yellow);
+  color: var(--color-warning);
 }
 .validation-status {
-  color: var(--color-text);
+  color: var(--color-foreground);
   font-size: 12px;
   line-height: 1.6;
 }
@@ -707,14 +674,14 @@ code,
   font-family: inherit;
 }
 .react-flow {
-  --xy-background-color: var(--color-ink);
-  --xy-background-color-default: var(--color-ink);
+  --xy-background-color: var(--color-background);
+  --xy-background-color-default: var(--color-background);
   --xy-background-pattern-dots-color-default: var(--color-border);
   --xy-controls-button-background-color: var(--color-surface);
   --xy-controls-button-background-color-hover: var(--color-raised);
-  --xy-controls-button-color: var(--color-text);
+  --xy-controls-button-color: var(--color-foreground);
   --xy-controls-button-border-color: var(--color-border);
-  --xy-edge-label-color-default: var(--color-text);
+  --xy-edge-label-color-default: var(--color-foreground);
 }
 .react-flow__edge-text {
   font-family: inherit;
@@ -724,13 +691,13 @@ code,
   letter-spacing: -0.4px;
 }
 .brand-mark {
-  background: var(--color-blue);
-  color: var(--color-text);
-  border-color: var(--color-blue);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  border-color: var(--color-accent);
 }
 ::selection {
-  background: var(--color-blue);
-  color: var(--color-text);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
 }
 
 .workspace[data-library-collapsed="true"] {
@@ -757,7 +724,7 @@ code,
   border: 0;
   border-bottom: 1px solid var(--color-border);
   background: var(--color-surface);
-  color: var(--color-text);
+  color: var(--color-foreground);
   font-size: 11px;
   cursor: pointer;
 }
@@ -784,7 +751,7 @@ main {
   overflow: hidden;
 }
 summary:focus-visible {
-  outline: 2px solid var(--color-yellow);
+  outline: 2px solid var(--color-warning);
   outline-offset: -3px;
 }
 @media (max-width: 1000px) {
@@ -825,7 +792,7 @@ summary:focus-visible {
   border: 1px solid var(--color-border);
   border-bottom: 0;
   background: var(--color-raised);
-  color: var(--color-text);
+  color: var(--color-foreground);
   text-align: left;
   font-size: 10px;
 }
@@ -836,11 +803,11 @@ button.memory-slot {
   cursor: pointer;
 }
 button.memory-slot:hover {
-  background: var(--color-blue-surface);
+  background: var(--color-accent-surface);
 }
 .memory-slot[aria-pressed="true"] {
-  box-shadow: inset 3px 0 var(--color-yellow);
-  background: var(--color-blue-surface);
+  box-shadow: inset 3px 0 var(--color-warning);
+  background: var(--color-accent-surface);
 }
 .slot-addresses,
 .slot-description {
@@ -860,21 +827,21 @@ button.memory-slot:hover {
   color: var(--color-muted);
 }
 .slot-memory {
-  border-left: 3px solid var(--color-text);
+  border-left: 3px solid var(--color-foreground);
 }
 .slot-controller {
-  border-left: 3px solid var(--color-yellow);
+  border-left: 3px solid var(--color-warning);
 }
 .slot-peripheral {
-  border-left: 3px solid var(--color-blue);
+  border-left: 3px solid var(--color-accent);
 }
 .slot-gap {
   background: repeating-linear-gradient(
     135deg,
     transparent,
     transparent 5px,
-    color-mix(in srgb, var(--color-text) 3%, transparent) 5px,
-    color-mix(in srgb, var(--color-text) 3%, transparent) 6px
+    color-mix(in srgb, var(--color-foreground) 3%, transparent) 5px,
+    color-mix(in srgb, var(--color-foreground) 3%, transparent) 6px
   );
   color: var(--color-muted);
 }
@@ -903,12 +870,12 @@ button.memory-slot:hover {
   cursor: pointer;
 }
 .sidebar-tabs button[aria-selected="true"] {
-  color: var(--color-text);
-  border-bottom-color: var(--color-blue);
-  background: var(--color-blue-surface);
+  color: var(--color-foreground);
+  border-bottom-color: var(--color-accent);
+  background: var(--color-accent-surface);
 }
 .sidebar-tabs button:hover {
-  color: var(--color-text);
+  color: var(--color-foreground);
 }
 .slot-addresses {
   flex-direction: row;
@@ -967,7 +934,7 @@ button.memory-slot:hover {
 .sidebar-resizer:hover::after,
 .sidebar-resizer:focus-visible::after,
 .workspace[data-resizing="true"] .sidebar-resizer::after {
-  background: var(--color-blue);
+  background: var(--color-accent);
 }
 .sidebar-resizer:focus-visible {
   outline: none;
@@ -983,8 +950,8 @@ button.memory-slot:hover {
   padding: 10px;
   border: 1px solid var(--color-border);
   border-radius: 3px;
-  background: var(--color-ink);
-  color: var(--color-text);
+  background: var(--color-background);
+  color: var(--color-foreground);
   font: inherit;
   font-size: 11px;
 }
@@ -993,7 +960,7 @@ button.memory-slot:hover {
   font-size: 10px;
 }
 .board-search:focus-visible {
-  outline: 2px solid var(--color-yellow);
+  outline: 2px solid var(--color-warning);
   outline-offset: 2px;
 }
 .search-label {
@@ -1060,11 +1027,11 @@ button.memory-slot:hover {
 .hardware-block.status-unsupported,
 .hardware-block.status-inactive {
   border-style: dashed;
-  border-color: var(--color-red);
+  border-color: var(--color-danger);
 }
 .device-status.status-stub,
 .device-status.status-unsupported {
-  color: var(--color-yellow);
+  color: var(--color-warning);
 }
 .hardware-block strong {
   overflow-wrap: anywhere;
@@ -1082,15 +1049,15 @@ button.memory-slot:hover {
   padding: 9px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  color: var(--color-text);
+  color: var(--color-foreground);
   font: inherit;
   font-size: 11px;
 }
 .device-finder button {
   padding: 9px;
-  background: var(--color-blue-surface);
+  background: var(--color-accent-surface);
   border: 1px solid var(--color-border);
-  color: var(--color-text);
+  color: var(--color-foreground);
   font-size: 11px;
   cursor: pointer;
 }
@@ -1126,7 +1093,7 @@ button.memory-slot:hover {
 .device-search-results {
   border: 1px solid var(--color-border);
   background: var(--color-surface);
-  box-shadow: 0 8px 24px #080708cc;
+  box-shadow: 0 8px 24px var(--color-shadow-heavy);
 }
 .device-search-results > p {
   margin: 0;
@@ -1156,11 +1123,11 @@ button.memory-slot:hover {
   border-bottom: 0;
 }
 .device-search-results li[aria-selected="true"] {
-  background: var(--color-blue-surface);
-  box-shadow: inset 2px 0 var(--color-blue);
+  background: var(--color-accent-surface);
+  box-shadow: inset 2px 0 var(--color-accent);
 }
 .device-search-results li[data-chosen="true"] strong {
-  color: var(--color-yellow);
+  color: var(--color-warning);
 }
 .device-search-results strong {
   font-size: 12px;
@@ -1194,8 +1161,8 @@ button.memory-slot:hover {
   width: 100%;
   min-height: 300px;
   resize: vertical;
-  background: var(--color-ink);
-  color: var(--color-text);
+  background: var(--color-background);
+  color: var(--color-foreground);
   border: 1px solid var(--color-border);
   border-radius: 3px;
   padding: 10px;
@@ -1206,7 +1173,7 @@ button.memory-slot:hover {
   margin-bottom: 12px;
 }
 .platform-description-editor:focus-visible {
-  outline: 2px solid var(--color-yellow);
+  outline: 2px solid var(--color-warning);
   outline-offset: 2px;
 }
 
@@ -1228,6 +1195,7 @@ button.memory-slot:hover {
   gap: 8px;
   flex-shrink: 0;
 }
+
 .toolbar-status {
   max-width: 240px;
   overflow: hidden;
@@ -1238,13 +1206,13 @@ button.memory-slot:hover {
   margin-right: 8px;
 }
 .toolbar-status[data-state="running"] {
-  color: var(--color-blue);
+  color: var(--color-accent);
 }
 .toolbar-status[data-state="building"] {
-  color: var(--color-yellow);
+  color: var(--color-warning);
 }
 .toolbar-status[data-state="failed"] {
-  color: var(--color-red);
+  color: var(--color-danger);
 }
 .toolbar-actions button {
   display: inline-flex;
@@ -1254,16 +1222,16 @@ button.memory-slot:hover {
   border: 1px solid var(--color-border);
   border-radius: 3px;
   background: var(--color-raised);
-  color: var(--color-text);
+  color: var(--color-foreground);
   font-size: 11px;
   cursor: pointer;
 }
 .toolbar-actions .toolbar-run {
-  background: var(--color-blue-surface);
-  border-color: var(--color-blue);
+  background: var(--color-accent-surface);
+  border-color: var(--color-accent);
 }
 .toolbar-actions .toolbar-stop:not(:disabled) {
-  color: var(--color-red);
+  color: var(--color-danger);
 }
 .toolbar-actions button:disabled {
   opacity: 0.4;
@@ -1291,7 +1259,7 @@ button.memory-slot:hover {
 .bottom-panel-resizer:hover::after,
 .bottom-panel-resizer:focus-visible::after,
 .bottom-panel[data-resizing="true"] .bottom-panel-resizer::after {
-  background: var(--color-blue);
+  background: var(--color-accent);
 }
 .bottom-panel-resizer:focus-visible {
   outline: none;
@@ -1347,7 +1315,7 @@ button.memory-slot:hover {
   border: 1px solid var(--color-border);
   border-radius: 3px;
   padding: 12px;
-  background: var(--color-ink);
+  background: var(--color-background);
 }
 .readiness-card-title {
   display: flex;
@@ -1360,7 +1328,7 @@ button.memory-slot:hover {
   margin: 0;
 }
 .readiness-model {
-  color: var(--color-blue);
+  color: var(--color-accent);
   font-size: 11px;
 }
 .readiness-card p,
@@ -1386,10 +1354,10 @@ button.memory-slot:hover {
 }
 .readiness-statuses dd {
   margin: 0;
-  color: var(--color-yellow);
+  color: var(--color-warning);
 }
 .readiness-statuses dd[data-ready="true"] {
-  color: var(--color-text);
+  color: var(--color-foreground);
 }
 .readiness-details {
   border-top: 1px solid var(--color-border);
@@ -1399,14 +1367,14 @@ button.memory-slot:hover {
 .readiness-details summary {
   font-size: 10px;
   cursor: pointer;
-  color: var(--color-blue);
+  color: var(--color-accent);
 }
 .readiness-details ul {
   padding-left: 16px;
 }
 .readiness-apis code {
   overflow-wrap: anywhere;
-  color: var(--color-text);
+  color: var(--color-foreground);
 }
 
 .software-section {
@@ -1419,7 +1387,7 @@ button.memory-slot:hover {
   margin-bottom: 12px;
 }
 .software-section-heading > span:first-child {
-  color: var(--color-blue);
+  color: var(--color-accent);
   font-size: 9px;
 }
 .software-section-heading h3 {
@@ -1456,10 +1424,10 @@ button.memory-slot:hover {
   font-size: 9px;
 }
 .software-environments > div[data-active="true"] {
-  color: var(--color-text);
+  color: var(--color-foreground);
 }
 .software-environments > div[data-active="true"] dd {
-  color: var(--color-blue);
+  color: var(--color-accent);
 }
 .software-status-dot {
   width: 5px;
@@ -1485,12 +1453,12 @@ button.memory-slot:hover {
   border-top: 1px solid var(--color-border);
 }
 .firmware-example:has(input:checked) {
-  border-left-color: var(--color-blue);
-  background: var(--color-blue-surface);
+  border-left-color: var(--color-accent);
+  background: var(--color-accent-surface);
 }
 .firmware-example input {
   margin: 3px 0 0;
-  accent-color: var(--color-blue);
+  accent-color: var(--color-accent);
   flex-shrink: 0;
 }
 .firmware-example-copy {
@@ -1509,7 +1477,7 @@ button.memory-slot:hover {
 }
 .firmware-example-copy small {
   font-size: 9px;
-  color: var(--color-blue);
+  color: var(--color-accent);
   margin-top: 2px;
 }
 .firmware-examples:disabled {
@@ -1535,7 +1503,7 @@ button.memory-slot:hover {
 }
 .firmware-format {
   float: right;
-  color: var(--color-blue);
+  color: var(--color-accent);
   font-size: 9px;
 }
 .firmware-description .platform-description-editor {
@@ -1558,7 +1526,7 @@ button.memory-slot:hover {
   border: 0;
   border-radius: 0;
   background: transparent;
-  color: var(--color-blue);
+  color: var(--color-accent);
   font: inherit;
   font-size: 10px;
   cursor: pointer;
@@ -1570,7 +1538,7 @@ button.memory-slot:hover {
 }
 .software-inline-action:enabled:hover,
 .software-cancel:enabled:hover {
-  color: var(--color-text);
+  color: var(--color-foreground);
 }
 .software-inline-action:disabled,
 .software-cancel:disabled {
@@ -1581,7 +1549,7 @@ button.memory-slot:hover {
   color: var(--color-muted);
 }
 .platform-confirmation {
-  border-left: 2px solid var(--color-yellow);
+  border-left: 2px solid var(--color-warning);
   padding: 0 0 0 12px;
   margin-top: 14px;
 }
@@ -1600,27 +1568,28 @@ button.memory-slot:hover {
   gap: 12px;
   width: 100%;
   padding: 12px;
-  border: 1px solid var(--color-blue);
+  border: 1px solid var(--color-accent);
   border-radius: 2px;
-  background: var(--color-blue-surface);
-  color: var(--color-text);
+  background: var(--color-accent-surface);
+  color: var(--color-foreground);
   font: inherit;
   font-size: 11px;
   cursor: pointer;
 }
 .software-run:enabled:hover {
-  background: var(--color-blue);
+  color: var(--color-on-accent);
+  background: var(--color-accent);
 }
 .software-run:disabled {
   opacity: 0.45;
   cursor: not-allowed;
 }
 .software-run[data-running="true"] {
-  border-color: var(--color-red);
-  background: var(--color-red-surface);
+  border-color: var(--color-danger);
+  background: var(--color-danger-surface);
 }
 .software-run[data-running="true"]:enabled:hover {
-  background: var(--color-red);
+  background: var(--color-danger);
 }
 .software-run-arrow {
   margin-left: auto;
@@ -1636,4 +1605,53 @@ button.memory-slot:hover {
   clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+.footer-right > span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.footer-settings {
+  position: relative;
+  flex-shrink: 0;
+}
+.settings-popover {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  right: 0;
+  z-index: 100;
+  width: min(330px, calc(100vw - 32px));
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  background: var(--color-surface);
+  color: var(--color-foreground);
+  box-shadow: 0 8px 24px var(--color-shadow-heavy);
+}
+.settings-popover h2 {
+  margin: 0 0 16px;
+  font-size: 12px;
+}
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.settings-row h3 {
+  margin: 0;
+  font-size: 11px;
+}
+.settings-row p {
+  margin: 5px 0 0;
+  color: var(--color-muted);
+  font-size: 10px;
+  line-height: 1.6;
 }

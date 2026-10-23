@@ -1,0 +1,107 @@
+/* Theme definitions. Component styles consume these semantic roles. */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-background: #080708;
+  --color-foreground: #e6e8e6;
+  --color-accent: #3772ff;
+  --color-danger: #df2935;
+  --color-warning: #fdca40;
+  --color-on-accent: #ffffff;
+  --color-edge-muted: #686868;
+  --color-edge-label-muted: #888888;
+  --color-edge-background-muted: #151515;
+  --color-shadow: #08070880;
+  --color-shadow-heavy: #080708cc;
+  --color-syntax-keyword: #9ab8ff;
+  --color-syntax-string: #a8d8ae;
+  --color-syntax-number: #fdca40;
+  --color-syntax-type: #92d5df;
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --color-background: #f7f8f6;
+  --color-foreground: #202522;
+  --color-accent: #2458d6;
+  --color-danger: #b51e2b;
+  --color-warning: #876000;
+  --color-on-accent: #ffffff;
+  --color-edge-muted: #929a95;
+  --color-edge-label-muted: #636c66;
+  --color-edge-background-muted: #edf0eb;
+  --color-shadow: #20252218;
+  --color-shadow-heavy: #20252228;
+  --color-syntax-keyword: #5732ac;
+  --color-syntax-string: #206339;
+  --color-syntax-number: #865200;
+  --color-syntax-type: #096779;
+}
+:root {
+  --color-surface: color-mix(
+    in srgb,
+    var(--color-background) 96%,
+    var(--color-foreground)
+  );
+  --color-raised: color-mix(
+    in srgb,
+    var(--color-background) 92%,
+    var(--color-foreground)
+  );
+  --color-border: color-mix(
+    in srgb,
+    var(--color-background) 78%,
+    var(--color-foreground)
+  );
+  --color-muted: color-mix(
+    in srgb,
+    var(--color-foreground) 72%,
+    var(--color-background)
+  );
+  --color-accent-surface: color-mix(
+    in srgb,
+    var(--color-accent) 16%,
+    var(--color-background)
+  );
+  --color-danger-surface: color-mix(
+    in srgb,
+    var(--color-danger) 13%,
+    var(--color-background)
+  );
+  --color-warning-surface: color-mix(
+    in srgb,
+    var(--color-warning) 12%,
+    var(--color-background)
+  );
+  --color-memory-border: color-mix(
+    in srgb,
+    var(--color-foreground) 50%,
+    var(--color-background)
+  );
+  --color-memory-surface: var(--color-raised);
+  --color-selection: color-mix(in srgb, var(--color-accent) 25%, transparent);
+  --color-editor-active-line: color-mix(
+    in srgb,
+    var(--color-accent) 7%,
+    transparent
+  );
+}
+/* Toolbar labels must not inherit the form-field margins from App.css. */
+.theme-picker {
+  display: inline-flex;
+  align-items: baseline;
+  margin: 0;
+  font-size: 10px;
+  line-height: normal;
+}
+.theme-picker select {
+  /* Keep the OS/webview's native control and popup styling. */
+  all: revert;
+  box-sizing: border-box;
+  appearance: auto;
+  font: inherit;
+  max-block-size: 28px;
+}
+.theme-picker select:focus-visible {
+  outline: 2px solid var(--color-warning);
+  outline-offset: 2px;
+}

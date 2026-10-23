@@ -1,3 +1,5 @@
+import { useTheme } from "./theme/ThemeProvider";
+import { SettingsMenu } from "./theme/SettingsMenu";
 import {
   useEffect,
   useMemo,
@@ -123,6 +125,7 @@ function BoardCanvas({
   onOpenInspector: () => void;
 }) {
   const { fitView } = useReactFlow();
+  const { resolved: colorMode } = useTheme();
   const diagram = useMemo(() => createDiagram(board), [board]);
   const [nodes, setNodes, onNodesChange] = useNodesState(diagram.nodes);
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -194,7 +197,7 @@ function BoardCanvas({
           snapGrid={snapGrid}
           fitView
           fitViewOptions={{ padding: 0.18 }}
-          colorMode="dark"
+          colorMode={colorMode}
           minZoom={0.02}
           maxZoom={2}
         >
@@ -205,11 +208,11 @@ function BoardCanvas({
             zoomable
             nodeColor={(node) =>
               selectedId && node.id !== selectedId
-                ? "#555555"
+                ? "var(--color-edge-muted)"
                 : node.data.status === "stub" ||
                     node.data.status === "unsupported"
-                  ? "#df2935"
-                  : "#3772ff"
+                  ? "var(--color-danger)"
+                  : "var(--color-accent)"
             }
           />
         </ReactFlow>
@@ -889,7 +892,10 @@ export default function App() {
                 : "QEMU stopped"}
           </span>
         </div>
-        <span>Captured QEMU inventory · fixed board topology</span>
+        <div className="footer-right">
+          <span>Captured QEMU inventory · fixed board topology</span>
+          <SettingsMenu />
+        </div>
       </footer>
     </div>
   );

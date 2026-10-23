@@ -42,6 +42,7 @@ Use Bun, keep bun.lock committed, and avoid introducing other JS lockfiles.
 - QEMU runs as a separate process owned by Rust. Use argument arrays, never shell command strings. Keep process/file access out of frontend code; expose narrow typed commands and minimal Tauri permissions.
 - Use QMP for runtime control and a separate serial channel for the guest console. Handle process exit and cleanup.
 - Source editing uses CodeMirror; keep draft ownership in usePlatformRuntime. Formatting stays behind the allowlisted Rust command and invokes host clang-format, never shell strings or project-supplied options. Read decision 0007 before changing this boundary.
+- Theme palettes and semantic color tokens live in src/theme/themes.css. Use tokens in UI, diagram SVGs and editor extensions; avoid hardcoded component colors. Keep CodeMirror theme changes separate from document/Vim state (decision 0010).
 - Functional modeling is the scope; do not claim cycle accuracy or timing/power fidelity.
 - Keep upstream QEMU unchanged unless the task specifically needs a machine/device change. Follow its own contributor instructions if editing it. Record tag, commit, build options, and local patches on upgrades.
 - Eidolon-authored files are MIT. Preserve third-party notices and licenses; never relabel QEMU as MIT. Do not commit proprietary firmware or OS images.

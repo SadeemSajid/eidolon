@@ -78,3 +78,17 @@ workaround, try `WEBKIT_DISABLE_DMABUF_RENDERER=1 bun run tauri dev` first.
 No stderr filtering or system driver changes are made. See Tauri's
 [Linux graphics troubleshooting](https://v2.tauri.app/develop/debug/linux-graphics/).
 The fallback requires a working graphical display; it is not a headless mode.
+
+## Theming
+
+Open Settings in the bottom-right footer to use the Color theme selector: System (default), Dark or Light. The
+choice persists in local storage; System follows live OS preference changes.
+
+Palette definitions and derived semantic roles live in src/theme/themes.css.
+Components use roles such as `var(--color-background)`,
+`var(--color-foreground)`, `var(--color-accent)` and `var(--color-border)`.
+Do not add hex colors or dark-mode checks to individual components. Change both
+palette definitions when introducing a role. Diagram SVG/marker and CodeMirror
+syntax colors use the same tokens; CodeMirror's dark facet follows the resolved
+mode without resetting buffers/history. See decision 0010 and theme.test.ts.
+Native title-bar decoration follows host/OS behavior separately.

@@ -1,3 +1,7 @@
+import { SettingsMenu } from "../../theme/SettingsMenu";
+import { EditorView } from "@codemirror/view";
+import { ThemeProvider } from "../../theme/ThemeProvider";
+import { createThemeStore } from "../../theme/theme-store";
 import { after as afterAll, before as beforeAll, test } from "node:test";
 import assert from "node:assert/strict";
 import { Window } from "happy-dom";
@@ -191,5 +195,115 @@ test("library cards stay concise and component readiness is accessible through k
   } finally {
     await act(async () => root.unmount());
     host.remove();
+  }
+});
+
+test("theme changes preserve the editor instance, draft and undo history", async () => {
+  const host = document.createElement("div");
+  document.body.append(host);
+  const root = createRoot(host);
+  const store = createThemeStore({
+    root: document.documentElement,
+    media: window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ) as unknown as MediaQueryList,
+    storage: { getItem: () => "dark", setItem: () => {} },
+  });
+  let draft = "int x;";
+  try {
+    await act(async () =>
+      root.render(
+        <ThemeProvider store={store}>
+          <SourceEditor
+            name="main.c"
+            value={draft}
+            readOnly={false}
+            vimMode={true}
+            onChange={(value) => {
+              draft = value;
+            }}
+            onSave={() => {}}
+            onFormat={() => {}}
+          />
+        </ThemeProvider>,
+      ),
+    );
+    const content = host.querySelector<HTMLElement>(".cm-content")!;
+    const editor = EditorView.findFromDOM(content)!;
+    assert.equal(editor.state.facet(EditorView.darkTheme), true);
+    content.focus();
+    await act(async () => {
+      content.dispatchEvent(
+        new window.KeyboardEvent("keydown", {
+          key: "x",
+          bubbles: true,
+          cancelable: true,
+        }) as unknown as Event,
+      );
+    });
+    assert.equal(draft, "nt x;");
+    await act(async () => store.setPreference("light"));
+    assert.equal(EditorView.findFromDOM(content), editor);
+    assert.equal(editor.state.facet(EditorView.darkTheme), false);
+    assert.equal(editor.state.doc.toString(), "nt x;");
+    await act(async () => {
+      content.dispatchEvent(
+        new window.KeyboardEvent("keydown", {
+          key: "u",
+          bubbles: true,
+          cancelable: true,
+        }) as unknown as Event,
+      );
+    });
+    assert.equal(draft, "int x;");
+  } finally {
+    await act(async () => root.unmount());
+    store.destroy();
+    host.remove();
+    document.documentElement.removeAttribute("data-theme");
+  }
+});
+
+test("footer settings focuses the native theme control and dismisses with Escape or outside click", async () => {
+  const host = document.createElement("div");
+  const outside = document.createElement("button");
+  document.body.append(host, outside);
+  const root = createRoot(host);
+  try {
+    await act(async () => root.render(<SettingsMenu />));
+    const trigger = host.querySelector<HTMLButtonElement>("button")!;
+    assert.equal(trigger.getAttribute("aria-expanded"), "false");
+    await act(async () => trigger.click());
+    const select = host.querySelector<HTMLSelectElement>("select")!;
+    assert.equal(trigger.getAttribute("aria-expanded"), "true");
+    assert.equal(document.activeElement, select);
+    assert.equal(
+      host.querySelector("[role=dialog]")?.getAttribute("aria-label"),
+      "Settings",
+    );
+    await act(async () => {
+      select.dispatchEvent(
+        new window.KeyboardEvent("keydown", {
+          key: "Escape",
+          bubbles: true,
+          cancelable: true,
+        }) as unknown as Event,
+      );
+    });
+    assert.equal(host.querySelector("[role=dialog]"), null);
+    assert.equal(document.activeElement, trigger);
+    await act(async () => trigger.click());
+    await act(async () => {
+      outside.dispatchEvent(
+        new window.MouseEvent("pointerdown", {
+          bubbles: true,
+        }) as unknown as Event,
+      );
+    });
+    assert.equal(trigger.getAttribute("aria-expanded"), "false");
+  } finally {
+    await act(async () => root.unmount());
+    host.remove();
+    outside.remove();
   }
 });

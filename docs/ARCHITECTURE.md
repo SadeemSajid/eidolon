@@ -59,3 +59,11 @@ The library's Components tab presents reviewed readiness metadata from
 firmware/component-readiness.json separately from board inventories. Available
 drivers, tested backend/configurations and missing custom-SoC support remain
 separate statuses. See decision 0009; this catalog does not change runtime plans.
+
+## Theme state
+
+src/theme/themes.css defines dark/light palettes and shared semantic color roles.
+A small store initializes before React mounts, persists Light/Dark/System choice,
+and follows OS changes in System mode. CSS, React Flow and CodeMirror consume the
+same resolved theme; switching does not regenerate diagrams or recreate editors.
+See [decision 0010](decisions/0010-semantic-themes.md).

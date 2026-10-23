@@ -34,15 +34,21 @@ export function createDiagram(board: Board): {
       type: "smoothstep",
       deletable: false,
       style: {
-        stroke: connection.kind === "signal" ? "#fdca40" : "#3772ff",
+        stroke:
+          connection.kind === "signal"
+            ? "var(--color-warning)"
+            : "var(--color-accent)",
         strokeWidth: 1.2,
         strokeDasharray: connection.kind === "signal" ? "6 4" : undefined,
       },
-      labelStyle: { fill: "#e6e8e6", fontSize: 10 },
-      labelBgStyle: { fill: "#080708", fillOpacity: 0.95 },
+      labelStyle: { fill: "var(--color-foreground)", fontSize: 10 },
+      labelBgStyle: { fill: "var(--color-background)", fillOpacity: 0.95 },
       markerEnd: {
         type: MarkerType.ArrowClosed,
-        color: connection.kind === "signal" ? "#fdca40" : "#3772ff",
+        color:
+          connection.kind === "signal"
+            ? "var(--color-warning)"
+            : "var(--color-accent)",
       },
     })),
   };
@@ -74,12 +80,22 @@ export function highlightDiagram(
         zIndex: dimmed ? 0 : 1,
         ...(dimmed
           ? {
-              style: { ...edge.style, stroke: "#686868", opacity: 0.25 },
-              labelStyle: { ...edge.labelStyle, fill: "#888888" },
-              labelBgStyle: { ...edge.labelBgStyle, fill: "#151515" },
+              style: {
+                ...edge.style,
+                stroke: "var(--color-edge-muted)",
+                opacity: 0.25,
+              },
+              labelStyle: {
+                ...edge.labelStyle,
+                fill: "var(--color-edge-label-muted)",
+              },
+              labelBgStyle: {
+                ...edge.labelBgStyle,
+                fill: "var(--color-edge-background-muted)",
+              },
               markerEnd:
                 typeof edge.markerEnd === "object"
-                  ? { ...edge.markerEnd, color: "#686868" }
+                  ? { ...edge.markerEnd, color: "var(--color-edge-muted)" }
                   : edge.markerEnd,
             }
           : {}),

@@ -41,10 +41,10 @@ it("highlights exactly the selected block and its incident connections", () => {
       assert.deepEqual(edge.style, original.style);
       assert.deepEqual(edge.markerEnd, original.markerEnd);
     } else {
-      assert.equal(edge.style?.stroke, "#686868");
+      assert.equal(edge.style?.stroke, "var(--color-edge-muted)");
       assert.equal(
         typeof edge.markerEnd === "object" ? edge.markerEnd.color : undefined,
-        "#686868",
+        "var(--color-edge-muted)",
       );
     }
   }
