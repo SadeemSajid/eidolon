@@ -13,7 +13,7 @@
 3. Implement a verified component catalog and semantic validation. Canvas connections must represent typed supported relationships.
 4. Build or locate QEMU, verify its version/capabilities, and generate inspectable launch plans.
 5. Add Rust process supervision, local QMP transport, serial console, stop/reset, and crash diagnostics.
-6. Initial path implemented: generate and boot an MIT bare-metal UART hello world on Arm virt, with an explicit native smoke test. Modular startup, PL011 console, application and generated configuration now resolve from a validated Arm virt description. Extend to additional backends/components.
+6. Initial path implemented: generate and boot an MIT bare-metal UART hello world on Arm virt, with an explicit native smoke test. Modular startup, PL011 console, application and generated configuration now resolve from a validated Arm virt description. Optional PL031 RTC and PL061 GPIO polling drivers and a peripheral-demo application are implemented and boot-tested. Extend to interrupts and additional backends/components.
 7. Add one verified FreeRTOS port and firmware build recipe; document any different board/CPU requirement.
 8. Add project examples and native CI smoke coverage before claiming supported configurations.
 

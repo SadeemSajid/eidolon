@@ -44,3 +44,18 @@ command formats bounded allowlisted C/header buffers through external
 clang-format without writing files. Optional format-on-save finishes formatting
 the changed C/header set before submitting edits to the existing save command.
 See [decision 0007](decisions/0007-source-editor-and-formatting.md).
+
+## Optional polling peripherals
+
+The Arm virt resolver can bind PL031 RTC and PL061 GPIO independently, select
+only requested drivers, and emit their fixed backend addresses into generated
+configuration. The peripheral-demo application requires both; hello-world stays
+minimal. Software offers example descriptions without applying them until the
+normal generation step. Rust's source/hash/format/cleanup paths include the new
+files. Polling support does not provide interrupt handlers or custom wiring.
+See [decision 0008](decisions/0008-arm-virt-optional-peripherals.md).
+
+The library's Components tab presents reviewed readiness metadata from
+firmware/component-readiness.json separately from board inventories. Available
+drivers, tested backend/configurations and missing custom-SoC support remain
+separate statuses. See decision 0009; this catalog does not change runtime plans.

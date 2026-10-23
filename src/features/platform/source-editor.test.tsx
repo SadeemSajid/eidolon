@@ -4,6 +4,7 @@ import { Window } from "happy-dom";
 import { act } from "react";
 import { createRoot } from "react-dom/client";
 import { SourceEditor } from "./SourceEditor";
+import { PlatformLibrary } from "./PlatformLibrary";
 
 const window = new Window();
 const keys = [
@@ -116,6 +117,77 @@ test("Vim editing, Escape isolation, shortcuts and read-only reconfiguration", a
     const original = changed;
     await key("x");
     assert.equal(changed, original);
+  } finally {
+    await act(async () => root.unmount());
+    host.remove();
+  }
+});
+
+test("library cards stay concise and component readiness is accessible through keyboard tabs", async () => {
+  const host = document.createElement("div");
+  document.body.append(host);
+  const root = createRoot(host);
+  try {
+    await act(async () =>
+      root.render(
+        <PlatformLibrary boardId="arm-virt-a55" onSelect={() => {}} />,
+      ),
+    );
+    const cards = host.querySelectorAll(".board-card");
+    assert.equal(cards.length, 14);
+    for (const card of cards)
+      assert.doesNotMatch(
+        card.textContent ?? "",
+        /QEMU|captured inventory|11\.1\.2/i,
+      );
+    const tabs = host.querySelector<HTMLElement>("[role=tablist]")!;
+    await act(async () => {
+      tabs.dispatchEvent(
+        new window.KeyboardEvent("keydown", {
+          key: "ArrowRight",
+          bubbles: true,
+          cancelable: true,
+        }) as unknown as Event,
+      );
+    });
+    const componentTab = host.querySelector<HTMLElement>(
+      "#components-library-tab",
+    )!;
+    assert.equal(componentTab.getAttribute("aria-selected"), "true");
+    assert.equal(document.activeElement, componentTab);
+    const panel = host.querySelector<HTMLElement>("#components-library-panel")!;
+    assert.equal(panel.hidden, false);
+    assert.equal(panel.querySelectorAll("article").length, 3);
+    assert.match(panel.textContent ?? "", /Bare-metal driver/);
+    assert.match(panel.textContent ?? "", /Backend needed/);
+    for (const model of ["PL011", "PL031", "PL061"])
+      assert.ok(panel.textContent?.includes(model));
+    await act(async () => {
+      tabs.dispatchEvent(
+        new window.KeyboardEvent("keydown", {
+          key: "End",
+          bubbles: true,
+          cancelable: true,
+        }) as unknown as Event,
+      );
+    });
+    assert.equal(
+      host.querySelector("#custom-library-tab")?.getAttribute("aria-selected"),
+      "true",
+    );
+    await act(async () => {
+      tabs.dispatchEvent(
+        new window.KeyboardEvent("keydown", {
+          key: "ArrowRight",
+          bubbles: true,
+          cancelable: true,
+        }) as unknown as Event,
+      );
+    });
+    assert.equal(
+      host.querySelector("#boards-library-tab")?.getAttribute("aria-selected"),
+      "true",
+    );
   } finally {
     await act(async () => root.unmount());
     host.remove();

@@ -5,30 +5,42 @@ use std::{
     path::{Path, PathBuf},
 };
 
-pub const SOURCES: [&str; 8] = [
+pub const SOURCES: [&str; 12] = [
     "startup.S",
     "main.c",
     "linker.ld",
     "platform.c",
     "pl011.c",
+    "pl031.c",
+    "pl061.c",
+    "rtc.h",
+    "gpio.h",
     "console.h",
     "platform.h",
     "platform_config.h",
 ];
-const EDITABLE: [&str; 7] = [
+const EDITABLE: [&str; 11] = [
     "startup.S",
     "main.c",
     "linker.ld",
     "platform.c",
     "pl011.c",
+    "pl031.c",
+    "pl061.c",
+    "rtc.h",
+    "gpio.h",
     "console.h",
     "platform.h",
 ];
-const FILES: [&str; 11] = [
+const FILES: [&str; 15] = [
     "main.c",
     "startup.S",
     "platform.c",
     "pl011.c",
+    "pl031.c",
+    "pl061.c",
+    "rtc.h",
+    "gpio.h",
     "console.h",
     "platform.h",
     "linker.ld",
@@ -37,11 +49,13 @@ const FILES: [&str; 11] = [
     "plan.json",
     "run.json",
 ];
-const OUTPUTS: [&str; 10] = [
+const OUTPUTS: [&str; 12] = [
     "startup.S.o",
     "main.c.o",
     "platform.c.o",
     "pl011.c.o",
+    "pl031.c.o",
+    "pl061.c.o",
     "firmware.elf",
     "serial.log",
     "qemu.stderr",
@@ -49,6 +63,10 @@ const OUTPUTS: [&str; 10] = [
     "tool.stdout",
     "tool.stderr",
 ];
+pub fn editable_c_source(name: &str) -> bool {
+    EDITABLE.contains(&name) && (name.ends_with(".c") || name.ends_with(".h"))
+}
+
 pub const SOURCE_LIMIT: usize = 256 * 1024;
 
 #[derive(Serialize)]

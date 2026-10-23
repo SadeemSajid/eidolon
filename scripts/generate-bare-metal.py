@@ -28,10 +28,31 @@ COMPONENTS = {
         "files": {"pl011.c": "drivers/pl011.c", "console.h": "include/console.h", "platform_config.h": "templates/platform_config.h.in"},
         "compile": ["pl011.c"],
     },
+    "pl031-rtc": {
+        "files": {"pl031.c": "drivers/pl031.c", "rtc.h": "include/rtc.h"},
+        "compile": ["pl031.c"],
+    },
+    "pl061-gpio": {
+        "files": {"pl061.c": "drivers/pl061.c", "gpio.h": "include/gpio.h"},
+        "compile": ["pl061.c"],
+    },
+    "peripheral-demo": {
+        "files": {"main.c": "apps/peripheral-demo.c.in", "linker.ld": "templates/linker.ld.in"},
+        "compile": ["main.c"],
+    },
     "hello-world": {
         "files": {"main.c": "apps/hello.c.in", "linker.ld": "templates/linker.ld.in"},
         "compile": ["main.c"],
     },
+}
+
+
+# Fixed nonsecure MMIO bindings from pinned QEMU hw/arm/virt.c. SPI values
+# are GIC SPI indices (architectural interrupt IDs add 32). These entries
+# select firmware drivers; omitting one does not remove QEMU board hardware.
+OPTIONAL_DEVICES = {
+    "pl031": {"id": "rtc0", "base": 0x09010000, "size": 0x1000, "spi": 2, "component": "pl031-rtc", "macro": "RTC"},
+    "pl061": {"id": "gpio0", "base": 0x09030000, "size": 0x1000, "spi": 7, "component": "pl061-gpio", "macro": "GPIO"},
 }
 
 
@@ -114,19 +135,45 @@ def resolve_platform(description):
         raise ValueError("Arm virt fixes RAM at 0x40000000; relocation needs another backend")
     if ram_size % (1024 * 1024) or not 16 * 1024 * 1024 <= ram_size <= 2 * 1024 ** 3:
         raise ValueError("RAM size must be 16–2048 MiB in whole MiB units")
-    if not isinstance(description["devices"], list) or len(description["devices"]) != 1:
-        raise ValueError("The current firmware target supports one PL011 console device")
-    uart = object_fields(description["devices"][0], ["id", "kind", "base", "size", "clockHz", "spi"], "devices[0]")
-    if uart["id"] != "uart0" or uart["kind"] != "pl011":
-        raise ValueError("The available console component requires PL011 uart0")
+    devices = description["devices"]
+    if not isinstance(devices, list) or not 1 <= len(devices) <= 3:
+        raise ValueError("Expected PL011 uart0 and optional PL031 rtc0 / PL061 gpio0 bindings")
+    bindings = {}
+    for index, device in enumerate(devices):
+        if not isinstance(device, dict) or not isinstance(device.get("kind"), str):
+            raise ValueError(f"devices[{index}]: expected a device kind")
+        kind = device["kind"]
+        if kind in bindings:
+            raise ValueError(f"Duplicate device binding: {kind}")
+        if kind == "pl011":
+            uart = object_fields(device, ["id", "kind", "base", "size", "clockHz", "spi"], f"devices[{index}]")
+            if uart["id"] != "uart0":
+                raise ValueError("The console component requires PL011 uart0")
+        elif kind in OPTIONAL_DEVICES:
+            binding = OPTIONAL_DEVICES[kind]
+            object_fields(device, ["id", "kind", "base", "size", "spi"], f"devices[{index}]")
+            if device["id"] != binding["id"]:
+                raise ValueError(f"Arm virt {kind} must be named {binding['id']}")
+            for field in ("base", "size", "spi"):
+                actual = integer(device[field], field) if field == "spi" else address(device[field], field)
+                if actual != binding[field]:
+                    raise ValueError(f"Arm virt {kind} fixes {field} at {hex(binding[field])}")
+        else:
+            raise ValueError(f"Unsupported firmware device kind: {kind}")
+        bindings[kind] = device
+    if "pl011" not in bindings:
+        raise ValueError("The firmware requires PL011 uart0")
+    uart = bindings["pl011"]
     uart_base, uart_size = address(uart["base"], "UART base"), address(uart["size"], "UART size")
     if uart_base != 0x09000000 or uart_size != 0x1000:
         raise ValueError("Arm virt UART0 has fixed MMIO at 0x09000000, size 0x1000")
     if integer(uart["clockHz"], "UART clock") != 24000000 or integer(uart["spi"], "UART SPI") != 1:
         raise ValueError("Arm virt UART0 requires a 24 MHz clock and SPI 1")
     fw = object_fields(description["firmware"], ["runtime", "application", "bootMemory", "entryOffset", "stackSize", "exceptionLevel", "console", "baud", "message"], "firmware")
-    if fw["runtime"] != "bare-metal" or fw["application"] != "hello-world":
-        raise ValueError("Only the bare-metal hello-world application is registered; generated main.c can be edited")
+    if fw["runtime"] != "bare-metal" or fw["application"] not in ("hello-world", "peripheral-demo"):
+        raise ValueError("Registered bare-metal applications: hello-world, peripheral-demo; generated main.c can be edited")
+    if fw["application"] == "peripheral-demo" and not {"pl031", "pl061"} <= bindings.keys():
+        raise ValueError("peripheral-demo requires both PL031 rtc0 and PL061 gpio0 bindings")
     if fw["bootMemory"] != ram["id"] or fw["console"] != uart["id"]:
         raise ValueError("Firmware memory/console bindings must reference existing components")
     if integer(fw["exceptionLevel"], "exceptionLevel") != 1:
@@ -147,9 +194,13 @@ def resolve_platform(description):
         raise ValueError("message must contain 1–120 printable ASCII characters")
     canonical = json.loads(json.dumps(description))
     canonical["memory"][0].update(base=hex(ram_base), size=hex(ram_size))
-    canonical["devices"][0].update(base=hex(uart_base), size=hex(uart_size))
+    for device in canonical["devices"]:
+        device.update(base=hex(address(device["base"], "device base")), size=hex(address(device["size"], "device size")))
+    # Keep component/build order stable even if JSON device order changes.
+    canonical["devices"].sort(key=lambda device: ("pl011", "pl031", "pl061").index(device["kind"]))
+    components = ("aarch64-el1", "pl011-console", *(binding["component"] for kind, binding in OPTIONAL_DEVICES.items() if kind in bindings), fw["application"])
     canonical["firmware"].update(entryOffset=hex(offset), stackSize=hex(stack))
-    return ResolvedPlatform(canonical, cpu["model"], ram_base, ram_size, ram_base + offset, stack, uart_base, uart["clockHz"], baud, message, ("aarch64-el1", "pl011-console", fw["application"]))
+    return ResolvedPlatform(canonical, cpu["model"], ram_base, ram_size, ram_base + offset, stack, uart_base, uart["clockHz"], baud, message, components)
 
 
 def component_assets():
@@ -165,6 +216,12 @@ def generate_platform(description, output, assets=None):
         raise ValueError("Invalid trusted firmware component bundle")
     divisor = (resolved.clock_hz * 4 + resolved.baud // 2) // resolved.baud
     substitutions = {"greeting": json.dumps(resolved.message + "\r\n"), "uart_base": hex(resolved.uart_base) + "UL", "uart_clock": str(resolved.clock_hz), "baud": str(resolved.baud), "ibrd": str(divisor // 64), "fbrd": str(divisor % 64), "entry": hex(resolved.entry), "length": hex(resolved.ram_base + resolved.ram_size - resolved.entry), "stack": hex(resolved.stack_size)}
+    config = []
+    for device in resolved.description["devices"]:
+        binding = OPTIONAL_DEVICES.get(device["kind"])
+        if binding:
+            config.extend([f"#define EIDOLON_{binding['macro']}_BASE {device['base']}UL", f"#define EIDOLON_{binding['macro']}_SPI {device['spi']}"])
+    substitutions["device_config"] = "\n".join(config)
     sources, compile_sources = {}, []
     for identifier in resolved.components:
         component = COMPONENTS[identifier]
@@ -185,6 +242,8 @@ def generate_platform(description, output, assets=None):
         "qemuArgs": ["-machine", backend["machine"] + f",secure=off,virtualization=off,gic-version={backend['gicVersion']}", "-cpu", resolved.cpu, "-accel", "tcg", "-smp", str(resolved.description["cpu"]["cores"]), "-m", str(resolved.ram_size // (1024 * 1024)) + "M", "-display", "none", "-monitor", "none", "-nodefaults", "-no-user-config", "-nic", "none", "-serial", "file:serial.log", "-qmp", "stdio", "-S", "-device", "loader,file=firmware.elf,cpu-num=0"],
         "expectedSerial": resolved.message + "\r\nException level: EL1\r\n",
     }
+    if resolved.description["firmware"]["application"] == "peripheral-demo":
+        plan["expectedSerial"] += "RTC load/read: PASS\r\nGPIO masked read/write: PASS\r\nPeripheral demo: PASS\r\n"
     output = Path(output)
     output.mkdir(parents=True, exist_ok=True)
     (output / ".gitignore").write_bytes(b"*\n")

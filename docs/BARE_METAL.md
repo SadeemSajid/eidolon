@@ -40,13 +40,13 @@ The firmware then waits for interrupts. Stop platform shuts QEMU down through QM
 
 ## Configure through a platform description
 
-Open Software → Platform description, edit/paste a supported description, then choose Generate from description. Eidolon validates it, selects components and generates a fresh project. Invalid JSON or unsupported capabilities preserve the existing active project. With an existing project, review the confirmation before discarding unsaved source buffers; prior saved projects remain on disk. Run platform then builds and boots the generated target.
+Open Software → Platform description, edit/paste a supported description, then choose Generate sources. Eidolon validates it, selects components and generates a fresh project. Invalid JSON or unsupported capabilities preserve the existing active project. With an existing project, review the confirmation before discarding unsaved source buffers; prior saved projects remain on disk. Run platform then builds and boots the generated target.
 
-Supported fields and constraints are documented in [platforms/README.md](../platforms/README.md). The initial backend supports one A53/A55/A72, GICv2/v3, 16–2048 MiB contiguous RAM, an ELF entry beyond the reserved boot area, a bounded stack, and the fixed PL011 UART0 mapping/clock/IRQ. RAM base, peripheral relocation, multicore startup, other console drivers, FreeRTOS/Linux and custom QEMU machine construction are not implemented. Device entries are the firmware's required bindings, not a complete replacement inventory of onboard hardware.
+Supported fields and constraints are documented in [platforms/README.md](../platforms/README.md). The initial backend supports one A53/A55/A72, GICv2/v3, 16–2048 MiB contiguous RAM, an ELF entry beyond the reserved boot area, a bounded stack, and the fixed PL011 UART0 mapping/clock/IRQ, with optional PL031 RTC and PL061 GPIO bindings. RAM base, peripheral relocation, multicore startup, other console drivers, FreeRTOS/Linux and custom QEMU machine construction are not implemented. Device entries are the firmware's required bindings, not a complete replacement inventory of onboard hardware.
 
 The same resolved model drives compiler CPU flags, UART divisors, linker memory/entry/stack settings and QEMU CPU/RAM/GIC options. The existing captured architecture diagram and memory map remain reference inventories; they do not change with execution settings. Read platform.json and plan.json for the actual active configuration.
 
-Hardware descriptions cannot infer arbitrary application logic. This iteration generates the hello-world application; edit main.c to implement your firmware through the console/platform APIs. Future application/component packaging remains separate work.
+Hardware descriptions cannot infer arbitrary application logic. Choose hello-world or the RTC/GPIO peripheral-demo example; edit main.c to implement your firmware through the console/platform/rtc/gpio APIs. Future application/component packaging remains separate work.
 
 ## Components and generated files
 
@@ -57,9 +57,11 @@ Authored reusable source lives under firmware/. The registry and typed resolver 
 | startup.S              | AArch64 EL1 stack/BSS setup and entry                                          | Editable      |
 | platform.c, platform.h | Architecture services, including current exception level                       | Editable      |
 | pl011.c, console.h     | Polling driver and application-facing console API                              | Editable      |
+| pl031.c, rtc.h         | Optional polling RTC driver and API                                            | Editable      |
+| pl061.c, gpio.h        | Optional masked GPIO read/write driver and API                                 | Editable      |
 | main.c                 | Application using services, without MMIO register addresses                    | Editable      |
 | linker.ld              | Generated RAM/entry/stack layout                                               | Editable      |
-| platform_config.h      | UART bindings/divisors generated from the resolved description                 | Read only     |
+| platform_config.h      | UART divisors and optional RTC/GPIO bases generated from the description       | Read only     |
 | platform.json          | Canonical active description                                                   | Read only     |
 | plan.json              | Component selection, original hashes, compiler/linker/QEMU argument arrays     | Read only     |
 | run.json               | Actual source hashes, executable paths and tool versions from the latest build | Read only     |
@@ -106,8 +108,21 @@ EIDOLON_FIRMWARE_SMOKE=1 python3 -m unittest discover -s scripts -p modular_firm
 cargo test --manifest-path src-tauri/Cargo.toml --locked --lib boots_and_stops -- --ignored --nocapture
 ```
 
-The legacy recipe, modular A55 default, and alternate A53/256 MiB/GICv2/57600-baud target passed on the Linux development host with pinned QEMU 11.1.2, Clang and LLD. Both native runtime tests passed, including invalid-description rejection without replacing the active project, generation, compilation, QMP control, EL1 serial output and Stop. The default native test also checks source editing/rebuild, compiler-error recovery, cleanup and process exit. CI runs these checks after building pinned QEMU.
+The legacy recipe, modular A55 default, and alternate A53/256 MiB/GICv2/57600-baud target passed on the Linux development host with pinned QEMU 11.1.2, Clang and LLD. The native default/configured target tests passed, including invalid-description rejection without replacing the active project, generation, compilation, QMP control, EL1 serial output and Stop. The default native test also checks source editing/rebuild, compiler-error recovery, cleanup and process exit. CI runs these checks after building pinned QEMU.
 
 The original v1 path was previously verified on macOS arm64 with Apple Clang 21.0.0 and LLD 23.1.4. The modular path has not yet been boot-tested on macOS or manually exercised through the desktop GUI. These tests establish the specified functional boot paths, not general model fidelity or arbitrary custom-SoC support.
 
 Behavioral sources: pinned QEMU hw/arm/virt.c and hw/char/pl011.c, [generic ELF loader](https://www.qemu.org/docs/master/system/generic-loader.html), and [Arm virt boot state/options](https://www.qemu.org/docs/master/system/arm/virt.html). Captured addresses alone do not specify driver behavior. The current components do not provide a filesystem, heap, guest networking/disks, interrupt handlers or serial input.
+
+## RTC/GPIO demo coverage
+
+Select Software → Firmware → Peripheral check, generate its sources, then
+Run to exercise real PL031 load/read and PL061 masked GPIO operations. See
+[the example contract](../platforms/README.md#optional-rtc-and-gpio) and decision 0008. Sources appear in Code and participate in save, format, hashing, rebuild
+and cleanup. No new host dependencies are required.
+
+The Python opt-in suite includes A55/GICv3 and A53/GICv2 peripheral boots and
+intentionally broken RTC/GPIO drivers that must print FAIL. The native
+peripheral_components_boots_and_stops test checks generated-output verification,
+source edits/rebuild, hashes and cleanup. These tests cover functional polling
+register behavior; interrupt delivery and external GPIO wiring remain unsupported.

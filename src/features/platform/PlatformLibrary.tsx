@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { ComponentCatalog } from "./ComponentCatalog";
 import { boardMetadata } from "./board-metadata";
 import { normalizeSearchText } from "./device-search";
 
+const tabs = ["boards", "components", "custom"] as const;
 const families = [
   "Application processors",
   "Microcontrollers",
@@ -20,7 +22,7 @@ export function PlatformLibrary({
   boardId: string;
   onSelect: (id: string) => void;
 }) {
-  const [tab, setTab] = useState<"boards" | "custom">("boards");
+  const [tab, setTab] = useState<(typeof tabs)[number]>("boards");
   const [query, setQuery] = useState("");
   const matches = boardMetadata.filter((board) =>
     normalizeSearchText(
@@ -37,14 +39,18 @@ export function PlatformLibrary({
           if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key))
             return;
           event.preventDefault();
+          const index = tabs.indexOf(tab);
           const next =
             event.key === "Home"
-              ? "boards"
+              ? tabs[0]
               : event.key === "End"
-                ? "custom"
-                : tab === "boards"
-                  ? "custom"
-                  : "boards";
+                ? tabs[tabs.length - 1]
+                : tabs[
+                    (index +
+                      (event.key === "ArrowRight" ? 1 : -1) +
+                      tabs.length) %
+                      tabs.length
+                  ];
           setTab(next);
           event.currentTarget
             .querySelector<HTMLButtonElement>(`#${next}-library-tab`)
@@ -60,6 +66,16 @@ export function PlatformLibrary({
           onClick={() => setTab("boards")}
         >
           Board Library
+        </button>
+        <button
+          id="components-library-tab"
+          role="tab"
+          aria-selected={tab === "components"}
+          aria-controls="components-library-panel"
+          tabIndex={tab === "components" ? 0 : -1}
+          onClick={() => setTab("components")}
+        >
+          Components
         </button>
         <button
           id="custom-library-tab"
@@ -113,7 +129,6 @@ export function PlatformLibrary({
                 >
                   <strong>{entry.name}</strong>
                   <span>{entry.machine}</span>
-                  <span>QEMU 11.1.2 · captured inventory</span>
                 </button>
               ))}
             </section>
@@ -125,10 +140,18 @@ export function PlatformLibrary({
           </p>
         )}
         <p className="note">
-          Curated for embedded and SoC development. Each preset shows its
-          captured device objects and memory views. Runtime and boot support are
-          planned.
+          Curated for embedded and SoC development. Each preset shows its device
+          objects and memory views. Arm virt supports validated bare-metal
+          targets; other board runtimes are planned.
         </p>
+      </div>
+      <div
+        id="components-library-panel"
+        role="tabpanel"
+        aria-labelledby="components-library-tab"
+        hidden={tab !== "components"}
+      >
+        <ComponentCatalog />
       </div>
       <div
         id="custom-library-panel"
@@ -154,6 +177,17 @@ export function PlatformLibrary({
           Custom composition is not implemented yet. The current board remains
           on the canvas while you browse this tab.
         </p>
+        <button
+          className="secondary-button"
+          onClick={() => {
+            setTab("components");
+            requestAnimationFrame(() =>
+              document.getElementById("components-library-tab")?.focus(),
+            );
+          }}
+        >
+          Browse component readiness
+        </button>
       </div>
     </>
   );

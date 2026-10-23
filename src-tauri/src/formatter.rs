@@ -8,7 +8,7 @@ use std::{
 };
 
 fn validate(name: &str, content: &str) -> Result<(), String> {
-    if !["main.c", "platform.c", "pl011.c", "console.h", "platform.h"].contains(&name) {
+    if !crate::workspace::editable_c_source(name) {
         return Err("Formatting is available for editable C sources and headers only".into());
     }
     if content.len() > SOURCE_LIMIT || content.contains('\0') {
@@ -95,14 +95,18 @@ mod tests {
         }
         assert!(validate("main.c", "a\0b").is_err());
         assert!(validate("main.c", &"x".repeat(SOURCE_LIMIT + 1)).is_err());
-        assert!(validate("main.c", "int x;").is_ok());
+        for name in ["main.c", "pl031.c", "pl061.c", "rtc.h", "gpio.h"] {
+            assert!(validate(name, "int x;").is_ok());
+        }
     }
     #[test]
     #[ignore = "requires clang-format"]
     fn formats_real_c_and_is_idempotent() {
         let source = "int main(){int x=1;return x;}";
-        let result = format("main.c", source).unwrap();
-        assert!(result.contains("int x = 1;"));
-        assert_eq!(format("main.c", &result).unwrap(), result);
+        for name in ["main.c", "pl031.c", "pl061.c", "rtc.h", "gpio.h"] {
+            let result = format(name, source).unwrap();
+            assert!(result.contains("int x = 1;"));
+            assert_eq!(format(name, &result).unwrap(), result);
+        }
     }
 }

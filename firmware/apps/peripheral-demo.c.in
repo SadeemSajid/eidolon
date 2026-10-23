@@ -1,0 +1,44 @@
+// SPDX-License-Identifier: MIT
+// Functional register tests through reusable APIs, without MMIO addresses.
+#include "console.h"
+#include "platform.h"
+#include "rtc.h"
+#include "gpio.h"
+
+void main(void) {
+    console_init();
+    console_write($greeting);
+    console_write("Exception level: EL");
+    console_putc('0' + platform_exception_level());
+    console_write("\r\n");
+
+    rtc_init();
+    uint32_t original = rtc_seconds();
+    rtc_set_seconds(0x12345678);
+    uint32_t readback = rtc_seconds();
+    rtc_set_seconds(original);
+    if ((uint32_t)(readback - 0x12345678) > 2) {
+        console_write("RTC load/read: FAIL\r\n");
+        return;
+    }
+    console_write("RTC load/read: PASS\r\n");
+
+    gpio_init();
+    // Only exercise pins 0/1; preserve Arm virt's power-button input on pin 3.
+    gpio_set_outputs(0x03);
+    gpio_write(0x03, 0x01);
+    unsigned int first = gpio_read(0x03);
+    gpio_write(0x02, 0x02);
+    unsigned int second = gpio_read(0x03);
+    gpio_write(0x01, 0x00);
+    unsigned int third = gpio_read(0x03);
+    unsigned int masked = gpio_read(0x01);
+    gpio_write(0x03, 0);
+    gpio_set_outputs(0);
+    if (first != 1 || second != 3 || third != 2 || masked != 0) {
+        console_write("GPIO masked read/write: FAIL\r\n");
+        return;
+    }
+    console_write("GPIO masked read/write: PASS\r\n");
+    console_write("Peripheral demo: PASS\r\n");
+}

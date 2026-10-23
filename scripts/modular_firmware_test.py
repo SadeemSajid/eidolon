@@ -32,6 +32,10 @@ def alternate_description():
     return value
 
 
+def peripheral_description():
+    return json.loads((ROOT / "platforms/arm-virt-peripherals.json").read_text())
+
+
 class ModularFirmwareTests(unittest.TestCase):
     def test_legacy_recipe_still_generates_the_exact_original_bytes(self):
         expected = json.loads((ROOT / "recipes/regressions/arm-virt-a55-hello-v1.sha256.json").read_text())
@@ -60,6 +64,72 @@ class ModularFirmwareTests(unittest.TestCase):
             self.assertIn("#define EIDOLON_UART_IBRD 26", (second / "platform_config.h").read_text())
             self.assertEqual(a["components"], b["components"])
             self.assertEqual(set(a["sourcesSha256"]), {"startup.S", "platform.c", "platform.h", "pl011.c", "console.h", "platform_config.h", "main.c", "linker.ld"})
+
+    def test_component_readiness_claims_have_registered_sources_and_boot_evidence(self):
+        catalog = json.loads((ROOT / "firmware/component-readiness.json").read_text())
+        registered = {"pl011-console", *(entry["component"] for entry in generator.OPTIONAL_DEVICES.values())}
+        self.assertEqual({entry["id"] for entry in catalog}, registered)
+        self.assertEqual(len(catalog), len(registered))
+        for entry in catalog:
+            with self.subTest(component=entry["id"]):
+                files = generator.COMPONENTS[entry["id"]]["files"].values()
+                self.assertTrue(entry["sources"])
+                for source in entry["sources"]:
+                    self.assertIn(source, files)
+                    self.assertTrue((ROOT / "firmware" / source).is_file())
+                self.assertTrue(entry["tests"])
+                for name in entry["tests"]:
+                    self.assertTrue(callable(getattr(FirmwareBootRegressionTests, name, None)))
+                self.assertEqual(entry["readiness"], {"model": "available", "bareMetal": "available", "validation": "boot-tested", "customSoc": "backend-needed"})
+                self.assertEqual(entry["validatedOn"], ["A55/GICv3", "A53/GICv2"])
+
+    def test_optional_components_select_only_requested_drivers_and_normalize_device_order(self):
+        with tempfile.TemporaryDirectory() as directory:
+            default = generator.generate_platform(default_description(), Path(directory) / "default")
+            for kind, identifier, source, header in [("pl031", "pl031-rtc", "pl031.c", "rtc.h"), ("pl061", "pl061-gpio", "pl061.c", "gpio.h")]:
+                value = default_description()
+                value["devices"].append(next(d for d in peripheral_description()["devices"] if d["kind"] == kind))
+                result = generator.generate_platform(value, Path(directory) / kind)
+                self.assertIn(identifier, result["components"])
+                self.assertIn(source, result["sourcesSha256"])
+                self.assertIn(header, result["sourcesSha256"])
+                self.assertNotIn(identifier, default["components"])
+                other = "pl061.c" if kind == "pl031" else "pl031.c"
+                self.assertNotIn(other, result["sourcesSha256"])
+            value = peripheral_description()
+            first = generator.generate_platform(value, Path(directory) / "first")
+            value["devices"].reverse()
+            second = generator.generate_platform(value, Path(directory) / "second")
+            self.assertEqual(first, second)
+            self.assertEqual(first["qemuArgs"], default["qemuArgs"])
+            self.assertIn("Peripheral demo: PASS", first["expectedSerial"])
+            for source in ("pl031.c", "pl061.c"):
+                self.assertNotIn("0x090", (Path(directory) / "first" / source).read_text())
+            self.assertIn("EIDOLON_RTC_BASE 0x9010000UL", (Path(directory) / "first/platform_config.h").read_text())
+            self.assertIn("EIDOLON_GPIO_BASE 0x9030000UL", (Path(directory) / "first/platform_config.h").read_text())
+
+    def test_rejects_optional_component_relocation_duplicates_unknown_fields_and_missing_dependencies(self):
+        mutations = [
+            lambda d: d["devices"][1].update(base="0x9030000"),
+            lambda d: d["devices"][2].update(base="0x9010000"),
+            lambda d: d["devices"][1].update(size="0x2000"),
+            lambda d: d["devices"][2].update(spi=2),
+            lambda d: d["devices"][1].update(spi=True),
+            lambda d: d["devices"][2].update(id="uart0"),
+            lambda d: d["devices"][1].update(path="/tmp/code.c"),
+            lambda d: d["devices"].__setitem__(2, copy.deepcopy(d["devices"][1])),
+            lambda d: d["devices"].pop(1),
+            lambda d: d["devices"].pop(2),
+            lambda d: d["devices"].pop(0),
+        ]
+        with tempfile.TemporaryDirectory() as directory:
+            for index, mutate in enumerate(mutations):
+                description = peripheral_description()
+                mutate(description)
+                output = Path(directory) / str(index)
+                with self.subTest(index=index), self.assertRaises(ValueError):
+                    generator.generate_platform(description, output)
+                self.assertFalse(output.exists())
 
     def test_rejects_incompatible_topology_bindings_and_boot_configuration_before_writing(self):
         mutations = [
@@ -109,13 +179,18 @@ class ModularFirmwareTests(unittest.TestCase):
 
 @unittest.skipUnless(os.environ.get("EIDOLON_FIRMWARE_SMOKE") == "1", "opt in with EIDOLON_FIRMWARE_SMOKE=1; requires pinned QEMU, Clang and LLD")
 class FirmwareBootRegressionTests(unittest.TestCase):
-    def boot(self, legacy=False, alternate=False):
+    def boot(self, legacy=False, alternate=False, description=None, edit_source=None, expected_serial=None):
         with tempfile.TemporaryDirectory(prefix="eidolon-firmware-smoke-") as directory:
             output = Path(directory)
             if legacy:
                 plan = generator.generate(json.loads(generator.RECIPE.read_text()), output)
             else:
-                plan = generator.generate_platform(alternate_description() if alternate else default_description(), output)
+                plan = generator.generate_platform(description if description is not None else alternate_description() if alternate else default_description(), output)
+            if edit_source:
+                name, original, replacement = edit_source
+                source = output / name
+                self.assertIn(original, source.read_text())
+                source.write_text(source.read_text().replace(original, replacement))
             clang, lld = os.environ.get("EIDOLON_CLANG", "clang"), os.environ.get("EIDOLON_LLD", "ld.lld")
             for args in plan["compileCommands"]:
                 subprocess.run([clang, *args], cwd=output, check=True, capture_output=True, timeout=30)
@@ -142,12 +217,12 @@ class FirmwareBootRegressionTests(unittest.TestCase):
                 deadline = time.monotonic() + 10
                 while time.monotonic() < deadline:
                     serial = output / "serial.log"
-                    if serial.exists() and plan["expectedSerial"] in serial.read_bytes().decode("utf-8"):
+                    if serial.exists() and (expected_serial or plan["expectedSerial"]) in serial.read_bytes().decode("utf-8"):
                         break
                     self.assertIsNone(process.poll(), "QEMU exited early")
                     time.sleep(0.02)
                 else:
-                    self.fail("Expected UART greeting/EL1 did not arrive")
+                    self.fail(f"Expected UART output did not arrive; got {serial.read_bytes() if serial.exists() else b''}")
                 process.stdin.write(json.dumps({"execute": "quit"}) + "\n")
                 process.stdin.flush()
                 self.assertEqual(process.wait(timeout=5), 0)
@@ -158,6 +233,24 @@ class FirmwareBootRegressionTests(unittest.TestCase):
                 reader.join(timeout=1)
                 for stream in [process.stdin, process.stdout, process.stderr]:
                     stream.close()
+
+    def test_peripheral_demo_boots(self):
+        self.boot(description=peripheral_description())
+
+    def test_peripheral_demo_boots_on_a53_gicv2(self):
+        value = peripheral_description()
+        value["cpu"]["model"] = "cortex-a53"
+        value["backend"]["gicVersion"] = 2
+        self.boot(description=value)
+
+    def test_gpio_failure_is_observable_in_serial(self):
+        # Disable masked writes in a generated driver: the guest must report FAIL
+        # instead of producing the expected success marker.
+        value = peripheral_description()
+        self.boot(description=value, edit_source=("pl061.c", "*reg((unsigned int)mask << 2) = values;", "(void)mask; (void)values;"), expected_serial="GPIO masked read/write: FAIL\r\n")
+
+    def test_rtc_failure_is_observable_in_serial(self):
+        self.boot(description=peripheral_description(), edit_source=("pl031.c", "return *reg(0x00);", "return 0;"), expected_serial="RTC load/read: FAIL\r\n")
 
     def test_original_recipe_boots(self):
         self.boot(legacy=True)

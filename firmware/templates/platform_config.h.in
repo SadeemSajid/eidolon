@@ -7,4 +7,5 @@
 #define EIDOLON_UART_BAUD $baud
 #define EIDOLON_UART_IBRD $ibrd
 #define EIDOLON_UART_FBRD $fbrd
+$device_config
 #endif

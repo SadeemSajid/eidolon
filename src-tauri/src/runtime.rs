@@ -585,13 +585,13 @@ impl Runtime {
         {
             self.snapshot.state = "failed".into();
             self.snapshot.message =
-                "No expected EL1 hello-world output within 10 seconds; QEMU was stopped.".into();
+                "No expected generated firmware output within 10 seconds; QEMU was stopped.".into();
             self.session = None;
         } else if session.expected.is_none() {
             self.snapshot.message = "Edited firmware running.".into();
         } else if self.snapshot.hello_verified {
             self.snapshot.message =
-                "Hello world verified at EL1. CPU is waiting for interrupts.".into();
+                "Generated firmware output verified at EL1. CPU is waiting for interrupts.".into();
         }
         Ok(self.snapshot.clone())
     }
@@ -632,6 +632,91 @@ mod tests {
         let mut runtime = Runtime::default();
         assert_eq!(runtime.status().unwrap().state, "idle");
         assert_eq!(runtime.stop().unwrap().state, "idle");
+    }
+
+    #[test]
+    #[ignore = "requires Python, AArch64 Clang/LLD and the pinned QEMU build"]
+    fn peripheral_components_boots_and_stops() {
+        let cache = Path::new(env!("CARGO_MANIFEST_DIR")).join("../build/runtime-peripheral-smoke");
+        let mut runtime = Runtime::default();
+        let description = include_str!("../../platforms/arm-virt-peripherals.json");
+        runtime.configure_platform(description, &cache).unwrap();
+        runtime
+            .run(platform::ARM_VIRT_BOARD, &cache, |_| {})
+            .unwrap();
+        let deadline = Instant::now() + Duration::from_secs(12);
+        loop {
+            let snapshot = runtime.status().unwrap();
+            assert_eq!(snapshot.state, "running", "{}", snapshot.message);
+            if snapshot.hello_verified {
+                assert!(snapshot.serial.contains("Peripheral demo: PASS"));
+                break;
+            }
+            assert!(
+                Instant::now() < deadline,
+                "generated peripheral firmware timeout"
+            );
+            thread::sleep(Duration::from_millis(20));
+        }
+        runtime.stop().unwrap();
+        let files = runtime.project_files().unwrap().unwrap();
+        for name in ["pl031.c", "pl061.c", "rtc.h", "gpio.h"] {
+            let file = files.files.iter().find(|file| file.name == name).unwrap();
+            assert!(file.editable);
+            runtime
+                .save_sources(vec![SourceEdit {
+                    name: name.into(),
+                    content: file.content.clone() + "\n",
+                }])
+                .unwrap();
+        }
+        runtime
+            .run(platform::ARM_VIRT_BOARD, &cache, |_| {})
+            .unwrap();
+        let deadline = Instant::now() + Duration::from_secs(12);
+        loop {
+            let snapshot = runtime.status().unwrap();
+            assert_eq!(snapshot.state, "running", "{}", snapshot.message);
+            if snapshot.serial.contains("Peripheral demo: PASS") {
+                assert!(snapshot.source_edited);
+                assert!(!snapshot.hello_verified);
+                assert!(snapshot.serial.contains("RTC load/read: PASS"));
+                assert!(snapshot.serial.contains("GPIO masked read/write: PASS"));
+                assert!(snapshot.serial.contains("Peripheral demo: PASS"));
+                break;
+            }
+            assert!(Instant::now() < deadline, "peripheral firmware timeout");
+            thread::sleep(Duration::from_millis(20));
+        }
+        runtime.stop().unwrap();
+        let directory = &runtime.project.as_ref().unwrap().0;
+        let record: Value =
+            serde_json::from_slice(&fs::read(directory.join("run.json")).unwrap()).unwrap();
+        for name in ["pl031.c", "pl061.c", "rtc.h", "gpio.h"] {
+            let bytes = fs::read(directory.join(name)).unwrap();
+            assert_eq!(
+                record["plan"]["sourcesSha256"][name],
+                format!("{:x}", Sha256::digest(bytes))
+            );
+        }
+        let preview = runtime.clean_preview(&cache, CleanScope::Outputs).unwrap();
+        assert!(
+            preview
+                .targets
+                .iter()
+                .any(|path| path.ends_with("pl031.c.o"))
+        );
+        assert!(
+            preview
+                .targets
+                .iter()
+                .any(|path| path.ends_with("pl061.c.o"))
+        );
+        runtime
+            .clean(&cache, CleanScope::Outputs, preview.targets)
+            .unwrap();
+        let files = runtime.project_files().unwrap().unwrap();
+        assert!(files.files.iter().any(|file| file.name == "pl031.c"));
     }
 
     #[test]

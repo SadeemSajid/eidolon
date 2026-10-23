@@ -1,0 +1,73 @@
+[
+  {
+    "id": "pl011-console",
+    "name": "UART",
+    "model": "PL011",
+    "description": "Serial console output through a reusable polling driver.",
+    "mode": "Polling transmit",
+    "apis": ["console_init", "console_putc", "console_write"],
+    "sources": ["drivers/pl011.c", "include/console.h"],
+    "tests": ["test_modular_default_boots", "test_alternate_description_boots"],
+    "limitations": [
+      "Receive input is not implemented.",
+      "Interrupt-driven operation is not implemented."
+    ],
+    "readiness": {
+      "model": "available",
+      "bareMetal": "available",
+      "validation": "boot-tested",
+      "customSoc": "backend-needed"
+    },
+    "validatedOn": ["A55/GICv3", "A53/GICv2"]
+  },
+  {
+    "id": "pl031-rtc",
+    "name": "RTC",
+    "model": "PL031",
+    "description": "Read and set the real-time clock's seconds counter.",
+    "mode": "Polling counter access",
+    "apis": ["rtc_init", "rtc_seconds", "rtc_set_seconds"],
+    "sources": ["drivers/pl031.c", "include/rtc.h"],
+    "tests": [
+      "test_peripheral_demo_boots",
+      "test_peripheral_demo_boots_on_a53_gicv2",
+      "test_rtc_failure_is_observable_in_serial"
+    ],
+    "limitations": [
+      "Alarm delivery and interrupt handling are not implemented.",
+      "Clock accuracy and deterministic time are not validated."
+    ],
+    "readiness": {
+      "model": "available",
+      "bareMetal": "available",
+      "validation": "boot-tested",
+      "customSoc": "backend-needed"
+    },
+    "validatedOn": ["A55/GICv3", "A53/GICv2"]
+  },
+  {
+    "id": "pl061-gpio",
+    "name": "GPIO",
+    "model": "PL061",
+    "description": "Configure pin directions and read or write selected pins.",
+    "mode": "Polling, 8 pins",
+    "apis": ["gpio_init", "gpio_set_outputs", "gpio_write", "gpio_read"],
+    "sources": ["drivers/pl061.c", "include/gpio.h"],
+    "tests": [
+      "test_peripheral_demo_boots",
+      "test_peripheral_demo_boots_on_a53_gicv2",
+      "test_gpio_failure_is_observable_in_serial"
+    ],
+    "limitations": [
+      "Readback is tested at the registers, not through external wiring.",
+      "Interrupt handling and custom pin connections are not implemented."
+    ],
+    "readiness": {
+      "model": "available",
+      "bareMetal": "available",
+      "validation": "boot-tested",
+      "customSoc": "backend-needed"
+    },
+    "validatedOn": ["A55/GICv3", "A53/GICv2"]
+  }
+]
