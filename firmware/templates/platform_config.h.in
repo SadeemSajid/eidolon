@@ -1,0 +1,10 @@
+// SPDX-License-Identifier: MIT
+// Generated from the resolved platform; change the description to reconfigure.
+#ifndef EIDOLON_PLATFORM_CONFIG_H
+#define EIDOLON_PLATFORM_CONFIG_H
+#define EIDOLON_UART_BASE $uart_base
+#define EIDOLON_UART_CLOCK_HZ $uart_clock
+#define EIDOLON_UART_BAUD $baud
+#define EIDOLON_UART_IBRD $ibrd
+#define EIDOLON_UART_FBRD $fbrd
+#endif

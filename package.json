@@ -12,24 +12,35 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "bun test src/features/platform",
-    "setup:hooks": "git config core.hooksPath .githooks"
+    "setup:hooks": "git config core.hooksPath .githooks",
+    "tauri:software": "bun scripts/tauri-software.mjs"
   },
   "dependencies": {
+    "@codemirror/commands": "^6.11.1",
+    "@codemirror/lang-cpp": "^6.0.3",
+    "@codemirror/lang-json": "^6.0.2",
+    "@codemirror/language": "^6.13.1",
+    "@codemirror/legacy-modes": "^6.5.5",
+    "@codemirror/state": "^6.7.6",
+    "@codemirror/view": "^6.43.15",
     "@fontsource/jetbrains-mono": "^5.3.0",
+    "@replit/codemirror-vim": "^6.4.0",
     "@tauri-apps/api": "^2",
     "@xyflow/react": "^12",
+    "codemirror": "^6.0.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
+    "@tauri-apps/cli": "^2",
+    "@types/node": "^24",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^6.0.2",
-    "typescript": "~6.0.3",
-    "vite": "^8.0.16",
-    "@tauri-apps/cli": "^2",
+    "happy-dom": "^21.0.4",
     "prettier": "^3",
-    "@types/node": "^24"
+    "typescript": "~6.0.3",
+    "vite": "^8.0.16"
   },
   "license": "MIT",
   "description": "Visual QEMU platform composition for early functional modeling",

@@ -4,12 +4,15 @@ Eidolon is an MIT-licensed desktop platform editor for early functional semicond
 
 ## Current state
 
-Tauri 2 + React + TypeScript + Bun + React Flow. The Board Library contains 14 captured QEMU 11.1.2 device inventories across Arm virt, MPS2/MPS3, AMD ZynqMP/Versal, NXP i.MX 8M, RISC-V virt/PolarFire and Pi 4. The left sidebar has Board Library and planned Custom SoC tabs. All exported FlatView ranges and connected QOM IRQ/GPIO links are captured; address spaces stay separate. Stub, inactive and unsupported devices are explicit. The app shows snapshots, not a live runtime. Board topology is fixed and layout snaps to a grid. No QEMU process, saved project format, or boot support exists yet. Read docs/BOARDS.md before changing board facts; preserve provenance and coverage limitations. Do not present mock behavior as working emulation.
+Tauri 2 + React + TypeScript + Bun + React Flow. The Board Library contains 14 captured QEMU 11.1.2 device inventories across Arm virt, MPS2/MPS3, AMD ZynqMP/Versal, NXP i.MX 8M, RISC-V virt/PolarFire and Pi 4. The left sidebar has Board Library and planned Custom SoC tabs. All exported FlatView ranges and connected QOM IRQ/GPIO links are captured; address spaces stay separate. Stub, inactive and unsupported devices are explicit. The app shows snapshots, not a live runtime. Board topology is fixed and layout snaps to a grid. The desktop can generate/build/boot validated modular Arm virt bare-metal targets through Rust-owned QEMU/QMP and a scoped source workspace. The original v1 recipe is retained for regression. Portable saved projects and custom SoC execution remain unimplemented. Read platforms/README.md, docs/BARE_METAL.md and decision 0006 before changing firmware/runtime behavior. Read docs/BOARDS.md before changing board facts; preserve provenance and coverage limitations. Do not present mock behavior as working emulation.
 
 ## Layout
 
 - src/: frontend; platform concepts live in src/features/platform/.
-- src-tauri/: Rust desktop host; future process supervision and QMP belong here.
+- src-tauri/: Rust desktop host, generation/build supervision, source workspace, and QMP/serial lifecycle.
+- firmware/: reusable architecture, driver, API and application sources.
+- platforms/: versioned firmware target descriptions; one resolved model drives build and launch.
+- recipes/bare-metal/arm-virt-a55.json and scripts/legacy_bare_metal.py: frozen v1 regression path; do not silently update golden hashes.
 - third_party/qemu/: upstream Git submodule, separately GPL licensed.
 - scripts/capture-board-inventories.py: reproduce inventories from the pinned build; never use an unrelated system binary.
 - docs/: architecture, roadmap, decisions, and development instructions.
@@ -23,6 +26,7 @@ Use Bun, keep bun.lock committed, and avoid introducing other JS lockfiles.
 - bun install --frozen-lockfile
 - bun run dev (browser editor)
 - bun run tauri dev (desktop; requires Rust and native dependencies)
+- bun run tauri:software (opt-in Linux software-rendering fallback)
 - bun run test
 - bun run check
 - bun run build
@@ -37,6 +41,7 @@ Use Bun, keep bun.lock committed, and avoid introducing other JS lockfiles.
 - Validate CPU/board compatibility, buses, address ranges, interrupts, and boot recipes before launch. Device discovery alone does not prove composability.
 - QEMU runs as a separate process owned by Rust. Use argument arrays, never shell command strings. Keep process/file access out of frontend code; expose narrow typed commands and minimal Tauri permissions.
 - Use QMP for runtime control and a separate serial channel for the guest console. Handle process exit and cleanup.
+- Source editing uses CodeMirror; keep draft ownership in usePlatformRuntime. Formatting stays behind the allowlisted Rust command and invokes host clang-format, never shell strings or project-supplied options. Read decision 0007 before changing this boundary.
 - Functional modeling is the scope; do not claim cycle accuracy or timing/power fidelity.
 - Keep upstream QEMU unchanged unless the task specifically needs a machine/device change. Follow its own contributor instructions if editing it. Record tag, commit, build options, and local patches on upgrades.
 - Eidolon-authored files are MIT. Preserve third-party notices and licenses; never relabel QEMU as MIT. Do not commit proprietary firmware or OS images.

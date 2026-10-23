@@ -61,9 +61,10 @@ select:focus-visible {
   display: flex;
   flex-direction: column;
 }
-header {
-  height: 88px;
-  padding: 0 28px;
+header.app-toolbar {
+  height: 44px;
+  flex-shrink: 0;
+  padding: 0 14px;
   border-bottom: 1px solid var(--color-border);
   display: flex;
   justify-content: space-between;
@@ -71,7 +72,7 @@ header {
 }
 .brand {
   display: flex;
-  gap: 14px;
+  gap: 8px;
   align-items: center;
 }
 .brand-mark {
@@ -79,11 +80,11 @@ header {
   background: var(--color-blue-surface);
   color: var(--color-yellow);
   border-radius: 3px;
-  padding: 9px 15px;
-  font-size: 24px;
+  padding: 3px 7px;
+  font-size: 14px;
 }
 h1 {
-  font-size: 21px;
+  font-size: 14px;
   margin: 0;
   letter-spacing: -0.5px;
 }
@@ -341,19 +342,17 @@ footer {
   background: var(--color-blue-surface);
   color: var(--color-blue);
 }
-.runtime-terminal {
-  height: clamp(160px, 28dvh, 300px);
+.bottom-panel {
+  position: relative;
+  min-height: 0;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   border-top: 1px solid var(--color-border);
   background: var(--color-surface);
 }
-.runtime-terminal[hidden] {
+.bottom-panel[hidden] {
   display: none;
-}
-.runtime-terminal[data-tab="sources"] {
-  height: clamp(230px, 44dvh, 480px);
 }
 .source-workspace {
   height: 100%;
@@ -434,9 +433,9 @@ footer {
 .source-editor {
   flex: 1;
   min-width: 0;
-  padding: 12px 16px;
+  padding: 0;
+  overflow: hidden;
   border: 0;
-  resize: none;
   outline-offset: -2px;
   background: var(--color-ink);
   color: var(--color-text);
@@ -444,7 +443,7 @@ footer {
   font-size: 11px;
   line-height: 1.7;
   tab-size: 2;
-  white-space: pre;
+  white-space: normal;
 }
 .source-editor:focus-visible {
   outline: 1px solid var(--color-blue);
@@ -1264,4 +1263,156 @@ button.memory-slot:hover {
   .react-flow__edge {
     transition: none;
   }
+}
+
+.platform-description-editor {
+  width: 100%;
+  min-height: 300px;
+  resize: vertical;
+  background: var(--color-ink);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  padding: 10px;
+  font: inherit;
+  font-size: 10px;
+  line-height: 1.7;
+  tab-size: 2;
+  margin-bottom: 12px;
+}
+.platform-description-editor:focus-visible {
+  outline: 2px solid var(--color-yellow);
+  outline-offset: 2px;
+}
+.platform-confirmation button {
+  margin-right: 8px;
+}
+
+.toolbar-platform {
+  flex: 1;
+  min-width: 0;
+  padding-left: 18px;
+  margin-left: 16px;
+  border-left: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 11px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.toolbar-status {
+  max-width: 240px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 10px;
+  color: var(--color-muted);
+  margin-right: 8px;
+}
+.toolbar-status[data-state="running"] {
+  color: var(--color-blue);
+}
+.toolbar-status[data-state="building"] {
+  color: var(--color-yellow);
+}
+.toolbar-status[data-state="failed"] {
+  color: var(--color-red);
+}
+.toolbar-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  background: var(--color-raised);
+  color: var(--color-text);
+  font-size: 11px;
+  cursor: pointer;
+}
+.toolbar-actions .toolbar-run {
+  background: var(--color-blue-surface);
+  border-color: var(--color-blue);
+}
+.toolbar-actions .toolbar-stop:not(:disabled) {
+  color: var(--color-red);
+}
+.toolbar-actions button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.bottom-panel-resizer {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  z-index: 15;
+  cursor: row-resize;
+  touch-action: none;
+}
+.bottom-panel-resizer::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 3px;
+  height: 2px;
+  background: transparent;
+}
+.bottom-panel-resizer:hover::after,
+.bottom-panel-resizer:focus-visible::after,
+.bottom-panel[data-resizing="true"] .bottom-panel-resizer::after {
+  background: var(--color-blue);
+}
+.bottom-panel-resizer:focus-visible {
+  outline: none;
+}
+.bottom-panel[data-resizing="true"],
+.bottom-panel[data-resizing="true"] * {
+  cursor: row-resize !important;
+  user-select: none;
+}
+.code-panel-header {
+  min-height: 40px;
+  flex-shrink: 0;
+  padding-left: 16px;
+}
+.code-panel-header > strong {
+  font-size: 11px;
+}
+.code-panel-content {
+  overflow: hidden;
+}
+@media (max-width: 1000px) {
+  .toolbar-status {
+    max-width: 150px;
+  }
+}
+
+.source-editor,
+.source-files,
+.terminal-content pre {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+  scrollbar-gutter: stable;
+}
+
+.editor-preference {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-muted);
+  font-size: 11px;
+}
+.source-editor .cm-scroller {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+  scrollbar-gutter: stable;
 }

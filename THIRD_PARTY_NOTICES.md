@@ -6,6 +6,10 @@ Eidolon's root MIT license applies to its original code, not to all dependencies
 - Tauri: https://github.com/tauri-apps/tauri — MIT or Apache-2.0.
 - React: https://github.com/facebook/react — MIT.
 - React Flow (@xyflow/react): https://github.com/xyflow/xyflow — MIT.
+- CodeMirror 6: https://github.com/codemirror — MIT; embedded source editor and language extensions.
+- CodeMirror Vim (@replit/codemirror-vim): https://github.com/replit/codemirror-vim — MIT.
+- clang-format (optional external executable, not bundled): https://github.com/llvm/llvm-project — Apache-2.0 with LLVM exceptions.
+- happy-dom (development tests only): https://github.com/capricorn86/happy-dom — MIT.
 - JetBrains Mono (bundled via @fontsource/jetbrains-mono): https://github.com/JetBrains/JetBrainsMono — SIL Open Font License 1.1. See public/licenses/JetBrainsMono-OFL.txt for the bundled notice.
 - Bun: https://github.com/oven-sh/bun — MIT with separately licensed bundled components; development tooling only here.
 

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "arm-virt-a55-default",
+  "backend": {
+    "kind": "qemu-arm-virt",
+    "machine": "virt-11.1",
+    "qemuVersion": [11, 1, 2],
+    "gicVersion": 3
+  },
+  "cpu": { "architecture": "aarch64", "model": "cortex-a55", "cores": 1 },
+  "memory": [
+    { "id": "ram", "kind": "ram", "base": "0x40000000", "size": "0x08000000" }
+  ],
+  "devices": [
+    {
+      "id": "uart0",
+      "kind": "pl011",
+      "base": "0x09000000",
+      "size": "0x1000",
+      "clockHz": 24000000,
+      "spi": 1
+    }
+  ],
+  "firmware": {
+    "runtime": "bare-metal",
+    "application": "hello-world",
+    "bootMemory": "ram",
+    "entryOffset": "0x00200000",
+    "stackSize": "0x00010000",
+    "exceptionLevel": 1,
+    "console": "uart0",
+    "baud": 115200,
+    "message": "Hello from Eidolon!"
+  }
+}

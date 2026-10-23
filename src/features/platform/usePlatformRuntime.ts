@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import defaultPlatform from "../../../platforms/arm-virt-a55.json";
 import { Channel, invoke, isTauri } from "@tauri-apps/api/core";
 
 export type BuildProgress = { stage: string; message: string };
@@ -28,9 +29,25 @@ const initial: PlatformSnapshot = {
 
 export function usePlatformRuntime() {
   const desktop = isTauri();
+  const [platformDraft, setPlatformDraft] = useState(
+    JSON.stringify(defaultPlatform, null, 2),
+  );
+  const [formatOnSave, setFormatOnSave] = useState(() => {
+    try {
+      return localStorage.getItem("eidolon.editor.formatOnSave") === "true";
+    } catch {
+      return false;
+    }
+  });
   const [snapshot, setSnapshot] = useState(initial);
   const [busy, setBusy] = useState<
-    "building" | "stopping" | "generating" | "saving" | "cleaning" | null
+    | "building"
+    | "stopping"
+    | "generating"
+    | "saving"
+    | "cleaning"
+    | "formatting"
+    | null
   >(null);
   const [error, setError] = useState<string | null>(null);
   const [buildProgress, setBuildProgress] = useState<BuildProgress[]>([]);
@@ -59,10 +76,18 @@ export function usePlatformRuntime() {
         ]) ?? [],
       ),
     );
+    return next;
   }, []);
   useEffect(() => {
     if (desktop)
-      void refreshProject().catch((failure) => setError(String(failure)));
+      void refreshProject()
+        .then((next) => {
+          const description = next?.files.find(
+            (file) => file.name === "platform.json",
+          );
+          if (description) setPlatformDraft(description.content);
+        })
+        .catch((failure) => setError(String(failure)));
   }, [desktop, refreshProject]);
   useEffect(() => {
     if (!desktop || busy) return;
@@ -87,6 +112,23 @@ export function usePlatformRuntime() {
     };
   }, [desktop, busy]);
 
+  const prepareEdits = async () => {
+    if (!formatOnSave) return edits;
+    const formatted: { name: string; content: string }[] = [];
+    for (const edit of edits) {
+      formatted.push(
+        /\.[ch]$/.test(edit.name)
+          ? { ...edit, content: await invoke<string>("format_source", edit) }
+          : edit,
+      );
+    }
+    // Keep all drafts if any formatter invocation fails; never save a partial set.
+    setDrafts((current) => ({
+      ...current,
+      ...Object.fromEntries(formatted.map((edit) => [edit.name, edit.content])),
+    }));
+    return formatted;
+  };
   const run = async (boardId: string) => {
     if (!desktop || busy || snapshot.state === "running") return;
     setError(null);
@@ -94,7 +136,8 @@ export function usePlatformRuntime() {
     setBuildProgress([]);
     let saved = false;
     try {
-      if (edits.length) await invoke("save_sources", { edits });
+      if (edits.length)
+        await invoke("save_sources", { edits: await prepareEdits() });
       saved = true;
       setSnapshot((current) => ({
         ...current,
@@ -128,8 +171,39 @@ export function usePlatformRuntime() {
     setBusy("saving");
     setError(null);
     try {
-      setSnapshot(await invoke<PlatformSnapshot>("save_sources", { edits }));
+      setSnapshot(
+        await invoke<PlatformSnapshot>("save_sources", {
+          edits: await prepareEdits(),
+        }),
+      );
       await refreshProject();
+    } catch (failure) {
+      setError(String(failure));
+    } finally {
+      setBusy(null);
+    }
+  };
+  const formatSource = async (name: string) => {
+    const file = project?.files.find((item) => item.name === name);
+    if (
+      !desktop ||
+      busy ||
+      snapshot.state === "running" ||
+      !file?.editable ||
+      !/\.[ch]$/.test(name)
+    )
+      return;
+    const content = drafts[name] ?? file.content;
+    setBusy("formatting");
+    setError(null);
+    try {
+      const formatted = await invoke<string>("format_source", {
+        name,
+        content,
+      });
+      setDrafts((current) =>
+        current[name] === content ? { ...current, [name]: formatted } : current,
+      );
     } catch (failure) {
       setError(String(failure));
     } finally {
@@ -147,6 +221,30 @@ export function usePlatformRuntime() {
         }),
       );
       await refreshProject();
+      setBuildProgress([]);
+      return true;
+    } catch (failure) {
+      setError(String(failure));
+      return false;
+    } finally {
+      setBusy(null);
+    }
+  };
+  const configurePlatform = async () => {
+    if (!desktop || busy || snapshot.state === "running") return false;
+    setBusy("generating");
+    setError(null);
+    try {
+      setSnapshot(
+        await invoke<PlatformSnapshot>("configure_platform", {
+          descriptionJson: platformDraft,
+        }),
+      );
+      const next = await refreshProject();
+      const description = next?.files.find(
+        (file) => file.name === "platform.json",
+      );
+      if (description) setPlatformDraft(description.content);
       setBuildProgress([]);
       return true;
     } catch (failure) {
@@ -211,7 +309,20 @@ export function usePlatformRuntime() {
     run,
     stop,
     save,
+    formatSource,
+    formatOnSave,
+    setFormatOnSave: (enabled: boolean) => {
+      setFormatOnSave(enabled);
+      try {
+        localStorage.setItem("eidolon.editor.formatOnSave", String(enabled));
+      } catch {
+        /* Optional preference. */
+      }
+    },
     regenerate,
+    configurePlatform,
+    platformDraft,
+    setPlatformDraft,
     previewCleanup,
     clean,
     setDraft: (name: string, content: string) =>

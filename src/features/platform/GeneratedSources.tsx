@@ -1,4 +1,7 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
+const SourceEditor = lazy(() =>
+  import("./SourceEditor").then((module) => ({ default: module.SourceEditor })),
+);
 import type {
   CleanPreview,
   CleanScope,
@@ -7,6 +10,13 @@ import type {
 
 export function GeneratedSources({ runtime }: { runtime: PlatformRuntime }) {
   const { project, drafts, dirty, busy, desktop, snapshot } = runtime;
+  const [vimMode, setVimMode] = useState(() => {
+    try {
+      return localStorage.getItem("eidolon.editor.vim") === "true";
+    } catch {
+      return false;
+    }
+  });
   const [selected, setSelected] = useState("main.c");
   const [scope, setScope] = useState<CleanScope>("outputs");
   const [confirmation, setConfirmation] = useState<
@@ -59,6 +69,44 @@ export function GeneratedSources({ runtime }: { runtime: PlatformRuntime }) {
         >
           {project ? "Regenerate" : "Generate sources"}
         </button>
+        <button
+          disabled={
+            locked ||
+            !!confirmation ||
+            !file?.editable ||
+            !/\.[ch]$/.test(file.name)
+          }
+          onClick={() => file && void runtime.formatSource(file.name)}
+        >
+          Format
+        </button>
+        <label className="editor-preference">
+          <input
+            type="checkbox"
+            checked={vimMode}
+            onChange={(event) => {
+              setVimMode(event.target.checked);
+              try {
+                localStorage.setItem(
+                  "eidolon.editor.vim",
+                  String(event.target.checked),
+                );
+              } catch {
+                /* Preferences are optional. */
+              }
+            }}
+          />{" "}
+          Vim
+        </label>
+        <label className="editor-preference">
+          <input
+            type="checkbox"
+            checked={runtime.formatOnSave}
+            disabled={locked || !!confirmation}
+            onChange={(event) => runtime.setFormatOnSave(event.target.checked)}
+          />{" "}
+          Format on save
+        </label>
         <span className="source-state">
           {snapshot.state === "running"
             ? "Running · stop to edit"
@@ -98,8 +146,9 @@ export function GeneratedSources({ runtime }: { runtime: PlatformRuntime }) {
         >
           {confirmation.type === "regenerate" ? (
             <p>
-              Create a fresh project from the recipe? Unsaved edits will be
-              discarded. The previous project remains on disk.
+              Create a fresh project from the active platform description?
+              Unsaved edits will be discarded. The previous project remains on
+              disk.
             </p>
           ) : (
             <>
@@ -163,39 +212,27 @@ export function GeneratedSources({ runtime }: { runtime: PlatformRuntime }) {
               </button>
             ))}
           </nav>
-          <textarea
-            className="source-editor"
-            aria-label={file ? `${file.name} source editor` : "Source editor"}
-            value={text}
-            spellCheck={false}
-            autoCapitalize="off"
-            autoCorrect="off"
-            readOnly={!file?.editable || locked || !!confirmation}
-            onChange={(event) =>
-              file && runtime.setDraft(file.name, event.target.value)
-            }
-            onKeyDown={(event) => {
-              if (
-                event.key === "Tab" &&
-                !event.shiftKey &&
-                file?.editable &&
-                !locked &&
-                !confirmation
-              ) {
-                event.preventDefault();
-                const input = event.currentTarget;
-                const start = input.selectionStart;
-                const end = input.selectionEnd;
-                runtime.setDraft(
-                  file.name,
-                  text.slice(0, start) + "  " + text.slice(end),
-                );
-                requestAnimationFrame(() => {
-                  input.selectionStart = input.selectionEnd = start + 2;
-                });
-              }
-            }}
-          />
+          {file && (
+            <Suspense
+              fallback={<p className="source-empty">Loading editor…</p>}
+            >
+              <SourceEditor
+                key={`${project.directory}/${file.name}`}
+                name={file.name}
+                value={text}
+                readOnly={!file.editable || locked || !!confirmation}
+                vimMode={vimMode}
+                onChange={(value) => runtime.setDraft(file.name, value)}
+                onSave={() => {
+                  if (!locked && !confirmation) void runtime.save();
+                }}
+                onFormat={() => {
+                  if (!locked && !confirmation)
+                    void runtime.formatSource(file.name);
+                }}
+              />
+            </Suspense>
+          )}
         </div>
       ) : (
         <p className="source-empty">

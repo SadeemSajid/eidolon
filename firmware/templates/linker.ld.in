@@ -1,0 +1,22 @@
+/* SPDX-License-Identifier: MIT; generated from the resolved platform. */
+ENTRY(_start)
+MEMORY { ram (rwx) : ORIGIN = $entry, LENGTH = $length }
+SECTIONS {
+    .text : { KEEP(*(.text.boot)) *(.text*) } > ram
+    .rodata : { *(.rodata*) } > ram
+    .data : { *(.data*) } > ram
+    .bss (NOLOAD) : {
+        . = ALIGN(8);
+        __bss_start = .;
+        *(.bss*) *(COMMON)
+        . = ALIGN(8);
+        __bss_end = .;
+    } > ram
+    .stack (NOLOAD) : {
+        . = ALIGN(16);
+        . += $stack;
+        __stack_top = .;
+    } > ram
+    /DISCARD/ : { *(.comment) *(.note*) *(.eh_frame*) }
+}
+ASSERT(__stack_top <= ORIGIN(ram) + LENGTH(ram), "Firmware exceeds RAM")

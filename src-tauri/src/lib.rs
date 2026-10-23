@@ -1,9 +1,26 @@
+mod formatter;
+mod platform;
 mod runtime;
 mod workspace;
 
 use runtime::{BuildProgress, RuntimeState, Snapshot};
 use tauri::Manager;
 use workspace::{CleanPreview, CleanScope, ProjectFiles, SourceEdit};
+
+#[tauri::command]
+async fn format_source(
+    app: tauri::AppHandle,
+    name: String,
+    content: String,
+) -> Result<String, String> {
+    tauri::async_runtime::spawn_blocking(move || {
+        let runtime = app.state::<RuntimeState>();
+        let mut runtime = runtime.lock().map_err(|e| e.to_string())?;
+        runtime.format_source(&name, &content)
+    })
+    .await
+    .map_err(|e| e.to_string())?
+}
 
 #[tauri::command]
 async fn run_platform(
@@ -86,6 +103,22 @@ async fn regenerate_project(app: tauri::AppHandle, board_id: String) -> Result<S
 }
 
 #[tauri::command]
+async fn configure_platform(
+    app: tauri::AppHandle,
+    description_json: String,
+) -> Result<Snapshot, String> {
+    let cache = app.path().app_cache_dir().map_err(|e| e.to_string())?;
+    tauri::async_runtime::spawn_blocking(move || {
+        app.state::<RuntimeState>()
+            .lock()
+            .map_err(|e| e.to_string())?
+            .configure_platform(&description_json, &cache)
+    })
+    .await
+    .map_err(|e| e.to_string())?
+}
+
+#[tauri::command]
 async fn preview_cleanup(app: tauri::AppHandle, scope: CleanScope) -> Result<CleanPreview, String> {
     let cache = app.path().app_cache_dir().map_err(|e| e.to_string())?;
     tauri::async_runtime::spawn_blocking(move || {
@@ -125,7 +158,9 @@ pub fn run() {
             stop_platform,
             project_files,
             save_sources,
+            format_source,
             regenerate_project,
+            configure_platform,
             preview_cleanup,
             clean_platform
         ])

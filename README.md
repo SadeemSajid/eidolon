@@ -4,7 +4,7 @@ A visual virtual prototyping platform for early functional modeling by semicondu
 
 The aim: compose a supported virtual platform on a canvas, configure its software, and run it using QEMU. The stack is **Tauri 2, React, TypeScript, Bun, and React Flow**, with a Rust host supervising QEMU as a separate process.
 
-**Status: captured board inventory explorer.** Search 14 curated board presets to inspect device objects, parent-bus relationships, connected QOM IRQ/GPIO signals and complete resolved memory maps captured from pinned QEMU 11.1.2. Select CPU, secure or DMA/GPU address-space views in Memory Map. Stub, inactive and known unsupported hardware are labeled. Both sidebars collapse and resize; the canvas snaps to a grid. The desktop Software tab has a generated bare-metal hello-world path for Arm virt/Cortex-A55; it requires a pinned QEMU build, Python, Clang and LLD. The footer terminal provides build output, serial output and a lightweight generated-source editor with rebuild, regeneration and scoped cleanup. Other software targets, portable saved projects and custom composition are not implemented. Inventory captures verify initialization; the separate hello-world smoke test verifies only its explicit boot recipe. See [board coverage and reproduction](docs/BOARDS.md).
+**Status: captured board inventory explorer.** Search 14 curated board presets to inspect device objects, parent-bus relationships, connected QOM IRQ/GPIO signals and complete resolved memory maps captured from pinned QEMU 11.1.2. Select CPU, secure or DMA/GPU address-space views in Memory Map. Stub, inactive and known unsupported hardware are labeled. Both sidebars collapse and resize; the canvas snaps to a grid. The desktop Software tab accepts validated Arm virt platform descriptions and generates modular bare-metal firmware (A53/A55/A72, one CPU, PL011 console); it requires a pinned QEMU build, Python, Clang and LLD. A compact toolbar provides Run/Stop. Separate vertically resizable Terminal and Code panels provide build/serial output and a CodeMirror source editor with optional Vim bindings, C/header formatting via host clang-format, rebuild, regeneration and scoped cleanup. Other software targets, portable saved projects and custom composition are not implemented. Inventory captures verify initialization; the separate hello-world smoke test verifies only its explicit boot recipe. See [board coverage and reproduction](docs/BOARDS.md).
 
 ## Quick start
 
@@ -37,7 +37,7 @@ QEMU is pinned as a submodule rather than automatically following upstream HEAD.
 git submodule update --init --depth 1 third_party/qemu
 ```
 
-See [QEMU integration](docs/QEMU.md) for the selected version, source build instructions, and update policy. No QEMU binary is bundled. The desktop runtime invokes an explicitly provisioned pinned build for the Arm virt hello-world recipe; the maintenance helper separately uses a pinned build to generate inventories. See [generated bare-metal setup](docs/BARE_METAL.md).
+See [QEMU integration](docs/QEMU.md) for the selected version, source build instructions, and update policy. No QEMU binary is bundled. The desktop runtime invokes an explicitly provisioned pinned build for the Arm virt hello-world recipe; the maintenance helper separately uses a pinned build to generate inventories. See [generated bare-metal setup](docs/BARE_METAL.md) and [platform descriptions](platforms/README.md).
 
 ## What is feasible?
 

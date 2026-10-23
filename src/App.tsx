@@ -47,6 +47,7 @@ import {
   RuntimeTerminal,
   type TerminalTab,
 } from "./features/platform/RuntimeTerminal";
+import { CodePanel } from "./features/platform/CodePanel";
 import "./App.css";
 
 function HardwareBlock({ data }: NodeProps<HardwareNode>) {
@@ -536,17 +537,22 @@ function BoardCanvas({
 
 export default function App() {
   const runtime = usePlatformRuntime();
-  const [terminalOpen, setTerminalOpen] = useState(false);
+  const [bottomPanel, setBottomPanel] = useState<"terminal" | "code" | null>(
+    null,
+  );
+  const terminalOpen = bottomPanel === "terminal";
+  const codeOpen = bottomPanel === "code";
   const [terminalTab, setTerminalTab] = useState<TerminalTab>("build");
   const terminalButton = useRef<HTMLButtonElement>(null);
+  const codeButton = useRef<HTMLButtonElement>(null);
   useEffect(() => {
     if (runtime.busy === "building") {
-      setTerminalOpen(true);
+      setBottomPanel("terminal");
       setTerminalTab("build");
     }
   }, [runtime.busy]);
   const closeTerminal = () => {
-    setTerminalOpen(false);
+    setBottomPanel(null);
     terminalButton.current?.focus();
   };
   const workspaceRef = useRef<HTMLDivElement>(null);
@@ -601,15 +607,89 @@ export default function App() {
   }, [boardId, loadAttempt]);
   return (
     <div className="studio">
-      <header>
+      <header className="app-toolbar">
         <div className="brand">
-          <span className="brand-mark">E</span>
-          <div>
-            <h1>Eidolon</h1>
-            <p>Virtual platform studio</p>
-          </div>
+          <span className="brand-mark" aria-hidden="true">
+            E
+          </span>
+          <h1>Eidolon</h1>
         </div>
-        <span className="badge">Board diagrams · developer preview</span>
+        <span
+          className="toolbar-platform"
+          title={boardMetadata.find((entry) => entry.id === boardId)?.name}
+        >
+          {boardMetadata.find((entry) => entry.id === boardId)?.name}
+        </span>
+        <div className="toolbar-actions">
+          <span
+            className="toolbar-status"
+            role="status"
+            data-state={runtime.busy ?? runtime.snapshot.state}
+          >
+            {runtime.busy
+              ? runtime.busy === "building"
+                ? "Building…"
+                : `${runtime.busy}…`
+              : !runtime.desktop
+                ? "Browser preview"
+                : runtime.snapshot.state === "running"
+                  ? `Running · ${runtime.snapshot.boardId}`
+                  : runtime.snapshot.state === "failed"
+                    ? "Build failed"
+                    : "Stopped"}
+          </span>
+          <button
+            className="toolbar-run"
+            type="button"
+            aria-label="Run platform"
+            title={
+              boardId === "arm-virt-a55"
+                ? "Build and run the active firmware target"
+                : "No firmware backend is registered for this board"
+            }
+            disabled={
+              !runtime.desktop ||
+              !board ||
+              boardId !== "arm-virt-a55" ||
+              !!runtime.busy ||
+              runtime.snapshot.state === "running"
+            }
+            onClick={() => void runtime.run(boardId)}
+          >
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              aria-hidden="true"
+            >
+              <path d="m7 4 14 8-14 8Z" />
+            </svg>
+            Run
+          </button>
+          <button
+            className="toolbar-stop"
+            type="button"
+            aria-label="Stop platform"
+            disabled={!!runtime.busy || runtime.snapshot.state !== "running"}
+            onClick={() => void runtime.stop()}
+          >
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              aria-hidden="true"
+            >
+              <path d="M5 5h14v14H5z" />
+            </svg>
+            Stop
+          </button>
+        </div>
       </header>
       <div
         ref={workspaceRef}
@@ -720,6 +800,14 @@ export default function App() {
         onSelectTab={setTerminalTab}
         onClose={closeTerminal}
       />
+      <CodePanel
+        runtime={runtime}
+        open={codeOpen}
+        onClose={() => {
+          setBottomPanel(null);
+          codeButton.current?.focus();
+        }}
+      />
       <footer>
         <div className="footer-runtime">
           <button
@@ -731,7 +819,7 @@ export default function App() {
             aria-expanded={terminalOpen}
             aria-controls="runtime-terminal"
             onClick={() => {
-              setTerminalOpen((open) => !open);
+              setBottomPanel(terminalOpen ? null : "terminal");
               if (!terminalOpen)
                 requestAnimationFrame(() =>
                   document
@@ -753,6 +841,44 @@ export default function App() {
             >
               <rect x="3" y="4" width="18" height="16" rx="2" />
               <path d="m7 9 3 3-3 3m6 0h4" />
+            </svg>
+          </button>
+          <button
+            ref={codeButton}
+            type="button"
+            className="terminal-toggle"
+            title="Code files"
+            aria-label="Toggle code editor"
+            aria-expanded={codeOpen}
+            aria-controls="code-panel"
+            onClick={() => {
+              setBottomPanel(codeOpen ? null : "code");
+              if (!codeOpen)
+                requestAnimationFrame(() =>
+                  (
+                    document.querySelector<HTMLElement>(
+                      "#code-panel .source-editor .cm-content",
+                    ) ??
+                    document.querySelector<HTMLElement>(
+                      "#code-panel button:not(:disabled)",
+                    ) ??
+                    document.getElementById("code-panel")
+                  )?.focus(),
+                );
+            }}
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m7 7-5 5 5 5m10-10 5 5-5 5m-3-14-4 18" />
             </svg>
           </button>
           <span>

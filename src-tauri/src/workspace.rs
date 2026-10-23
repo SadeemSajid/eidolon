@@ -5,11 +5,43 @@ use std::{
     path::{Path, PathBuf},
 };
 
-pub const SOURCES: [&str; 3] = ["startup.S", "main.c", "linker.ld"];
-const FILES: [&str; 5] = ["startup.S", "main.c", "linker.ld", "plan.json", "run.json"];
-const OUTPUTS: [&str; 8] = [
+pub const SOURCES: [&str; 8] = [
+    "startup.S",
+    "main.c",
+    "linker.ld",
+    "platform.c",
+    "pl011.c",
+    "console.h",
+    "platform.h",
+    "platform_config.h",
+];
+const EDITABLE: [&str; 7] = [
+    "startup.S",
+    "main.c",
+    "linker.ld",
+    "platform.c",
+    "pl011.c",
+    "console.h",
+    "platform.h",
+];
+const FILES: [&str; 11] = [
+    "main.c",
+    "startup.S",
+    "platform.c",
+    "pl011.c",
+    "console.h",
+    "platform.h",
+    "linker.ld",
+    "platform_config.h",
+    "platform.json",
+    "plan.json",
+    "run.json",
+];
+const OUTPUTS: [&str; 10] = [
     "startup.S.o",
     "main.c.o",
+    "platform.c.o",
+    "pl011.c.o",
     "firmware.elf",
     "serial.log",
     "qemu.stderr",
@@ -82,7 +114,7 @@ fn recognized_project(path: &Path) -> Result<(), String> {
     if !path
         .file_name()
         .and_then(|n| n.to_str())
-        .is_some_and(|name| name.starts_with("arm-virt-a55-"))
+        .is_some_and(|name| name.starts_with("arm-virt-"))
     {
         return Err("Unrecognized project directory".into());
     }
@@ -91,7 +123,10 @@ fn recognized_project(path: &Path) -> Result<(), String> {
     let plan: serde_json::Value =
         serde_json::from_str(&fs::read_to_string(plan).map_err(|e| e.to_string())?)
             .map_err(|e| e.to_string())?;
-    if plan["recipe"]["id"] != "arm-virt-a55-hello-v1" {
+    let legacy = plan["recipe"]["id"] == "arm-virt-a55-hello-v1";
+    let modular = plan["projectKind"] == "eidolon-bare-metal-v2"
+        && plan["platform"]["backend"]["kind"] == "qemu-arm-virt";
+    if !legacy && !modular {
         return Err("Unrecognized generated project".into());
     }
     Ok(())
@@ -112,7 +147,7 @@ pub fn files(directory: &Path) -> Result<ProjectFiles, String> {
         files.push(SourceFile {
             name: name.into(),
             content: fs::read_to_string(path).map_err(|e| e.to_string())?,
-            editable: SOURCES.contains(&name),
+            editable: EDITABLE.contains(&name),
         });
     }
     Ok(ProjectFiles {
@@ -123,13 +158,13 @@ pub fn files(directory: &Path) -> Result<ProjectFiles, String> {
 
 pub fn save(directory: &Path, edits: &[SourceEdit]) -> Result<(), String> {
     recognized_project(directory)?;
-    if edits.is_empty() || edits.len() > SOURCES.len() {
-        return Err("Provide one to three source files".into());
+    if edits.is_empty() || edits.len() > EDITABLE.len() {
+        return Err("Provide one or more editable source files".into());
     }
     let mut seen = std::collections::HashSet::new();
     for edit in edits {
-        if !SOURCES.contains(&edit.name.as_str()) || !seen.insert(&edit.name) {
-            return Err("Only startup.S, main.c and linker.ld may be edited".into());
+        if !EDITABLE.contains(&edit.name.as_str()) || !seen.insert(&edit.name) {
+            return Err("Only allowlisted firmware sources and headers may be edited".into());
         }
         if edit.content.len() > SOURCE_LIMIT || edit.content.contains('\0') {
             return Err("Invalid source contents or file exceeds 256 KiB".into());
@@ -295,7 +330,14 @@ mod tests {
     fn editor_restricts_paths_manifests_size_and_duplicate_files() {
         let fixture = Fixture::new();
         let project = fixture.project();
-        for name in ["../outside.c", "/tmp/outside.c", "plan.json", "run.json"] {
+        for name in [
+            "../outside.c",
+            "/tmp/outside.c",
+            "plan.json",
+            "run.json",
+            "platform.json",
+            "platform_config.h",
+        ] {
             assert!(
                 save(
                     &project,

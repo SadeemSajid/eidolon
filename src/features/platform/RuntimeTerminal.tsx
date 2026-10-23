@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
-import { GeneratedSources } from "./GeneratedSources";
+import { BottomPanel } from "../../components/BottomPanel";
 import type { PlatformRuntime } from "./usePlatformRuntime";
 
-export type TerminalTab = "build" | "serial" | "sources";
-const tabs = ["build", "serial", "sources"] as const;
+export type TerminalTab = "build" | "serial";
+const tabs = ["build", "serial"] as const;
 
 export function RuntimeTerminal({
   runtime,
@@ -35,18 +35,13 @@ export function RuntimeTerminal({
     if (open && element) element.scrollTop = element.scrollHeight;
   }, [open, activeTab, text]);
   return (
-    <section
+    <BottomPanel
       id="runtime-terminal"
-      className="runtime-terminal"
-      data-tab={activeTab}
-      aria-label="Platform terminal"
-      hidden={!open}
-      onKeyDown={(event) => {
-        if (event.key === "Escape") {
-          event.preventDefault();
-          onClose();
-        }
-      }}
+      label="Terminal"
+      open={open}
+      initialHeight={220}
+      minimum={140}
+      onClose={onClose}
     >
       <div className="terminal-header">
         <div
@@ -61,7 +56,7 @@ export function RuntimeTerminal({
               event.key === "Home"
                 ? "build"
                 : event.key === "End"
-                  ? "sources"
+                  ? "serial"
                   : tabs[
                       (tabs.indexOf(activeTab) +
                         (event.key === "ArrowRight" ? 1 : -1) +
@@ -85,11 +80,7 @@ export function RuntimeTerminal({
               tabIndex={activeTab === tab ? 0 : -1}
               onClick={() => onSelectTab(tab)}
             >
-              {tab === "build"
-                ? "Build"
-                : tab === "serial"
-                  ? "Serial"
-                  : "Sources"}
+              {tab === "build" ? "Build" : "Serial"}
             </button>
           ))}
         </div>
@@ -100,11 +91,13 @@ export function RuntimeTerminal({
               ? "Stopping…"
               : busy === "generating"
                 ? "Generating sources…"
-                : busy === "saving"
-                  ? "Saving sources…"
-                  : busy === "cleaning"
-                    ? "Cleaning selected outputs…"
-                    : snapshot.message}
+                : busy === "formatting"
+                  ? "Formatting…"
+                  : busy === "saving"
+                    ? "Saving sources…"
+                    : busy === "cleaning"
+                      ? "Cleaning selected outputs…"
+                      : snapshot.message}
         </span>
         <button
           type="button"
@@ -133,19 +126,15 @@ export function RuntimeTerminal({
         className="terminal-content"
         tabIndex={0}
       >
-        {activeTab === "sources" ? (
-          <GeneratedSources runtime={runtime} />
-        ) : (
-          <pre
-            ref={output}
-            aria-label={
-              activeTab === "serial" ? "Guest serial output" : "Build output"
-            }
-          >
-            {text}
-          </pre>
-        )}
+        <pre
+          ref={output}
+          aria-label={
+            activeTab === "serial" ? "Guest serial output" : "Build output"
+          }
+        >
+          {text}
+        </pre>
       </div>
-    </section>
+    </BottomPanel>
   );
 }

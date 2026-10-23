@@ -1,3 +1,4 @@
+import { PlatformDescriptionEditor } from "./PlatformDescriptionEditor";
 import type { PlatformRuntime } from "./usePlatformRuntime";
 
 export function SoftwarePanel({
@@ -59,7 +60,12 @@ export function SoftwarePanel({
           );
         })}
       </fieldset>
-      {supported && <p className="muted">Cortex-A55 · 128 MiB RAM · EL1</p>}
+      {supported && (
+        <>
+          <p className="muted">Arm virt · modular bare-metal target · EL1</p>
+          <PlatformDescriptionEditor runtime={runtime} />
+        </>
+      )}
       <button
         className="run-button"
         disabled={!desktop || !supported || !!busy || running}

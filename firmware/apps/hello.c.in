@@ -1,0 +1,12 @@
+// SPDX-License-Identifier: MIT
+// Application code uses platform services, not device registers.
+#include "console.h"
+#include "platform.h"
+
+void main(void) {
+    console_init();
+    console_write($greeting);
+    console_write("Exception level: EL");
+    console_putc('0' + platform_exception_level());
+    console_write("\r\n");
+}

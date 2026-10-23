@@ -1,4 +1,5 @@
-//! Narrow, single-recipe runtime. No frontend-supplied paths or command lines.
+//! Validated Arm virt firmware targets; no frontend-supplied paths or commands.
+use crate::platform;
 use crate::workspace::{self, CleanPreview, CleanScope, ProjectFiles, SourceEdit};
 use serde::{Deserialize, Serialize};
 use serde_json::{Value, json};
@@ -14,8 +15,6 @@ use std::{
     time::{Duration, Instant, SystemTime, UNIX_EPOCH},
 };
 
-const GENERATOR: &str = include_str!("../../scripts/generate-bare-metal.py");
-const RECIPE: &str = include_str!("../../recipes/bare-metal/arm-virt-a55.json");
 const LOG_LIMIT: u64 = 64 * 1024;
 
 #[derive(Clone, Debug, Serialize)]
@@ -35,7 +34,12 @@ fn progress(report: &impl Fn(BuildProgress), stage: &str, message: impl Into<Str
 #[derive(Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 struct Plan {
-    recipe: Value,
+    #[serde(default)]
+    recipe: Option<Value>,
+    platform: Value,
+    qemu_version: [u64; 3],
+    #[serde(flatten)]
+    metadata: serde_json::Map<String, Value>,
     compile_commands: Vec<Vec<String>>,
     link_args: Vec<String>,
     qemu_args: Vec<String>,
@@ -61,6 +65,7 @@ pub struct Runtime {
     snapshot: Snapshot,
     project: Option<(PathBuf, Plan)>,
     edited: bool,
+    description: Option<Value>,
 }
 
 pub type RuntimeState = Mutex<Runtime>;
@@ -193,9 +198,7 @@ impl Runtime {
         cache: &Path,
         report: impl Fn(BuildProgress),
     ) -> Result<Snapshot, String> {
-        if board_id != "arm-virt-a55" {
-            return Err("Only the Arm virt Cortex-A55 hello-world recipe is supported.".into());
-        }
+        platform::default_description(board_id)?;
         if self.session.is_some() {
             return Err("Stop the current platform before starting another run.".into());
         }
@@ -209,7 +212,11 @@ impl Runtime {
             source_edited: self.edited,
             ..Snapshot::default()
         };
-        progress(&report, "validate", "Validated Arm virt Cortex-A55 recipe.");
+        progress(
+            &report,
+            "validate",
+            "Resolving the registered Arm virt firmware target.",
+        );
         match self.prepare(cache, &report) {
             Ok(session) => {
                 self.snapshot.artifact_directory =
@@ -238,25 +245,40 @@ impl Runtime {
         cache: &Path,
         report: &impl Fn(BuildProgress),
     ) -> Result<(), String> {
+        let description = self
+            .description
+            .clone()
+            .unwrap_or(platform::default_description(platform::ARM_VIRT_BOARD)?);
+        self.generate_description(cache, report, &description)
+    }
+
+    fn generate_description(
+        &mut self,
+        cache: &Path,
+        report: &impl Fn(BuildProgress),
+        description: &Value,
+    ) -> Result<(), String> {
         let run_id = SystemTime::now()
             .duration_since(UNIX_EPOCH)
             .map_err(|e| e.to_string())?
             .as_nanos();
-        let directory = workspace::project_root(cache)?.join(format!("arm-virt-a55-{run_id}"));
+        let directory = workspace::project_root(cache)?.join(format!("arm-virt-{run_id}"));
         fs::create_dir_all(&directory).map_err(|e| e.to_string())?;
         let python = tool("EIDOLON_PYTHON", "python3");
         progress(
             report,
             "generate",
-            "Generating startup.S, main.c, linker.ld and plan.json…",
+            "Resolving platform, selecting components and generating firmware sources…",
         );
         execute(
             &python,
             &[
                 "-c".into(),
-                GENERATOR.into(),
-                "--recipe-json".into(),
-                RECIPE.into(),
+                platform::GENERATOR.into(),
+                "--platform-json".into(),
+                serde_json::to_string(description).map_err(|e| e.to_string())?,
+                "--components-json".into(),
+                platform::component_assets().to_string(),
                 "--output".into(),
                 directory.to_string_lossy().into_owned(),
             ],
@@ -266,8 +288,9 @@ impl Runtime {
             &fs::read(directory.join("plan.json")).map_err(|e| e.to_string())?,
         )
         .map_err(|e| e.to_string())?;
+        self.description = Some(plan.platform.clone());
         self.snapshot.artifact_directory = Some(directory.to_string_lossy().into_owned());
-        self.snapshot.board_id = Some("arm-virt-a55".into());
+        self.snapshot.board_id = Some(platform::ARM_VIRT_BOARD.into());
         self.snapshot.source_edited = false;
         self.edited = false;
         self.project = Some((directory, plan));
@@ -293,6 +316,9 @@ impl Runtime {
         workspace::validate_outputs(&directory)?;
         let mut hashes = serde_json::Map::new();
         for name in workspace::SOURCES {
+            if plan.sources_sha256.get(name).is_none() {
+                continue;
+            }
             let path = directory.join(name);
             workspace::regular_file(&path)?;
             let bytes = fs::read(path).map_err(|e| e.to_string())?;
@@ -399,9 +425,13 @@ impl Runtime {
                 )
             })?;
         let version = &greeting["QMP"]["version"]["qemu"];
-        if version["major"] != 11 || version["minor"] != 1 || version["micro"] != 2 {
+        if version["major"] != plan.qemu_version[0]
+            || version["minor"] != plan.qemu_version[1]
+            || version["micro"] != plan.qemu_version[2]
+        {
             return Err(format!(
-                "Expected QEMU 11.1.2, received {version}. CPUs were not started."
+                "Expected QEMU {:?}, received {version}. CPUs were not started.",
+                plan.qemu_version
             ));
         }
         session.command("qmp_capabilities")?;
@@ -423,6 +453,20 @@ impl Runtime {
             .transpose()
     }
 
+    pub fn format_source(&mut self, name: &str, content: &str) -> Result<String, String> {
+        self.require_stopped()?;
+        let (directory, _) = self.project.as_ref().ok_or("Generate a project first")?;
+        let files = workspace::files(directory)?;
+        if !files
+            .files
+            .iter()
+            .any(|file| file.name == name && file.editable)
+        {
+            return Err("Only editable project files can be formatted".into());
+        }
+        crate::formatter::format(name, content)
+    }
+
     pub fn save_sources(&mut self, edits: Vec<SourceEdit>) -> Result<Snapshot, String> {
         self.require_stopped()?;
         let (directory, _) = self.project.as_ref().ok_or("Generate a project first")?;
@@ -438,13 +482,32 @@ impl Runtime {
 
     pub fn regenerate(&mut self, board_id: &str, cache: &Path) -> Result<Snapshot, String> {
         self.require_stopped()?;
-        if board_id != "arm-virt-a55" {
-            return Err("Only Arm virt has a source generator.".into());
-        }
+        platform::default_description(board_id)?;
         self.generate_project(cache, &|_| {})?;
         self.snapshot.state = "ready".into();
         self.snapshot.message =
             "Fresh project generated. Previous project directories are retained.".into();
+        self.snapshot.serial.clear();
+        self.snapshot.hello_verified = false;
+        Ok(self.snapshot.clone())
+    }
+
+    pub fn configure_platform(
+        &mut self,
+        description_json: &str,
+        cache: &Path,
+    ) -> Result<Snapshot, String> {
+        self.require_stopped()?;
+        if description_json.len() > 64 * 1024 {
+            return Err("Platform description exceeds 64 KiB".into());
+        }
+        let description: Value = serde_json::from_str(description_json)
+            .map_err(|error| format!("Invalid platform JSON: {error}"))?;
+        // The embedded resolver validates capabilities before writing source files.
+        // A rejected configuration leaves the active project and plan untouched.
+        self.generate_description(cache, &|_| {}, &description)?;
+        self.snapshot.state = "ready".into();
+        self.snapshot.message = "Platform resolved; modular firmware project generated.".into();
         self.snapshot.serial.clear();
         self.snapshot.hello_verified = false;
         Ok(self.snapshot.clone())
@@ -569,6 +632,98 @@ mod tests {
         let mut runtime = Runtime::default();
         assert_eq!(runtime.status().unwrap().state, "idle");
         assert_eq!(runtime.stop().unwrap().state, "idle");
+    }
+
+    #[test]
+    #[ignore = "requires Python, AArch64 Clang/LLD and the pinned QEMU build"]
+    fn configured_arm_virt_boots_and_stops() {
+        let cache = Path::new(env!("CARGO_MANIFEST_DIR")).join("../build/runtime-config-smoke");
+        let mut runtime = Runtime::default();
+        let baseline = platform::default_description(platform::ARM_VIRT_BOARD).unwrap();
+        runtime
+            .configure_platform(&baseline.to_string(), &cache)
+            .unwrap();
+        let original = runtime.project.as_ref().unwrap().0.clone();
+        let mut invalid = baseline.clone();
+        invalid["devices"][0]["base"] = json!("0x10000000");
+        assert!(
+            runtime
+                .configure_platform(&invalid.to_string(), &cache)
+                .is_err()
+        );
+        assert_eq!(runtime.project.as_ref().unwrap().0, original);
+        assert_eq!(
+            runtime.description.as_ref().unwrap()["cpu"]["model"],
+            "cortex-a55"
+        );
+
+        let mut alternate = baseline;
+        alternate["id"] = json!("runtime-a53-256m");
+        alternate["cpu"]["model"] = json!("cortex-a53");
+        alternate["backend"]["gicVersion"] = json!(2);
+        alternate["memory"][0]["size"] = json!("0x10000000");
+        alternate["firmware"]["entryOffset"] = json!("0x400000");
+        alternate["firmware"]["stackSize"] = json!("0x8000");
+        alternate["firmware"]["baud"] = json!(57600);
+        alternate["firmware"]["message"] = json!("Configured through Rust");
+        runtime
+            .configure_platform(&alternate.to_string(), &cache)
+            .unwrap();
+        assert_ne!(runtime.project.as_ref().unwrap().0, original);
+        let files = runtime.project_files().unwrap().unwrap();
+        for name in ["platform.json", "platform_config.h", "plan.json"] {
+            assert!(
+                !files
+                    .files
+                    .iter()
+                    .find(|file| file.name == name)
+                    .unwrap()
+                    .editable
+            );
+        }
+        assert!(
+            files
+                .files
+                .iter()
+                .find(|file| file.name == "pl011.c")
+                .unwrap()
+                .editable
+        );
+        runtime
+            .run(platform::ARM_VIRT_BOARD, &cache, |_| {})
+            .unwrap();
+        assert!(
+            runtime
+                .configure_platform(&alternate.to_string(), &cache)
+                .is_err()
+        );
+        let deadline = Instant::now() + Duration::from_secs(12);
+        loop {
+            let snapshot = runtime.status().unwrap();
+            assert_eq!(snapshot.state, "running", "{}", snapshot.message);
+            if snapshot.hello_verified {
+                assert!(
+                    snapshot
+                        .serial
+                        .contains("Configured through Rust\r\nException level: EL1\r\n")
+                );
+                break;
+            }
+            assert!(Instant::now() < deadline, "configured firmware timeout");
+            thread::sleep(Duration::from_millis(20));
+        }
+        runtime.stop().unwrap();
+        runtime
+            .regenerate(platform::ARM_VIRT_BOARD, &cache)
+            .unwrap();
+        assert_eq!(
+            runtime.description.as_ref().unwrap()["cpu"]["model"],
+            "cortex-a53"
+        );
+        assert_eq!(
+            runtime.project.as_ref().unwrap().1.platform["memory"][0]["size"],
+            "0x10000000"
+        );
     }
 
     #[test]
